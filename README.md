@@ -1,1 +1,2 @@
-# s14-mp13
+# W&Js Cinemas Movie Reservation System
+## Team Members: Madrazo, Wilford
