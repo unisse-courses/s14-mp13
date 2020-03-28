@@ -24,15 +24,13 @@
   </head>
   
   <body>
-    <div id="wrapper">
     {{> nav}} <!-- This is a partial, we use > right after the opening mustache to denote it's a partial -->
-
-    <div class="container">
-      {{{ body }}} <!-- THIS IS REQUIRED, body is a keyword. Notice it's 3 mustaches, not just 2. To escape HTML tags -->
-    </div>
+    
+    {{{ body }}} <!-- THIS IS REQUIRED, body is a keyword. Notice it's 3 mustaches, not just 2. To escape HTML tags -->
+    
 
     {{> footer}}  <!-- This is a partial, we use > right after the opening mustache to denote it's a partial -->
-    </div>
+    
 
   <script src="js/home.js"></script>
 
