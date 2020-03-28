@@ -40,6 +40,33 @@ app.get('/schedules', function(req, res) {
     })
 });
 
+// 1917 reserve route
+app.get('/reserve/1917', function(req,res) {
+    res.render('reserve',{
+        movieTitle: '1917'
+    })
+});
+
+// Parasite reserve route
+app.get('/reserve/parasite', function(req,res) {
+    res.render('reserve',{
+        movieTitle: 'Parasite'
+    })
+});
+
+// Sonic reserve route
+app.get('/reserve/sonic', function(req,res) {
+    res.render('reserve',{
+        movieTitle: 'Sonic the Hedgehog'
+    })
+});
+
+// BOP reserve route
+app.get('/reserve/BOP', function(req,res) {
+    res.render('reserve',{
+        movieTitle: 'Birds of Prey'
+    })
+});
 /*================================================================*/
 
 
