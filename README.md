@@ -1,5 +1,7 @@
-# W&Js Cinemas Movie Reservation System
-## Team Members: 
+# W&Js Cinemas Movie Reservation Application
+
+## Team Members:
+
 * Madrazo, Wilford
-* Go, John Richard
-* Chua, John Wilson
+* Go, Richard 
+* Chua, John
