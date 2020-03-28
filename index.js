@@ -32,16 +32,11 @@ app.get('/', function(req, res) {
 });
 
 // Profile route
-app.get('/profile', function(req, res) {
+app.get('/schedules', function(req, res) {
     // The render function takes the template filename (no extension - that's what the config is for!)
     // and an object for what's needed in that template
-    res.render('profile', {
-      title: 'About Me',
-      img2: 'img/wilford.jpg',
-      name: 'Wilford Madrazo',
-      id: '117',
-      degree: 'BS-INSYS',
-      bio: 'Typical introvert who does not like leaving its house.'
+    res.render('schedules', {
+      title: 'Schedules',
     })
   });
 
