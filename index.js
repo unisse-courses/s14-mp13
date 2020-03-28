@@ -43,14 +43,20 @@ app.get('/schedules', function(req, res) {
 // 1917 reserve route
 app.get('/reserve/1917', function(req,res) {
     res.render('reserve',{
-        movieTitle: '1917'
+        movieTitle: '1917', 
+        cinema: 'Cinema 1',
+        details: ' R | 1h 59min | Drama, War | 10 January 2020 (USA)',
+        time: ['1:30 PM', '4:00 PM', '6:15 PM', '8:45 PM']              //this should be retrieved from the DB
     })
 });
 
 // Parasite reserve route
 app.get('/reserve/parasite', function(req,res) {
     res.render('reserve',{
-        movieTitle: 'Parasite'
+        movieTitle: 'Parasite',
+        cinema: 'Cinema 2',
+        details: '',
+        time: []
     })
 });
 
@@ -65,6 +71,34 @@ app.get('/reserve/sonic', function(req,res) {
 app.get('/reserve/BOP', function(req,res) {
     res.render('reserve',{
         movieTitle: 'Birds of Prey'
+    })
+});
+
+// Bad Boys for Life reserve route
+app.get('/reserve/badboysforlife', function(req,res) {
+    res.render('reserve',{
+        movieTitle: 'Bad Boys for Life'
+    })
+});
+
+// DoLittle reserve route
+app.get('/reserve/dolittle', function(req,res) {
+    res.render('reserve',{
+        movieTitle: 'Do Little'
+    })
+});
+
+// The Night Clerk reserve route
+app.get('/reserve/thenightclerk', function(req,res) {
+    res.render('reserve',{
+        movieTitle: 'The Night Clerk'
+    })
+});
+
+// The Call of the Wild reserve route
+app.get('/reserve/thecallofthewild', function(req,res) {
+    res.render('reserve',{
+        movieTitle: 'The Call of the Wild'
     })
 });
 /*================================================================*/
