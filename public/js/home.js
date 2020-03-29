@@ -51,3 +51,48 @@ function validatePassword(){
 }
 password.onchange = validatePassword;
 confirmPassword.onkeyup = validatePassword;
+
+ // POST called
+ $('#register').click(function() {
+  // Get the data from the form
+  var uname = $('#uname').val();
+  var fname = $('#fname').val();
+  var lname = $('#lname').val();
+  var mnum = $('#mnum').val();
+  var email = $('#email').val();
+  var pword = $('#pword').val();
+  var cpword = $('#cpword').val();
+
+  var newRegistration = {
+    uname: uname,
+    fname: fname,
+    lname: lname,
+    mnum: mnum,
+    email: email,
+    pword: pword,
+    cpword: cpword
+  };
+
+  $.post('register', newRegistration, function(data, status) {
+    console.log(data);
+
+    if (data.success) {
+      $('#msg').text(data.message);
+      $('#msg').removeClass('fail');
+      $('#msg').addClass('success');
+
+      $('#uname').val('');
+      $('#fname').val('');
+      $('#lname').val('');
+      $('#email').val('');
+      $('#pword').val('');
+      $('#cpword').val('');
+    } else {
+      $('#msg').text(data.message);
+      $('#msg').removeClass('success');
+      $('#msg').addClass('fail');
+    }
+
+  });
+});
+

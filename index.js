@@ -1,24 +1,34 @@
-// imports 
+// All imports needed here
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const handlebars = require('handlebars');
+const bodyParser = require('body-parser');
+
+// Importing the model
+const registrationsModel = require('./models/registrations');
 
 // Creates the express application
 const app = express();
+app.use(express.static(__dirname));
 const port = 9090;
 
-//Creates an engine called "hbs" using the express-handlebars package.
-
+/**
+  Creates an engine called "hbs" using the express-handlebars package.
+**/
 app.engine( 'hbs', exphbs({
-    extname: 'hbs', // configures the extension name to be .hbs instead of .handlebars
-    defaultView: 'main', // this is the default value but you may change it to whatever you'd like
-    layoutsDir: path.join(__dirname, '/views/layouts'), // Layouts folder
-    partialsDir: path.join(__dirname, '/views/partials'), // Partials folder
-  }));
+  extname: 'hbs', // configures the extension name to be .hbs instead of .handlebars
+  defaultView: 'main', // this is the default value but you may change it to whatever you'd like
+  layoutsDir: path.join(__dirname, '/views/layouts'), // Layouts folder
+  partialsDir: path.join(__dirname, '/views/partials'), // Partials folder
+}));
 
 // Setting the view engine to the express-handlebars engine we created
 app.set('view engine', 'hbs');
+
+// Configuration for handling API endpoint data
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 /*============================ROUTES============================*/ 
 // Home Routes
@@ -26,10 +36,10 @@ app.get('/', function(req, res) {
     // The render function takes the template filename (no extension - that's what the config is for!)
     // and an object for what's needed in that template
     res.render('home', {
-      title: 'W&Js Cinemas',
-      img: 'img/penny.jpg'          //<--What is this
+      title: 'W&Js Cinemas'
     })
 });
+
 
 // Schedules route
 app.get('/schedules', function(req, res) {
@@ -88,6 +98,84 @@ app.get('/faqs', function(req, res) {
       a3: 'After reserving, simply present your digital ticket/s either through your mobile devices or a printed copy at the Online Resevations Line at W&Js Cinemas and pay for your physical ticket/s.'
     })
 });
+
+// Register stuff
+
+// Students route
+app.get('/registrations', function(req, res) {
+    /** == README == **
+      This used to hold the mongodb connection and find.
+      But now, using only the model, we use the same find parameter.
+      Using the query helper sort() so we also have the exec() function
+      to be able to actually execute the query.
+    **/
+   registrationsModel.find({}).sort({ name: 1 }).exec(function(err, result) {
+      // Handlebars fix!
+      // Because of this error warning:
+      // https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access
+      // we need to convert each object returned from the find to a plain JS object
+      var registrationsObjects = [];
+  
+      result.forEach(function(doc) {
+        registrationsObjects.push(doc.toObject());
+      });
+      // end handlebars fix!
+  
+      res.render('registrations', { title: 'Registrations', registrations: studentObjects });
+      // try passing result for registrations instead of studentObjects to see the error!
+    });
+  });
+
+// Inserts a student in the database
+app.post('/register', function(req, res) {
+
+    /** == README == **
+      Instead of passing an object, we now have a mongoose.Document object
+      because we created an instance of the registrationsModel.
+    **/
+    var registration = new registrationsModel({
+      uname: req.body.uname,
+      fname: req.body.fname,
+      lname: req.body.lname,
+      mnum: req.body.mnum,
+      email: req.body.email,
+      pword: req.body.pword,
+
+        // Potential error: there's no validation for gender on the client side
+    });
+  
+    /** == README == **
+      Directly calling save for the instance of the Document.
+    **/
+    registration.save(function(err, registration) {
+      var result;
+  
+      /** == README == **
+        Added error handling! Check out the object printed out in the console.
+        (Try clicking Add Student when the name or id is blank)
+      **/
+      if (err) {
+        console.log(err.errors);
+  
+        result = { success: false, message: "Registration was not created!" }
+        res.send(result);
+        // throw err; // This is commented so that the server won't be killed.
+      } else {
+        console.log("Successfully added registration!");
+        console.log(registration); // Check out the logs and see there's a new __v attribute!
+  
+        // Let's create a custom response that the student was created successfully
+        result = { success: true, message: "Registration created!" }
+  
+        // Sending the result as is to handle it the "AJAX-way".
+        res.send(result);
+      }
+  
+    });
+  
+  });
+
+
 
 
 // 1917 reserve route
