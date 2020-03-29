@@ -56,21 +56,33 @@
  /* END OF FOOTER NAV BAR */
  
  /* END OF NAV BARS */
+
+ /* FOR JUMBOTRONS */
+ .jumbotron.jumbotron-fluid {
+    background-color: black;
+}
  
  /* CAROUSEL */
+
+ /* This makes sure that carousel image is responsive */
  .carousel-inner img {
      width: 100%;
      height: 100%;
  }
- 
- .jumbotron.jumbotron-fluid {
-     background-color: black;
- }
 
+ /* This is for the div of the whole carousel */
  #demo {
-   width: 95%;
+   width: 100%;
    margin-bottom: 20px;
  }
+
+/* Change size of carousel here */
+.carousel-item{
+    height: 600px;
+} 
+.carousel-item img{
+    height: 600px;
+}
 
  /* END OF CAROUSEL */
  
