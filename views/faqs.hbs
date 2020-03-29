@@ -1,0 +1,39 @@
+<!-- BODY -->  
+
+<div class="container">
+<h2>{{title}}</h2>
+<br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a id="faq"class="nav-link active" data-toggle="tab" href="#faqs">FAQS</a>
+    </li>
+    
+    <li class="nav-item">
+      <a id="contact"class="nav-link" data-toggle="tab" href="#contactus">CONTACT US</a>
+    </li>
+   
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content" style="padding-bottom: 100px;">
+    <div id="contactus" class="container tab-pane fade" style="padding-top: 20px; padding-bottom: 20px;">
+    <!-- CONTACT US -->
+      <p><b>Corporate Address:&nbsp;&nbsp;</b> {{address}} </p> 
+      <p><b>Landline:&nbsp;&nbsp;</b> {{landline}} </p> 
+      <p><b>Mobile:&nbsp;&nbsp;</b> {{mobile}} </p> 
+      <p><b>Email Address:&nbsp;&nbsp;</b> {{email}} </p>
+    </div>
+
+    <!-- FAQS -->
+    <div id="faqs" class="container tab-pane active" style="padding-top: 20px; padding-bottom: 20px;">
+        <p><b>Q:&nbsp;&nbsp;{{q1}}</b></p> 
+        <p><b>A:&nbsp;&nbsp;</b>{{a1}}</p> 
+        <p><b>Q:&nbsp;&nbsp;{{q2}}</b></p> 
+        <p><b>A:&nbsp;&nbsp;</b>{{a2}}</p> 
+        <p><b>Q:&nbsp;&nbsp;{{q3}}</b></p> 
+        <p><b>A:&nbsp;&nbsp;</b>{{a3}}</p>
+        </div>
+    </div>
+  
+  </div>

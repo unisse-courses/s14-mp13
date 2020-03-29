@@ -141,7 +141,7 @@
  }
  .cardcontainer1:hover .overlay
  {
-     opacity: 0.91;
+     opacity: 0.96;
  }
  
  .overlay {
@@ -154,8 +154,8 @@
      width: 100%;
      opacity: 0;
      transition: .3s ease;
-     background-color: #E7DFDD;
-     color: black;
+     background-color: #101010;
+     color:#E7DFDD;
      font-weight: bold;
    }
  
@@ -234,8 +234,7 @@
  }
  
  .btn.btn-custom.cardButtons:hover{
-     background-color: #A239CA;
-     border: 1px solid #4717F6;
+     border: 1px solid white;
      color: white;
      font-weight: 590;
  }
@@ -342,8 +341,9 @@
  }
  
  .btn.btn-custom.cardButtons2:hover{
+    border: 1px solid white;
      background-color: #A239CA;
-     color: #E7DFDD;
+     color: white;
      font-weight: 590;
  }
  
