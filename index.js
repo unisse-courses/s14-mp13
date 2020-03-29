@@ -40,8 +40,25 @@ app.get('/schedules', function(req, res) {
     })
 });
 
+// Snacks route
+app.get('/snacks', function(req, res) {
+    // The render function takes the template filename (no extension - that's what the config is for!)
+    // and an object for what's needed in that template
+    res.render('snacks', {
+      title: 'Snacks'
+    })
+});
+
+// Contact Us route
+app.get('/contactus', function(req, res) {
+    // The render function takes the template filename (no extension - that's what the config is for!)
+    // and an object for what's needed in that template
+    res.render('contactus', {
+    })
+});
+
 // 1917 reserve route
-app.get('/reserve/1917', function(req,res) {
+app.get('/reserve-1917', function(req,res) {
     res.render('reserve',{
         movieTitle: '1917', 
         cinema: 'Cinema 1',
@@ -51,7 +68,7 @@ app.get('/reserve/1917', function(req,res) {
 });
 
 // Parasite reserve route
-app.get('/reserve/parasite', function(req,res) {
+app.get('/reserve-parasite', function(req,res) {
     res.render('reserve',{
         movieTitle: 'Parasite',
         cinema: 'Cinema 2',
