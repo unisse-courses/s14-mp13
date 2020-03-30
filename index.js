@@ -134,6 +134,7 @@ app.post('/addUser', function(req, res) {
       because we created an instance of the usersModel.
     **/
     var user = new userModel({
+      utype: req.body.utype,
       uname: req.body.uname,
       fname: req.body.fname,
       lname: req.body.lname,

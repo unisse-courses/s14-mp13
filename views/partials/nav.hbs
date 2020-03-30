@@ -52,6 +52,16 @@
             <h5>Register with W&Js Cinemas</h5>
             <form class="m-auto" oninput='pword.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>
 
+              <!-- USER TYPE -->
+              <div class="form-group">
+                <div class="dropdown">
+                <select type="button" class="form-control" id="utype" name="utype" data-toggle="dropdown">
+                        <option label="Regular" value="Regular">Regular</option>
+                        <option label="Admin" value="Admin">Admin</option>
+                      </select>
+                  </div>
+              </div>
+
               <!-- USERNAME -->
               <div class="form-group">
                 <input type="text" class="form-control" id="uname" placeholder="Username" name="uname" required>

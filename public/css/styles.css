@@ -306,13 +306,13 @@
      padding-top: 15px;
  }
  
- #uname, #fname, #lname, #mnum, #email, #pword, #cpword {
+ #utype, #uname, #fname, #lname, #mnum, #email, #pword, #cpword {
      border-radius: 30px;
      background-color: #E7DFDD;
      color: #0E0B16;
  }
  
- #uname:focus, #fname:focus, #lname:focus, #mnum:focus, #email:focus, #pword:focus, #cpword:focus {
+ #utype:focus, #uname:focus, #fname:focus, #lname:focus, #mnum:focus, #email:focus, #pword:focus, #cpword:focus {
      border-color: #4717F6;
  }
  

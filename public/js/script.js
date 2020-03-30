@@ -1,5 +1,4 @@
-$(document).ready(function() {
-  function myFunction() {
+ function myFunction() {
       var dots = document.getElementById("dots");
       var moreText = document.getElementById("more");
       var btnText = document.getElementById("myBtn");
@@ -56,6 +55,7 @@ $(document).ready(function() {
   // POST called
   $('#addUser').click(function() {
     // Get the data from the form
+    var utype = $("#utype option:selected").val(); // Text of the selected value
     var uname = $('#uname').val();
     var fname = $('#fname').val();
     var lname = $('#lname').val();
@@ -64,6 +64,7 @@ $(document).ready(function() {
     var pword = $('#pword').val();
 
     var newUser = {
+      utype: utype,
       uname: uname,
       fname: fname,
       lname: lname,
@@ -80,6 +81,7 @@ $(document).ready(function() {
         $('#msg').removeClass('fail');
         $('#msg').addClass('success');
 
+        $('#utype').val('');
         $('#uname').val('');
         $('#fname').val('');
         $('#lname').val('');
@@ -94,6 +96,3 @@ $(document).ready(function() {
 
     });
   });
-
-});
-

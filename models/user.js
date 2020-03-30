@@ -14,6 +14,7 @@ const options = { useNewUrlParser: true,
 mongoose.connect(databaseURL, options);
 
 const userSchema = new mongoose.Schema({
+    utype: { type: String, required: [true, "No Usertype provided"] },
     uname: { type: String, required: [true, "No Username provided"] },
     fname: { type: String, required: [true, "No First Name provided"] },
     lname: { type: String, required: [true, "No Last Name provided"] },
