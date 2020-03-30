@@ -6,7 +6,7 @@ const handlebars = require('handlebars');
 const bodyParser = require('body-parser');
 
 // Importing the model
-const registrationsModel = require('./models/registrations');
+const userModel = require('./models/user');
 
 // Creates the express application
 const app = express();
@@ -99,41 +99,41 @@ app.get('/faqs', function(req, res) {
     })
 });
 
-// Register stuff
+// User stuff
 
-// Students route
-app.get('/registrations', function(req, res) {
+// Users route
+app.get('/users', function(req, res) {
     /** == README == **
       This used to hold the mongodb connection and find.
       But now, using only the model, we use the same find parameter.
       Using the query helper sort() so we also have the exec() function
       to be able to actually execute the query.
     **/
-   registrationsModel.find({}).sort({ name: 1 }).exec(function(err, result) {
+   userModel.find({}).sort({ name: 1 }).exec(function(err, result) {
       // Handlebars fix!
       // Because of this error warning:
       // https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access
       // we need to convert each object returned from the find to a plain JS object
-      var registrationsObjects = [];
+      var userObjects = [];
   
       result.forEach(function(doc) {
-        registrationsObjects.push(doc.toObject());
+        userObjects.push(doc.toObject());
       });
       // end handlebars fix!
   
-      res.render('registrations', { title: 'Registrations', registrations: studentObjects });
-      // try passing result for registrations instead of studentObjects to see the error!
+      res.render('users', { title: 'Users', users: userObjects });
+      // try passing result for users instead of userObjects to see the error!
     });
   });
 
-// Inserts a student in the database
-app.post('/register', function(req, res) {
+// Inserts a user in the database
+app.post('/addUser', function(req, res) {
 
     /** == README == **
       Instead of passing an object, we now have a mongoose.Document object
-      because we created an instance of the registrationsModel.
+      because we created an instance of the usersModel.
     **/
-    var registration = new registrationsModel({
+    var user = new userModel({
       uname: req.body.uname,
       fname: req.body.fname,
       lname: req.body.lname,
@@ -147,25 +147,25 @@ app.post('/register', function(req, res) {
     /** == README == **
       Directly calling save for the instance of the Document.
     **/
-    registration.save(function(err, registration) {
+    user.save(function(err, user) {
       var result;
   
       /** == README == **
         Added error handling! Check out the object printed out in the console.
-        (Try clicking Add Student when the name or id is blank)
+        (Try clicking Add User when the name or id is blank)
       **/
       if (err) {
         console.log(err.errors);
   
-        result = { success: false, message: "Registration was not created!" }
+        result = { success: false, message: "User was not created!" }
         res.send(result);
         // throw err; // This is commented so that the server won't be killed.
       } else {
-        console.log("Successfully added registration!");
-        console.log(registration); // Check out the logs and see there's a new __v attribute!
+        console.log("Successfully added user!");
+        console.log(user); // Check out the logs and see there's a new __v attribute!
   
-        // Let's create a custom response that the student was created successfully
-        result = { success: true, message: "Registration created!" }
+        // Let's create a custom response that the user was created successfully
+        result = { success: true, message: "User created!" }
   
         // Sending the result as is to handle it the "AJAX-way".
         res.send(result);

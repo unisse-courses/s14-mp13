@@ -53,7 +53,7 @@ password.onchange = validatePassword;
 confirmPassword.onkeyup = validatePassword;
 
  // POST called
- $('#register').click(function() {
+ $('#addUser').click(function() {
   // Get the data from the form
   var uname = $('#uname').val();
   var fname = $('#fname').val();
@@ -61,19 +61,17 @@ confirmPassword.onkeyup = validatePassword;
   var mnum = $('#mnum').val();
   var email = $('#email').val();
   var pword = $('#pword').val();
-  var cpword = $('#cpword').val();
 
-  var newRegistration = {
+  var newUser = {
     uname: uname,
     fname: fname,
     lname: lname,
     mnum: mnum,
     email: email,
-    pword: pword,
-    cpword: cpword
+    pword: pword
   };
 
-  $.post('register', newRegistration, function(data, status) {
+  $.post('addUser', newUser, function(data, status) {
     console.log(data);
 
     if (data.success) {

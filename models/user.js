@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const databaseURL = 'mongodb://localhost:27017/registrationsdb';
+const databaseURL = 'mongodb://localhost:27017/usersdb';
 
 /** README **
   We need to set useFindAndModify to false because mongoose's findOneAndUpdate
@@ -13,7 +13,7 @@ const options = { useNewUrlParser: true,
 
 mongoose.connect(databaseURL, options);
 
-const registrationsSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     uname: { type: String, required: [true, "No Username provided"] },
     fname: { type: String, required: [true, "No First Name provided"] },
     lname: { type: String, required: [true, "No Last Name provided"] },
@@ -40,4 +40,4 @@ const registrationsSchema = new mongoose.Schema({
 /** README **
   Export the model as the main content of this module.
 **/
-module.exports = mongoose.model('registrations', registrationsSchema);
+module.exports = mongoose.model('users', userSchema);
