@@ -18,9 +18,9 @@ const userSchema = new mongoose.Schema({
     uname: { type: String, required: [true, "No Username provided"] },
     fname: { type: String, required: [true, "No First Name provided"] },
     lname: { type: String, required: [true, "No Last Name provided"] },
-    mnum: { type: String, required: [true, "No Mobile Number provided"] },
-    email: { type: String, required: [true, "No Email Address provided"] },
-    pword: { type: String, required: [true, "No Password provided"] }
+    mnum: { type: String, required: [true, "No Mobile Number provided"]},
+    email: { type: String, required: [true, "No Email Address provided"]},
+    pword: { type: String, required: [true, "No Password provided"]}
   }
   /** README **
     Virtuals are other fields that do not persist in mongodb.

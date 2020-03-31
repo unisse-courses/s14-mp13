@@ -6,6 +6,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <!-- Links -->
     <ul class="navbar-nav">
@@ -22,16 +23,12 @@
 
     <ul  id = "account" class = "navbar-nav ml-auto">
   
-      <li id ="admin" class = "nav-item">
-        <a class = "nav-link" data-toggle="modal" data-target="#adminModal">Admin</a>
+      <li id ="login" class = "nav-item">
+        <a class = "nav-link" data-toggle="modal" data-target="#logModal">Log In</a>
       </li>
 
       <li id ="Register" class = "nav-item">
         <a class = "nav-link" data-toggle="modal" data-target="#regModal">Register</a>
-      </li>
-
-      <li id="login" class = "nav-item">
-        <a class = "nav-link" data-toggle="modal" data-target="#logModal">Log In</a>
       </li>
     </ul>
 
@@ -49,6 +46,7 @@
           <!-- Modal body -->
           <div class="modal-body">
           <div class="container">
+
             <h5>Register with W&Js Cinemas</h5>
             <form class="m-auto" oninput='pword.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")'>
 
@@ -113,64 +111,10 @@
         </div>
         </div>
         <!-- END OF REGISTRATION -->
-  
-  </div> 
 
-    <!-- ADMIN LOG IN MODAL-->
-    <div class="modal fade" id="adminModal">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-        
-          <!-- Modal Header -->
-          <div class="modal-header">
-              <h2 class="modal-title">Log In</h2> 
-              <button type="button" class="close" data-dismiss="modal">&times;</button> 
-          </div>
-        
-          <!-- Modal body -->
-          <div class="modal-body">
-          <div class="container">
-            <h5>Log in to continue to W&Js Cinemas</h5>
-            <form action="adminpage.html" class="m-auto">
+      </div>
 
-              <!-- USERNAME -->
-            <div class="form-group">
-              <input type="text" class="form-control" id="uname_adminlogin" placeholder="Username" name="uname" required>
-            </div>
-
-              <!-- PASSWORD -->
-                  <div class="form-group">
-                    <!-- <label for="pwd">Password:</label> -->
-                    <input type="password" class="form-control" id="pword_adminlogin" placeholder="Password" name="pword" required>
-                  </div>
-                
-              <!-- REMEMBER ME? -->
-                    <label>
-                      <small><input type="checkbox" name="remember"> Remember me
-                      </label></small> <br>
-
-              <!-- FORGOT PASSWORD -->
-                      <small><span class="psw"><a id="forgot" href="#">Forgot password?</a></span></small>
-                    <br> <br>
-                  
-              <center><button type="submit" id="adminlogin" class="btn btn-custom modalButton">Log In</button></center>
-            </form>
-          </div>
-          
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-custom modalButton" data-dismiss="modal">Close</button>
-          </div>
-        
-        </div>
-        </div>
-        </div>
-        <!-- END OF ADMIN LOG IN -->
-    
-      </div> 
-
-
-        <!-- LOG IN MODAL-->
+      <!-- LOG IN MODAL-->
         <div class="modal fade" id="logModal">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -185,17 +129,17 @@
               <div class="modal-body">
               <div class="container">
                 <h5>Log in to continue to W&Js Cinemas</h5>
-                <form class="m-auto">
+                <form class="m-auto" action="/login">
 
                   <!-- USERNAME -->
                 <div class="form-group">
-                  <input type="text" class="form-control" id="uname_userlogin" placeholder="Username" name="uname" required>
+                  <input type="text" class="form-control" id="uname_login" placeholder="Username" name="uname_login" required>
                 </div>
 
                   <!-- PASSWORD -->
                       <div class="form-group">
                         <!-- <label for="pwd">Password:</label> -->
-                        <input type="password" class="form-control" id="pword_userlogin" placeholder="Password" name="pword" required name=up>
+                        <input type="password" class="form-control" id="pword_login" placeholder="Password" name="pword_login" required name=up>
                       </div>
                     
                   <!-- REMEMBER ME? -->
@@ -204,10 +148,10 @@
                           </label></small> <br>
 
                   <!-- FORGOT PASSWORD -->
-                          <small><span class="psw"><a id="forgot" href="#">Forgot password?</a></span></small>
+                          <small><span class="psw"><a id="forgot" href="/contactus">Forgot password?</a></span></small>
                         <br> <br>
                       
-                  <center><button type="submit" id="userlogin" class="btn btn-custom modalButton">Log In</button></center>
+                  <center><button type="submit" id="login" class="btn btn-custom modalButton">Log In</button></center>
                 </form>
               </div>
               

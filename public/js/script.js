@@ -38,6 +38,7 @@
       });
     });
 
+
   // PASSWORD VALIDATION 
   var password = document.getElementById("pword");
   var confirmPassword = document.getElementById("cpword");
@@ -52,7 +53,7 @@
   password.onchange = validatePassword;
   confirmPassword.onkeyup = validatePassword;
 
-  // POST called
+  // POST called for registration
   $('#addUser').click(function() {
     // Get the data from the form
     var utype = $("#utype option:selected").val(); // Text of the selected value
@@ -96,3 +97,8 @@
 
     });
   });
+
+  // POST called for log in
+
+
+

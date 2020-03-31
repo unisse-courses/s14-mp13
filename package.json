@@ -4,6 +4,8 @@
   "description": "* Madrazo, Wilford\r * Go, John Richard\r * Chua, John Wilson",
   "main": "index.js",
   "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.0",
     "mongoose": "^5.9.6"

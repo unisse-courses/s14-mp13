@@ -1,0 +1,63 @@
+html body {
+    background-color: whitesmoke;
+}
+
+* {
+    font-family: 'Montserrat' ;
+}
+
+.dash.table.table-hover {
+    max-width: 50%;
+}
+
+.dashflex {
+    display:flex;
+    flex-direction: row;
+    overflow: auto;
+}
+
+#db.nav-link.active, #aml.nav-link.active, #aul.nav-link.active,  #details.nav-link.active, #log.nav-link.active{
+    background-color: #4717F6;
+    color: #E7DFDD;
+}
+
+#db.nav-link, #aml.nav-link, #aul.nav-link, #details.nav-link, #log.nav-link {
+    color: black;
+}
+
+/* FOOTER NAV BAR */
+#bottom {
+    background-color:#4717F6; 
+}
+#bottom ul li a{
+    color: #E7DFDD;
+}
+
+#bottom ul li a:hover {
+    color: #A239CA;
+}
+
+#copyright li small{
+    color: #E7DFDD;
+}
+
+#copyright li small:hover {
+    color: #A239CA;
+}
+
+#collapsibleNavbar ul li a{
+    color: black;
+}
+
+#collapsibleNavbar ul li a:hover {
+    color: #A239CA;
+}
+/* SOCIAL MEDIA ACCOUNTS */
+#sm {
+    padding-left: 17%;
+}
+/* END OF FOOTER NAV BAR */
+
+.navbar {
+    background-color: whitesmoke;
+}

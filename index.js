@@ -13,6 +13,8 @@ const app = express();
 app.use(express.static(__dirname));
 const port = 9090;
 
+app.use(bodyParser.json()); // converts data body to JSON format
+
 /**
   Creates an engine called "hbs" using the express-handlebars package.
 **/
@@ -30,8 +32,8 @@ app.set('view engine', 'hbs');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
-/*============================ROUTES============================*/ 
-// Home Routes
+/*============================MAIN ROUTES============================*/ 
+// Home (not logged in) route
 app.get('/', function(req, res) {
     // The render function takes the template filename (no extension - that's what the config is for!)
     // and an object for what's needed in that template
@@ -40,8 +42,18 @@ app.get('/', function(req, res) {
     })
 });
 
+// Home (logged in) route
+app.get('/home', function(req, res) {
+  // The render function takes the template filename (no extension - that's what the config is for!)
+  // and an object for what's needed in that template
+  res.render('home_loggedin', {
+    layout: 'main_regloggedin',
+    title: 'W&Js Cinemas'
+  })
+});
 
-// Schedules route
+
+// Schedules (not logged in) route
 app.get('/schedules', function(req, res) {
     // The render function takes the template filename (no extension - that's what the config is for!)
     // and an object for what's needed in that template
@@ -50,7 +62,17 @@ app.get('/schedules', function(req, res) {
     })
 });
 
-// Snacks route
+// Schedules (logged in) route
+app.get('/schedules_loggedin', function(req, res) {
+  // The render function takes the template filename (no extension - that's what the config is for!)
+  // and an object for what's needed in that template
+  res.render('schedules_loggedin', {
+    layout: 'main_regloggedin',
+    title: 'Schedules'
+  })
+});
+
+// Snacks (not logged in) route
 app.get('/snacks', function(req, res) {
     // The render function takes the template filename (no extension - that's what the config is for!)
     // and an object for what's needed in that template
@@ -59,7 +81,17 @@ app.get('/snacks', function(req, res) {
     })
 });
 
-// Contact Us route
+// Snacks (logged in) route
+app.get('/snacks_loggedin', function(req, res) {
+  // The render function takes the template filename (no extension - that's what the config is for!)
+  // and an object for what's needed in that template
+  res.render('snacks_loggedin', {
+    layout: 'main_regloggedin',
+    title: 'Snacks'
+  })
+});
+
+// Contact Us (not logged in) route
 app.get('/contactus', function(req, res) {
     // The render function takes the template filename (no extension - that's what the config is for!)
     // and an object for what's needed in that template
@@ -79,7 +111,28 @@ app.get('/contactus', function(req, res) {
     })
 });
 
-// FAQs route
+// Contact Us (logged in) route
+app.get('/contactus_loggedin', function(req, res) {
+  // The render function takes the template filename (no extension - that's what the config is for!)
+  // and an object for what's needed in that template
+  res.render('contactus', {
+    layout: 'main_regloggedin',
+    address: 'Rockwell Drive, Estrella, 4114 Makati',
+    title: 'W&Js Cinemas',
+    landline: '7777-1234',
+    mobile: '09171234567',
+    email: 'wjscinemas@gmail.com',
+
+    q1: 'Can I cancel my reservation anytime?',
+    a1: 'You may only cancel within 45 minutes of your current booking.',
+    q2: 'Is it possible to change my current booking?',
+    a2: 'No, the only way to do this is to cancel the current booking and make a new one.',
+    q3: 'What is the next step after reserving?',
+    a3: 'After reserving, simply present your digital ticket/s either through your mobile devices or a printed copy at the Online Resevations Line at W&Js Cinemas and pay for your physical ticket/s.'
+  })
+});
+
+// FAQs (not logged in) route
 app.get('/faqs', function(req, res) {
     // The render function takes the template filename (no extension - that's what the config is for!)
     // and an object for what's needed in that template
@@ -99,7 +152,44 @@ app.get('/faqs', function(req, res) {
     })
 });
 
-// User stuff
+// FAQs (logged in) route
+app.get('/faqs_loggedin', function(req, res) {
+  // The render function takes the template filename (no extension - that's what the config is for!)
+  // and an object for what's needed in that template
+  res.render('faqs', {
+    layout: 'main_regloggedin',
+    address: 'Rockwell Drive, Estrella, 4114 Makati',
+    title: 'W&Js Cinemas',
+    landline: '7777-1234',
+    mobile: '09171234567',
+    email: 'wjscinemas@gmail.com',
+
+    q1: 'Can I cancel my reservation anytime?',
+    a1: 'You may only cancel within 45 minutes of your current booking.',
+    q2: 'Is it possible to change my current booking?',
+    a2: 'No, the only way to do this is to cancel the current booking and make a new one.',
+    q3: 'What is the next step after reserving?',
+    a3: 'After reserving, simply present your digital ticket/s either through your mobile devices or a printed copy at the Online Resevations Line at W&Js Cinemas and pay for your physical ticket/s.'
+  })
+});
+
+// myaccount (logged in) route
+// FAQs (logged in) route
+app.get('/myaccount', function(req, res) {
+  // The render function takes the template filename (no extension - that's what the config is for!)
+  // and an object for what's needed in that template
+  res.render('myaccount', {
+    layout: 'main_regloggedin',
+    uname: '',
+    fname: '',
+    mnum: '',
+    email: ''
+  })
+});
+
+
+
+/*============================REGISTER/LOGIN ROUTES===============================*/ 
 
 // Users route
 app.get('/users', function(req, res) {
@@ -176,9 +266,18 @@ app.post('/addUser', function(req, res) {
   
   });
 
+  //Log In
+  app.get('/login', function(req,res) {
+    
+    res.render('home', {
+      layout: 'main_regloggedin',
+      title: 'W&Js Cinemas'
+  })
+
+});
 
 
-
+/*============================RESERVE ROUTES============================*/ 
 // 1917 reserve route
 app.get('/reserve-1917', function(req,res) {
     res.render('reserve',{

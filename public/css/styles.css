@@ -306,13 +306,15 @@
      padding-top: 15px;
  }
  
- #utype, #uname, #fname, #lname, #mnum, #email, #pword, #cpword {
+ #utype, #uname, #fname, #lname, #mnum, #email, #pword, #cpword, 
+ #uname_login, #pword_login, #uname_login2, #pword_login2{
      border-radius: 30px;
      background-color: #E7DFDD;
      color: #0E0B16;
  }
  
- #utype:focus, #uname:focus, #fname:focus, #lname:focus, #mnum:focus, #email:focus, #pword:focus, #cpword:focus {
+ #utype:focus, #uname:focus, #fname:focus, #lname:focus, #mnum:focus, #email:focus, #pword:focus, #cpword:focus 
+    #uname_login:focus, #pword_login:focus,  #uname_login2:focus, #pword_login2:focus {
      border-color: #4717F6;
  }
  
@@ -321,7 +323,7 @@
      font-weight: 590;
  }
  
- #forgot {
+ #forgot, #reg {
      color: #A239CA
  }
  
@@ -376,7 +378,7 @@
  }
  
  .btn.btn-custom.dropdown-toggle:hover{
-     background-color: #A239CA;
+     border: 1px solid white;
      color: #E7DFDD;
      font-weight: 590;
  }
@@ -392,8 +394,9 @@
  }
  
  .dropdown-menu:hover .dropdown-item:hover{
+     border: 1px solid white;
      background-color: #A239CA;
-     color: #E7DFDD !important;
+     color: white !important;
  }
  
  div.dropdown-menu.show {
