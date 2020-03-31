@@ -174,7 +174,6 @@ app.get('/faqs-ready', function(req, res) {
 });
 
 // myaccount (logged in) route
-// FAQs (logged in) route
 app.get('/myaccount', function(req, res) {
   // The render function takes the template filename (no extension - that's what the config is for!)
   // and an object for what's needed in that template
@@ -187,7 +186,23 @@ app.get('/myaccount', function(req, res) {
   })
 });
 
+// admin home account (logged in) route
+app.get('/admin-home', function(req, res) {
+  // The render function takes the template filename (no extension - that's what the config is for!)
+  // and an object for what's needed in that template
+  res.render('admin-home', {
+    layout: 'main-admin-ready'
+  })
+});
 
+// admin my account (logged in) route
+app.get('/adminaccount', function(req, res) {
+  // The render function takes the template filename (no extension - that's what the config is for!)
+  // and an object for what's needed in that template
+  res.render('adminaccount', {
+    layout: 'main-admin-ready'
+  })
+});
 
 /*============================REGISTER/LOGIN ROUTES===============================*/ 
 
@@ -282,20 +297,22 @@ app.post('/addUser', function(req, res) {
         console.log("User not found");
         res.redirect('http://localhost:9090/');
         return res.status(404).send();
-        
+       
       }
       
       else {
         console.log("User found");
-        res.redirect('http://localhost:9090/home');
 
+        if(users.utype === "Admin")
+          res.redirect('http://localhost:9090/admin-home');
+
+        else if (users.utype === "Regular")
+          res.redirect('http://localhost:9090/home');
+          
         return res.status(200).send();
 
       }
-       
-
     })
-  
 });
 
 
