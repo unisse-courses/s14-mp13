@@ -88,7 +88,6 @@
         $('#lname').val('');
         $('#email').val('');
         $('#pword').val('');
-        $('#cpword').val('');
       } else {
         $('#msg').text(data.message);
         $('#msg').removeClass('success');
@@ -99,6 +98,13 @@
   });
 
   // POST called for log in
+  $("#login").click(function(){
+    var uname = $('#uname_login').val();
+    var pword = $('#pword_login').val();
 
+    $.post('login', {uname: uname, pword:pword}, function(data, status) {
+      console.log(data);
+    })
+});
 
 

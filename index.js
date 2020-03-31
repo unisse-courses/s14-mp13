@@ -267,14 +267,39 @@ app.post('/addUser', function(req, res) {
   });
 
   //Log In
-  app.get('/login', function(req,res) {
-    
-    res.render('home', {
-      layout: 'main_regloggedin',
-      title: 'W&Js Cinemas'
-  })
+  app.post('/login', function(req,res) {
+  
+    var username = req.body.uname_login;
+    var password = req.body.pword_login;
 
+    userModel.findOne({uname: username, pword: password}, function(err, users) {
+      if (err) {
+        console.log(err);
+        return res.status(500).send();
+      }
+  
+      if (!users) {
+        console.log("User not found");
+        res.redirect('http://localhost:9090/');
+        return res.status(404).send();
+        
+      }
+      
+      else {
+        console.log("User found");
+        res.redirect('http://localhost:9090/home');
+
+        return res.status(200).send();
+
+      }
+       
+
+    })
+  
 });
+
+
+
 
 
 /*============================RESERVE ROUTES============================*/ 
