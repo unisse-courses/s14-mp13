@@ -46,8 +46,8 @@ app.get('/', function(req, res) {
 app.get('/home', function(req, res) {
   // The render function takes the template filename (no extension - that's what the config is for!)
   // and an object for what's needed in that template
-  res.render('home_loggedin', {
-    layout: 'main_regloggedin',
+  res.render('home-ready', {
+    layout: 'main-regular-ready',
     title: 'W&Js Cinemas'
   })
 });
@@ -63,11 +63,11 @@ app.get('/schedules', function(req, res) {
 });
 
 // Schedules (logged in) route
-app.get('/schedules_loggedin', function(req, res) {
+app.get('/schedules-ready', function(req, res) {
   // The render function takes the template filename (no extension - that's what the config is for!)
   // and an object for what's needed in that template
-  res.render('schedules_loggedin', {
-    layout: 'main_regloggedin',
+  res.render('schedules-ready', {
+    layout: 'main-regular-ready',
     title: 'Schedules'
   })
 });
@@ -82,11 +82,11 @@ app.get('/snacks', function(req, res) {
 });
 
 // Snacks (logged in) route
-app.get('/snacks_loggedin', function(req, res) {
+app.get('/snacks-ready', function(req, res) {
   // The render function takes the template filename (no extension - that's what the config is for!)
   // and an object for what's needed in that template
-  res.render('snacks_loggedin', {
-    layout: 'main_regloggedin',
+  res.render('snacks-ready', {
+    layout: 'main-regular-ready',
     title: 'Snacks'
   })
 });
@@ -112,11 +112,11 @@ app.get('/contactus', function(req, res) {
 });
 
 // Contact Us (logged in) route
-app.get('/contactus_loggedin', function(req, res) {
+app.get('/contactus-ready', function(req, res) {
   // The render function takes the template filename (no extension - that's what the config is for!)
   // and an object for what's needed in that template
   res.render('contactus', {
-    layout: 'main_regloggedin',
+    layout: 'main-regular-ready',
     address: 'Rockwell Drive, Estrella, 4114 Makati',
     title: 'W&Js Cinemas',
     landline: '7777-1234',
@@ -153,11 +153,11 @@ app.get('/faqs', function(req, res) {
 });
 
 // FAQs (logged in) route
-app.get('/faqs_loggedin', function(req, res) {
+app.get('/faqs-ready', function(req, res) {
   // The render function takes the template filename (no extension - that's what the config is for!)
   // and an object for what's needed in that template
   res.render('faqs', {
-    layout: 'main_regloggedin',
+    layout: 'main-regular-ready',
     address: 'Rockwell Drive, Estrella, 4114 Makati',
     title: 'W&Js Cinemas',
     landline: '7777-1234',
@@ -179,7 +179,7 @@ app.get('/myaccount', function(req, res) {
   // The render function takes the template filename (no extension - that's what the config is for!)
   // and an object for what's needed in that template
   res.render('myaccount', {
-    layout: 'main_regloggedin',
+    layout: 'main-regular-ready',
     uname: '',
     fname: '',
     mnum: '',
@@ -300,12 +300,11 @@ app.post('/addUser', function(req, res) {
 
 
 
-
-
 /*============================RESERVE ROUTES============================*/ 
 // 1917 reserve route
 app.get('/reserve-1917', function(req,res) {
     res.render('reserve',{
+        layout: 'main-regular-ready',
         movieTitle: '1917', 
         cinema: 'Cinema 1',
         details: ' R | 1h 59min | Drama, War | 10 January 2020 (USA)',
@@ -316,6 +315,7 @@ app.get('/reserve-1917', function(req,res) {
 // Parasite reserve route
 app.get('/reserve-parasite', function(req,res) {
     res.render('reserve',{
+        layout: 'main-regular-ready',
         movieTitle: 'Parasite',
         cinema: 'Cinema 2',
         details: '',
@@ -324,43 +324,49 @@ app.get('/reserve-parasite', function(req,res) {
 });
 
 // Sonic reserve route
-app.get('/reserve/sonic', function(req,res) {
+app.get('/reserve-sonic', function(req,res) {
     res.render('reserve',{
+        layout: 'main-regular-ready',
         movieTitle: 'Sonic the Hedgehog'
     })
 });
 
 // BOP reserve route
-app.get('/reserve/BOP', function(req,res) {
+app.get('/reserve-BOP', function(req,res) {
     res.render('reserve',{
+        layout: 'main-regular-ready',
         movieTitle: 'Birds of Prey'
     })
 });
 
 // Bad Boys for Life reserve route
-app.get('/reserve/badboysforlife', function(req,res) {
+app.get('/reserve-badboysforlife', function(req,res) {
     res.render('reserve',{
+        layout: 'main-regular-ready',
         movieTitle: 'Bad Boys for Life'
     })
 });
 
 // DoLittle reserve route
-app.get('/reserve/dolittle', function(req,res) {
+app.get('/reserve-dolittle', function(req,res) {
     res.render('reserve',{
+        layout: 'main-regular-ready',
         movieTitle: 'Do Little'
     })
 });
 
 // The Night Clerk reserve route
-app.get('/reserve/thenightclerk', function(req,res) {
+app.get('/reserve-thenightclerk', function(req,res) {
     res.render('reserve',{
+        layout: 'main-regular-ready',
         movieTitle: 'The Night Clerk'
     })
 });
 
 // The Call of the Wild reserve route
-app.get('/reserve/thecallofthewild', function(req,res) {
+app.get('/reserve-thecallofthewild', function(req,res) {
     res.render('reserve',{
+        layout: 'main-regular-ready',
         movieTitle: 'The Call of the Wild'
     })
 });

@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 {{!-- importing personal styles --}}
-    <link rel="stylesheet" type="text/css" href="css/styles2.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     
     <title>{{title}}</title>
@@ -20,11 +20,11 @@
   </head>
   
   <body>
-    {{> nav_loggedin}} <!-- This is a partial, we use > right after the opening mustache to denote it's a partial -->
+    {{> nav-ready}} <!-- This is a partial, we use > right after the opening mustache to denote it's a partial -->
 
     {{{ body }}} <!-- THIS IS REQUIRED, body is a keyword. Notice it's 3 mustaches, not just 2. To escape HTML tags -->
 
-    {{> footer}}  <!-- This is a partial, we use > right after the opening mustache to denote it's a partial -->
+    {{> footer-ready}}  <!-- This is a partial, we use > right after the opening mustache to denote it's a partial -->
     
   <script src="js/script.js"></script>
   </body>
