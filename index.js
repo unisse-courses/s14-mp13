@@ -42,16 +42,6 @@ app.get('/', function(req, res) {
     })
 });
 
-// Home (logged in) route
-app.get('/home', function(req, res) {
-  // The render function takes the template filename (no extension - that's what the config is for!)
-  // and an object for what's needed in that template
-  res.render('home-ready', {
-    layout: 'main-regular-ready',
-    title: 'W&Js Cinemas'
-  })
-});
-
 
 // Schedules (not logged in) route
 app.get('/schedules', function(req, res) {
@@ -62,15 +52,6 @@ app.get('/schedules', function(req, res) {
     })
 });
 
-// Schedules (logged in) route
-app.get('/schedules-ready', function(req, res) {
-  // The render function takes the template filename (no extension - that's what the config is for!)
-  // and an object for what's needed in that template
-  res.render('schedules-ready', {
-    layout: 'main-regular-ready',
-    title: 'Schedules'
-  })
-});
 
 // Snacks (not logged in) route
 app.get('/snacks', function(req, res) {
@@ -81,15 +62,6 @@ app.get('/snacks', function(req, res) {
     })
 });
 
-// Snacks (logged in) route
-app.get('/snacks-ready', function(req, res) {
-  // The render function takes the template filename (no extension - that's what the config is for!)
-  // and an object for what's needed in that template
-  res.render('snacks-ready', {
-    layout: 'main-regular-ready',
-    title: 'Snacks'
-  })
-});
 
 // Contact Us (not logged in) route
 app.get('/contactus', function(req, res) {
@@ -109,27 +81,6 @@ app.get('/contactus', function(req, res) {
       q3: 'What is the next step after reserving?',
       a3: 'After reserving, simply present your digital ticket/s either through your mobile devices or a printed copy at the Online Resevations Line at W&Js Cinemas and pay for your physical ticket/s.'
     })
-});
-
-// Contact Us (logged in) route
-app.get('/contactus-ready', function(req, res) {
-  // The render function takes the template filename (no extension - that's what the config is for!)
-  // and an object for what's needed in that template
-  res.render('contactus', {
-    layout: 'main-regular-ready',
-    address: 'Rockwell Drive, Estrella, 4114 Makati',
-    title: 'W&Js Cinemas',
-    landline: '7777-1234',
-    mobile: '09171234567',
-    email: 'wjscinemas@gmail.com',
-
-    q1: 'Can I cancel my reservation anytime?',
-    a1: 'You may only cancel within 45 minutes of your current booking.',
-    q2: 'Is it possible to change my current booking?',
-    a2: 'No, the only way to do this is to cancel the current booking and make a new one.',
-    q3: 'What is the next step after reserving?',
-    a3: 'After reserving, simply present your digital ticket/s either through your mobile devices or a printed copy at the Online Resevations Line at W&Js Cinemas and pay for your physical ticket/s.'
-  })
 });
 
 // FAQs (not logged in) route
@@ -152,57 +103,6 @@ app.get('/faqs', function(req, res) {
     })
 });
 
-// FAQs (logged in) route
-app.get('/faqs-ready', function(req, res) {
-  // The render function takes the template filename (no extension - that's what the config is for!)
-  // and an object for what's needed in that template
-  res.render('faqs', {
-    layout: 'main-regular-ready',
-    address: 'Rockwell Drive, Estrella, 4114 Makati',
-    title: 'W&Js Cinemas',
-    landline: '7777-1234',
-    mobile: '09171234567',
-    email: 'wjscinemas@gmail.com',
-
-    q1: 'Can I cancel my reservation anytime?',
-    a1: 'You may only cancel within 45 minutes of your current booking.',
-    q2: 'Is it possible to change my current booking?',
-    a2: 'No, the only way to do this is to cancel the current booking and make a new one.',
-    q3: 'What is the next step after reserving?',
-    a3: 'After reserving, simply present your digital ticket/s either through your mobile devices or a printed copy at the Online Resevations Line at W&Js Cinemas and pay for your physical ticket/s.'
-  })
-});
-
-// myaccount (logged in) route
-app.get('/myaccount', function(req, res) {
-  // The render function takes the template filename (no extension - that's what the config is for!)
-  // and an object for what's needed in that template
-  res.render('myaccount', {
-    layout: 'main-regular-ready',
-    uname: '',
-    fname: '',
-    mnum: '',
-    email: ''
-  })
-});
-
-// admin home account (logged in) route
-app.get('/admin-home', function(req, res) {
-  // The render function takes the template filename (no extension - that's what the config is for!)
-  // and an object for what's needed in that template
-  res.render('admin-home', {
-    layout: 'main-admin-ready'
-  })
-});
-
-// admin my account (logged in) route
-app.get('/adminaccount', function(req, res) {
-  // The render function takes the template filename (no extension - that's what the config is for!)
-  // and an object for what's needed in that template
-  res.render('adminaccount', {
-    layout: 'main-admin-ready'
-  })
-});
 
 /*============================REGISTER/LOGIN ROUTES===============================*/ 
 
@@ -280,38 +180,166 @@ app.post('/addUser', function(req, res) {
     });
   
   });
-
-  //Log In
+  
+  // Log In
   app.post('/login', function(req,res) {
   
     var username = req.body.uname_login;
     var password = req.body.pword_login;
 
     userModel.findOne({uname: username, pword: password}, function(err, users) {
+
+      // if syntax error
       if (err) {
         console.log(err);
         return res.status(500).send();
       }
   
-      if (!users) {
+      // if user is not found in the DB
+      else if (!users) {
         console.log("User not found");
         res.redirect('http://localhost:9090/');
+
+        // admin home account (logged in) route
+        app.get('/admin-home', function(req, res) {
+          // The render function takes the template filename (no extension - that's what the config is for!)
+          // and an object for what's needed in that template
+          res.render('admin-home', {
+            layout: 'main-admin-ready'
+          })
+        });
+
+        // admin my account (logged in) route
+        app.get('/adminaccount', function(req, res) {
+          // The render function takes the template filename (no extension - that's what the config is for!)
+          // and an object for what's needed in that template
+          res.render('adminaccount', {
+            layout: 'main-admin-ready'
+          })
+        });
+
         return res.status(404).send();
        
       }
-      
+
+      // if user is found in the DB
       else {
         console.log("User found");
 
-        if(users.utype === "Admin")
+        // Nested routes, so that all pages will have the user's data from the DB 
+        var username = users.uname;
+        var firstname = users.fname;
+        var lastname = users.lname;
+        var mobilenum = users.mnum;
+        var email = users.email;
+
+        // admin account
+        if (users.utype === "Admin") {
+
+          // redirect to admin page
           res.redirect('http://localhost:9090/admin-home');
 
-        else if (users.utype === "Regular")
-          res.redirect('http://localhost:9090/home');
-          
-        return res.status(200).send();
+        }
+         
 
+        // regular account
+        else if (users.utype === "Regular") {
+
+          // redirect to home page
+          res.redirect('http://localhost:9090/home');
+
+
+          // Home (logged in) route
+          app.get('/home', function(req, res) {
+            // The render function takes the template filename (no extension - that's what the config is for!)
+            // and an object for what's needed in that template
+            res.render('home-ready', {
+              layout: 'main-regular-ready',
+              title: 'W&Js Cinemas'
+            })
+          });
+
+          // myaccount (logged in) route
+          app.get('/myaccount', function(req, res) {
+            // The render function takes the template filename (no extension - that's what the config is for!)
+            // and an object for what's needed in that template
+          
+            res.render('myaccount', {
+              layout: 'main-regular-ready',
+              uname: username,
+              fname: firstname,
+              lname: lastname,
+              mnum: mobilenum,
+              email: email
+            })
+          });
+
+          // Schedules (logged in) route
+          app.get('/schedules-ready', function(req, res) {
+            // The render function takes the template filename (no extension - that's what the config is for!)
+            // and an object for what's needed in that template
+            res.render('schedules-ready', {
+              layout: 'main-regular-ready',
+              title: 'Schedules'
+            })
+          });
+
+          // Snacks (logged in) route
+          app.get('/snacks-ready', function(req, res) {
+            // The render function takes the template filename (no extension - that's what the config is for!)
+            // and an object for what's needed in that template
+            res.render('snacks-ready', {
+              layout: 'main-regular-ready',
+              title: 'Snacks'
+            })
+          });
+
+          // Contact Us (logged in) route
+          app.get('/contactus-ready', function(req, res) {
+            // The render function takes the template filename (no extension - that's what the config is for!)
+            // and an object for what's needed in that template
+            res.render('contactus', {
+              layout: 'main-regular-ready',
+              address: 'Rockwell Drive, Estrella, 4114 Makati',
+              title: 'W&Js Cinemas',
+              landline: '7777-1234',
+              mobile: '09171234567',
+              email: 'wjscinemas@gmail.com',
+
+              q1: 'Can I cancel my reservation anytime?',
+              a1: 'You may only cancel within 45 minutes of your current booking.',
+              q2: 'Is it possible to change my current booking?',
+              a2: 'No, the only way to do this is to cancel the current booking and make a new one.',
+              q3: 'What is the next step after reserving?',
+              a3: 'After reserving, simply present your digital ticket/s either through your mobile devices or a printed copy at the Online Resevations Line at W&Js Cinemas and pay for your physical ticket/s.'
+            })
+          });
+
+          // FAQs (logged in) route
+          app.get('/faqs-ready', function(req, res) {
+            // The render function takes the template filename (no extension - that's what the config is for!)
+            // and an object for what's needed in that template
+            res.render('faqs', {
+              layout: 'main-regular-ready',
+              address: 'Rockwell Drive, Estrella, 4114 Makati',
+              title: 'W&Js Cinemas',
+              landline: '7777-1234',
+              mobile: '09171234567',
+              email: 'wjscinemas@gmail.com',
+
+              q1: 'Can I cancel my reservation anytime?',
+              a1: 'You may only cancel within 45 minutes of your current booking.',
+              q2: 'Is it possible to change my current booking?',
+              a2: 'No, the only way to do this is to cancel the current booking and make a new one.',
+              q3: 'What is the next step after reserving?',
+              a3: 'After reserving, simply present your digital ticket/s either through your mobile devices or a printed copy at the Online Resevations Line at W&Js Cinemas and pay for your physical ticket/s.'
+            })
+          });
+        
+        }
+        return res.status(200).send();
       }
+      
     })
 });
 
