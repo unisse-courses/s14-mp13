@@ -196,27 +196,10 @@ app.post('/addUser', function(req, res) {
       }
   
       // if user is not found in the DB
-      else if (!users) {
+      if (!users) {
         console.log("User not found");
         res.redirect('http://localhost:9090/');
 
-        // admin home account (logged in) route
-        app.get('/admin-home', function(req, res) {
-          // The render function takes the template filename (no extension - that's what the config is for!)
-          // and an object for what's needed in that template
-          res.render('admin-home', {
-            layout: 'main-admin-ready'
-          })
-        });
-
-        // admin my account (logged in) route
-        app.get('/adminaccount', function(req, res) {
-          // The render function takes the template filename (no extension - that's what the config is for!)
-          // and an object for what's needed in that template
-          res.render('adminaccount', {
-            layout: 'main-admin-ready'
-          })
-        });
 
         return res.status(404).send();
        
@@ -235,6 +218,25 @@ app.post('/addUser', function(req, res) {
 
         // admin account
         if (users.utype === "Admin") {
+
+
+          // admin home account (logged in) route
+        app.get('/admin-home', function(req, res) {
+          // The render function takes the template filename (no extension - that's what the config is for!)
+          // and an object for what's needed in that template
+          res.render('admin-home', {
+            layout: 'main-admin-ready'
+          })
+        });
+
+        // admin my account (logged in) route
+        app.get('/adminaccount', function(req, res) {
+          // The render function takes the template filename (no extension - that's what the config is for!)
+          // and an object for what's needed in that template
+          res.render('adminaccount', {
+            layout: 'main-admin-ready'
+          })
+        });
 
           // redirect to admin page
           res.redirect('http://localhost:9090/admin-home');
