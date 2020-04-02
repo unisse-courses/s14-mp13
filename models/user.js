@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const databaseURL = 'mongodb://localhost:27017/usersdb';
+const databaseURL = 'mongodb+srv://user:12345@wjscinemas-zjk11.mongodb.net/wjscinemas?retryWrites=true&w=majority';
 
 /** README **
   We need to set useFindAndModify to false because mongoose's findOneAndUpdate
@@ -13,7 +13,7 @@ const options = { useNewUrlParser: true,
 
 mongoose.connect(databaseURL, options);
 
-const userSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
     utype: { type: String, required: [true, "No Usertype provided"] },
     uname: { type: String, required: [true, "No Username provided"] },
     fname: { type: String, required: [true, "No First Name provided"] },
@@ -41,4 +41,4 @@ const userSchema = new mongoose.Schema({
 /** README **
   Export the model as the main content of this module.
 **/
-module.exports = mongoose.model('users', userSchema);
+module.exports = mongoose.model('User', UserSchema);

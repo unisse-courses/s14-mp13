@@ -5,13 +5,15 @@ const exphbs = require('express-handlebars');
 const handlebars = require('handlebars');
 const bodyParser = require('body-parser');
 
-// Importing the model
-const userModel = require('./models/user');
+// Importing the models
+
+const Movie = require('./models/movie');
+const User = require('./models/user');
 
 // Creates the express application
 const app = express();
 app.use(express.static(__dirname));
-const port = 9090;
+const port = 3000;
 
 app.use(bodyParser.json()); // converts data body to JSON format
 
@@ -37,9 +39,22 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.get('/', function(req, res) {
     // The render function takes the template filename (no extension - that's what the config is for!)
     // and an object for what's needed in that template
+
+    Movie.findOne({movieid : "01-movie"}, function(err, movie) {
     res.render('home', {
-      title: 'W&Js Cinemas'
+      title: 'W&Js Cinemas',
+      name: movie.name,
+      shortdesc: movie.shortdesc,
+      price: movie.price,
+      cast: movie.cast, 
+      synopsis: movie.synopsis,
+      directors: movie.directors,
+      img_url: movie.img_url,
+      trailer_url: movie.trailer_url
+
     })
+
+  })
 });
 
 
@@ -104,6 +119,7 @@ app.get('/faqs', function(req, res) {
 });
 
 
+
 /*============================REGISTER/LOGIN ROUTES===============================*/ 
 
 // Users route
@@ -114,7 +130,7 @@ app.get('/users', function(req, res) {
       Using the query helper sort() so we also have the exec() function
       to be able to actually execute the query.
     **/
-   userModel.find({}).sort({ name: 1 }).exec(function(err, result) {
+   User.find({}).sort({ name: 1 }).exec(function(err, result) {
       // Handlebars fix!
       // Because of this error warning:
       // https://handlebarsjs.com/api-reference/runtime-options.html#options-to-control-prototype-access
@@ -138,7 +154,7 @@ app.post('/addUser', function(req, res) {
       Instead of passing an object, we now have a mongoose.Document object
       because we created an instance of the usersModel.
     **/
-    var user = new userModel({
+    var user = new User ({
       utype: req.body.utype,
       uname: req.body.uname,
       fname: req.body.fname,
@@ -180,14 +196,23 @@ app.post('/addUser', function(req, res) {
     });
   
   });
+
+  app.get('/users', function(req, res) {
+    // Retrieves all genres
+    User.find({}, function(err, users) {
+      res.send(users);
+    });
+  });
+  
   
   // Log In
   app.post('/login', function(req,res) {
   
     var username = req.body.uname_login;
     var password = req.body.pword_login;
+    
 
-    userModel.findOne({uname: username, pword: password}, function(err, users) {
+    User.findOne({uname: username, pword: password}, function(err, user) {
 
       // if syntax error
       if (err) {
@@ -196,9 +221,9 @@ app.post('/addUser', function(req, res) {
       }
   
       // if user is not found in the DB
-      if (!users) {
+      if (!user) {
         console.log("User not found");
-        res.redirect('http://localhost:9090/');
+        res.redirect('http://localhost:3000/');
 
 
         return res.status(404).send();
@@ -210,14 +235,9 @@ app.post('/addUser', function(req, res) {
         console.log("User found");
 
         // Nested routes, so that all pages will have the user's data from the DB 
-        var username = users.uname;
-        var firstname = users.fname;
-        var lastname = users.lname;
-        var mobilenum = users.mnum;
-        var email = users.email;
 
         // admin account
-        if (users.utype === "Admin") {
+        if (user.utype === "Admin") {
 
 
           // admin home account (logged in) route
@@ -239,41 +259,43 @@ app.post('/addUser', function(req, res) {
         });
 
           // redirect to admin page
-          res.redirect('http://localhost:9090/admin-home');
+          res.redirect('http://localhost:3000/admin-home');
 
         }
          
 
         // regular account
-        else if (users.utype === "Regular") {
+        else if (user.utype === "Regular") {
 
           // redirect to home page
-          res.redirect('http://localhost:9090/home');
+          res.redirect('http://localhost:3000/home');
 
 
           // Home (logged in) route
           app.get('/home', function(req, res) {
             // The render function takes the template filename (no extension - that's what the config is for!)
             // and an object for what's needed in that template
+    
             res.render('home-ready', {
               layout: 'main-regular-ready',
               title: 'W&Js Cinemas'
             })
+            
           });
 
           // myaccount (logged in) route
           app.get('/myaccount', function(req, res) {
             // The render function takes the template filename (no extension - that's what the config is for!)
             // and an object for what's needed in that template
-          
             res.render('myaccount', {
               layout: 'main-regular-ready',
-              uname: username,
-              fname: firstname,
-              lname: lastname,
-              mnum: mobilenum,
-              email: email
+              uname: user.uname,
+              fname: user.fname,
+              lname: user.lname,
+              mnum: user.mnum,
+              email: user.email
             })
+
           });
 
           // Schedules (logged in) route
@@ -335,8 +357,23 @@ app.post('/addUser', function(req, res) {
               a2: 'No, the only way to do this is to cancel the current booking and make a new one.',
               q3: 'What is the next step after reserving?',
               a3: 'After reserving, simply present your digital ticket/s either through your mobile devices or a printed copy at the Online Resevations Line at W&Js Cinemas and pay for your physical ticket/s.'
-            })
-          });
+            }) 
+
+          });    
+          
+          app.get('/logout', function(req, res){
+
+            res.redirect('http://localhost:3000/');
+
+            console.log('User Id', users._id);
+
+            User.findByIdAndRemove(users._id, function(err){
+            if(err) res.send(err);
+            console.log('User Deleted!');
+           })
+
+          
+        });
         
         }
         return res.status(200).send();
@@ -345,7 +382,30 @@ app.post('/addUser', function(req, res) {
     })
 });
 
+/*============================MOVIE ROUTE============================*/ 
+app.post('/addMovie', function(req, res) {
+  // Adds a genre to the database
+  const movie = new Movie({
+    name: req.body.name
+  });
 
+  genre.save(function (err, result) {
+    if (err) throw err;
+
+    res.send(result);
+  });
+});
+
+app.get('/movies', function(req, res) {
+  // Retrieves all movies
+  Movie.find({}, function(err, movies) {
+    res.send(movies);
+  });
+});
+
+
+
+/*================================================================*/
 
 /*============================RESERVE ROUTES============================*/ 
 // 1917 reserve route
@@ -424,7 +484,7 @@ app.get('/reserve-thecallofthewild', function(req,res) {
   To be able to render images, css and JavaScript files, it's best to host the static files
   and use the expected path in the data and the imports.
   This takes the contents of the public folder and makes it accessible through the URL.
-  i.e. public/css/styles.css (in project) will be accessible through http://localhost:9090/css/styles.css
+  i.e. public/css/styles.css (in project) will be accessible through http://localhost:3000/css/styles.css
 **/
 app.use(express.static('public'));
 
