@@ -20,8 +20,8 @@ const MovieSchema = new mongoose.Schema(
     date_start: {type: Date, default: Date.now},
     date_end: {type: Date},
     status: {type: String, required: true},
-    synopsis: {type: String, required: true}
-    
+    synopsis: {type: String, required: true},
+    rating: {type: String, required: true}
   }
 
 );
