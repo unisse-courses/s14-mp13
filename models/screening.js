@@ -13,9 +13,7 @@ const ScreeningSchema = new mongoose.Schema(
     movie: {type: mongoose.Schema.Types.ObjectId, ref: 'Movie', required: true},
     cinema: {type: mongoose.Schema.Types.ObjectId, ref: 'Cinema', required: true},
     timeslots: [{type: String, required: true}],
-    timeslotsCAT1: {type: String, required: true},
-    timeslotsCAT2: {type: String},
-    date: {type: String, required: true}
+    dates: [{type: String, required: true}]
   }
 
 );

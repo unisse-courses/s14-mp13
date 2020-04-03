@@ -267,9 +267,8 @@ app.get('/schedules', function(req, res) {
       rating: movie1.rating,
       cinema: cinema1.cinemanum,
       price: movie1.price,
-      date: screening1.date,
-      p1_timeslots: screening1.timeslotsCAT1,
-      p2_timeslots: screening1.timeslotsCAT2,
+      date: screening1.dates,
+      timeslots: screening1.timeslots,
 
       //SCREENING 2
       img_url2: movie2.img_url,
@@ -277,9 +276,8 @@ app.get('/schedules', function(req, res) {
       rating2: movie2.rating,
       cinema2: cinema2.cinemanum,
       price2: movie2.price,
-      date2: screening2.date,
-      p1_timeslots2: screening2.timeslotsCAT1,
-      p2_timeslots2: screening2.timeslotsCAT2,
+      date2: screening2.dates,
+      timeslots2: screening2.timeslots,
 
       //SCREENING 3
       img_url3: movie3.img_url,
@@ -287,9 +285,8 @@ app.get('/schedules', function(req, res) {
       rating3: movie3.rating,
       cinema3: cinema3.cinemanum,
       price3: movie3.price,
-      date3: screening3.date,
-      p1_timeslots3: screening3.timeslotsCAT1,
-      p2_timeslots3: screening3.timeslotsCAT2,
+      date3: screening3.dates,
+      timeslots3: screening3.timeslots,
 
       //SCREENING 4
       img_url4: movie4.img_url,
@@ -297,9 +294,8 @@ app.get('/schedules', function(req, res) {
       rating4: movie4.rating,
       cinema4: cinema4.cinemanum,
       price4: movie4.price,
-      date4: screening4.date,
-      p1_timeslots4: screening4.timeslotsCAT1,
-      p2_timeslots4: screening4.timeslotsCAT2,
+      date4: screening4.dates,
+      timeslots4: screening4.timeslots,
 
       //SCREENING 5
       img_url5: movie5.img_url,
@@ -307,9 +303,8 @@ app.get('/schedules', function(req, res) {
       rating5: movie5.rating,
       cinema5: cinema5.cinemanum,
       price5: movie5.price,
-      date5: screening5.date,
-      p1_timeslots5: screening5.timeslotsCAT1,
-      p2_timeslots5: screening5.timeslotsCAT2,
+      date5: screening5.dates,
+      timeslots5: screening5.timeslots,
 
       //SCREENING 6
       img_url6: movie6.img_url,
@@ -317,9 +312,8 @@ app.get('/schedules', function(req, res) {
       rating6: movie6.rating,
       cinema6: cinema6.cinemanum,
       price6: movie6.price,
-      date6: screening6.date,
-      p1_timeslots6: screening6.timeslotsCAT1,
-      p2_timeslots6: screening6.timeslotsCAT2,
+      date6: screening6.dates,
+      timeslots6: screening6.timeslots,
 
       //SCREENING 7
       img_url7: movie7.img_url,
@@ -327,9 +321,8 @@ app.get('/schedules', function(req, res) {
       rating7: movie7.rating,
       cinema7: cinema7.cinemanum,
       price7: movie7.price,
-      date7: screening7.date,
-      p1_timeslots7: screening7.timeslotsCAT1,
-      p2_timeslots7: screening7.timeslotsCAT2,
+      date7: screening7.dates,
+      timeslots7: screening7.timeslots,
 
       //SCREENING 8
       img_url8: movie8.img_url,
@@ -337,9 +330,8 @@ app.get('/schedules', function(req, res) {
       rating8: movie8.rating,
       cinema8: cinema8.cinemanum,
       price8: movie8.price,
-      date8: screening8.date,
-      p1_timeslots8: screening8.timeslotsCAT1,
-      p2_timeslots8: screening8.timeslotsCAT2
+      date8: screening8.dates,
+      timeslots8: screening8.timeslots
     })
 
     }); // screening 1
@@ -818,9 +810,8 @@ app.post('/addUser', function(req, res) {
               rating: movie1.rating,
               cinema: cinema1.cinemanum,
               price: movie1.price,
-              date: screening1.date,
-              p1_timeslots: screening1.timeslotsCAT1,
-              p2_timeslots: screening1.timeslotsCAT2,
+              date: screening1.dates,
+              timeslots: screening1.timeslots,
         
               //SCREENING 2
               img_url2: movie2.img_url,
@@ -828,9 +819,8 @@ app.post('/addUser', function(req, res) {
               rating2: movie2.rating,
               cinema2: cinema2.cinemanum,
               price2: movie2.price,
-              date2: screening2.date,
-              p1_timeslots2: screening2.timeslotsCAT1,
-              p2_timeslots2: screening2.timeslotsCAT2,
+              date2: screening2.dates,
+              timeslots2: screening2.timeslots,
         
               //SCREENING 3
               img_url3: movie3.img_url,
@@ -838,19 +828,17 @@ app.post('/addUser', function(req, res) {
               rating3: movie3.rating,
               cinema3: cinema3.cinemanum,
               price3: movie3.price,
-              date3: screening3.date,
-              p1_timeslots3: screening3.timeslotsCAT1,
-              p2_timeslots3: screening3.timeslotsCAT2,
-        
+              date3: screening3.dates,
+              timeslots3: screening3.timeslots,
+              
               //SCREENING 4
               img_url4: movie4.img_url,
               name4: movie4.name,
               rating4: movie4.rating,
               cinema4: cinema4.cinemanum,
               price4: movie4.price,
-              date4: screening4.date,
-              p1_timeslots4: screening4.timeslotsCAT1,
-              p2_timeslots4: screening4.timeslotsCAT2,
+              date4: screening4.dates,
+              timeslots4: screening4.timeslots,
         
               //SCREENING 5
               img_url5: movie5.img_url,
@@ -858,9 +846,8 @@ app.post('/addUser', function(req, res) {
               rating5: movie5.rating,
               cinema5: cinema5.cinemanum,
               price5: movie5.price,
-              date5: screening5.date,
-              p1_timeslots5: screening5.timeslotsCAT1,
-              p2_timeslots5: screening5.timeslotsCAT2,
+              date5: screening5.dates,
+              timeslots5: screening5.timeslots,
         
               //SCREENING 6
               img_url6: movie6.img_url,
@@ -868,9 +855,8 @@ app.post('/addUser', function(req, res) {
               rating6: movie6.rating,
               cinema6: cinema6.cinemanum,
               price6: movie6.price,
-              date6: screening6.date,
-              p1_timeslots6: screening6.timeslotsCAT1,
-              p2_timeslots6: screening6.timeslotsCAT2,
+              date6: screening6.dates,
+              timeslots6: screening6.timeslots,
         
               //SCREENING 7
               img_url7: movie7.img_url,
@@ -878,9 +864,8 @@ app.post('/addUser', function(req, res) {
               rating7: movie7.rating,
               cinema7: cinema7.cinemanum,
               price7: movie7.price,
-              date7: screening7.date,
-              p1_timeslots7: screening7.timeslotsCAT1,
-              p2_timeslots7: screening7.timeslotsCAT2,
+              date7: screening7.dates,
+              timeslots7: screening7.timeslots,
         
               //SCREENING 8
               img_url8: movie8.img_url,
@@ -888,9 +873,8 @@ app.post('/addUser', function(req, res) {
               rating8: movie8.rating,
               cinema8: cinema8.cinemanum,
               price8: movie8.price,
-              date8: screening8.date,
-              p1_timeslots8: screening8.timeslotsCAT1,
-              p2_timeslots8: screening8.timeslotsCAT2
+              date8: screening8.dates,
+              timeslots8: screening8.timeslots
             })
         
             }); // screening 1
@@ -1028,72 +1012,147 @@ app.get('/movies', function(req, res) {
 /*============================RESERVE ROUTES============================*/ 
 // 1917 reserve route
 app.get('/reserve-movie1', function(req,res) {
+  Screening.findById('5e86f3c71c9d440000ec3b19', function(err, screening1) {
+  Movie.findById(screening1.movie, function(err, movie1) {
+  Cinema.findById(screening1.cinema, function(err, cinema1) {
     res.render('reserve',{
         layout: 'main-regular-ready',
-        movieTitle: '1917', 
-        cinema: 'Cinema 1',
-        details: ' R | 1h 59min | Drama, War | 10 January 2020 (USA)',
-        time: ['1:30 PM', '4:00 PM', '6:15 PM', '8:45 PM']              //this should be retrieved from the DB
+        movieTitle: movie1.name,
+        cinema: cinema1.cinemanum,
+        details: movie1.shortdesc,
+        timeslots: screening1.timeslots,
+        dates: screening1.dates
     })
+  });
+  });
+  });
 });
 
 // Parasite reserve route
 app.get('/reserve-movie2', function(req,res) {
-    res.render('reserve',{
-        layout: 'main-regular-ready',
-        movieTitle: 'Parasite',
-        cinema: 'Cinema 2',
-        details: '',
-        time: []
-    })
+    Screening.findById('5e86fd761c9d440000ec3b1a', function(err, screening2) {
+    Movie.findById(screening2.movie, function(err, movie2) {
+    Cinema.findById(screening2.cinema, function(err, cinema2) {
+      res.render('reserve',{
+          layout: 'main-regular-ready',
+          movieTitle: movie2.name,
+          cinema: cinema2.cinemanum,
+          details: movie2.shortdesc,
+          timeslots: screening2.timeslots,
+          dates: screening2.dates
+      })
+    });
+    });
+    });
+  
 });
 
 // Sonic reserve route
 app.get('/reserve-movie3', function(req,res) {
-    res.render('reserve',{
-        layout: 'main-regular-ready',
-        movieTitle: 'Sonic the Hedgehog'
-    })
+    Screening.findById('5e86fdc71c9d440000ec3b1b', function(err, screening3) {
+    Movie.findById(screening3.movie, function(err, movie3) {
+    Cinema.findById(screening3.cinema, function(err, cinema3) {
+      res.render('reserve',{
+          layout: 'main-regular-ready',
+          movieTitle: movie3.name,
+          cinema: cinema3.cinemanum,
+          details: movie3.shortdesc,
+          timeslots: screening3.timeslots,
+          dates: screening3.dates
+      })
+    });
+    });
+    });
 });
 
 // BOP reserve route
 app.get('/reserve-movie4', function(req,res) {
-    res.render('reserve',{
-        layout: 'main-regular-ready',
-        movieTitle: 'Birds of Prey'
-    })
+    Screening.findById('5e86fe201c9d440000ec3b1c', function(err, screening4) {
+    Movie.findById(screening4.movie, function(err, movie4) {
+    Cinema.findById(screening4.cinema, function(err, cinema4) {
+      res.render('reserve',{
+          layout: 'main-regular-ready',
+          movieTitle: movie4.name,
+          cinema: cinema4.cinemanum,
+          details: movie4.shortdesc,
+          timeslots: screening4.timeslots,
+          dates: screening4.dates
+      })
+    });
+    });
+    });
 });
 
 // Bad Boys for Life reserve route
 app.get('/reserve-movie5', function(req,res) {
-    res.render('reserve',{
-        layout: 'main-regular-ready',
-        movieTitle: 'Bad Boys for Life'
-    })
+    Screening.findById('5e86fe7e1c9d440000ec3b1d', function(err, screening5) {
+    Movie.findById(screening5.movie, function(err, movie5) {
+    Cinema.findById(screening5.cinema, function(err, cinema5) {
+      res.render('reserve',{
+          layout: 'main-regular-ready',
+          movieTitle: movie5.name,
+          cinema: cinema5.cinemanum,
+          details: movie5.shortdesc,
+          timeslots: screening5.timeslots,
+          dates: screening5.dates
+      })
+    });
+    });
+    });
 });
 
 // DoLittle reserve route
 app.get('/reserve-movie6', function(req,res) {
-    res.render('reserve',{
-        layout: 'main-regular-ready',
-        movieTitle: 'Do Little'
-    })
+    Screening.findById('5e8698471c9d440000ec3b07', function(err, screening6) {
+    Movie.findById(screening6.movie, function(err, movie6) {
+    Cinema.findById(screening6.cinema, function(err, cinema6) {
+      res.render('reserve',{
+          layout: 'main-regular-ready',
+          movieTitle: movie6.name,
+          cinema: cinema6.cinemanum,
+          details: movie6.shortdesc,
+          timeslots: screening6.timeslots,
+          dates: screening6.dates
+      })
+    });
+    });
+    });
 });
 
 // The Night Clerk reserve route
 app.get('/reserve-movie7', function(req,res) {
-    res.render('reserve',{
-        layout: 'main-regular-ready',
-        movieTitle: 'The Night Clerk'
-    })
+    Screening.findById('5e86ff9e1c9d440000ec3b20', function(err, screening7) {
+    Movie.findById(screening7.movie, function(err, movie7) {
+    Cinema.findById(screening7.cinema, function(err, cinema7) {
+      res.render('reserve',{
+          layout: 'main-regular-ready',
+          movieTitle: movie7.name,
+          cinema: cinema7.cinemanum,
+          details: movie7.shortdesc,
+          timeslots: screening7.timeslots,
+          dates: screening7.dates
+      })
+    });
+    });
+    });
 });
 
 // The Call of the Wild reserve route
 app.get('/reserve-movie8', function(req,res) {
-    res.render('reserve',{
-        layout: 'main-regular-ready',
-        movieTitle: 'The Call of the Wild'
-    })
+    Screening.findById('5e87005f1c9d440000ec3b21', function(err, screening8) {
+    Movie.findById(screening8.movie, function(err, movie8) {
+    Cinema.findById(screening8.cinema, function(err, cinema8) {
+      res.render('reserve',{
+          layout: 'main-regular-ready',
+          movieTitle: movie8.name,
+          cinema: cinema8.cinemanum,
+          details: movie8.shortdesc,
+          timeslots: screening8.timeslots,
+          dates: screening8.dates
+      })
+    });
+    });
+    });
 });
 /*================================================================*/
 

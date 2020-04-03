@@ -4,7 +4,7 @@
     <div class="jumbotron jumbo">
         <center><h1>{{movieTitle}}</h1></center>
         <center>
-            <p>{{cinema}}</p>
+            <p>Cinema {{cinema}}</p>
             <p> {{details}}</p>
           
             
@@ -16,11 +16,13 @@
                 <select type="button" class="btn btn-custom dropdown-toggle v2 mr-3" data-toggle="dropdown">
                
                     <option id="date"label="Select Date">Select Date</option>
-                        <option label="March 1, 2020">March 1, 2020</option>
-                        <option label="March 2, 2020">March 2, 2020</option>
-                        <option label="March 3, 2020">March 3, 2020</option>
-                        <option label="March 4, 2020">March 4, 2020</option>
-                        <option label="March 5, 2020">March 5, 2020</option>
+        
+                        <option>{{dates.[0]}}</option>
+                        <option>{{dates.[1]}}</option>
+                        <option>{{dates.[2]}}</option>
+                        <option>{{dates.[3]}}</option>
+                        <option>{{dates.[4]}}</option>
+                       
                       </select>
                   </div>
                   
@@ -29,10 +31,10 @@
                     <select type="button" class="btn btn-custom dropdown-toggle v2" data-toggle="dropdown">
                
                         <option id="date"label="Select Time">Select Time</option>
-                            <option label="01:30 PM">01:30 PM</option>
-                            <option label="04:00 PM">04:00 PM</option>
-                            <option label="06:15 PM">06:15 PM</option>
-                            <option label="08:45 PM">08:45 PM</option>
+                            <option>{{timeslots.[0]}}</option>
+                            <option>{{timeslots.[1]}}</option>
+                            <option>{{timeslots.[2]}}</option>
+                            <option>{{timeslots.[3]}}</option>
                           </select>
                       </div>
         </center>
