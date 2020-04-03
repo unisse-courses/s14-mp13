@@ -21,7 +21,9 @@ const MovieSchema = new mongoose.Schema(
     date_end: {type: Date},
     status: {type: String, required: true},
     synopsis: {type: String, required: true}
+    
   }
+
 );
 
 module.exports = mongoose.model('Movie', MovieSchema);
