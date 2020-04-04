@@ -12,7 +12,7 @@ const MovieSchema = new mongoose.Schema(
     movieid: {type: String, required: true},
     name: {type: String, required: true},
     shortdesc: {type: String, required: true},
-    price: {type: String, required: true},
+    price: {type: Number, required: true},
     directors: {type: String, required: true},
     cast: {type: String, required: true},
     trailer_url: {type: String, required: true},

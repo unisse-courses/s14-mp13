@@ -210,7 +210,9 @@
  }
  
  #myBtn:focus {
-     outline: none;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    outline: 0;
  }   
  
  
@@ -229,7 +231,9 @@
  }
  
  #myBtn2:focus {
-     outline: none;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    outline: 0;
  }   
  
  .btn.btn-custom.cardButtons{
@@ -289,6 +293,12 @@
  .btn.btn-custom.modalButton:active {
      outline: none;
  }   
+
+ button.btn.btn-custom.modalButton:focus {
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    outline: 0;
+}  
  
  button.close {
      color: #E7DFDD;
@@ -427,7 +437,11 @@
  }
  
  div.container.seatselection {
-     background-color: black;
+     background-color: #E7DFDD;
+     color: #0E0B16 !important;
+     width: 70%;
+     height: 10%;
+     margin: auto;
  }
  
  
@@ -474,3 +488,15 @@ body {
 }
 
  /* END OF FOOTER STAY AT BOTTOM */
+
+ div.container.tickets {
+    background-color: #E7DFDD; 
+    color:black; 
+    margin-top: 50px;
+    margin-bottom: 200px;
+    width: 1000px;
+ }
+
+ label.custom-control-label {
+     color: black;
+ }

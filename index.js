@@ -1154,6 +1154,12 @@ app.get('/reserve-movie8', function(req,res) {
     });
     });
 });
+
+app.get('/reserve-tickets', function(req,res) {
+  res.render('tickets', {
+    layout: 'main-regular-ready'
+  })
+})
 /*================================================================*/
 
 
