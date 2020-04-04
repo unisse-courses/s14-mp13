@@ -32,9 +32,88 @@
 
     // STOPS ALL VIDEOS 
     $(function(){
+      // STOPS ALL VIDEOS
       $('.modal').on('hidden.bs.modal', function (e) {
         $iframe = $(this).find("iframe");
         $iframe.attr("src", $iframe.attr("src"));
+      });
+
+
+    // POST called for registration
+    $('#addUser').click(function() {
+      // Get the data from the form
+      var utype = $("#utype option:selected").val(); // Text of the selected value
+      var uname = $('#uname').val();
+      var fname = $('#fname').val();
+      var lname = $('#lname').val();
+      var mnum = $('#mnum').val();
+      var email = $('#email').val();
+      var pword = $('#pword').val();
+
+      var newUser = {
+        utype: utype,
+        uname: uname,
+        fname: fname,
+        lname: lname,
+        mnum: mnum,
+        email: email,
+        pword: pword
+      };
+
+      $.post('addUser', newUser, function(data, status) {
+        console.log(data);
+
+        if (data.success) {
+          $('#msg').text(data.message);
+          $('#msg').removeClass('fail');
+          $('#msg').addClass('success');
+
+          $('#utype').val('');
+          $('#uname').val('');
+          $('#fname').val('');
+          $('#lname').val('');
+          $('#email').val('');
+          $('#pword').val('');
+        } else {
+          $('#msg').text(data.message);
+          $('#msg').removeClass('success');
+          $('#msg').addClass('fail');
+        }
+
+      });
+    });
+
+
+    // Reserve Post
+      $('#reserve').click(function(){;
+        var reservations = [];
+        $(':checkbox:checked').each(function(i){
+          reservations[i] = $(this).val();
+        });
+
+        //alert(reservations);
+  
+        var newReservation = {
+          reserved_seats: reservations
+        };
+  
+        $.post('addReservation', newReservation, function(data, status) {
+          console.log(data);
+
+    
+          if (data.success) {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('fail');
+            $('#msg').addClass('success');
+    
+          } else {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('success');
+            $('#msg').addClass('fail');
+          }
+    
+        });
+  
       });
     });
 
@@ -52,51 +131,4 @@
   }
   password.onchange = validatePassword;
   confirmPassword.onkeyup = validatePassword;
-
-  // POST called for registration
-  $('#addUser').click(function() {
-    // Get the data from the form
-    var utype = $("#utype option:selected").val(); // Text of the selected value
-    var uname = $('#uname').val();
-    var fname = $('#fname').val();
-    var lname = $('#lname').val();
-    var mnum = $('#mnum').val();
-    var email = $('#email').val();
-    var pword = $('#pword').val();
-
-    var newUser = {
-      utype: utype,
-      uname: uname,
-      fname: fname,
-      lname: lname,
-      mnum: mnum,
-      email: email,
-      pword: pword
-    };
-
-    $.post('addUser', newUser, function(data, status) {
-      console.log(data);
-
-      if (data.success) {
-        $('#msg').text(data.message);
-        $('#msg').removeClass('fail');
-        $('#msg').addClass('success');
-
-        $('#utype').val('');
-        $('#uname').val('');
-        $('#fname').val('');
-        $('#lname').val('');
-        $('#email').val('');
-        $('#pword').val('');
-      } else {
-        $('#msg').text(data.message);
-        $('#msg').removeClass('success');
-        $('#msg').addClass('fail');
-      }
-
-    });
-  });
-
-
-
 

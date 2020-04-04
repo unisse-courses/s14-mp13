@@ -276,7 +276,7 @@
  }
     
  
- .btn.btn-custom.modalButton {
+ .btn.btn-custom.modalButton, .btn.btn-custom.reserve {
      margin-bottom: 15px;
      color: #E7DFDD;
      background-color: #4717F6;
@@ -285,16 +285,16 @@
      cursor: pointer;
  }
  
- .btn.btn-custom.modalButton:hover {
+ .btn.btn-custom.modalButton:hover, .btn.btn-custom.reserve:hover {
      border: 1px solid white;
      color: white;
  }
  
- .btn.btn-custom.modalButton:active {
+ .btn.btn-custom.modalButton:active, .btn.btn-custom.reserve:active {
      outline: none;
  }   
 
- button.btn.btn-custom.modalButton:focus {
+ button.btn.btn-custom.modalButton:focus, .btn.btn-custom.reserve:focus{
     -webkit-box-shadow: none!important;
     box-shadow: none!important;
     outline: 0;
@@ -497,6 +497,12 @@ body {
     width: 1000px;
  }
 
- label.custom-control-label {
-     color: black;
+ label.custom-control-label::after:focus {
+     outline: none !important;
+     background-color: black;
+ }
+
+ .custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+     background-color: #4717F6;
+     background-image: none;
  }

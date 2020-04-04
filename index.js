@@ -11,6 +11,7 @@ const User = require('./models/user');
 const Movie = require('./models/movie');
 const Cinema = require('./models/cinema');
 const Screening = require('./models/screening');
+const Reservation = require('./models/reservation');
 
 
 
@@ -568,7 +569,7 @@ app.post('/addUser', function(req, res) {
         else if (user.utype === "Regular") {
 
           // redirect to home page
-          res.redirect('http://localhost:3000/home');
+          res.redirect('http://localhost:3000/myaccount');
 
 
           // Home (logged in) route
@@ -963,19 +964,7 @@ app.post('/addUser', function(req, res) {
 
           });    
           
-          app.get('/logout', function(req, res){
-
-            res.redirect('http://localhost:3000/');
-
-            console.log('User Id', users._id);
-
-            User.findByIdAndRemove(users._id, function(err){
-            if(err) res.send(err);
-            console.log('User Deleted!');
-           })
-
           
-        });
         
         }
         return res.status(200).send();
@@ -1022,6 +1011,48 @@ app.get('/reserve-movie1', function(req,res) {
         details: movie1.shortdesc,
         timeslots: screening1.timeslots,
         dates: screening1.dates
+    })
+
+    app.post('/addReservation', function(req,res) {
+      /** == README == **
+          Instead of passing an object, we now have a mongoose.Document object
+          because we created an instance of the usersModel.
+        **/
+       var reservation = new Reservation ({
+        screening: screening1._id,
+        movie: movie1._id
+          // Potential error: there's no validation for gender on the client side
+      });
+    
+      /** == README == **
+        Directly calling save for the instance of the Document.
+      **/
+      reservation.save(function(err, reservation) {
+        var result;
+    
+        /** == README == **
+          Added error handling! Check out the object printed out in the console.
+          (Try clicking Add User when the name or id is blank)
+        **/
+        if (err) {
+          console.log(err.errors);
+    
+          result = { success: false, message: "Reservation was not created!" }
+          res.send(result);
+          // throw err; // This is commented so that the server won't be killed.
+        } else {
+          console.log("Successfully added reservation!");
+          console.log(reservation); // Check out the logs and see there's a new __v attribute!
+    
+          // Let's create a custom response that the user was created successfully
+          result = { success: true, message: "Reservation created!" }
+    
+          // Sending the result as is to handle it the "AJAX-way".
+          res.send(result);
+        }
+    
+      });
+    
     })
   });
   });
@@ -1160,6 +1191,8 @@ app.get('/reserve-tickets', function(req,res) {
     layout: 'main-regular-ready'
   })
 })
+
+
 /*================================================================*/
 
 
