@@ -298,7 +298,34 @@
     -webkit-box-shadow: none!important;
     box-shadow: none!important;
     outline: 0;
-}  
+} 
+
+/* cancel button */
+
+.btn.btn-custom.cancelButton {
+    margin-bottom: 15px;
+    color: #E7DFDD;
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.btn.btn-custom.cancelButton:hover, .btn.btn-custom.reserve:hover {
+    border: 1px solid white;
+    color: white;
+}
+
+.btn.btn-custom.cancelButton:active, .btn.btn-custom.reserve:active {
+    outline: none;
+}   
+
+button.btn.btn-custom.cancelButton:focus, .btn.btn-custom.reserve:focus{
+   -webkit-box-shadow: none!important;
+   box-shadow: none!important;
+   outline: 0;
+} 
+/* Cancel button */
  
  button.close {
      color: #E7DFDD;
@@ -432,8 +459,14 @@
  }
  
  thead:hover, table.table.table-hover tr:hover {
-     background-color: #A239CA;
-     color: #E7DFDD;
+     /* background-color: #A239CA; */
+     color: white;
+ }
+
+ table{
+    overflow-y:scroll;
+    height: 445px;
+    display:block;
  }
  
  div.container.seatselection {

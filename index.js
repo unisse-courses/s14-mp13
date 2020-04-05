@@ -752,14 +752,152 @@ app.post('/addUser', function(req, res) {
           app.get('/myaccount', function(req, res) {
             // The render function takes the template filename (no extension - that's what the config is for!)
             // and an object for what's needed in that template
+            Reservation.findById(user.reservations[0], function(err, reservation1) {
+            Screening.findById(reservation1.screening, function(err, screening1) {
+            Cinema.findById(screening1.cinema, function(err, cinema1) {
+            Movie.findById(screening1.movie, function(err, movie1) {
+
+            Reservation.findById(user.reservations[1], function(err, reservation2) {
+            Screening.findById(reservation2.screening, function(err, screening2) {
+            Cinema.findById(screening2.cinema, function(err, cinema2) {
+            Movie.findById(screening2.movie, function(err, movie2) {
+
+            Reservation.findById(user.reservations[2], function(err, reservation3) {
+            Screening.findById(reservation3.screening, function(err, screening3) {
+            Cinema.findById(screening3.cinema, function(err, cinema3) {
+            Movie.findById(screening3.movie, function(err, movie3) {
+
+            Reservation.findById(user.reservations[3], function(err, reservation4) {
+            Screening.findById(reservation4.screening, function(err, screening4) {
+            Cinema.findById(screening4.cinema, function(err, cinema4) {
+            Movie.findById(screening4.movie, function(err, movie4) {
+
+            Reservation.findById(user.reservations[4], function(err, reservation5) {
+            Screening.findById(reservation5.screening, function(err, screening5) {
+            Cinema.findById(screening5.cinema, function(err, cinema5) {
+            Movie.findById(screening5.movie, function(err, movie5) {
+
+            Reservation.findById(user.reservations[5], function(err, reservation6) {
+            Screening.findById(reservation6.screening, function(err, screening6) {
+            Cinema.findById(screening6.cinema, function(err, cinema6) {
+            Movie.findById(screening6.movie, function(err, movie6) {
+
+            Reservation.findById(user.reservations[6], function(err, reservation7) {
+            Screening.findById(reservation7.screening, function(err, screening7) {
+            Cinema.findById(screening7.cinema, function(err, cinema7) {
+            Movie.findById(screening7.movie, function(err, movie7) {
+
+            Reservation.findById(user.reservations[7], function(err, reservation8) {
+            Screening.findById(reservation8.screening, function(err, screening8) {
+            Cinema.findById(screening8.cinema, function(err, cinema8) {
+            Movie.findById(screening8.movie, function(err, movie8) {
+
+            
             res.render('myaccount', {
               layout: 'main-regular-ready',
               uname: user.uname,
               fname: user.fname,
               lname: user.lname,
               mnum: user.mnum,
-              email: user.email
+              email: user.email,
+
+              date: reservation1.date_chosen,
+              time: reservation1.time_chosen,
+              movie: movie1.name,
+              cinema: cinema1.cinemanum,
+              seats: reservation1.reserved_seats,
+              status: reservation1.status,
+
+              date2: reservation2.date_chosen,
+              time2: reservation2.time_chosen,
+              movie2: movie2.name,
+              cinema2: cinema2.cinemanum,
+              seats2: reservation2.reserved_seats,
+              status2: reservation2.status,
+
+              date3: reservation3.date_chosen,
+              time3: reservation3.time_chosen,
+              movie3: movie3.name,
+              cinema3: cinema3.cinemanum,
+              seats3: reservation3.reserved_seats,
+              status3: reservation3.status,
+
+              date4: reservation4.date_chosen,
+              time4: reservation4.time_chosen,
+              movie4: movie4.name,
+              cinema4: cinema4.cinemanum,
+              seats4: reservation4.reserved_seats,
+              status4: reservation4.status,
+
+              date5: reservation5.date_chosen,
+              time5: reservation5.time_chosen,
+              movie5: movie5.name,
+              cinema5: cinema5.cinemanum,
+              seats5: reservation5.reserved_seats,
+              status5: reservation5.status,
+
+              date6: reservation6.date_chosen,
+              time6: reservation6.time_chosen,
+              movie6: movie6.name,
+              cinema6: cinema6.cinemanum,
+              seats6: reservation6.reserved_seats,
+              status6: reservation6.status,
+
+              date7: reservation7.date_chosen,
+              time7: reservation7.time_chosen,
+              movie7: movie7.name,
+              cinema7: cinema7.cinemanum,
+              seats7: reservation7.reserved_seats,
+              status7: reservation7.status,
+
+              date8: reservation1.date_chosen,
+              time8: reservation8.time_chosen,
+              movie8: movie8.name,
+              cinema8: cinema8.cinemanum,
+              seats8: reservation8.reserved_seats,
+              status8: reservation8.status
+
             })
+
+          });
+          });
+          });
+          });
+
+          });
+          });
+          });
+          });
+
+          });
+          });
+          });
+          });
+
+          });
+          });
+          });
+          });
+
+          });
+          });
+          });
+          });
+
+          });
+          });
+          });
+          });
+
+          });
+          });
+          });
+          });
+
+          });
+          });
+          });
+          });
 
           });
 
