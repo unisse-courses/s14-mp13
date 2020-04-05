@@ -24,15 +24,17 @@
     <!-- Dashboard -->
     <div id="dashboard" class="container tab-pane active"><br>
         <div class="container">
-            <div class="row">
+            <div class="row" style="padding-bottom: 50px;">
                 <i class="material-icons" style="color: green; font-size: 50px;">done_all</i>
                 &nbsp;&nbsp;<h1>You're all set!</h1>
             </div>
 
+            <h2>Date: April 5, 2020</h2>
+
             <br><br>
 
             <div class="dashflex">
-                <table class="dash table table-hover ">
+                <table class="dash table table-hover nowshowing">
                     <thead>
                         <tr>
                             <th><h4><i class="material-icons" style="color: green; font-size: 15px;">local_movies</i>
@@ -42,7 +44,207 @@
 
                     <tbody>
                         <tr>
-                            <td>Parasite</td>
+                            <td><b>{{name1}} <br>
+                            <small>Rating: {{rating1}}</small></td>
+                        </tr>
+
+                        <tr>
+                            <td><b>{{name2}} <br>
+                            <small>Rating: {{rating2}}</small></td>
+                        </tr>
+
+                         <tr>
+                            <td><b>{{name3}} <br>
+                            <small>Rating: {{rating3}}</small></td>
+                        </tr>
+
+                         <tr>
+                            <td><b>{{name4}} <br>
+                            <small>Rating: {{rating4}}</small></td>
+                        </tr>
+
+                         <tr>
+                            <td><b>{{name5}} <br>
+                            <small>Rating: {{rating5}}</small></td>
+                        </tr>
+
+                         <tr>
+                            <td><b>{{name6}} <br>
+                            <small>Rating: {{rating6}}</small></td>
+                        </tr>
+
+                          <tr>
+                            <td><b>{{name7}} <br>
+                            <small>Rating: {{rating7}}</small></td>
+                        </tr>
+
+                          <tr>
+                            <td><b>{{name8}} <br>
+                            <small>Rating: {{rating8}}</small></td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                </table>
+
+                <table class="dash table table-hover">
+                    <thead>
+                        <tr>
+                            <th><h4><i class="material-icons" style="color: #3498db; font-size: 15px;">local_movies</i>
+                                Coming Soon</h4></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                         <tr>
+                            <td><b>{{name9}} <br>
+                            <small>Rating: {{rating9}}</small></td>
+                        </tr>
+
+                         <tr>
+                            <td><b>{{name10}} <br>
+                            <small>Rating: {{rating10}}</small></td>
+                        </tr>
+
+                         <tr>
+                            <td><b>{{name11}} <br>
+                            <small>Rating: {{rating11}}</small></td>
+                        </tr>
+
+                        <tr>
+                            <td><b>{{name12}} <br>
+                            <small>Rating: {{rating12}}</small></td>
+                        </tr>
+
+                        <tr>
+                            <td><b>{{name13}} <br>
+                            <small>Rating: {{rating13}}</small></td>
+                        </tr>
+
+                         <tr>
+                            <td><b>{{name14}} <br>
+                            <small>Rating: {{rating14}}</small></td>
+                        </tr>
+                    </tbody>
+
+                </table >
+
+            </div>
+
+            <div class="container" style="padding-top: 50px;">
+            <div class="row">
+                <i class="material-icons" style="color: orange; font-size: 50px;">today</i>
+                &nbsp;&nbsp;<h1>What's happening?</h1>
+            </div>
+
+            <br><br>
+
+            <div class="dashflex">
+
+                  <table class="dash table table-hover">
+                    <thead>
+                        <tr>
+                            <th><h4><i class="material-icons" style="color: black; font-size: 15px;">date_range</i>
+                                Screenings</h4></th>
+                             <th><h4><i class="material-icons" style="color: black; font-size: 15px;">description</i>
+                                Details</h4></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><b>Cinema {{cinema1}}</b> <br>
+                            <small>{{timeslots1.[0]}}, {{timeslots1.[1]}}, 
+                                {{timeslots1.[2]}}, {{timeslots1.[3]}}</small></td>
+                            <td><b style="text-transform: uppercase;">{{name1}}</b> <br>
+                                <small>Start date: {{date1start}}</small> <br>
+                                <small>End date: {{date1end}}</small> </td>
+                        </tr>
+
+                        <tr>
+                            <td><b>Cinema {{cinema2}}</b> <br>
+                            <small>{{timeslots2.[0]}}, {{timeslots2.[1]}}, 
+                                {{timeslots2.[2]}}, {{timeslots2.[3]}}</small></td>
+                            <td><b style="text-transform: uppercase;">{{name2}}</b> <br>
+                                <small>Start date: {{date2start}}</small> <br>
+                                <small>End date: {{date2end}}</small> </td>
+                        </tr>
+
+                        <tr>
+                             <td><b>Cinema {{cinema3}}</b> <br>
+                            <small>{{timeslots3.[0]}}, {{timeslots3.[1]}}, 
+                                {{timeslots3.[2]}}, {{timeslots3.[3]}}</small></td>
+                            <td><b style="text-transform: uppercase;">{{name3}}</b> <br>
+                                <small>Start date: {{date3start}}</small> <br>
+                                <small>End date: {{date3end}}</small></td>
+                        </tr>
+
+                        <tr>
+                             <td><b>Cinema {{cinema4}}</b> <br>
+                            <small>{{timeslots4.[0]}}, {{timeslots4.[1]}}, 
+                                {{timeslots4.[2]}}, {{timeslots4.[3]}}</small></td>
+                            <td><b style="text-transform: uppercase;">{{name4}}</b> <br>
+                                <small>Start date: {{date4start}}</small> <br>
+                                <small>End date: {{date4end}}</small> </td>
+                        </tr>
+
+                        <tr>
+                             <td><b>Cinema {{cinema5}}</b> <br>
+                            <small>{{timeslots5.[0]}}, {{timeslots5.[1]}}, 
+                                {{timeslots5.[2]}}, {{timeslots5.[3]}}</small></td>
+                            <td><b style="text-transform: uppercase;">{{name5}}</b> <br>
+                                 <small>Start date: {{date5start}}</small> <br>
+                                <small>End date: {{date5end}}</small></td>
+                        </tr>
+
+                        <tr>
+                             <td><b>Cinema {{cinema6}}</b> <br>
+                            <small>{{timeslots6.[0]}}, {{timeslots6.[1]}}, 
+                                {{timeslots6.[2]}}, {{timeslots6.[3]}}</small></td>
+                            <td><b style="text-transform: uppercase;">{{name6}}</b> <br>
+                                <small>Start date: {{date6start}}</small> <br>
+                                <small>End date: {{date6end}}</small></td>
+                        </tr>
+
+                        <tr>
+                             <td><b>Cinema {{cinema7}}</b> <br>
+                            <small>{{timeslots7.[0]}}, {{timeslots7.[1]}}, 
+                                {{timeslots7.[2]}}, {{timeslots7.[3]}}</small></td>
+                            <td><b style="text-transform: uppercase;">{{name7}}</b> <br>
+                                <small>Start date: {{date7start}}</small> <br>
+                                <small>End date: {{date7end}}</small></td>
+                        </tr>
+
+                        <tr>
+                             <td><b>Cinema {{cinema8}}</b> <br>
+                            <small>{{timeslots8.[0]}}, {{timeslots8.[1]}}, 
+                                {{timeslots8.[2]}}, {{timeslots8.[3]}}</small></td>
+                            <td><b style="text-transform: uppercase;">{{name8}}</b> <br>
+                                 <small>Start date: {{date8start}}</small> <br>
+                                <small>End date: {{date8end}}</small></td>
+                        </tr>
+                    </tbody>
+
+                </table >
+
+                <table class="dash table table-hover" id="reservations">
+                    <thead>
+                        <tr>
+                            <th><h4><i class="material-icons" style="color: #4717F6; font-size: 15px;">event_seat</i>
+                                Reservations</h4></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td><b>Reservation ID:</b>&nbsp;&nbsp;{{reservationid}} <br>
+                            <b>Date:</b>&nbsp;&nbsp; {{date}}&nbsp;&nbsp;&nbsp;{{time}} <br>
+                            <b>Details:</b>&nbsp;&nbsp; Cinema {{cinema1}}&nbsp;&nbsp;&nbsp; {{name1}}&nbsp;&nbsp;&nbsp; <br>
+                            <b>Price:</b>&nbsp;&nbsp; Php {{price}}.00 <br>
+                            <b>Seats:</b>&nbsp;&nbsp; {{tickets}} 
+                            </td> 
+
+                             <td><br><center><button class="btn btn-custom cancelButton">Cancel</button></center></td>
                         </tr>
 
                         <tr>
@@ -64,45 +266,35 @@
                         <tr>
                             <td>DoLittle</td>
                         </tr>
+                         <tr>
+                            <td>DoLittle</td>
+                        </tr>
+                         <tr>
+                            <td>DoLittle</td>
+                        </tr>
+                         <tr>
+                            <td>DoLittle</td>
+                        </tr>
+                         <tr>
+                            <td>DoLittle</td>
+                        </tr>
+                         <tr>
+                            <td>DoLittle</td>
+                        </tr>
+                         <tr>
+                            <td>DoLittle</td>
+                        </tr>
+                        
                     </tbody>
                 </table>
 
-                <table class="dash table table-hover">
-                    <thead>
-                        <tr>
-                            <th><h4><i class="material-icons" style="color: #3498db; font-size: 15px;">local_movies</i>
-                                Coming Soon</h4></th>
-                        </tr>
-                    </thead>
+              
 
-                    <tbody>
-                        <tr>
-                            <td>A Quiet Place 2</td>
-                        </tr>
-
-                        <tr>
-                            <td>Mulan</td>
-                        </tr>
-
-                        <tr>
-                            <td>Guns Akimbo</td>
-                        </tr>
-
-                        <tr>
-                            <td>Bloodshot</td>
-                        </tr>
-
-                        <tr>
-                            <td>Onward</td>
-                        </tr>
-
-                        <tr>
-                            <td>Patients of a Saint</td>
-                        </tr>
-                    </tbody>
-
-                </table >
             </div>
+            </div>
+
+  
+
         </div>
       
     </div>
