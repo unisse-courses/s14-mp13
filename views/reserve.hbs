@@ -44,7 +44,7 @@
     <center>
     <div class="container seatselection" style="margin-bottom: 200px;">
         <br> <br><h1 style="color: black; font-weight:bold; width:fit-content">MOVIE SCREEN HERE</h1><br>
-        <form class="movieform" >
+        <form class="movieform" method="get" action={{tickets_url}}>
         <!-- A -->
           <div class="form-group flexboxCustom">
              
@@ -1478,7 +1478,7 @@
           
           <!-- END OF J -->
  
-    <button type="button" id="reserve" class="btn btn-custom reserve" style="margin-top: 50px; margin-bottom:40px;">Reserve</button>
+    <button type="submit" id={{post_url}} class="btn btn-custom reserve" style="margin-top: 50px; margin-bottom:40px;">Reserve</button>
 
 
     </form>

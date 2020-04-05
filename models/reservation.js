@@ -9,11 +9,13 @@ mongoose.connect(databaseURL, options);
 
 const ReservationSchema = new mongoose.Schema(
   {
+    reservationid: {type: String, required: true},
     reserved_seats: [{type: String, required: true}],
     screening: {type: mongoose.Schema.Types.ObjectId, ref: 'Screening', required: true},
     date_reserved: {type: Date, default: Date.now},
     date_cancelled: {type: Date},
-    status: {type: String, required: true, default: "Reserved"}
+    status: {type: String, required: true, default: "Reserved"},
+    totalprice: {type: Number, required: true, default: 300}
   }
 
 );

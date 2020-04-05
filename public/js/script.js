@@ -83,21 +83,55 @@
       });
     });
 
+    // Reserve Post Screening 1
+      $('#reserve1').click(function(){;
 
-    // Reserve Post
-      $('#reserve').click(function(){;
         var reservations = [];
         $(':checkbox:checked').each(function(i){
           reservations[i] = $(this).val();
         });
 
-        //alert(reservations);
-  
+
         var newReservation = {
           reserved_seats: reservations
         };
+
   
-        $.post('addReservation', newReservation, function(data, status) {
+        $.post('make-reservation-s1', newReservation, function(data, status) {
+          console.log(data);
+
+    
+          if (data.success) {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('fail');
+            $('#msg').addClass('success');
+    
+          } else {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('success');
+            $('#msg').addClass('fail');
+          }
+    
+        });
+      
+  
+      });
+
+      // Reserve Post Screening 2
+      $('#reserve2').click(function(){;
+
+        var reservations = [];
+        $(':checkbox:checked').each(function(i){
+          reservations[i] = $(this).val();
+        });
+
+
+        var newReservation = {
+          reserved_seats: reservations
+        };
+
+  
+        $.post('make-reservation-s2', newReservation, function(data, status) {
           console.log(data);
 
     
@@ -115,6 +149,210 @@
         });
   
       });
+
+      // Reserve Post Screening 3
+       $('#reserve3').click(function(){;
+
+        var reservations = [];
+        $(':checkbox:checked').each(function(i){
+          reservations[i] = $(this).val();
+        });
+
+
+        var newReservation = {
+          reserved_seats: reservations
+        };
+
+  
+        $.post('make-reservation-s3', newReservation, function(data, status) {
+          console.log(data);
+
+    
+          if (data.success) {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('fail');
+            $('#msg').addClass('success');
+    
+          } else {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('success');
+            $('#msg').addClass('fail');
+          }
+    
+        });
+  
+      });
+
+       // Reserve Post Screening 4
+       $('#reserve4').click(function(){;
+
+        var reservations = [];
+        $(':checkbox:checked').each(function(i){
+          reservations[i] = $(this).val();
+        });
+
+
+        var newReservation = {
+          reserved_seats: reservations
+        };
+
+  
+        $.post('make-reservation-s4', newReservation, function(data, status) {
+          console.log(data);
+
+    
+          if (data.success) {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('fail');
+            $('#msg').addClass('success');
+    
+          } else {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('success');
+            $('#msg').addClass('fail');
+          }
+    
+        });
+  
+      });
+
+       // Reserve Post Screening 5
+       $('#reserve5').click(function(){;
+
+        var reservations = [];
+        $(':checkbox:checked').each(function(i){
+          reservations[i] = $(this).val();
+        });
+
+
+        var newReservation = {
+          reserved_seats: reservations
+        };
+
+  
+        $.post('make-reservation-s5', newReservation, function(data, status) {
+          console.log(data);
+
+    
+          if (data.success) {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('fail');
+            $('#msg').addClass('success');
+    
+          } else {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('success');
+            $('#msg').addClass('fail');
+          }
+    
+        });
+  
+      });
+
+       // Reserve Post Screening 6
+       $('#reserve6').click(function(){;
+
+        var reservations = [];
+        $(':checkbox:checked').each(function(i){
+          reservations[i] = $(this).val();
+        });
+
+
+        var newReservation = {
+          reserved_seats: reservations
+        };
+
+  
+        $.post('make-reservation-s6', newReservation, function(data, status) {
+          console.log(data);
+
+    
+          if (data.success) {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('fail');
+            $('#msg').addClass('success');
+    
+          } else {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('success');
+            $('#msg').addClass('fail');
+          }
+    
+        });
+  
+      });
+
+       // Reserve Post Screening 7
+       $('#reserve7').click(function(){;
+
+        var reservations = [];
+        $(':checkbox:checked').each(function(i){
+          reservations[i] = $(this).val();
+        });
+
+
+        var newReservation = {
+          reserved_seats: reservations
+        };
+
+  
+        $.post('make-reservation-s7', newReservation, function(data, status) {
+          console.log(data);
+
+    
+          if (data.success) {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('fail');
+            $('#msg').addClass('success');
+    
+          } else {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('success');
+            $('#msg').addClass('fail');
+          }
+    
+        });
+  
+      });
+
+       // Reserve Post Screening 8
+       $('#reserve8').click(function(){;
+
+        var reservations = [];
+        $(':checkbox:checked').each(function(i){
+          reservations[i] = $(this).val();
+        });
+
+
+        var newReservation = {
+          reserved_seats: reservations
+        };
+
+  
+        $.post('make-reservation-s8', newReservation, function(data, status) {
+          console.log(data);
+
+    
+          if (data.success) {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('fail');
+            $('#msg').addClass('success');
+    
+          } else {
+            $('#msg').text(data.message);
+            $('#msg').removeClass('success');
+            $('#msg').addClass('fail');
+          }
+    
+        });
+  
+      });
+
+
+
+
+
+
     });
 
 

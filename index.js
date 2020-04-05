@@ -964,8 +964,6 @@ app.post('/addUser', function(req, res) {
 
           });    
           
-          
-        
         }
         return res.status(200).send();
       }
@@ -1010,17 +1008,119 @@ app.get('/reserve-movie1', function(req,res) {
         cinema: cinema1.cinemanum,
         details: movie1.shortdesc,
         timeslots: screening1.timeslots,
-        dates: screening1.dates
+        dates: screening1.dates,
+        tickets_url: screening1.tickets_url,
+        post_url: screening1.post_url
     })
 
-    app.post('/addReservation', function(req,res) {
+    app.post('/make-reservation-s1', function(req,res) {
       /** == README == **
           Instead of passing an object, we now have a mongoose.Document object
           because we created an instance of the usersModel.
         **/
+
+      var reservations = ["A4", "A5", "A6"];
+
        var reservation = new Reservation ({
+        reservationid: "reservation01",
         screening: screening1._id,
-        movie: movie1._id
+        movie: movie1._id,
+        reserved_seats: reservations
+          // Potential error: there's no validation for gender on the client side
+      });
+    
+      /** == README == **
+        Directly calling save for the instance of the Document.
+      **/
+      reservation.save(function(err, reservation) {
+        var result;
+    
+        /** == README == **
+          Added error handling! Check out the object printed out in the console.
+          (Try clicking Add User when the name or id is blank)
+        **/
+        if (err) {
+          console.log(err.errors);
+    
+          result = { success: false, message: "Reservation was not created!" }
+          res.send(result);
+          // throw err; // This is commented so that the server won't be killed.
+        } else {
+          console.log("Successfully added reservation!");
+          console.log(reservation); // Check out the logs and see there's a new __v attribute!
+    
+          // Let's create a custom response that the user was created successfully
+          result = { success: true, message: "Reservation created!" }
+    
+          // Sending the result as is to handle it the "AJAX-way".
+          res.send(result);
+        }
+    
+      });
+      
+    })
+
+  });
+  });
+  });
+});
+
+// 1917 tickets page
+app.get('/reserve-tickets-s1', function(req,res) {
+    Reservation.findOne({reservationid: "reservation01"}, function(err, reservation1) {
+    Screening.findById(reservation1.screening, function(err, screening1) {
+    Cinema.findById(screening1.cinema, function(err, cinema1) {
+    Movie.findById(screening1.movie, function(err, movie1) {
+    
+    res.render('tickets', {
+    layout: 'main-regular-ready',
+    reservationid: reservation1._id,
+    movie: movie1.name,
+    cinema: cinema1.cinemanum,
+    price: reservation1.totalprice,
+    date: screening1.dates,
+    time: screening1.timeslots,
+    tickets: reservation1.reserved_seats
+
+  })
+
+});
+});
+});
+});
+
+})
+
+// Parasite reserve route
+app.get('/reserve-movie2', function(req,res) {
+    Screening.findById('5e86fd761c9d440000ec3b1a', function(err, screening2) {
+    Movie.findById(screening2.movie, function(err, movie2) {
+    Cinema.findById(screening2.cinema, function(err, cinema2) {
+      res.render('reserve',{
+          layout: 'main-regular-ready',
+          movieTitle: movie2.name,
+          cinema: cinema2.cinemanum,
+          details: movie2.shortdesc,
+          timeslots: screening2.timeslots,
+          dates: screening2.dates,
+          tickets_url: screening2.tickets_url,
+          post_url: screening2.post_url
+      })
+
+      
+    app.post('/make-reservation-s2', function(req,res) {
+      /** == README == **
+          Instead of passing an object, we now have a mongoose.Document object
+          because we created an instance of the usersModel.
+        **/
+       
+      var reservations2 = ["B4", "B5", "B6"];
+      
+       var reservation = new Reservation ({
+        reservationid: "reservation02",
+        screening: screening2._id,
+        movie: movie2._id,
+        reserved_seats: reservations2
           // Potential error: there's no validation for gender on the client side
       });
     
@@ -1054,29 +1154,39 @@ app.get('/reserve-movie1', function(req,res) {
       });
     
     })
-  });
-  });
-  });
-});
 
-// Parasite reserve route
-app.get('/reserve-movie2', function(req,res) {
-    Screening.findById('5e86fd761c9d440000ec3b1a', function(err, screening2) {
-    Movie.findById(screening2.movie, function(err, movie2) {
-    Cinema.findById(screening2.cinema, function(err, cinema2) {
-      res.render('reserve',{
-          layout: 'main-regular-ready',
-          movieTitle: movie2.name,
-          cinema: cinema2.cinemanum,
-          details: movie2.shortdesc,
-          timeslots: screening2.timeslots,
-          dates: screening2.dates
-      })
+
     });
     });
     });
   
 });
+
+// Parasite tickets page
+app.get('/reserve-tickets-s2', function(req,res) {
+  Reservation.findOne({reservationid: "reservation02"}, function(err, reservation2) {
+  Screening.findById(reservation2.screening, function(err, screening2) {
+  Cinema.findById(screening2.cinema, function(err, cinema2) {
+  Movie.findById(screening2.movie, function(err, movie2) {
+  
+  res.render('tickets', {
+  layout: 'main-regular-ready',
+  reservationid: reservation2._id,
+  movie: movie2.name,
+  cinema: cinema2.cinemanum,
+  price: reservation2.totalprice,
+  date: screening2.dates,
+  time: screening2.timeslots,
+  tickets: reservation2.reserved_seats
+
+})
+
+});
+});
+});
+});
+
+})
 
 // Sonic reserve route
 app.get('/reserve-movie3', function(req,res) {
@@ -1089,12 +1199,88 @@ app.get('/reserve-movie3', function(req,res) {
           cinema: cinema3.cinemanum,
           details: movie3.shortdesc,
           timeslots: screening3.timeslots,
-          dates: screening3.dates
+          dates: screening3.dates,
+          tickets_url: screening3.tickets_url,
+          post_url: screening3.post_url
       })
+
+      app.post('/make-reservation-s3', function(req,res) {
+        /** == README == **
+            Instead of passing an object, we now have a mongoose.Document object
+            because we created an instance of the usersModel.
+          **/
+         
+        var reservations3 = ["C4", "C5", "C6"];
+        
+         var reservation = new Reservation ({
+          reservationid: "reservation03",
+          screening: screening3._id,
+          movie: movie3._id,
+          reserved_seats: reservations3
+            // Potential error: there's no validation for gender on the client side
+        });
+      
+        /** == README == **
+          Directly calling save for the instance of the Document.
+        **/
+        reservation.save(function(err, reservation) {
+          var result;
+      
+          /** == README == **
+            Added error handling! Check out the object printed out in the console.
+            (Try clicking Add User when the name or id is blank)
+          **/
+          if (err) {
+            console.log(err.errors);
+      
+            result = { success: false, message: "Reservation was not created!" }
+            res.send(result);
+            // throw err; // This is commented so that the server won't be killed.
+          } else {
+            console.log("Successfully added reservation!");
+            console.log(reservation); // Check out the logs and see there's a new __v attribute!
+      
+            // Let's create a custom response that the user was created successfully
+            result = { success: true, message: "Reservation created!" }
+      
+            // Sending the result as is to handle it the "AJAX-way".
+            res.send(result);
+          }
+      
+        });
+      
+      })
+      
     });
     });
     });
 });
+
+// Sonic tickets page
+app.get('/reserve-tickets-s3', function(req,res) {
+  Reservation.findOne({reservationid: "reservation03"}, function(err, reservation3) {
+  Screening.findById(reservation3.screening, function(err, screening3) {
+  Cinema.findById(screening3.cinema, function(err, cinema3) {
+  Movie.findById(screening3.movie, function(err, movie3) {
+  
+  res.render('tickets', {
+  layout: 'main-regular-ready',
+  reservationid: reservation3._id,
+  movie: movie3.name,
+  cinema: cinema3.cinemanum,
+  price: reservation3.totalprice,
+  date: screening3.dates,
+  time: screening3.timeslots,
+  tickets: reservation3.reserved_seats
+
+})
+
+});
+});
+});
+});
+
+})
 
 // BOP reserve route
 app.get('/reserve-movie4', function(req,res) {
@@ -1107,12 +1293,88 @@ app.get('/reserve-movie4', function(req,res) {
           cinema: cinema4.cinemanum,
           details: movie4.shortdesc,
           timeslots: screening4.timeslots,
-          dates: screening4.dates
+          dates: screening4.dates,
+          tickets_url: screening4.tickets_url,
+          post_url: screening4.post_url
       })
+
+      app.post('/make-reservation-s4', function(req,res) {
+        /** == README == **
+            Instead of passing an object, we now have a mongoose.Document object
+            because we created an instance of the usersModel.
+          **/
+         
+        var reservations4 = ["D4", "D5", "D6"];
+        
+         var reservation = new Reservation ({
+          reservationid: "reservation04",
+          screening: screening4._id,
+          movie: movie4._id,
+          reserved_seats: reservations4
+            // Potential error: there's no validation for gender on the client side
+        });
+      
+        /** == README == **
+          Directly calling save for the instance of the Document.
+        **/
+        reservation.save(function(err, reservation) {
+          var result;
+      
+          /** == README == **
+            Added error handling! Check out the object printed out in the console.
+            (Try clicking Add User when the name or id is blank)
+          **/
+          if (err) {
+            console.log(err.errors);
+      
+            result = { success: false, message: "Reservation was not created!" }
+            res.send(result);
+            // throw err; // This is commented so that the server won't be killed.
+          } else {
+            console.log("Successfully added reservation!");
+            console.log(reservation); // Check out the logs and see there's a new __v attribute!
+      
+            // Let's create a custom response that the user was created successfully
+            result = { success: true, message: "Reservation created!" }
+      
+            // Sending the result as is to handle it the "AJAX-way".
+            res.send(result);
+          }
+      
+        });
+      
+      })
+
     });
     });
     });
 });
+
+// BOP tickets page
+app.get('/reserve-tickets-s4', function(req,res) {
+  Reservation.findOne({reservationid: "reservation04"}, function(err, reservation4) {
+  Screening.findById(reservation4.screening, function(err, screening4) {
+  Cinema.findById(screening4.cinema, function(err, cinema4) {
+  Movie.findById(screening4.movie, function(err, movie4) {
+  
+  res.render('tickets', {
+  layout: 'main-regular-ready',
+  reservationid: reservation4._id,
+  movie: movie4.name,
+  cinema: cinema4.cinemanum,
+  price: reservation4.totalprice,
+  date: screening4.dates,
+  time: screening4.timeslots,
+  tickets: reservation4.reserved_seats
+
+})
+
+});
+});
+});
+});
+
+})
 
 // Bad Boys for Life reserve route
 app.get('/reserve-movie5', function(req,res) {
@@ -1125,12 +1387,87 @@ app.get('/reserve-movie5', function(req,res) {
           cinema: cinema5.cinemanum,
           details: movie5.shortdesc,
           timeslots: screening5.timeslots,
-          dates: screening5.dates
+          dates: screening5.dates,
+          tickets_url: screening5.tickets_url,
+          post_url: screening5.post_url
+      })
+
+      app.post('/make-reservation-s5', function(req,res) {
+        /** == README == **
+            Instead of passing an object, we now have a mongoose.Document object
+            because we created an instance of the usersModel.
+          **/
+         
+        var reservations5 = ["E4", "E5", "E6"];
+        
+         var reservation = new Reservation ({
+          reservationid: "reservation05",
+          screening: screening5._id,
+          movie: movie5._id,
+          reserved_seats: reservations5
+            // Potential error: there's no validation for gender on the client side
+        });
+      
+        /** == README == **
+          Directly calling save for the instance of the Document.
+        **/
+        reservation.save(function(err, reservation) {
+          var result;
+      
+          /** == README == **
+            Added error handling! Check out the object printed out in the console.
+            (Try clicking Add User when the name or id is blank)
+          **/
+          if (err) {
+            console.log(err.errors);
+      
+            result = { success: false, message: "Reservation was not created!" }
+            res.send(result);
+            // throw err; // This is commented so that the server won't be killed.
+          } else {
+            console.log("Successfully added reservation!");
+            console.log(reservation); // Check out the logs and see there's a new __v attribute!
+      
+            // Let's create a custom response that the user was created successfully
+            result = { success: true, message: "Reservation created!" }
+      
+            // Sending the result as is to handle it the "AJAX-way".
+            res.send(result);
+          }
+      
+        });
+      
       })
     });
     });
     });
 });
+
+// Bad Boys for life tickets page
+app.get('/reserve-tickets-s5', function(req,res) {
+  Reservation.findOne({reservationid: "reservation05"}, function(err, reservation5) {
+  Screening.findById(reservation5.screening, function(err, screening5) {
+  Cinema.findById(screening5.cinema, function(err, cinema5) {
+  Movie.findById(screening5.movie, function(err, movie5) {
+  
+  res.render('tickets', {
+  layout: 'main-regular-ready',
+  reservationid: reservation5._id,
+  movie: movie5.name,
+  cinema: cinema5.cinemanum,
+  price: reservation5.totalprice,
+  date: screening5.dates,
+  time: screening5.timeslots,
+  tickets: reservation5.reserved_seats
+
+})
+
+});
+});
+});
+});
+
+})
 
 // DoLittle reserve route
 app.get('/reserve-movie6', function(req,res) {
@@ -1143,12 +1480,87 @@ app.get('/reserve-movie6', function(req,res) {
           cinema: cinema6.cinemanum,
           details: movie6.shortdesc,
           timeslots: screening6.timeslots,
-          dates: screening6.dates
+          dates: screening6.dates,
+          tickets_url: screening6.tickets_url,
+          post_url: screening6.post_url
+      })
+
+      app.post('/make-reservation-s6', function(req,res) {
+        /** == README == **
+            Instead of passing an object, we now have a mongoose.Document object
+            because we created an instance of the usersModel.
+          **/
+         
+        var reservations6 = ["F4", "F5", "F6"];
+        
+         var reservation = new Reservation ({
+          reservationid: "reservation06",
+          screening: screening6._id,
+          movie: movie6._id,
+          reserved_seats: reservations6
+            // Potential error: there's no validation for gender on the client side
+        });
+      
+        /** == README == **
+          Directly calling save for the instance of the Document.
+        **/
+        reservation.save(function(err, reservation) {
+          var result;
+      
+          /** == README == **
+            Added error handling! Check out the object printed out in the console.
+            (Try clicking Add User when the name or id is blank)
+          **/
+          if (err) {
+            console.log(err.errors);
+      
+            result = { success: false, message: "Reservation was not created!" }
+            res.send(result);
+            // throw err; // This is commented so that the server won't be killed.
+          } else {
+            console.log("Successfully added reservation!");
+            console.log(reservation); // Check out the logs and see there's a new __v attribute!
+      
+            // Let's create a custom response that the user was created successfully
+            result = { success: true, message: "Reservation created!" }
+      
+            // Sending the result as is to handle it the "AJAX-way".
+            res.send(result);
+          }
+      
+        });
+      
       })
     });
     });
     });
 });
+
+// DoLittle tickets page
+app.get('/reserve-tickets-s6', function(req,res) {
+  Reservation.findOne({reservationid: "reservation06"}, function(err, reservation6) {
+  Screening.findById(reservation6.screening, function(err, screening6) {
+  Cinema.findById(screening6.cinema, function(err, cinema6) {
+  Movie.findById(screening6.movie, function(err, movie6) {
+  
+  res.render('tickets', {
+  layout: 'main-regular-ready',
+  reservationid: reservation6._id,
+  movie: movie6.name,
+  cinema: cinema6.cinemanum,
+  price: reservation6.totalprice,
+  date: screening6.dates,
+  time: screening6.timeslots,
+  tickets: reservation6.reserved_seats
+
+})
+
+});
+});
+});
+});
+
+})
 
 // The Night Clerk reserve route
 app.get('/reserve-movie7', function(req,res) {
@@ -1161,12 +1573,87 @@ app.get('/reserve-movie7', function(req,res) {
           cinema: cinema7.cinemanum,
           details: movie7.shortdesc,
           timeslots: screening7.timeslots,
-          dates: screening7.dates
+          dates: screening7.dates,
+          tickets_url: screening7.tickets_url,
+          post_url: screening7.post_url
+      })
+
+      app.post('/make-reservation-s7', function(req,res) {
+        /** == README == **
+            Instead of passing an object, we now have a mongoose.Document object
+            because we created an instance of the usersModel.
+          **/
+         
+        var reservations7 = ["G4", "G5", "G6"];
+        
+         var reservation = new Reservation ({
+          reservationid: "reservation07",
+          screening: screening7._id,
+          movie: movie7._id,
+          reserved_seats: reservations7
+            // Potential error: there's no validation for gender on the client side
+        });
+      
+        /** == README == **
+          Directly calling save for the instance of the Document.
+        **/
+        reservation.save(function(err, reservation) {
+          var result;
+      
+          /** == README == **
+            Added error handling! Check out the object printed out in the console.
+            (Try clicking Add User when the name or id is blank)
+          **/
+          if (err) {
+            console.log(err.errors);
+      
+            result = { success: false, message: "Reservation was not created!" }
+            res.send(result);
+            // throw err; // This is commented so that the server won't be killed.
+          } else {
+            console.log("Successfully added reservation!");
+            console.log(reservation); // Check out the logs and see there's a new __v attribute!
+      
+            // Let's create a custom response that the user was created successfully
+            result = { success: true, message: "Reservation created!" }
+      
+            // Sending the result as is to handle it the "AJAX-way".
+            res.send(result);
+          }
+      
+        });
+      
       })
     });
     });
     });
 });
+
+// The Night Clerk tickets page
+app.get('/reserve-tickets-s7', function(req,res) {
+  Reservation.findOne({reservationid: "reservation07"}, function(err, reservation7) {
+  Screening.findById(reservation7.screening, function(err, screening7) {
+  Cinema.findById(screening7.cinema, function(err, cinema7) {
+  Movie.findById(screening7.movie, function(err, movie7) {
+  
+  res.render('tickets', {
+  layout: 'main-regular-ready',
+  reservationid: reservation7._id,
+  movie: movie7.name,
+  cinema: cinema7.cinemanum,
+  price: reservation7.totalprice,
+  date: screening7.dates,
+  time: screening7.timeslots,
+  tickets: reservation7.reserved_seats
+
+})
+
+});
+});
+});
+});
+
+})
 
 // The Call of the Wild reserve route
 app.get('/reserve-movie8', function(req,res) {
@@ -1179,17 +1666,86 @@ app.get('/reserve-movie8', function(req,res) {
           cinema: cinema8.cinemanum,
           details: movie8.shortdesc,
           timeslots: screening8.timeslots,
-          dates: screening8.dates
+          dates: screening8.dates,
+          tickets_url: screening8.tickets_url,
+          post_url: screening8.post_url
+      })
+
+      app.post('/make-reservation-s8', function(req,res) {
+        /** == README == **
+            Instead of passing an object, we now have a mongoose.Document object
+            because we created an instance of the usersModel.
+          **/
+         
+        var reservations8 = ["H4", "H5", "H6"];
+        
+         var reservation = new Reservation ({
+          reservationid: "reservation08",
+          screening: screening8._id,
+          movie: movie8._id,
+          reserved_seats: reservations8
+            // Potential error: there's no validation for gender on the client side
+        });
+      
+        /** == README == **
+          Directly calling save for the instance of the Document.
+        **/
+        reservation.save(function(err, reservation) {
+          var result;
+      
+          /** == README == **
+            Added error handling! Check out the object printed out in the console.
+            (Try clicking Add User when the name or id is blank)
+          **/
+          if (err) {
+            console.log(err.errors);
+      
+            result = { success: false, message: "Reservation was not created!" }
+            res.send(result);
+            // throw err; // This is commented so that the server won't be killed.
+          } else {
+            console.log("Successfully added reservation!");
+            console.log(reservation); // Check out the logs and see there's a new __v attribute!
+      
+            // Let's create a custom response that the user was created successfully
+            result = { success: true, message: "Reservation created!" }
+      
+            // Sending the result as is to handle it the "AJAX-way".
+            res.send(result);
+          }
+      
+        });
+      
       })
     });
     });
     });
 });
 
-app.get('/reserve-tickets', function(req,res) {
+// The Call of the Wild tickets page
+app.get('/reserve-tickets-s8', function(req,res) {
+  Reservation.findOne({reservationid: "reservation08"}, function(err, reservation8) {
+  Screening.findById(reservation8.screening, function(err, screening8) {
+  Cinema.findById(screening8.cinema, function(err, cinema8) {
+  Movie.findById(screening8.movie, function(err, movie8) {
+  
   res.render('tickets', {
-    layout: 'main-regular-ready'
-  })
+  layout: 'main-regular-ready',
+  reservationid: reservation8._id,
+  movie: movie8.name,
+  cinema: cinema8.cinemanum,
+  price: reservation8.totalprice,
+  date: screening8.dates,
+  time: screening8.timeslots,
+  tickets: reservation8.reserved_seats
+
+})
+
+});
+});
+});
+});
+
 })
 
 
