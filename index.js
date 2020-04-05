@@ -1010,7 +1010,7 @@ app.get('/reserve-movie1', function(req,res) {
         timeslots: screening1.timeslots,
         dates: screening1.dates,
         tickets_url: screening1.tickets_url,
-        post_url: screening1.post_url
+        post_url: "reserve1"
     })
 
     app.post('/make-reservation-s1', function(req,res) {
@@ -1020,12 +1020,16 @@ app.get('/reserve-movie1', function(req,res) {
         **/
 
       var reservations = ["A4", "A5", "A6"];
+      var date_chosen = "April, 5, 2020";
+      var time_chosen = "01:30 PM";
 
        var reservation = new Reservation ({
         reservationid: "reservation01",
         screening: screening1._id,
         movie: movie1._id,
-        reserved_seats: reservations
+        reserved_seats: reservations,
+        date_chosen: date_chosen,
+        time_chosen: time_chosen
           // Potential error: there's no validation for gender on the client side
       });
     
@@ -1078,8 +1082,8 @@ app.get('/reserve-tickets-s1', function(req,res) {
     movie: movie1.name,
     cinema: cinema1.cinemanum,
     price: reservation1.totalprice,
-    date: screening1.dates,
-    time: screening1.timeslots,
+    date: reservation1.date_chosen,
+    time: reservation1.time_chosen,
     tickets: reservation1.reserved_seats
 
   })
@@ -1104,7 +1108,7 @@ app.get('/reserve-movie2', function(req,res) {
           timeslots: screening2.timeslots,
           dates: screening2.dates,
           tickets_url: screening2.tickets_url,
-          post_url: screening2.post_url
+          post_url: "reserve2"
       })
 
       
@@ -1115,12 +1119,17 @@ app.get('/reserve-movie2', function(req,res) {
         **/
        
       var reservations2 = ["B4", "B5", "B6"];
+      var date_chosen2 = "April, 5, 2020";
+      var time_chosen2 = "01:00 PM";
+
       
        var reservation = new Reservation ({
         reservationid: "reservation02",
         screening: screening2._id,
         movie: movie2._id,
-        reserved_seats: reservations2
+        reserved_seats: reservations2,
+        date_chosen: date_chosen2,
+        time_chosen: time_chosen2
           // Potential error: there's no validation for gender on the client side
       });
     
@@ -1175,8 +1184,8 @@ app.get('/reserve-tickets-s2', function(req,res) {
   movie: movie2.name,
   cinema: cinema2.cinemanum,
   price: reservation2.totalprice,
-  date: screening2.dates,
-  time: screening2.timeslots,
+  date: reservation2.date_chosen,
+  time: reservation2.time_chosen,
   tickets: reservation2.reserved_seats
 
 })
@@ -1201,7 +1210,7 @@ app.get('/reserve-movie3', function(req,res) {
           timeslots: screening3.timeslots,
           dates: screening3.dates,
           tickets_url: screening3.tickets_url,
-          post_url: screening3.post_url
+          post_url: "reserve3"
       })
 
       app.post('/make-reservation-s3', function(req,res) {
@@ -1211,12 +1220,17 @@ app.get('/reserve-movie3', function(req,res) {
           **/
          
         var reservations3 = ["C4", "C5", "C6"];
+        var date_chosen3 = "April, 5, 2020";
+        var time_chosen3 = "02:00 PM";
+
         
          var reservation = new Reservation ({
           reservationid: "reservation03",
           screening: screening3._id,
           movie: movie3._id,
-          reserved_seats: reservations3
+          reserved_seats: reservations3,
+          date_chosen: date_chosen3,
+          time_chosen: time_chosen3
             // Potential error: there's no validation for gender on the client side
         });
       
@@ -1269,8 +1283,8 @@ app.get('/reserve-tickets-s3', function(req,res) {
   movie: movie3.name,
   cinema: cinema3.cinemanum,
   price: reservation3.totalprice,
-  date: screening3.dates,
-  time: screening3.timeslots,
+  date: reservation3.date_chosen,
+  time: reservation3.time_chosen,
   tickets: reservation3.reserved_seats
 
 })
@@ -1295,7 +1309,7 @@ app.get('/reserve-movie4', function(req,res) {
           timeslots: screening4.timeslots,
           dates: screening4.dates,
           tickets_url: screening4.tickets_url,
-          post_url: screening4.post_url
+          post_url: "reserve4"
       })
 
       app.post('/make-reservation-s4', function(req,res) {
@@ -1305,12 +1319,16 @@ app.get('/reserve-movie4', function(req,res) {
           **/
          
         var reservations4 = ["D4", "D5", "D6"];
+        var date_chosen4 = "April, 5, 2020";
+        var time_chosen4 = "03:00 PM";
         
          var reservation = new Reservation ({
           reservationid: "reservation04",
           screening: screening4._id,
           movie: movie4._id,
-          reserved_seats: reservations4
+          reserved_seats: reservations4,
+          date_chosen: date_chosen4,
+          time_chosen: time_chosen4
             // Potential error: there's no validation for gender on the client side
         });
       
@@ -1363,8 +1381,8 @@ app.get('/reserve-tickets-s4', function(req,res) {
   movie: movie4.name,
   cinema: cinema4.cinemanum,
   price: reservation4.totalprice,
-  date: screening4.dates,
-  time: screening4.timeslots,
+  date: reservation4.date_chosen,
+  time: reservation4.time_chosen,
   tickets: reservation4.reserved_seats
 
 })
@@ -1389,7 +1407,7 @@ app.get('/reserve-movie5', function(req,res) {
           timeslots: screening5.timeslots,
           dates: screening5.dates,
           tickets_url: screening5.tickets_url,
-          post_url: screening5.post_url
+          post_url: "reserve5"
       })
 
       app.post('/make-reservation-s5', function(req,res) {
@@ -1399,12 +1417,16 @@ app.get('/reserve-movie5', function(req,res) {
           **/
          
         var reservations5 = ["E4", "E5", "E6"];
+        var date_chosen5 = "April, 5, 2020";
+        var time_chosen5 = "01:45 PM";
         
          var reservation = new Reservation ({
           reservationid: "reservation05",
           screening: screening5._id,
           movie: movie5._id,
-          reserved_seats: reservations5
+          reserved_seats: reservations5,
+          date_chosen: date_chosen5,
+          time_chosen: time_chosen5
             // Potential error: there's no validation for gender on the client side
         });
       
@@ -1456,8 +1478,8 @@ app.get('/reserve-tickets-s5', function(req,res) {
   movie: movie5.name,
   cinema: cinema5.cinemanum,
   price: reservation5.totalprice,
-  date: screening5.dates,
-  time: screening5.timeslots,
+  date: reservation5.date_chosen,
+  time: reservation5.time_chosen,
   tickets: reservation5.reserved_seats
 
 })
@@ -1482,7 +1504,7 @@ app.get('/reserve-movie6', function(req,res) {
           timeslots: screening6.timeslots,
           dates: screening6.dates,
           tickets_url: screening6.tickets_url,
-          post_url: screening6.post_url
+          post_url: "reserve6"
       })
 
       app.post('/make-reservation-s6', function(req,res) {
@@ -1492,12 +1514,17 @@ app.get('/reserve-movie6', function(req,res) {
           **/
          
         var reservations6 = ["F4", "F5", "F6"];
+        var date_chosen6 = "April, 5, 2020";
+        var time_chosen6 = "01:45 PM";
+        
         
          var reservation = new Reservation ({
           reservationid: "reservation06",
           screening: screening6._id,
           movie: movie6._id,
-          reserved_seats: reservations6
+          reserved_seats: reservations6,
+          date_chosen: date_chosen6,
+          time_chosen: time_chosen6
             // Potential error: there's no validation for gender on the client side
         });
       
@@ -1549,8 +1576,8 @@ app.get('/reserve-tickets-s6', function(req,res) {
   movie: movie6.name,
   cinema: cinema6.cinemanum,
   price: reservation6.totalprice,
-  date: screening6.dates,
-  time: screening6.timeslots,
+  date: reservation6.date_chosen,
+  time: reservation6.time_chosen,
   tickets: reservation6.reserved_seats
 
 })
@@ -1575,7 +1602,7 @@ app.get('/reserve-movie7', function(req,res) {
           timeslots: screening7.timeslots,
           dates: screening7.dates,
           tickets_url: screening7.tickets_url,
-          post_url: screening7.post_url
+          post_url: "reserve7"
       })
 
       app.post('/make-reservation-s7', function(req,res) {
@@ -1585,12 +1612,16 @@ app.get('/reserve-movie7', function(req,res) {
           **/
          
         var reservations7 = ["G4", "G5", "G6"];
+        var date_chosen7 = "April, 5, 2020";
+        var time_chosen7 = "01:45 PM";
         
          var reservation = new Reservation ({
           reservationid: "reservation07",
           screening: screening7._id,
           movie: movie7._id,
-          reserved_seats: reservations7
+          reserved_seats: reservations7,
+          date_chosen: date_chosen7,
+          time_chosen: time_chosen7
             // Potential error: there's no validation for gender on the client side
         });
       
@@ -1642,8 +1673,8 @@ app.get('/reserve-tickets-s7', function(req,res) {
   movie: movie7.name,
   cinema: cinema7.cinemanum,
   price: reservation7.totalprice,
-  date: screening7.dates,
-  time: screening7.timeslots,
+  date: reservation7.date_chosen,
+  time: reservation7.time_chosen,
   tickets: reservation7.reserved_seats
 
 })
@@ -1668,7 +1699,7 @@ app.get('/reserve-movie8', function(req,res) {
           timeslots: screening8.timeslots,
           dates: screening8.dates,
           tickets_url: screening8.tickets_url,
-          post_url: screening8.post_url
+          post_url: "reserve8"
       })
 
       app.post('/make-reservation-s8', function(req,res) {
@@ -1678,12 +1709,16 @@ app.get('/reserve-movie8', function(req,res) {
           **/
          
         var reservations8 = ["H4", "H5", "H6"];
+        var date_chosen8 = "April, 5, 2020";
+        var time_chosen8 = "01:45 PM";
         
          var reservation = new Reservation ({
           reservationid: "reservation08",
           screening: screening8._id,
           movie: movie8._id,
-          reserved_seats: reservations8
+          reserved_seats: reservations8,
+          date_chosen: date_chosen8,
+          time_chosen: time_chosen8
             // Potential error: there's no validation for gender on the client side
         });
       
@@ -1735,8 +1770,8 @@ app.get('/reserve-tickets-s8', function(req,res) {
   movie: movie8.name,
   cinema: cinema8.cinemanum,
   price: reservation8.totalprice,
-  date: screening8.dates,
-  time: screening8.timeslots,
+  date: reservation8.date_chosen,
+  time: reservation8.time_chosen,
   tickets: reservation8.reserved_seats
 
 })
