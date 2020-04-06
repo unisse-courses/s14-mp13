@@ -929,6 +929,8 @@ app.post('/addUser', function(req, res) {
           app.get('/myaccount', function(req, res) {
             // The render function takes the template filename (no extension - that's what the config is for!)
             // and an object for what's needed in that template
+            if (user.reservations[0]) {
+
             Reservation.findById(user.reservations[0], function(err, reservation1) {
             Screening.findById(reservation1.screening, function(err, screening1) {
             Cinema.findById(screening1.cinema, function(err, cinema1) {
@@ -969,7 +971,7 @@ app.post('/addUser', function(req, res) {
             Cinema.findById(screening8.cinema, function(err, cinema8) {
             Movie.findById(screening8.movie, function(err, movie8) {
 
-            
+          
             res.render('myaccount', {
               layout: 'main-regular-ready',
               uname: user.uname,
@@ -978,6 +980,7 @@ app.post('/addUser', function(req, res) {
               mnum: user.mnum,
               email: user.email,
 
+            
               date: reservation1.date_chosen,
               time: reservation1.time_chosen,
               movie: movie1.name,
@@ -1033,49 +1036,63 @@ app.post('/addUser', function(req, res) {
               cinema8: cinema8.cinemanum,
               seats8: reservation8.reserved_seats,
               status8: reservation8.status
+        
+            })
+          
+          });
+          });
+          });
+          });
+        
+          });
+          });
+          });
+          });
+
+          });
+          });
+          });
+          });
+
+          });
+          });
+          });
+          });
+
+          });
+          });
+          });
+          });
+
+          });
+          });
+          });
+          });
+
+          });
+          });
+          });
+          });
+
+          });
+          });
+          });
+          });
+
+          }
+
+          else {
+            res.render('myaccount', {
+              layout: 'main-regular-ready',
+              uname: user.uname,
+              fname: user.fname,
+              lname: user.lname,
+              mnum: user.mnum,
+              email: user.email
 
             })
-
-          });
-          });
-          });
-          });
-
-          });
-          });
-          });
-          });
-
-          });
-          });
-          });
-          });
-
-          });
-          });
-          });
-          });
-
-          });
-          });
-          });
-          });
-
-          });
-          });
-          });
-          });
-
-          });
-          });
-          });
-          });
-
-          });
-          });
-          });
-          });
-
+          }
+        
           });
 
           // Schedules (logged in) route
@@ -1325,7 +1342,7 @@ app.get('/reserve-movie1', function(req,res) {
         timeslots: screening1.timeslots,
         dates: screening1.dates,
         tickets_url: screening1.tickets_url,
-        post_url: "reserve1"
+        post_url: "/make-reservation-s1"
     })
 
     app.post('/make-reservation-s1', function(req,res) {
@@ -1334,17 +1351,12 @@ app.get('/reserve-movie1', function(req,res) {
           because we created an instance of the usersModel.
         **/
 
-      var reservations = ["A4", "A5", "A6"];
-      var date_chosen = "April, 5, 2020";
-      var time_chosen = "01:30 PM";
-
        var reservation = new Reservation ({
-        reservationid: "reservation01",
         screening: screening1._id,
         movie: movie1._id,
-        reserved_seats: reservations,
-        date_chosen: date_chosen,
-        time_chosen: time_chosen
+        reserved_seats: req.body.seats,
+        date_chosen: req.body.datepicker,
+        time_chosen: req.body.timepicker
           // Potential error: there's no validation for gender on the client side
       });
     
@@ -1372,21 +1384,26 @@ app.get('/reserve-movie1', function(req,res) {
           result = { success: true, message: "Reservation created!" }
     
           // Sending the result as is to handle it the "AJAX-way".
-          res.send(result);
-        }
-    
-      });
-      
-    })
+         // res.send(result);
+         res.redirect('http://localhost:3000/reserve-tickets-s1');
 
+        }
+          
+      });
+
+     
+
+    });
+     
   });
   });
   });
+  
 });
 
 // 1917 tickets page
 app.get('/reserve-tickets-s1', function(req,res) {
-    Reservation.findOne({reservationid: "reservation01"}, function(err, reservation1) {
+    Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation1) { 
     Screening.findById(reservation1.screening, function(err, screening1) {
     Cinema.findById(screening1.cinema, function(err, cinema1) {
     Movie.findById(screening1.movie, function(err, movie1) {
@@ -1408,7 +1425,7 @@ app.get('/reserve-tickets-s1', function(req,res) {
 });
 });
 
-})
+});
 
 // Parasite reserve route
 app.get('/reserve-movie2', function(req,res) {
@@ -1423,7 +1440,7 @@ app.get('/reserve-movie2', function(req,res) {
           timeslots: screening2.timeslots,
           dates: screening2.dates,
           tickets_url: screening2.tickets_url,
-          post_url: "reserve2"
+          post_url: "/make-reservation-s2"
       })
 
       
@@ -1433,18 +1450,14 @@ app.get('/reserve-movie2', function(req,res) {
           because we created an instance of the usersModel.
         **/
        
-      var reservations2 = ["B4", "B5", "B6"];
-      var date_chosen2 = "April, 5, 2020";
-      var time_chosen2 = "01:00 PM";
 
       
        var reservation = new Reservation ({
-        reservationid: "reservation02",
         screening: screening2._id,
         movie: movie2._id,
-        reserved_seats: reservations2,
-        date_chosen: date_chosen2,
-        time_chosen: time_chosen2
+        reserved_seats: req.body.seats,
+        date_chosen: req.body.datepicker,
+        time_chosen: req.body.timepicker
           // Potential error: there's no validation for gender on the client side
       });
     
@@ -1472,7 +1485,8 @@ app.get('/reserve-movie2', function(req,res) {
           result = { success: true, message: "Reservation created!" }
     
           // Sending the result as is to handle it the "AJAX-way".
-          res.send(result);
+          //res.send(result);
+          res.redirect('http://localhost:3000/reserve-tickets-s2');
         }
     
       });
@@ -1488,7 +1502,7 @@ app.get('/reserve-movie2', function(req,res) {
 
 // Parasite tickets page
 app.get('/reserve-tickets-s2', function(req,res) {
-  Reservation.findOne({reservationid: "reservation02"}, function(err, reservation2) {
+  Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation2) { 
   Screening.findById(reservation2.screening, function(err, screening2) {
   Cinema.findById(screening2.cinema, function(err, cinema2) {
   Movie.findById(screening2.movie, function(err, movie2) {
@@ -1510,7 +1524,7 @@ app.get('/reserve-tickets-s2', function(req,res) {
 });
 });
 
-})
+});
 
 // Sonic reserve route
 app.get('/reserve-movie3', function(req,res) {
@@ -1525,7 +1539,7 @@ app.get('/reserve-movie3', function(req,res) {
           timeslots: screening3.timeslots,
           dates: screening3.dates,
           tickets_url: screening3.tickets_url,
-          post_url: "reserve3"
+          post_url: "/make-reservation-s3"
       })
 
       app.post('/make-reservation-s3', function(req,res) {
@@ -1534,18 +1548,13 @@ app.get('/reserve-movie3', function(req,res) {
             because we created an instance of the usersModel.
           **/
          
-        var reservations3 = ["C4", "C5", "C6"];
-        var date_chosen3 = "April, 5, 2020";
-        var time_chosen3 = "02:00 PM";
-
         
          var reservation = new Reservation ({
-          reservationid: "reservation03",
           screening: screening3._id,
           movie: movie3._id,
-          reserved_seats: reservations3,
-          date_chosen: date_chosen3,
-          time_chosen: time_chosen3
+          reserved_seats: req.body.seats,
+          date_chosen: req.body.datepicker,
+          time_chosen: req.body.timepicker
             // Potential error: there's no validation for gender on the client side
         });
       
@@ -1573,7 +1582,8 @@ app.get('/reserve-movie3', function(req,res) {
             result = { success: true, message: "Reservation created!" }
       
             // Sending the result as is to handle it the "AJAX-way".
-            res.send(result);
+            //res.send(result);
+            res.redirect('http://localhost:3000/reserve-tickets-s3');
           }
       
         });
@@ -1587,7 +1597,7 @@ app.get('/reserve-movie3', function(req,res) {
 
 // Sonic tickets page
 app.get('/reserve-tickets-s3', function(req,res) {
-  Reservation.findOne({reservationid: "reservation03"}, function(err, reservation3) {
+  Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation3) { 
   Screening.findById(reservation3.screening, function(err, screening3) {
   Cinema.findById(screening3.cinema, function(err, cinema3) {
   Movie.findById(screening3.movie, function(err, movie3) {
@@ -1624,7 +1634,7 @@ app.get('/reserve-movie4', function(req,res) {
           timeslots: screening4.timeslots,
           dates: screening4.dates,
           tickets_url: screening4.tickets_url,
-          post_url: "reserve4"
+          post_url: "/make-reservation-s4"
       })
 
       app.post('/make-reservation-s4', function(req,res) {
@@ -1632,18 +1642,13 @@ app.get('/reserve-movie4', function(req,res) {
             Instead of passing an object, we now have a mongoose.Document object
             because we created an instance of the usersModel.
           **/
-         
-        var reservations4 = ["D4", "D5", "D6"];
-        var date_chosen4 = "April, 5, 2020";
-        var time_chosen4 = "03:00 PM";
         
          var reservation = new Reservation ({
-          reservationid: "reservation04",
           screening: screening4._id,
           movie: movie4._id,
-          reserved_seats: reservations4,
-          date_chosen: date_chosen4,
-          time_chosen: time_chosen4
+          reserved_seats: req.body.seats,
+          date_chosen: req.body.datepicker,
+          time_chosen: req.body.timepicker
             // Potential error: there's no validation for gender on the client side
         });
       
@@ -1671,7 +1676,8 @@ app.get('/reserve-movie4', function(req,res) {
             result = { success: true, message: "Reservation created!" }
       
             // Sending the result as is to handle it the "AJAX-way".
-            res.send(result);
+            //res.send(result);
+            res.redirect('http://localhost:3000/reserve-tickets-s4');
           }
       
         });
@@ -1685,7 +1691,7 @@ app.get('/reserve-movie4', function(req,res) {
 
 // BOP tickets page
 app.get('/reserve-tickets-s4', function(req,res) {
-  Reservation.findOne({reservationid: "reservation04"}, function(err, reservation4) {
+  Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation4) { 
   Screening.findById(reservation4.screening, function(err, screening4) {
   Cinema.findById(screening4.cinema, function(err, cinema4) {
   Movie.findById(screening4.movie, function(err, movie4) {
@@ -1707,7 +1713,7 @@ app.get('/reserve-tickets-s4', function(req,res) {
 });
 });
 
-})
+});
 
 // Bad Boys for Life reserve route
 app.get('/reserve-movie5', function(req,res) {
@@ -1722,7 +1728,7 @@ app.get('/reserve-movie5', function(req,res) {
           timeslots: screening5.timeslots,
           dates: screening5.dates,
           tickets_url: screening5.tickets_url,
-          post_url: "reserve5"
+          post_url: "/make-reservation-s5"
       })
 
       app.post('/make-reservation-s5', function(req,res) {
@@ -1730,18 +1736,13 @@ app.get('/reserve-movie5', function(req,res) {
             Instead of passing an object, we now have a mongoose.Document object
             because we created an instance of the usersModel.
           **/
-         
-        var reservations5 = ["E4", "E5", "E6"];
-        var date_chosen5 = "April, 5, 2020";
-        var time_chosen5 = "01:45 PM";
         
          var reservation = new Reservation ({
-          reservationid: "reservation05",
           screening: screening5._id,
           movie: movie5._id,
-          reserved_seats: reservations5,
-          date_chosen: date_chosen5,
-          time_chosen: time_chosen5
+          reserved_seats: req.body.seats,
+          date_chosen: req.body.datepicker,
+          time_chosen: req.body.timepicker
             // Potential error: there's no validation for gender on the client side
         });
       
@@ -1769,7 +1770,8 @@ app.get('/reserve-movie5', function(req,res) {
             result = { success: true, message: "Reservation created!" }
       
             // Sending the result as is to handle it the "AJAX-way".
-            res.send(result);
+            //res.send(result);
+            res.redirect('http://localhost:3000/reserve-tickets-s5');
           }
       
         });
@@ -1782,7 +1784,7 @@ app.get('/reserve-movie5', function(req,res) {
 
 // Bad Boys for life tickets page
 app.get('/reserve-tickets-s5', function(req,res) {
-  Reservation.findOne({reservationid: "reservation05"}, function(err, reservation5) {
+  Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation5) { 
   Screening.findById(reservation5.screening, function(err, screening5) {
   Cinema.findById(screening5.cinema, function(err, cinema5) {
   Movie.findById(screening5.movie, function(err, movie5) {
@@ -1804,7 +1806,7 @@ app.get('/reserve-tickets-s5', function(req,res) {
 });
 });
 
-})
+});
 
 // DoLittle reserve route
 app.get('/reserve-movie6', function(req,res) {
@@ -1819,7 +1821,7 @@ app.get('/reserve-movie6', function(req,res) {
           timeslots: screening6.timeslots,
           dates: screening6.dates,
           tickets_url: screening6.tickets_url,
-          post_url: "reserve6"
+          post_url: "/make-reservation-s6"
       })
 
       app.post('/make-reservation-s6', function(req,res) {
@@ -1827,19 +1829,13 @@ app.get('/reserve-movie6', function(req,res) {
             Instead of passing an object, we now have a mongoose.Document object
             because we created an instance of the usersModel.
           **/
-         
-        var reservations6 = ["F4", "F5", "F6"];
-        var date_chosen6 = "April, 5, 2020";
-        var time_chosen6 = "01:45 PM";
-        
         
          var reservation = new Reservation ({
-          reservationid: "reservation06",
           screening: screening6._id,
           movie: movie6._id,
-          reserved_seats: reservations6,
-          date_chosen: date_chosen6,
-          time_chosen: time_chosen6
+          reserved_seats: req.body.seats,
+          date_chosen: req.body.datepicker,
+          time_chosen: req.body.timepicker
             // Potential error: there's no validation for gender on the client side
         });
       
@@ -1867,7 +1863,8 @@ app.get('/reserve-movie6', function(req,res) {
             result = { success: true, message: "Reservation created!" }
       
             // Sending the result as is to handle it the "AJAX-way".
-            res.send(result);
+            //res.send(result);
+            res.redirect('http://localhost:3000/reserve-tickets-s6');
           }
       
         });
@@ -1880,7 +1877,7 @@ app.get('/reserve-movie6', function(req,res) {
 
 // DoLittle tickets page
 app.get('/reserve-tickets-s6', function(req,res) {
-  Reservation.findOne({reservationid: "reservation06"}, function(err, reservation6) {
+  Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation6) { 
   Screening.findById(reservation6.screening, function(err, screening6) {
   Cinema.findById(screening6.cinema, function(err, cinema6) {
   Movie.findById(screening6.movie, function(err, movie6) {
@@ -1902,7 +1899,7 @@ app.get('/reserve-tickets-s6', function(req,res) {
 });
 });
 
-})
+});
 
 // The Night Clerk reserve route
 app.get('/reserve-movie7', function(req,res) {
@@ -1917,7 +1914,7 @@ app.get('/reserve-movie7', function(req,res) {
           timeslots: screening7.timeslots,
           dates: screening7.dates,
           tickets_url: screening7.tickets_url,
-          post_url: "reserve7"
+          post_url: "/make-reservation-s7"
       })
 
       app.post('/make-reservation-s7', function(req,res) {
@@ -1925,18 +1922,13 @@ app.get('/reserve-movie7', function(req,res) {
             Instead of passing an object, we now have a mongoose.Document object
             because we created an instance of the usersModel.
           **/
-         
-        var reservations7 = ["G4", "G5", "G6"];
-        var date_chosen7 = "April, 5, 2020";
-        var time_chosen7 = "01:45 PM";
         
          var reservation = new Reservation ({
-          reservationid: "reservation07",
           screening: screening7._id,
           movie: movie7._id,
-          reserved_seats: reservations7,
-          date_chosen: date_chosen7,
-          time_chosen: time_chosen7
+          reserved_seats: req.body.seats,
+          date_chosen: req.body.datepicker,
+          time_chosen: req.body.timepicker
             // Potential error: there's no validation for gender on the client side
         });
       
@@ -1964,7 +1956,8 @@ app.get('/reserve-movie7', function(req,res) {
             result = { success: true, message: "Reservation created!" }
       
             // Sending the result as is to handle it the "AJAX-way".
-            res.send(result);
+            //res.send(result);
+            res.redirect('http://localhost:3000/reserve-tickets-s7');
           }
       
         });
@@ -1977,7 +1970,7 @@ app.get('/reserve-movie7', function(req,res) {
 
 // The Night Clerk tickets page
 app.get('/reserve-tickets-s7', function(req,res) {
-  Reservation.findOne({reservationid: "reservation07"}, function(err, reservation7) {
+  Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation7) { 
   Screening.findById(reservation7.screening, function(err, screening7) {
   Cinema.findById(screening7.cinema, function(err, cinema7) {
   Movie.findById(screening7.movie, function(err, movie7) {
@@ -1999,7 +1992,7 @@ app.get('/reserve-tickets-s7', function(req,res) {
 });
 });
 
-})
+});
 
 // The Call of the Wild reserve route
 app.get('/reserve-movie8', function(req,res) {
@@ -2014,7 +2007,7 @@ app.get('/reserve-movie8', function(req,res) {
           timeslots: screening8.timeslots,
           dates: screening8.dates,
           tickets_url: screening8.tickets_url,
-          post_url: "reserve8"
+          post_url: "/make-reservation-s8"
       })
 
       app.post('/make-reservation-s8', function(req,res) {
@@ -2022,18 +2015,13 @@ app.get('/reserve-movie8', function(req,res) {
             Instead of passing an object, we now have a mongoose.Document object
             because we created an instance of the usersModel.
           **/
-         
-        var reservations8 = ["H4", "H5", "H6"];
-        var date_chosen8 = "April, 5, 2020";
-        var time_chosen8 = "01:45 PM";
         
          var reservation = new Reservation ({
-          reservationid: "reservation08",
           screening: screening8._id,
           movie: movie8._id,
-          reserved_seats: reservations8,
-          date_chosen: date_chosen8,
-          time_chosen: time_chosen8
+          reserved_seats: req.body.seats,
+          date_chosen: req.body.datepicker,
+          time_chosen: req.body.timepicker
             // Potential error: there's no validation for gender on the client side
         });
       
@@ -2061,7 +2049,8 @@ app.get('/reserve-movie8', function(req,res) {
             result = { success: true, message: "Reservation created!" }
       
             // Sending the result as is to handle it the "AJAX-way".
-            res.send(result);
+            //res.send(result);
+            res.redirect('http://localhost:3000/reserve-tickets-s8');
           }
       
         });
@@ -2074,7 +2063,7 @@ app.get('/reserve-movie8', function(req,res) {
 
 // The Call of the Wild tickets page
 app.get('/reserve-tickets-s8', function(req,res) {
-  Reservation.findOne({reservationid: "reservation08"}, function(err, reservation8) {
+  Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation8) { 
   Screening.findById(reservation8.screening, function(err, screening8) {
   Cinema.findById(screening8.cinema, function(err, cinema8) {
   Movie.findById(screening8.movie, function(err, movie8) {
@@ -2096,7 +2085,7 @@ app.get('/reserve-tickets-s8', function(req,res) {
 });
 });
 
-})
+});
 
 
 /*================================================================*/

@@ -38,6 +38,21 @@
         $iframe.attr("src", $iframe.attr("src"));
       });
 
+      // at least 1 checked
+      $('#reserve').click(function() {
+       
+        checked = $('input[name="seats"]:checked').length;
+        checkedd = $('input[name="seats"]:checked');
+
+        disabled = $('input[name="seats"]:disabled');
+  
+        if(!checked) {
+          alert("You must reserve at least one seat.");
+          return false;
+        }
+  
+      });
+
 
     // POST called for registration
     $('#addUser').click(function() {
@@ -83,6 +98,7 @@
       });
     });
 
+    /*
     // Reserve Post Screening 1
       $('#reserve1').click(function(){;
 
@@ -96,8 +112,10 @@
           reserved_seats: reservations
         };
 
+        alert(reservations);
+
   
-        $.post('make-reservation-s1', newReservation, function(data, status) {
+        $.post('/make-reservation-s1', newReservation, function(data, status) {
           console.log(data);
 
     
@@ -116,6 +134,7 @@
       
   
       });
+      */
 
       // Reserve Post Screening 2
       $('#reserve2').click(function(){;

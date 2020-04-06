@@ -9,29 +9,29 @@
           
             
             <br>
-
+            <form class="movieform" method="POST" action={{post_url}}>
             <div class="row justify-content-center m-auto">
             <!-- SELECT DATE -->
             <div class="dropdown">
-                <select type="button" class="btn btn-custom dropdown-toggle v2 mr-3" data-toggle="dropdown">
+                <select type="button" class="btn btn-custom dropdown-toggle v2 mr-3" data-toggle="dropdown" name="datepicker">
                
-                        <option>{{dates.[0]}}</option>
-                        <option>{{dates.[1]}}</option>
-                        <option>{{dates.[2]}}</option>
-                        <option>{{dates.[3]}}</option>
-                        <option>{{dates.[4]}}</option>
+                        <option name="dates1">{{dates.[0]}}</option>
+                        <option name="dates2">{{dates.[1]}}</option>
+                        <option name="dates3">{{dates.[2]}}</option>
+                        <option name="dates4">{{dates.[3]}}</option>
+                        <option name="dates5">{{dates.[4]}}</option>
                        
                       </select>
                   </div>
                   
                   <!-- SELECT TIME -->
                   <div class="dropdown">
-                    <select type="button" class="btn btn-custom dropdown-toggle v2" data-toggle="dropdown">
+                    <select type="button" class="btn btn-custom dropdown-toggle v2" data-toggle="dropdown" name="timepicker">
                
-                            <option>{{timeslots.[0]}}</option>
-                            <option>{{timeslots.[1]}}</option>
-                            <option>{{timeslots.[2]}}</option>
-                            <option>{{timeslots.[3]}}</option>
+                            <option name="timeslots1">{{timeslots.[0]}}</option>
+                            <option name="timeslots2">{{timeslots.[1]}}</option>
+                            <option name="timeslots3">{{timeslots.[2]}}</option>
+                            <option name="timeslots4">{{timeslots.[3]}}</option>
                           </select>
                       </div>
         </center>
@@ -41,7 +41,8 @@
     <center>
     <div class="container seatselection" style="margin-bottom: 200px;">
         <br> <br><h1 style="color: black; font-weight:bold; width:fit-content">MOVIE SCREEN HERE</h1><br>
-        <form class="movieform" method="get" action={{tickets_url}}>
+        
+        
         <!-- A -->
           <div class="form-group flexboxCustom">
              
@@ -50,7 +51,7 @@
             <div class="form-check m-0"><small>A1</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A1" name="A1" value="A1">
+                    <input type="checkbox" class="custom-control-input" id="A1" name="seats" value="A1">
                     <label class="custom-control-label" for="A1"></label>
                   </div>
               </div>
@@ -59,7 +60,7 @@
             <div class="form-check m-0"><small>A2</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A2" name="A2" value="A2">
+                    <input type="checkbox" class="custom-control-input" id="A2" name="seats" value="A2">
                     <label class="custom-control-label" for="A2"></label>
                   </div>
               </div>
@@ -68,7 +69,7 @@
             <div class="form-check m-0"><small>A3</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A3" name="A3" value="A3">
+                    <input type="checkbox" class="custom-control-input" id="A3" name="seats" value="A3">
                     <label class="custom-control-label" for="A3"></label>
                   </div>
               </div>
@@ -77,7 +78,7 @@
             <div class="form-check m-0"><small>A4</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A4" name="A4" value="A4">
+                    <input type="checkbox" class="custom-control-input" id="A4" name="seats" value="A4">
                     <label class="custom-control-label" for="A4"></label>
                   </div>
               </div>
@@ -86,7 +87,7 @@
             <div class="form-check m-0"><small>A5</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A5" name="A5" value="A5">
+                    <input type="checkbox" class="custom-control-input" id="A5" name="seats" value="A5">
                     <label class="custom-control-label" for="A5"></label>
                   </div>
               </div>
@@ -95,7 +96,7 @@
             <div class="form-check m-0"><small>A6</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A6" name="A6" value="A6">
+                    <input type="checkbox" class="custom-control-input" id="A6" name="seats" value="A6">
                     <label class="custom-control-label" for="A6"></label>
                   </div>
               </div>
@@ -104,7 +105,7 @@
             <div class="form-check m-0"><small>A7</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A7" name="A7" value="A7">
+                    <input type="checkbox" class="custom-control-input" id="A7" name="seats" value="A7">
                     <label class="custom-control-label" for="A7"></label>
                   </div>
               </div>     
@@ -113,7 +114,7 @@
             <div class="form-check m-0"><small>A8</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A8" name="A8" value="A8">
+                    <input type="checkbox" class="custom-control-input" id="A8" name="seats" value="A8">
                     <label class="custom-control-label" for="A8"></label>
                   </div>
               </div>      
@@ -122,7 +123,7 @@
             <div class="form-check m-0"><small>A9</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A9" name="A9" value="A9">
+                    <input type="checkbox" class="custom-control-input" id="A9" name="seats" value="A9">
                     <label class="custom-control-label" for="A9"></label>
                   </div>
               </div>    
@@ -131,7 +132,7 @@
             <div class="form-check m-0"><small>A10</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A10" name="A10" value="A10">
+                    <input type="checkbox" class="custom-control-input" id="A10" name="seats" value="A10">
                     <label class="custom-control-label" for="A10"></label>
                   </div>
               </div> 
@@ -140,7 +141,7 @@
             <div class="form-check m-0"><small>A11</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A11" name="A11" value="A11">
+                    <input type="checkbox" class="custom-control-input" id="A11" name="seats" value="A11">
                     <label class="custom-control-label" for="A11"></label>
                   </div>
               </div>     
@@ -149,7 +150,7 @@
             <div class="form-check m-0"><small>A12</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A12" name="A12" value="A12">
+                    <input type="checkbox" class="custom-control-input" id="A12" name="seats" value="A12">
                     <label class="custom-control-label" for="A12"></label>
                   </div>
               </div>
@@ -158,7 +159,7 @@
             <div class="form-check m-0"><small>A13</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A13" name="A13" value="A13">
+                    <input type="checkbox" class="custom-control-input" id="A13" name="seats" value="A13">
                     <label class="custom-control-label" for="A13"></label>
                   </div>
               </div>     
@@ -167,7 +168,7 @@
             <div class="form-check m-0"><small>A14</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A14" name="A14" value="A14">
+                    <input type="checkbox" class="custom-control-input" id="A14" name="seats" value="A14">
                     <label class="custom-control-label" for="A14"></label>
                   </div>
               </div>     
@@ -176,7 +177,7 @@
             <div class="form-check m-0"><small>A15</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A15" name="A15" value="A15">
+                    <input type="checkbox" class="custom-control-input" id="A15" name="seats" value="A15">
                     <label class="custom-control-label" for="A15"></label>
                   </div>
               </div>           
@@ -193,7 +194,7 @@
             <div class="form-check m-0"><small>B1</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B1" name="B1" value="B1">
+                    <input type="checkbox" class="custom-control-input" id="B1" name="seats" value="B1">
                     <label class="custom-control-label" for="B1"></label>
                   </div>
               </div>
@@ -202,7 +203,7 @@
             <div class="form-check m-0"><small>B2</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B2" name="B2" value="B2">
+                    <input type="checkbox" class="custom-control-input" id="B2" name="seats" value="B2">
                     <label class="custom-control-label" for="B2"></label>
                   </div>
               </div>
@@ -211,7 +212,7 @@
             <div class="form-check m-0"><small>B3</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B3" name="B3" value="B3">
+                    <input type="checkbox" class="custom-control-input" id="B3" name="seats" value="B3">
                     <label class="custom-control-label" for="B3"></label>
                   </div>
               </div>
@@ -220,7 +221,7 @@
             <div class="form-check m-0"><small>B4</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B4" name="B4" value="B4">
+                    <input type="checkbox" class="custom-control-input" id="B4" name="seats" value="B4">
                     <label class="custom-control-label" for="B4"></label>
                   </div>
               </div>
@@ -229,7 +230,7 @@
             <div class="form-check m-0"><small>B5</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B5" name="B5" value="B5">
+                    <input type="checkbox" class="custom-control-input" id="B5" name="seats" value="B5">
                     <label class="custom-control-label" for="B5"></label>
                   </div>
               </div>
@@ -238,7 +239,7 @@
             <div class="form-check m-0"><small>B6</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B6" name="B6" value="B6">
+                    <input type="checkbox" class="custom-control-input" id="B6" name="seats" value="B6">
                     <label class="custom-control-label" for="B6"></label>
                   </div>
               </div>
@@ -247,7 +248,7 @@
             <div class="form-check m-0"><small>B7</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B7" name="B7" value="B7">
+                    <input type="checkbox" class="custom-control-input" id="B7" name="seats" value="B7">
                     <label class="custom-control-label" for="B7"></label>
                   </div>
               </div>     
@@ -256,7 +257,7 @@
             <div class="form-check m-0"><small>B8</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B8" name="B8" value="B8">
+                    <input type="checkbox" class="custom-control-input" id="B8" name="seats"  value="B8">
                     <label class="custom-control-label" for="B8"></label>
                   </div>
               </div>      
@@ -265,7 +266,7 @@
             <div class="form-check m-0"><small>B9</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B9" name="B9" value="B9">
+                    <input type="checkbox" class="custom-control-input" id="B9" name="seats"  value="B9">
                     <label class="custom-control-label" for="B9"></label>
                   </div>
               </div>    
@@ -274,7 +275,7 @@
             <div class="form-check m-0"><small>B10</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B10" name="B10" value="B10">
+                    <input type="checkbox" class="custom-control-input" id="B10" name="seats"  value="B10">
                     <label class="custom-control-label" for="B10"></label>
                   </div>
               </div> 
@@ -283,7 +284,7 @@
             <div class="form-check m-0"><small>B11</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B11" name="B11" value="B11">
+                    <input type="checkbox" class="custom-control-input" id="B11" name="seats"  value="B11">
                     <label class="custom-control-label" for="B11"></label>
                   </div>
               </div>     
@@ -292,7 +293,7 @@
             <div class="form-check m-0"><small>B12</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B12" name="B12" value="B12">
+                    <input type="checkbox" class="custom-control-input" id="B12" name="seats"  value="B12">
                     <label class="custom-control-label" for="B12"></label>
                   </div>
               </div>
@@ -301,7 +302,7 @@
             <div class="form-check m-0"><small>B13</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B13" name="B13" value="B13">
+                    <input type="checkbox" class="custom-control-input" id="B13" name="seats"  value="B13">
                     <label class="custom-control-label" for="B13"></label>
                   </div>
               </div>     
@@ -310,7 +311,7 @@
             <div class="form-check m-0"><small>B14</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B14" name="B14" value="B14">
+                    <input type="checkbox" class="custom-control-input" id="B14" name="seats"  value="B14">
                     <label class="custom-control-label" for="B14"></label>
                   </div>
               </div>     
@@ -319,7 +320,7 @@
             <div class="form-check m-0"><small>B15</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B15" name="B15" value="B15">
+                    <input type="checkbox" class="custom-control-input" id="B15" name="seats"  value="B15">
                     <label class="custom-control-label" for="B15"></label>
                   </div>
               </div>           
@@ -336,7 +337,7 @@
             <div class="form-check m-0"><small>C1</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C1" name="C1" value="C1">
+                    <input type="checkbox" class="custom-control-input" id="C1" name="seats"  value="C1">
                     <label class="custom-control-label" for="C1"></label>
                   </div>
               </div>
@@ -345,7 +346,7 @@
             <div class="form-check m-0"><small>C2</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C2" name="C2" value="C2">
+                    <input type="checkbox" class="custom-control-input" id="C2" name="seats" value="C2">
                     <label class="custom-control-label" for="C2"></label>
                   </div>
               </div>
@@ -354,7 +355,7 @@
             <div class="form-check m-0"><small>C3</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C3" name="C3" value="C3">
+                    <input type="checkbox" class="custom-control-input" id="C3" name="seats" value="C3">
                     <label class="custom-control-label" for="C3"></label>
                   </div>
               </div>
@@ -363,7 +364,7 @@
             <div class="form-check m-0"><small>C4</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C4" name="C4" value="C4">
+                    <input type="checkbox" class="custom-control-input" id="C4" name="seats" value="C4">
                     <label class="custom-control-label" for="C4"></label>
                   </div>
               </div>
@@ -372,7 +373,7 @@
             <div class="form-check m-0"><small>C5</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C5" name="C5" value="C5">
+                    <input type="checkbox" class="custom-control-input" id="C5" name="seats" value="C5">
                     <label class="custom-control-label" for="C5"></label>
                   </div>
               </div>
@@ -381,7 +382,7 @@
             <div class="form-check m-0"><small>C6</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C6" name="C6" value="C6">
+                    <input type="checkbox" class="custom-control-input" id="C6" name="seats" value="C6">
                     <label class="custom-control-label" for="C6"></label>
                   </div>
               </div>
@@ -390,7 +391,7 @@
             <div class="form-check m-0"><small>C7</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C7" name="C7" value="C7">
+                    <input type="checkbox" class="custom-control-input" id="C7" name="seats" value="C7">
                     <label class="custom-control-label" for="C7"></label>
                   </div>
               </div>     
@@ -399,7 +400,7 @@
             <div class="form-check m-0"><small>C8</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C8" name="C8" value="C8">
+                    <input type="checkbox" class="custom-control-input" id="C8" name="seats" value="C8">
                     <label class="custom-control-label" for="C8"></label>
                   </div>
               </div>      
@@ -408,7 +409,7 @@
             <div class="form-check m-0"><small>C9</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C9" name="C9" value="C9">
+                    <input type="checkbox" class="custom-control-input" id="C9" name="seats" value="C9">
                     <label class="custom-control-label" for="C9"></label>
                   </div>
               </div>    
@@ -417,7 +418,7 @@
             <div class="form-check m-0"><small>C10</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C10" name="C10" value="C10">
+                    <input type="checkbox" class="custom-control-input" id="C10" name="seats" value="C10">
                     <label class="custom-control-label" for="C10"></label>
                   </div>
               </div> 
@@ -426,7 +427,7 @@
             <div class="form-check m-0"><small>C11</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C11" name="C11" value="C11">
+                    <input type="checkbox" class="custom-control-input" id="C11" name="seats" value="C11">
                     <label class="custom-control-label" for="C11"></label>
                   </div>
               </div>     
@@ -435,7 +436,7 @@
             <div class="form-check m-0"><small>C12</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C12" name="C12" value="C12">
+                    <input type="checkbox" class="custom-control-input" id="C12" name="seats" value="C12">
                     <label class="custom-control-label" for="C12"></label>
                   </div>
               </div>
@@ -444,7 +445,7 @@
             <div class="form-check m-0"><small>C13</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C13" name="C13" value="C13">
+                    <input type="checkbox" class="custom-control-input" id="C13" name="seats" value="C13">
                     <label class="custom-control-label" for="C13"></label>
                   </div>
               </div>     
@@ -453,7 +454,7 @@
             <div class="form-check m-0"><small>C14</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C14" name="C14" value="C14">
+                    <input type="checkbox" class="custom-control-input" id="C14" name="seats "value="C14">
                     <label class="custom-control-label" for="C14"></label>
                   </div>
               </div>     
@@ -462,7 +463,7 @@
             <div class="form-check m-0"><small>C15</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C15" name="C15" value="C15">
+                    <input type="checkbox" class="custom-control-input" id="C15" name="seats" value="C15">
                     <label class="custom-control-label" for="C15"></label>
                   </div>
               </div>           
@@ -479,7 +480,7 @@
             <div class="form-check m-0"><small>D1</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D1" name="D1" value="D1">
+                    <input type="checkbox" class="custom-control-input" id="D1" name="seats" value="D1">
                     <label class="custom-control-label" for="D1"></label>
                   </div>
               </div>
@@ -488,7 +489,7 @@
             <div class="form-check m-0"><small>D2</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D2" name="D2" value="D2">
+                    <input type="checkbox" class="custom-control-input" id="D2" name="seats" value="D2">
                     <label class="custom-control-label" for="D2"></label>
                   </div>
               </div>
@@ -497,7 +498,7 @@
             <div class="form-check m-0"><small>D3</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D3" name="D3" value="D3">
+                    <input type="checkbox" class="custom-control-input" id="D3" name="seats" value="D3">
                     <label class="custom-control-label" for="D3"></label>
                   </div>
               </div>
@@ -506,7 +507,7 @@
             <div class="form-check m-0"><small>D4</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D4" name="D4" value="D4">
+                    <input type="checkbox" class="custom-control-input" id="D4" name="seats" value="D4">
                     <label class="custom-control-label" for="D4"></label>
                   </div>
               </div>
@@ -515,7 +516,7 @@
             <div class="form-check m-0"><small>D5</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D5" name="D5" value="D5">
+                    <input type="checkbox" class="custom-control-input" id="D5" name="seats" value="D5">
                     <label class="custom-control-label" for="D5"></label>
                   </div>
               </div>
@@ -524,7 +525,7 @@
             <div class="form-check m-0"><small>D6</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D6" name="D6" value="D6">
+                    <input type="checkbox" class="custom-control-input" id="D6" name="seats" value="D6">
                     <label class="custom-control-label" for="D6"></label>
                   </div>
               </div>
@@ -533,7 +534,7 @@
             <div class="form-check m-0"><small>D7</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D7" name="D7" value="D7">
+                    <input type="checkbox" class="custom-control-input" id="D7" name="seats" value="D7">
                     <label class="custom-control-label" for="D7"></label>
                   </div>
               </div>     
@@ -542,7 +543,7 @@
             <div class="form-check m-0"><small>D8</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D8" name="D8" value="D8">
+                    <input type="checkbox" class="custom-control-input" id="D8" name="seats" value="D8">
                     <label class="custom-control-label" for="D8"></label>
                   </div>
               </div>      
@@ -551,7 +552,7 @@
             <div class="form-check m-0"><small>D9</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D9" name="D9" value="D9">
+                    <input type="checkbox" class="custom-control-input" id="D9" name="seats" value="D9">
                     <label class="custom-control-label" for="D9"></label>
                   </div>
               </div>    
@@ -560,7 +561,7 @@
             <div class="form-check m-0"><small>D10</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D10" name="D10" value="D10">
+                    <input type="checkbox" class="custom-control-input" id="D10" name="seats" value="D10">
                     <label class="custom-control-label" for="D10"></label>
                   </div>
               </div> 
@@ -569,7 +570,7 @@
             <div class="form-check m-0"><small>D11</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D11" name="D11" value="D11">
+                    <input type="checkbox" class="custom-control-input" id="D11" name="seats" value="D11">
                     <label class="custom-control-label" for="D11"></label>
                   </div>
               </div>     
@@ -578,7 +579,7 @@
             <div class="form-check m-0"><small>D12</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D12" name="D12" value="D12">
+                    <input type="checkbox" class="custom-control-input" id="D12" name="seats" value="D12">
                     <label class="custom-control-label" for="D12"></label>
                   </div>
               </div>
@@ -587,7 +588,7 @@
             <div class="form-check m-0"><small>D13</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D13" name="D13" value="D13">
+                    <input type="checkbox" class="custom-control-input" id="D13" name="seats" value="D13">
                     <label class="custom-control-label" for="D13"></label>
                   </div>
               </div>     
@@ -596,7 +597,7 @@
             <div class="form-check m-0"><small>D14</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D14" name="D14" value="D14">
+                    <input type="checkbox" class="custom-control-input" id="D14" name="seats" value="D14">
                     <label class="custom-control-label" for="D14"></label>
                   </div>
               </div>     
@@ -605,7 +606,7 @@
             <div class="form-check m-0"><small>D15</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D15" name="D15" value="D15">
+                    <input type="checkbox" class="custom-control-input" id="D15" name="seats" value="D15">
                     <label class="custom-control-label" for="D15"></label>
                   </div>
               </div>           
@@ -622,7 +623,7 @@
             <div class="form-check m-0"><small>E1</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E1" name="E1" value="E1">
+                    <input type="checkbox" class="custom-control-input" id="E1" name="seats" value="E1">
                     <label class="custom-control-label" for="E1"></label>
                   </div>
               </div>
@@ -631,7 +632,7 @@
             <div class="form-check m-0"><small>E2</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E2" name="E2" value="E2">
+                    <input type="checkbox" class="custom-control-input" id="E2" name="seats" value="E2">
                     <label class="custom-control-label" for="E2"></label>
                   </div>
               </div>
@@ -640,7 +641,7 @@
             <div class="form-check m-0"><small>E3</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E3" name="E3" value="E3">
+                    <input type="checkbox" class="custom-control-input" id="E3" name="seats" value="E3">
                     <label class="custom-control-label" for="E3"></label>
                   </div>
               </div>
@@ -649,7 +650,7 @@
             <div class="form-check m-0"><small>E4</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E4" name="E4" value="E4">
+                    <input type="checkbox" class="custom-control-input" id="E4" name="seats" value="E4">
                     <label class="custom-control-label" for="E4"></label>
                   </div>
               </div>
@@ -658,7 +659,7 @@
             <div class="form-check m-0"><small>E5</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E5" name="E5" value="E5">
+                    <input type="checkbox" class="custom-control-input" id="E5" name="seats" value="E5">
                     <label class="custom-control-label" for="E5"></label>
                   </div>
               </div>
@@ -667,7 +668,7 @@
             <div class="form-check m-0"><small>E6</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E6" name="E6" value="E6">
+                    <input type="checkbox" class="custom-control-input" id="E6" name="seats" value="E6">
                     <label class="custom-control-label" for="E6"></label>
                   </div>
               </div>
@@ -676,7 +677,7 @@
             <div class="form-check m-0"><small>E7</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E7" name="E7" value="E7">
+                    <input type="checkbox" class="custom-control-input" id="E7" name="seats" value="E7">
                     <label class="custom-control-label" for="E7"></label>
                   </div>
               </div>     
@@ -685,7 +686,7 @@
             <div class="form-check m-0"><small>E8</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E8" name="E8" value="E8">
+                    <input type="checkbox" class="custom-control-input" id="E8" name="seats" value="E8">
                     <label class="custom-control-label" for="E8"></label>
                   </div>
               </div>      
@@ -694,7 +695,7 @@
             <div class="form-check m-0"><small>E9</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E9" name="E9" value="E9">
+                    <input type="checkbox" class="custom-control-input" id="E9" name="seats" value="E9">
                     <label class="custom-control-label" for="E9"></label>
                   </div>
               </div>    
@@ -703,7 +704,7 @@
             <div class="form-check m-0"><small>E10</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E10" name="E10" value="E10">
+                    <input type="checkbox" class="custom-control-input" id="E10" name="seats" value="E10">
                     <label class="custom-control-label" for="E10"></label>
                   </div>
               </div> 
@@ -712,7 +713,7 @@
             <div class="form-check m-0"><small>E11</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E11" name="E11" value="E11">
+                    <input type="checkbox" class="custom-control-input" id="E11" name="seats" value="E11">
                     <label class="custom-control-label" for="E11"></label>
                   </div>
               </div>     
@@ -721,7 +722,7 @@
             <div class="form-check m-0"><small>E12</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E12" name="E12" value="E12">
+                    <input type="checkbox" class="custom-control-input" id="E12" name="seats" value="E12">
                     <label class="custom-control-label" for="E12"></label>
                   </div>
               </div>
@@ -730,7 +731,7 @@
             <div class="form-check m-0"><small>E13</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E13" name="E13" value="E13">
+                    <input type="checkbox" class="custom-control-input" id="E13" name="seats" value="E13">
                     <label class="custom-control-label" for="E13"></label>
                   </div>
               </div>     
@@ -739,7 +740,7 @@
             <div class="form-check m-0"><small>E14</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E14" name="E14" value="E14">
+                    <input type="checkbox" class="custom-control-input" id="E14" name="seats" value="E14">
                     <label class="custom-control-label" for="E14"></label>
                   </div>
               </div>     
@@ -748,7 +749,7 @@
             <div class="form-check m-0"><small>E15</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E15" name="E15" value="E15">
+                    <input type="checkbox" class="custom-control-input" id="E15" name="seats" value="E15">
                     <label class="custom-control-label" for="E15"></label>
                   </div>
               </div>           
@@ -765,7 +766,7 @@
             <div class="form-check m-0"><small>F1</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F1" name="F1" value="F1">
+                    <input type="checkbox" class="custom-control-input" id="F1" name="seats" value="F1">
                     <label class="custom-control-label" for="F1"></label>
                   </div>
               </div>
@@ -774,7 +775,7 @@
             <div class="form-check m-0"><small>F2</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F2" name="F2" value="F2">
+                    <input type="checkbox" class="custom-control-input" id="F2" name="seats" value="F2">
                     <label class="custom-control-label" for="F2"></label>
                   </div>
               </div>
@@ -783,7 +784,7 @@
             <div class="form-check m-0"><small>F3</small>&nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F3" name="F3" value="F3">
+                    <input type="checkbox" class="custom-control-input" id="F3" name="seats" value="F3">
                     <label class="custom-control-label" for="F3"></label>
                   </div>
               </div>
@@ -792,7 +793,7 @@
             <div class="form-check m-0"><small>F4</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F4" name="F4" value="F4">
+                    <input type="checkbox" class="custom-control-input" id="F4" name="seats" value="F4">
                     <label class="custom-control-label" for="F4"></label>
                   </div>
               </div>
@@ -801,7 +802,7 @@
             <div class="form-check m-0"><small>F5</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F5" name="F5" value="F5">
+                    <input type="checkbox" class="custom-control-input" id="F5" name="seats" value="F5">
                     <label class="custom-control-label" for="F5"></label>
                   </div>
               </div>
@@ -810,7 +811,7 @@
             <div class="form-check m-0"><small>F6</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F6" name="F6" value="F6">
+                    <input type="checkbox" class="custom-control-input" id="F6" name="seats" value="F6">
                     <label class="custom-control-label" for="F6"></label>
                   </div>
               </div>
@@ -819,7 +820,7 @@
             <div class="form-check m-0"><small>F7</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F7" name="F7" value="F7">
+                    <input type="checkbox" class="custom-control-input" id="F7" name="seats" value="F7">
                     <label class="custom-control-label" for="F7"></label>
                   </div>
               </div>     
@@ -828,7 +829,7 @@
             <div class="form-check m-0"><small>F8</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F8" name="F8" value="F8">
+                    <input type="checkbox" class="custom-control-input" id="F8" name="seats" value="F8">
                     <label class="custom-control-label" for="F8"></label>
                   </div>
               </div>      
@@ -837,7 +838,7 @@
             <div class="form-check m-0"><small>F9</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F9" name="F9" value="F9">
+                    <input type="checkbox" class="custom-control-input" id="F9" name="seats" value="F9">
                     <label class="custom-control-label" for="F9"></label>
                   </div>
               </div>    
@@ -846,7 +847,7 @@
             <div class="form-check m-0"><small>F10</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F10" name="F10" value="F10">
+                    <input type="checkbox" class="custom-control-input" id="F10" name="seats" value="F10">
                     <label class="custom-control-label" for="F10"></label>
                   </div>
               </div> 
@@ -855,7 +856,7 @@
             <div class="form-check m-0"><small>F11</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F11" name="F11" value="F11">
+                    <input type="checkbox" class="custom-control-input" id="F11" name="seats" value="F11">
                     <label class="custom-control-label" for="F11"></label>
                   </div>
               </div>     
@@ -864,7 +865,7 @@
             <div class="form-check m-0"><small>F12</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F12" name="F12" value="F12">
+                    <input type="checkbox" class="custom-control-input" id="F12" name="seats" value="F12">
                     <label class="custom-control-label" for="F12"></label>
                   </div>
               </div>
@@ -873,7 +874,7 @@
             <div class="form-check m-0"><small>F13</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F13" name="F13" value="F13">
+                    <input type="checkbox" class="custom-control-input" id="F13" name="seats" value="F13">
                     <label class="custom-control-label" for="F13"></label>
                   </div>
               </div>     
@@ -882,7 +883,7 @@
             <div class="form-check m-0"><small>F14</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F14" name="F14" value="F14">
+                    <input type="checkbox" class="custom-control-input" id="F14" name="seats" value="F14">
                     <label class="custom-control-label" for="F14"></label>
                   </div>
               </div>     
@@ -891,7 +892,7 @@
             <div class="form-check m-0"><small>F15</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F15" name="F15" value="F15">
+                    <input type="checkbox" class="custom-control-input" id="F15" name="seats" value="F15">
                     <label class="custom-control-label" for="F15"></label>
                   </div>
               </div>           
@@ -908,7 +909,7 @@
             <div class="form-check m-0"><small>G1</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G1" name="G1" value="G1">
+                    <input type="checkbox" class="custom-control-input" id="G1" name="seats" value="G1">
                     <label class="custom-control-label" for="G1"></label>
                   </div>
               </div>
@@ -917,7 +918,7 @@
             <div class="form-check m-0"><small>G2</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G2" name="G2" value="G2">
+                    <input type="checkbox" class="custom-control-input" id="G2" name="seats" value="G2">
                     <label class="custom-control-label" for="G2"></label>
                   </div>
               </div>
@@ -926,7 +927,7 @@
             <div class="form-check m-0"><small>G3</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G3" name="G3" value="G3">
+                    <input type="checkbox" class="custom-control-input" id="G3" name="seats" value="G3">
                     <label class="custom-control-label" for="G3"></label>
                   </div>
               </div>
@@ -935,7 +936,7 @@
             <div class="form-check m-0"><small>G4</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G4" name="G4" value="G4">
+                    <input type="checkbox" class="custom-control-input" id="G4" name="seats" value="G4">
                     <label class="custom-control-label" for="G4"></label>
                   </div>
               </div>
@@ -944,7 +945,7 @@
             <div class="form-check m-0"><small>G5</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G5" name="G5" value="G5">
+                    <input type="checkbox" class="custom-control-input" id="G5" name="seats" value="G5">
                     <label class="custom-control-label" for="G5"></label>
                   </div>
               </div>
@@ -953,7 +954,7 @@
             <div class="form-check m-0"><small>G6</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G6" name="G6" value="G6">
+                    <input type="checkbox" class="custom-control-input" id="G6" name="seats" value="G6">
                     <label class="custom-control-label" for="G6"></label>
                   </div>
               </div>
@@ -962,7 +963,7 @@
             <div class="form-check m-0"><small>G7</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G7" name="G7" value="G7">
+                    <input type="checkbox" class="custom-control-input" id="G7" name="seats" value="G7">
                     <label class="custom-control-label" for="G7"></label>
                   </div>
               </div>     
@@ -971,7 +972,7 @@
             <div class="form-check m-0"><small>G8</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G8" name="G8" value="G8">
+                    <input type="checkbox" class="custom-control-input" id="G8" name="seats" value="G8">
                     <label class="custom-control-label" for="G8"></label>
                   </div>
               </div>      
@@ -980,7 +981,7 @@
             <div class="form-check m-0"><small>G9</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G9" name="G9" value="G9">
+                    <input type="checkbox" class="custom-control-input" id="G9" name="seats" value="G9">
                     <label class="custom-control-label" for="G9"></label>
                   </div>
               </div>    
@@ -989,7 +990,7 @@
             <div class="form-check m-0"><small>G10</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G10" name="G10" value="G10">
+                    <input type="checkbox" class="custom-control-input" id="G10" name="seats" value="G10">
                     <label class="custom-control-label" for="G10"></label>
                   </div>
               </div> 
@@ -998,7 +999,7 @@
             <div class="form-check m-0"><small>G11</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G11" name="G11" value="G11">
+                    <input type="checkbox" class="custom-control-input" id="G11" name="seats" value="G11">
                     <label class="custom-control-label" for="G11"></label>
                   </div>
               </div>     
@@ -1007,7 +1008,7 @@
             <div class="form-check m-0"><small>G12</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G12" name="G12" value="G12">
+                    <input type="checkbox" class="custom-control-input" id="G12" name="seats" value="G12">
                     <label class="custom-control-label" for="G12"></label>
                   </div>
               </div>
@@ -1016,7 +1017,7 @@
             <div class="form-check m-0"><small>G13</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G13" name="G13" value="G13">
+                    <input type="checkbox" class="custom-control-input" id="G13" name="seats" value="G13">
                     <label class="custom-control-label" for="G13"></label>
                   </div>
               </div>     
@@ -1025,7 +1026,7 @@
             <div class="form-check m-0"><small>G14</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G14" name="G14" value="G14">
+                    <input type="checkbox" class="custom-control-input" id="G14" name="seats" value="G14">
                     <label class="custom-control-label" for="G14"></label>
                   </div>
               </div>     
@@ -1034,7 +1035,7 @@
             <div class="form-check m-0"><small>G15</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G15" name="G15" value="G15">
+                    <input type="checkbox" class="custom-control-input" id="G15" name="seats" value="G15">
                     <label class="custom-control-label" for="G15"></label>
                   </div>
               </div>           
@@ -1051,7 +1052,7 @@
             <div class="form-check m-0"><small>H1</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H1" name="H1" value="H1">
+                    <input type="checkbox" class="custom-control-input" id="H1" name="seats" value="H1">
                     <label class="custom-control-label" for="H1"></label>
                   </div>
               </div>
@@ -1060,7 +1061,7 @@
             <div class="form-check m-0"><small>H2</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H2" name="H2" value="H2">
+                    <input type="checkbox" class="custom-control-input" id="H2" name="seats" value="H2">
                     <label class="custom-control-label" for="H2"></label>
                   </div>
               </div>
@@ -1069,7 +1070,7 @@
             <div class="form-check m-0"><small>H3</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H3" name="H3" value="H3">
+                    <input type="checkbox" class="custom-control-input" id="H3" name="seats" value="H3">
                     <label class="custom-control-label" for="H3"></label>
                   </div>
               </div>
@@ -1078,7 +1079,7 @@
             <div class="form-check m-0"><small>H4</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H4" name="H4" value="H4">
+                    <input type="checkbox" class="custom-control-input" id="H4" name="seats" value="H4">
                     <label class="custom-control-label" for="H4"></label>
                   </div>
               </div>
@@ -1087,7 +1088,7 @@
             <div class="form-check m-0"><small>H5</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H5" name="H5" value="H5">
+                    <input type="checkbox" class="custom-control-input" id="H5" name="seats" value="H5">
                     <label class="custom-control-label" for="H5"></label>
                   </div>
               </div>
@@ -1096,7 +1097,7 @@
             <div class="form-check m-0"><small>H6</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H6" name="H6" value="H6">
+                    <input type="checkbox" class="custom-control-input" id="H6" name="seats" value="H6">
                     <label class="custom-control-label" for="H6"></label>
                   </div>
               </div>
@@ -1105,7 +1106,7 @@
             <div class="form-check m-0"><small>H7</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H7" name="H7" value="H7">
+                    <input type="checkbox" class="custom-control-input" id="H7" name="seats" value="H7">
                     <label class="custom-control-label" for="H7"></label>
                   </div>
               </div>     
@@ -1114,7 +1115,7 @@
             <div class="form-check m-0"><small>H8</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H8" name="H8" value="H8">
+                    <input type="checkbox" class="custom-control-input" id="H8" name="seats" value="H8">
                     <label class="custom-control-label" for="H8"></label>
                   </div>
               </div>      
@@ -1123,7 +1124,7 @@
             <div class="form-check m-0"><small>H9</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H9" name="H9" value="H9">
+                    <input type="checkbox" class="custom-control-input" id="H9" name="seats" value="H9">
                     <label class="custom-control-label" for="H9"></label>
                   </div>
               </div>    
@@ -1132,7 +1133,7 @@
             <div class="form-check m-0"><small>H10</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H10" name="H10" value="H10">
+                    <input type="checkbox" class="custom-control-input" id="H10" name="seats" value="H10">
                     <label class="custom-control-label" for="H10"></label>
                   </div>
               </div> 
@@ -1141,7 +1142,7 @@
             <div class="form-check m-0"><small>H11</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H11" name="H11" value="H11">
+                    <input type="checkbox" class="custom-control-input" id="H11" name="seats" value="H11">
                     <label class="custom-control-label" for="H11"></label>
                   </div>
               </div>     
@@ -1150,7 +1151,7 @@
             <div class="form-check m-0"><small>H12</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H12" name="H12" value="H12">
+                    <input type="checkbox" class="custom-control-input" id="H12" name="seats" value="H12">
                     <label class="custom-control-label" for="H12"></label>
                   </div>
               </div>
@@ -1159,7 +1160,7 @@
             <div class="form-check m-0"><small>H13</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H13" name="H13" value="H13">
+                    <input type="checkbox" class="custom-control-input" id="H13" name="seats" value="H13">
                     <label class="custom-control-label" for="H13"></label>
                   </div>
               </div>     
@@ -1168,7 +1169,7 @@
             <div class="form-check m-0"><small>H14</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H14" name="H14" value="H14">
+                    <input type="checkbox" class="custom-control-input" id="H14" name="seats" value="H14">
                     <label class="custom-control-label" for="H14"></label>
                   </div>
               </div>     
@@ -1177,7 +1178,7 @@
             <div class="form-check m-0"><small>H15</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H15" name="H15" value="H15">
+                    <input type="checkbox" class="custom-control-input" id="H15" name="seats" value="H15">
                     <label class="custom-control-label" for="H15"></label>
                   </div>
               </div>           
@@ -1194,7 +1195,7 @@
             <div class="form-check m-0"><small>I1</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I1" name="I1" value="I1">
+                    <input type="checkbox" class="custom-control-input" id="I1" name="seats" value="I1">
                     <label class="custom-control-label" for="I1"></label>
                   </div>
               </div>
@@ -1203,7 +1204,7 @@
             <div class="form-check m-0"><small>I2</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I2" name="I2" value="I2">
+                    <input type="checkbox" class="custom-control-input" id="I2" name="seats" value="I2">
                     <label class="custom-control-label" for="I2"></label>
                   </div>
               </div>
@@ -1212,7 +1213,7 @@
             <div class="form-check m-0"><small>I3</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I3" name="I3" value="I3">
+                    <input type="checkbox" class="custom-control-input" id="I3" name="seats" value="I3">
                     <label class="custom-control-label" for="I3"></label>
                   </div>
               </div>
@@ -1221,7 +1222,7 @@
             <div class="form-check m-0"><small>I4</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I4" name="I4" value="I4">
+                    <input type="checkbox" class="custom-control-input" id="I4" name="seats" value="I4">
                     <label class="custom-control-label" for="I4"></label>
                   </div>
               </div>
@@ -1230,7 +1231,7 @@
             <div class="form-check m-0"><small>I5</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I5" name="I5" value="I5">
+                    <input type="checkbox" class="custom-control-input" id="I5" name="seats" value="I5">
                     <label class="custom-control-label" for="I5"></label>
                   </div>
               </div>
@@ -1239,7 +1240,7 @@
             <div class="form-check m-0"><small>I6</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I6" name="I6" value="I6">
+                    <input type="checkbox" class="custom-control-input" id="I6" name="seats" value="I6">
                     <label class="custom-control-label" for="I6"></label>
                   </div>
               </div>
@@ -1248,7 +1249,7 @@
             <div class="form-check m-0"><small>I7</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I7" name="I7" value="I7">
+                    <input type="checkbox" class="custom-control-input" id="I7" name="seats" value="I7">
                     <label class="custom-control-label" for="I7"></label>
                   </div>
               </div>     
@@ -1257,7 +1258,7 @@
             <div class="form-check m-0"><small>I8</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I8" name="I8" value="I8">
+                    <input type="checkbox" class="custom-control-input" id="I8" name="seats" value="I8">
                     <label class="custom-control-label" for="I8"></label>
                   </div>
               </div>      
@@ -1266,7 +1267,7 @@
             <div class="form-check m-0"><small>I9</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I9" name="I9" value="I9">
+                    <input type="checkbox" class="custom-control-input" id="I9" name="seats" value="I9">
                     <label class="custom-control-label" for="I9"></label>
                   </div>
               </div>    
@@ -1275,7 +1276,7 @@
             <div class="form-check m-0"><small>I10</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I10" name="I10" value="I10">
+                    <input type="checkbox" class="custom-control-input" id="I10" name="seats" value="I10">
                     <label class="custom-control-label" for="I10"></label>
                   </div>
               </div> 
@@ -1284,7 +1285,7 @@
             <div class="form-check m-0"><small>I11</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I11" name="I11" value="I11">
+                    <input type="checkbox" class="custom-control-input" id="I11" name="seats" value="I11">
                     <label class="custom-control-label" for="I11"></label>
                   </div>
               </div>     
@@ -1293,7 +1294,7 @@
             <div class="form-check m-0"><small>I12</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I12" name="I12" value="I12">
+                    <input type="checkbox" class="custom-control-input" id="I12" name="seats" value="I12">
                     <label class="custom-control-label" for="I12"></label>
                   </div>
               </div>
@@ -1302,7 +1303,7 @@
             <div class="form-check m-0"><small>I13</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I13" name="I13" value="I13">
+                    <input type="checkbox" class="custom-control-input" id="I13" name="seats" value="I13">
                     <label class="custom-control-label" for="I13"></label>
                   </div>
               </div>     
@@ -1311,7 +1312,7 @@
             <div class="form-check m-0"><small>I14</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I14" name="I14" value="I14">
+                    <input type="checkbox" class="custom-control-input" id="I14" name="seats" value="I14">
                     <label class="custom-control-label" for="I14"></label>
                   </div>
               </div>     
@@ -1320,7 +1321,7 @@
             <div class="form-check m-0"><small>I15</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I15" name="I15" value="I15">
+                    <input type="checkbox" class="custom-control-input" id="I15" name="seats" value="I15">
                     <label class="custom-control-label" for="I15"></label>
                   </div>
               </div>           
@@ -1337,7 +1338,7 @@
             <div class="form-check m-0"><small>J1</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J1" name="J1" value="J1">
+                    <input type="checkbox" class="custom-control-input" id="J1" name="seats" value="J1">
                     <label class="custom-control-label" for="J1"></label>
                   </div>
               </div>
@@ -1346,7 +1347,7 @@
             <div class="form-check m-0"><small>J2</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J2" name="J2" value="J2">
+                    <input type="checkbox" class="custom-control-input" id="J2" name="seats" value="J2">
                     <label class="custom-control-label" for="J2"></label>
                   </div>
               </div>
@@ -1355,7 +1356,7 @@
             <div class="form-check m-0"><small>J3</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J3" name="J3" value="J3">
+                    <input type="checkbox" class="custom-control-input" id="J3" name="seats" value="J3">
                     <label class="custom-control-label" for="J3"></label>
                   </div>
               </div>
@@ -1364,7 +1365,7 @@
             <div class="form-check m-0"><small>J4</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J4" name="J4" value="J4">
+                    <input type="checkbox" class="custom-control-input" id="J4" name="seats" value="J4">
                     <label class="custom-control-label" for="J4"></label>
                   </div>
               </div>
@@ -1373,7 +1374,7 @@
             <div class="form-check m-0"><small>J5</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J5" name="J5" value="J5">
+                    <input type="checkbox" class="custom-control-input" id="J5" name="seats" value="J5">
                     <label class="custom-control-label" for="J5"></label>
                   </div>
               </div>
@@ -1382,7 +1383,7 @@
             <div class="form-check m-0"><small>J6</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J6" name="J6" value="J6">
+                    <input type="checkbox" class="custom-control-input" id="J6" name="seats" value="J6">
                     <label class="custom-control-label" for="J6"></label>
                   </div>
               </div>
@@ -1391,7 +1392,7 @@
             <div class="form-check m-0"><small>J7</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J7" name="J7" value="J7">
+                    <input type="checkbox" class="custom-control-input" id="J7" name="seats" value="J7">
                     <label class="custom-control-label" for="J7"></label>
                   </div>
               </div>     
@@ -1400,7 +1401,7 @@
             <div class="form-check m-0"><small>J8</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J8" name="J8" value="J8">
+                    <input type="checkbox" class="custom-control-input" id="J8" name="seats" value="J8">
                     <label class="custom-control-label" for="J8"></label>
                   </div>
               </div>      
@@ -1409,7 +1410,7 @@
             <div class="form-check m-0"><small>J9</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J9" name="J9" value="J9">
+                    <input type="checkbox" class="custom-control-input" id="J9" name="seats" value="J9">
                     <label class="custom-control-label" for="J9"></label>
                   </div>
               </div>    
@@ -1418,7 +1419,7 @@
             <div class="form-check m-0"><small>J10</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J10" name="J10" value="J10">
+                    <input type="checkbox" class="custom-control-input" id="J10" name="seats" value="J10">
                     <label class="custom-control-label" for="J10"></label>
                   </div>
               </div> 
@@ -1427,7 +1428,7 @@
             <div class="form-check m-0"><small>J11</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J11" name="J11" value="J11">
+                    <input type="checkbox" class="custom-control-input" id="J11" name="seats" value="J11">
                     <label class="custom-control-label" for="J11"></label>
                   </div>
               </div>     
@@ -1436,7 +1437,7 @@
             <div class="form-check m-0"><small>J12</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J12" name="J12" value="J12">
+                    <input type="checkbox" class="custom-control-input" id="J12" name="seats" value="J12">
                     <label class="custom-control-label" for="J12"></label>
                   </div>
               </div>
@@ -1445,7 +1446,7 @@
             <div class="form-check m-0"><small>J13</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J13" name="J13" value="J13">
+                    <input type="checkbox" class="custom-control-input" id="J13" name="seats" value="J13">
                     <label class="custom-control-label" for="J13"></label>
                   </div>
               </div>     
@@ -1454,7 +1455,7 @@
             <div class="form-check m-0"><small>J14</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J14" name="J14" value="J14">
+                    <input type="checkbox" class="custom-control-input" id="J14" name="seats" value="J14" disabled>
                     <label class="custom-control-label" for="J14"></label>
                   </div>
               </div>     
@@ -1463,7 +1464,7 @@
             <div class="form-check m-0"><small>J15</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J15" name="J15" value="J15">
+                    <input type="checkbox" class="custom-control-input" id="J15" name="seats" value="J15">
                     <label class="custom-control-label" for="J15"></label>
                   </div>
               </div>    
@@ -1474,8 +1475,22 @@
           </div>
           
           <!-- END OF J -->
+
+           <div class="form-check-inline m-0" style="color: #A239CA; font-weight:bold; padding-top: 50px;">
+
+            <div class="custom-control custom-checkbox mb-3"> 
+              <input type="checkbox" class="custom-control-input res" id="res" name="example1" disabled>
+              <label class="custom-control-label" for="res" style="color: black;"> Reserved</label>
+            </div>
+
+            <div class="custom-control custom-checkbox mb-3" style="padding-left: 50px;">
+              <input type="checkbox" class="custom-control-input avail" id="avail" name="example2" style="background-color: white" disabled>
+              <label class="custom-control-label" for="avail" style="color:black;">Available</label>
+            </div>
+
+            </div> 
  
-    <button type="submit" id={{post_url}} class="btn btn-custom reserve" style="margin-top: 50px; margin-bottom:40px;">Reserve</button>
+  <br>  <button type="submit" id="reserve" class="btn btn-custom reserve" style="margin-top: 50px; margin-bottom:40px;">Reserve</button>
 
 
     </form>

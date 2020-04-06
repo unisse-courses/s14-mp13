@@ -537,5 +537,13 @@ body {
 
  .custom-checkbox .custom-control-input:checked~.custom-control-label::after {
      background-color: #4717F6;
-     background-image: none;
  }
+
+ .custom-checkbox .custom-control-input.avail:disabled~.custom-control-label::after{
+    background-color: white;
+}
+
+.custom-checkbox .custom-control-input:disabled~.custom-control-label::after{
+    background-color: #4717F6;
+}
+

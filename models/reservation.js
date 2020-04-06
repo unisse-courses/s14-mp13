@@ -9,7 +9,6 @@ mongoose.connect(databaseURL, options);
 
 const ReservationSchema = new mongoose.Schema(
   {
-    reservationid: {type: String, required: true},
     reserved_seats: [{type: String, required: true}],
     screening: {type: mongoose.Schema.Types.ObjectId, ref: 'Screening', required: true},
     date_reserved: {type: Date, default: Date.now},
