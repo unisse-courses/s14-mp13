@@ -532,7 +532,7 @@ app.post('/addUser', function(req, res) {
       }
 
       // if user is found in the DB
-      else {
+      else if (user){
         console.log("User found");
 
         // Nested routes, so that all pages will have the user's data from the DB 
@@ -956,7 +956,13 @@ app.post('/addUser', function(req, res) {
           // The render function takes the template filename (no extension - that's what the config is for!)
           // and an object for what's needed in that template
           res.render('adminaccount', {
-            layout: 'main-admin-ready'
+            layout: 'main-admin-ready',
+            uname: user.uname,
+            fname: user.fname,
+            lname: user.lname,
+            mnum: user.mnum,
+            email: user.email
+
           })
         });
 

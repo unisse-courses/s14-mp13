@@ -13,9 +13,7 @@
     <li class="nav-item">
       <a id="aml"class="nav-link" data-toggle="tab" href="#adminMovieList">Movie List</a>
     </li>
-    <li class="nav-item">
-        <a id="aul"class="nav-link" data-toggle="tab" href="#adminUserList">User List</a>
-      </li>
+   
   </ul>
 
   <!-- Tab panes -->
@@ -141,7 +139,7 @@
 
             <div class="dashflex">
 
-                  <table class="dash table table-hover">
+                  <table class="dash table table-hover" id="screenings">
                     <thead>
                         <tr>
                             <th><h4><i class="material-icons" style="color: black; font-size: 15px;">date_range</i>
@@ -157,8 +155,11 @@
                             <small>{{timeslots1.[0]}}, {{timeslots1.[1]}}, 
                                 {{timeslots1.[2]}}, {{timeslots1.[3]}}</small></td>
                             <td><b style="text-transform: uppercase;">{{name1}}</b> <br>
-                                <small>Start date: {{date1start}}</small> <br>
-                                <small>End date: {{date1end}}</small> </td>
+                                <small>Start date: {{dates1.[0]}}</small> <br>
+                                <small>End date: {{dates1.[3]}}</small> </td>
+                            <td>
+                                <button class="btn btn-primary">Edit</button>
+                            </td>
                         </tr>
 
                         <tr>
@@ -166,8 +167,11 @@
                             <small>{{timeslots2.[0]}}, {{timeslots2.[1]}}, 
                                 {{timeslots2.[2]}}, {{timeslots2.[3]}}</small></td>
                             <td><b style="text-transform: uppercase;">{{name2}}</b> <br>
-                                <small>Start date: {{date2start}}</small> <br>
-                                <small>End date: {{date2end}}</small> </td>
+                                <small>Start date: {{dates2.[0]}}</small> <br>
+                                <small>End date: {{dates2.[3]}}</small> </td>
+                            <td>
+                                <button class="btn btn-primary">Edit</button>
+                            </td>
                         </tr>
 
                         <tr>
@@ -175,8 +179,12 @@
                             <small>{{timeslots3.[0]}}, {{timeslots3.[1]}}, 
                                 {{timeslots3.[2]}}, {{timeslots3.[3]}}</small></td>
                             <td><b style="text-transform: uppercase;">{{name3}}</b> <br>
-                                <small>Start date: {{date3start}}</small> <br>
-                                <small>End date: {{date3end}}</small></td>
+                                <small>Start date: {{dates3.[0]}}</small> <br>
+                                <small>End date: {{dates3.[3]}}</small></td>
+
+                            <td>
+                                <button class="btn btn-primary">Edit</button>
+                            </td>
                         </tr>
 
                         <tr>
@@ -184,8 +192,12 @@
                             <small>{{timeslots4.[0]}}, {{timeslots4.[1]}}, 
                                 {{timeslots4.[2]}}, {{timeslots4.[3]}}</small></td>
                             <td><b style="text-transform: uppercase;">{{name4}}</b> <br>
-                                <small>Start date: {{date4start}}</small> <br>
-                                <small>End date: {{date4end}}</small> </td>
+                                <small>Start date: {{dates4.[0]}}</small> <br>
+                                <small>End date: {{dates4.[3]}}</small> </td>
+
+                            <td>
+                                <button class="btn btn-primary">Edit</button>
+                            </td>
                         </tr>
 
                         <tr>
@@ -193,8 +205,12 @@
                             <small>{{timeslots5.[0]}}, {{timeslots5.[1]}}, 
                                 {{timeslots5.[2]}}, {{timeslots5.[3]}}</small></td>
                             <td><b style="text-transform: uppercase;">{{name5}}</b> <br>
-                                 <small>Start date: {{date5start}}</small> <br>
-                                <small>End date: {{date5end}}</small></td>
+                                 <small>Start date: {{dates5.[0]}}</small> <br>
+                                <small>End date: {{dates5.[3]}}</small></td>
+
+                            <td>
+                                <button class="btn btn-primary">Edit</button>
+                            </td>
                         </tr>
 
                         <tr>
@@ -202,8 +218,12 @@
                             <small>{{timeslots6.[0]}}, {{timeslots6.[1]}}, 
                                 {{timeslots6.[2]}}, {{timeslots6.[3]}}</small></td>
                             <td><b style="text-transform: uppercase;">{{name6}}</b> <br>
-                                <small>Start date: {{date6start}}</small> <br>
-                                <small>End date: {{date6end}}</small></td>
+                                <small>Start date: {{dates6.[0]}}</small> <br>
+                                <small>End date: {{dates6.[3]}}</small></td>
+
+                            <td>
+                                <button class="btn btn-primary">Edit</button>
+                            </td>
                         </tr>
 
                         <tr>
@@ -211,8 +231,12 @@
                             <small>{{timeslots7.[0]}}, {{timeslots7.[1]}}, 
                                 {{timeslots7.[2]}}, {{timeslots7.[3]}}</small></td>
                             <td><b style="text-transform: uppercase;">{{name7}}</b> <br>
-                                <small>Start date: {{date7start}}</small> <br>
-                                <small>End date: {{date7end}}</small></td>
+                                <small>Start date: {{dates7.[0]}}</small> <br>
+                                <small>End date: {{dates7.[3]}}</small></td>
+
+                            <td>
+                                <button class="btn btn-primary">Edit</button>
+                            </td>
                         </tr>
 
                         <tr>
@@ -220,14 +244,17 @@
                             <small>{{timeslots8.[0]}}, {{timeslots8.[1]}}, 
                                 {{timeslots8.[2]}}, {{timeslots8.[3]}}</small></td>
                             <td><b style="text-transform: uppercase;">{{name8}}</b> <br>
-                                 <small>Start date: {{date8start}}</small> <br>
-                                <small>End date: {{date8end}}</small></td>
+                                 <small>Start date: {{dates8.[0]}}</small> <br>
+                                <small>End date: {{dates8.[3]}}</small></td>
+                            <td>
+                                <button class="btn btn-primary">Edit</button>
+                            </td>
                         </tr>
                     </tbody>
 
                 </table >
 
-                <table class="dash table table-hover" id="reservations">
+                <table class="dash table table-hover"id="reservations">
                     <thead>
                         <tr>
                             <th><h4><i class="material-icons" style="color: #4717F6; font-size: 15px;">event_seat</i>
@@ -237,19 +264,15 @@
 
                     <tbody>
                         <tr>
-                            <td>None</td> 
-
+                            <td>None</td>
+                            <td style="padding-left: 300px;"></td>
                         </tr>
-                        
+
                     </tbody>
-                </table>
-
-              
+                </table>  
 
             </div>
             </div>
-
-  
 
         </div>
       
@@ -261,164 +284,180 @@
         <table class="table table-hover table-responsive">
             <thead>
               <tr>
-                <th>Date</th>
-                <th>Cinema Details</th>
+                <th>Movies</th>
                 <th>Movie Details</th>
+                <th>Schedule</th>
                 <th>Status</th>
               </tr>
             </thead>
            
             <tbody>
               <tr>
-                <td>MAY 19, 2019 10:30 PM</td>
-                <td>Cinema 2<br>
-                    Number of Seats: 70</td>
-                <td><b>JOHN WICK: CHAPTER 3-PARABELLUM</b><br>
-                    Genre:<br>
-                    Action, Suspense, Thriller</td>
+                <td><b style="text-transform: uppercase;">{{name1}}</b><br>
+                 <small>Rating: {{rating1}}</small>
+                 </td>
+                <td>{{shortdesc1}}</td>
+
+                <td>{{dates1.[0]}} - {{dates1.[4]}}<br>
+                   <small>
+                    {{timeslots1.[0]}} | {{timeslots1.[1]}} | {{timeslots1.[2]}} <br>
+                    {{timeslots1.[3]}}
+                    </small><br>
+                </td>
                 <td>
                     <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
                     <span>Published!</span><br>
                     <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">Remove</button>
+                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
               </tr>
 
-              <tr>
-                <td>May 29, 2019 10:30 PM</td>
-                <td>Cinema 7 <br>
-                    Number of Seats: 50</td>
-                <td><b>AVENGERS: ENDGAME</b><br>
-                    Genre:<br>
-                    Action, Adventure, Drama</td>
+                 <tr>
+                <td><b style="text-transform: uppercase;">{{name2}}</b><br>
+                 <small>Rating: {{rating2}}</small>
+                 </td>
+                <td>{{shortdesc2}}</td>
+
+                <td>{{dates2.[0]}} - {{dates2.[4]}}<br>
+                   <small>
+                    {{timeslots2.[0]}} | {{timeslots2.[1]}} | {{timeslots2.[2]}} | {{timeslots2.[3]}}
+                    </small><br>
+                </td>
                 <td>
                     <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
                     <span>Published!</span><br>
                     <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">Remove</button>
+                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;
                 </td>
               </tr>
 
-              <tr>
-                <td>JUNE 29, 2019 10:28 PM</td>
-                <td>Cinema 3 <br>
-                    Number of Seats: 30</td>
-                <td><b>SPIDER-MAN: FAR FROM HOME</b><br>
-                    Genre:<br>
-                    Action, Adventure, Comedy</td>
+                 <tr>
+                <td><b style="text-transform: uppercase;">{{name3}}</b><br>
+                 <small>Rating: {{rating3}}</small>
+                 </td>
+                <td>{{shortdesc3}}</td>
+
+                <td>{{dates3.[0]}} - {{dates3.[4]}}<br>
+                   <small>
+                    {{timeslots3.[0]}} | {{timeslots3.[1]}} | {{timeslots3.[2]}} <br>
+                    {{timeslots3.[3]}}
+                    </small><br>
+                </td>
                 <td>
                     <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
                     <span>Published!</span><br>
                     <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">Remove</button>
+                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;
                 </td>
               </tr>
 
-              <td>July 3, 2019 10:30 PM</td>
-                <td>Cinema 4<br>
-                    Number of Seats: 40</td>
-                <td><b>JOKER</b><br>
-                    Genre:<br>
-                    Action, Suspense, Thriller</td>
+                 <tr>
+                <td><b style="text-transform: uppercase;">{{name4}}</b><br>
+                 <small>Rating: {{rating4}}</small>
+                 </td>
+                <td>{{shortdesc4}}</td>
+
+                <td>{{dates4.[0]}} - {{dates4.[4]}}<br>
+                   <small>
+                    {{timeslots4.[0]}} | {{timeslots4.[1]}} | {{timeslots4.[2]}} <br>
+                    {{timeslots4.[3]}}
+                    </small><br>
+                </td>
                 <td>
                     <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
                     <span>Published!</span><br>
                     <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">Remove</button>
+                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;
                 </td>
               </tr>
 
-              <td>AUGUST 30, 2019 10:30 PM</td>
-                <td>Cinema 5<br>
-                    Number of Seats: 60</td>
-                <td><b>IT CHAPTER TWO</b><br>
-                    Genre:<br>
-                    Drama, Horror</td>
+                 <tr>
+                <td><b style="text-transform: uppercase;">{{name5}}</b><br>
+                 <small>Rating: {{rating5}}</small>
+                 </td>
+                <td>{{shortdesc5}}</td>
+
+                <td>{{dates5.[0]}} - {{dates5.[4]}}<br>
+                   <small>
+                    {{timeslots5.[0]}} | {{timeslots5.[1]}} | {{timeslots5.[2]}} <br>
+                    {{timeslots5.[3]}}
+                    </small><br>
+                </td>
                 <td>
                     <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
                     <span>Published!</span><br>
                     <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">Remove</button>
+                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;
                 </td>
               </tr>
+
+                 <tr>
+                <td><b style="text-transform: uppercase;">{{name6}}</b><br>
+                 <small>Rating: {{rating6}}</small>
+                 </td>
+                <td>{{shortdesc6}}</td>
+
+                <td>{{dates6.[0]}} - {{dates6.[4]}}<br>
+                   <small>
+                    {{timeslots6.[0]}} | {{timeslots6.[1]}} | {{timeslots6.[2]}} <br>
+                    {{timeslots6.[3]}}
+                    </small><br>
+                </td>
+                <td>
+                    <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
+                    <span>Published!</span><br>
+                    <button class="btn btn-primary">Edit</button>
+                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;
+                </td>
+              </tr>
+
+                 <tr>
+                <td><b style="text-transform: uppercase;">{{name7}}</b><br>
+                 <small>Rating: {{rating7}}</small>
+                 </td>
+                <td>{{shortdesc7}}</td>
+
+                <td>{{dates7.[0]}} - {{dates7.[4]}}<br>
+                   <small>
+                    {{timeslots7.[0]}} | {{timeslots7.[1]}} | {{timeslots7.[2]}} <br>
+                    {{timeslots7.[3]}}
+                    </small><br>
+                </td>
+                <td>
+                    <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
+                    <span>Published!</span><br>
+                    <button class="btn btn-primary">Edit</button>
+                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;
+                </td>
+              </tr>
+
+                 <tr>
+                <td><b style="text-transform: uppercase;">{{name8}}</b><br>
+                 <small>Rating: {{rating8}}</small>
+                 </td>
+                <td>{{shortdesc8}}</td>
+
+                <td>{{dates8.[0]}} - {{dates8.[4]}}<br>
+                   <small>
+                    {{timeslots8.[0]}} | {{timeslots8.[1]}} | {{timeslots8.[2]}} <br>
+                    {{timeslots8.[3]}}
+                    </small><br>
+                </td>
+                <td>
+                    <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
+                    <span>Published!</span><br>
+                    <button class="btn btn-primary">Edit</button>
+                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;
+                </td>
+              </tr>
+
+              
             </tbody>
           </table>
           <br><br>
     </div>
 
-    <!-- User List -->
-    <div id="adminUserList" class="container tab-pane fade">
-
-        <table class="table table-hover table-responsive">
-            <thead>
-              <tr>
-                <th><i class="material-icons" style="color: grey; font-size: 15px;">face</i>
-                    Username</th>
-                <th><i class="material-icons" style="color: grey; font-size: 15px;">bubble_chart</i>
-                    First Name</th>
-                <th><i class="material-icons" style="color: grey; font-size: 15px;">bubble_chart</i>
-                    Last Name</th>
-                <th><i class="material-icons" style="color: grey; font-size: 15px;">contact_phone</i>
-                    Mobile Number</th>
-                <th><i class="material-icons" style="color: grey; font-size: 15px;">email</i>
-                    Email Address</th>
-                <th><i class="material-icons" style="color: grey; font-size: 15px;">content_paste</i>
-                    Password</th>
-              </tr>
-            </thead>
-           
-            <tbody>
-              <tr>
-                <td>ondunsiv</td>
-                <td>Adele</td>
-                <td>Knox</td>
-                <td>09439282221</td>
-                <td>adeleknox@example.com</td>
-                <td>coolmovies221!</td>
-              </tr>
-
-              <tr>
-                <td>mark52</td>
-                <td>Tony</td>
-                <td>Stark</td>
-                <td>09001433000</td>
-                <td>starkindustries@avengers.com</td>
-                <td>iamironman3000!</td>
-              </tr>
-
-              <tr>
-                <td>hulkstrong</td>
-                <td>Bruce</td>
-                <td>Banner</td>
-                <td>09439288871</td>
-                <td>brucebanner@avengers.com</td>
-                <td>hulksmash123!</td>
-              </tr>
-
-              <tr>
-                <td>spoderman</td>
-                <td>Peter</td>
-                <td>Porker</td>
-                <td>09400282324</td>
-                <td>peterporker@avengers.com</td>
-                <td>iamfinallyanavenger30!</td>
-              </tr>
-
-              <tr>
-                <td>kennyrogers</td>
-                <td>Steve</td>
-                <td>Rogers</td>
-                <td>09401282424</td>
-                <td>steverogers@avengers.com</td>
-                <td>avengersassemble977!</td>
-              </tr>
-
-            </tbody>
-          </table>
-          <br><br>
-
-
-    </div>
 </div>
   
 </div>
