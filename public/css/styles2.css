@@ -128,7 +128,13 @@ button.btn.btn-custom.dropdown-toggle:focus {
 
    #reservations {
     overflow-y:scroll;
-    height: 445px;
+    height: 650px;
+    display:block;
+   }
+
+   #screenings {
+    overflow-y:scroll;
+    height: 600px;
     display:block;
    }
 
@@ -158,4 +164,5 @@ button.btn.btn-custom.cancelButton:focus, .btn.btn-custom.reserve:focus{
    outline: 0;
 } 
 /* Cancel button */
+
 

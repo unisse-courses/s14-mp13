@@ -545,47 +545,52 @@ app.post('/addUser', function(req, res) {
         app.get('/admin-home', function(req, res) {
           // The render function takes the template filename (no extension - that's what the config is for!)
           // and an object for what's needed in that template
-           
+
+          // check if there are reservations
+          if (user.reservations[0]) {
           // NOW SHOWING ROW 1
-          Reservation.findById(user.reservations[0], function(err, reservation1) {
-          Screening.findById(reservation1.screening, function(err, screening1) {
-          Cinema.findById(screening1.cinema, function(err, cinema1) {
+          // SCREENING 1
+          Screening.findById('5e86f3c71c9d440000ec3b19', function(err, screening1) {
           Movie.findById(screening1.movie, function(err, movie1) {
-
-          Reservation.findById(user.reservations[1], function(err, reservation2) {
-          Screening.findById(reservation2.screening, function(err, screening2) {
-          Cinema.findById(screening2.cinema, function(err, cinema2) {
+          Cinema.findById(screening1.cinema, function(err, cinema1) {
+          // SCREENING 2
+          Screening.findById('5e86fd761c9d440000ec3b1a', function(err, screening2) {
           Movie.findById(screening2.movie, function(err, movie2) {
-
-          Reservation.findById(user.reservations[2], function(err, reservation3) {
-          Screening.findById(reservation3.screening, function(err, screening3) {
-          Cinema.findById(screening3.cinema, function(err, cinema3) {
+          Cinema.findById(screening2.cinema, function(err, cinema2) {
+          // SCREENING 3
+          Screening.findById('5e86fdc71c9d440000ec3b1b', function(err, screening3) {
           Movie.findById(screening3.movie, function(err, movie3) {
-
-          Reservation.findById(user.reservations[3], function(err, reservation4) {
-          Screening.findById(reservation4.screening, function(err, screening4) {
-          Cinema.findById(screening4.cinema, function(err, cinema4) {
+          Cinema.findById(screening3.cinema, function(err, cinema3) {
+          // SCREENING 4
+          Screening.findById('5e86fe201c9d440000ec3b1c', function(err, screening4) {
           Movie.findById(screening4.movie, function(err, movie4) {
-
-          Reservation.findById(user.reservations[4], function(err, reservation5) {
-          Screening.findById(reservation5.screening, function(err, screening5) {
-          Cinema.findById(screening5.cinema, function(err, cinema5) {
+          Cinema.findById(screening4.cinema, function(err, cinema4) {
+          // SCREENING 5
+          Screening.findById('5e86fe7e1c9d440000ec3b1d', function(err, screening5) {
           Movie.findById(screening5.movie, function(err, movie5) {
-
-          Reservation.findById(user.reservations[5], function(err, reservation6) {
-          Screening.findById(reservation6.screening, function(err, screening6) {
-          Cinema.findById(screening6.cinema, function(err, cinema6) {
+          Cinema.findById(screening5.cinema, function(err, cinema5) {
+          // SCREENING 6
+          Screening.findById('5e8698471c9d440000ec3b07', function(err, screening6) {
           Movie.findById(screening6.movie, function(err, movie6) {
-
-          Reservation.findById(user.reservations[6], function(err, reservation7) {
-          Screening.findById(reservation7.screening, function(err, screening7) {
-          Cinema.findById(screening7.cinema, function(err, cinema7) {
+          Cinema.findById(screening6.cinema, function(err, cinema6) {
+          // SCREENING 7
+          Screening.findById('5e86ff9e1c9d440000ec3b20', function(err, screening7) {
           Movie.findById(screening7.movie, function(err, movie7) {
-
-          Reservation.findById(user.reservations[7], function(err, reservation8) {
-          Screening.findById(reservation8.screening, function(err, screening8) {
-          Cinema.findById(screening8.cinema, function(err, cinema8) {
+          Cinema.findById(screening7.cinema, function(err, cinema7) {
+          // SCREENING 8
+          Screening.findById('5e87005f1c9d440000ec3b21', function(err, screening8) {
           Movie.findById(screening8.movie, function(err, movie8) {
+          Cinema.findById(screening8.cinema, function(err, cinema8) {
+
+          // RESERVATIONS
+          Reservation.findById(user.reservations[0], function(err, reservation1) {
+          Reservation.findById(user.reservations[1], function(err, reservation2) {
+          Reservation.findById(user.reservations[2], function(err, reservation3) {
+          Reservation.findById(user.reservations[3], function(err, reservation4) {
+          Reservation.findById(user.reservations[4], function(err, reservation5) {
+          Reservation.findById(user.reservations[5], function(err, reservation6) {
+          Reservation.findById(user.reservations[6], function(err, reservation7) {
+          Reservation.findById(user.reservations[7], function(err, reservation8) {
 
           // COMING SOON ROW 1
           Movie.findById('5e86a7a31c9d440000ec3b0a', function(err, movie9) {
@@ -607,6 +612,16 @@ app.post('/addUser', function(req, res) {
             name6: movie6.name,
             name7: movie7.name,
             name8: movie8.name,
+
+            shortdesc1: movie1.shortdesc,
+            shortdesc2: movie2.shortdesc,
+            shortdesc3: movie3.shortdesc,
+            shortdesc4: movie4.shortdesc,
+            shortdesc5: movie5.shortdesc,
+            shortdesc6: movie6.shortdesc,
+            shortdesc7: movie7.shortdesc,
+            shortdesc8: movie8.shortdesc,
+
             // COMING SOON
             name9: movie9.name,
             name9: movie9.name,
@@ -616,7 +631,7 @@ app.post('/addUser', function(req, res) {
             name12: movie12.name,
             name13: movie13.name,
             name14: movie14.name,
-
+            // Cinema numbers
             cinema1: cinema1.cinemanum,
             cinema2: cinema2.cinemanum,
             cinema3: cinema3.cinemanum,
@@ -626,6 +641,228 @@ app.post('/addUser', function(req, res) {
             cinema7: cinema7.cinemanum,
             cinema8: cinema8.cinemanum,
 
+            // Date start and end
+            dates1: screening1.dates,
+            dates2: screening2.dates,
+            dates3: screening3.dates,
+            dates4: screening4.dates,
+            dates5: screening5.dates,
+            dates6: screening6.dates,
+            dates7: screening7.dates,
+            dates8: screening8.dates,
+           
+            // timeslots
+            timeslots1: screening1.timeslots,
+            timeslots2: screening2.timeslots,
+            timeslots3: screening3.timeslots,
+            timeslots4: screening4.timeslots,
+            timeslots5: screening5.timeslots,
+            timeslots6: screening6.timeslots,
+            timeslots7: screening7.timeslots,
+            timeslots8: screening8.timeslots,
+
+            // ratings
+            rating1: movie1.rating,
+            rating2: movie2.rating,
+            rating3: movie3.rating,
+            rating4: movie4.rating,
+            rating5: movie5.rating,
+            rating6: movie6.rating,
+            rating7: movie7.rating,
+            rating8: movie8.rating,
+            rating9: movie9.rating,
+            rating10: movie10.rating,
+            rating11: movie11.rating,
+            rating12: movie12.rating,
+            rating13: movie13.rating,
+            rating14: movie14.rating,
+
+            // reservations
+
+            reservationid: reservation1._id,
+            price: reservation1.totalprice,
+            date: reservation1.date_chosen,
+            time: reservation1.time_chosen,
+            tickets: reservation1.reserved_seats,
+
+            reservationid2: reservation2._id,
+            price2: reservation2.totalprice,
+            date2: reservation2.date_chosen,
+            time2: reservation2.time_chosen,
+            tickets2: reservation2.reserved_seats,
+
+            reservationid3: reservation3._id,
+            price3: reservation3.totalprice,
+            date3: reservation3.date_chosen,
+            time3: reservation3.time_chosen,
+            tickets3: reservation3.reserved_seats,
+
+            reservationid4: reservation4._id,
+            price4: reservation4.totalprice,
+            date4: reservation4.date_chosen,
+            time4: reservation4.time_chosen,
+            tickets4: reservation4.reserved_seats,
+
+            reservationid5: reservation5._id,
+            price5: reservation5.totalprice,
+            date5: reservation5.date_chosen,
+            time5: reservation5.time_chosen,
+            tickets5: reservation5.reserved_seats,
+
+            reservationid6: reservation6._id,
+            price6: reservation6.totalprice,
+            date6: reservation6.date_chosen,
+            time6: reservation6.time_chosen,
+            tickets6: reservation6.reserved_seats,
+
+            reservationid7: reservation7._id,
+            price7: reservation7.totalprice,
+            date7: reservation7.date_chosen,
+            time7: reservation7.time_chosen,
+            tickets7: reservation7.reserved_seats,
+
+            reservationid8: reservation8._id,
+            price8: reservation8.totalprice,
+            date8: reservation8.date_chosen,
+            time8: reservation8.time_chosen,
+            tickets8: reservation8.reserved_seats
+
+          })
+
+        }); // screening 1
+        }); // movie 1
+        }); // cinema 1
+      
+        }); // screening 2
+        }); // movie 2
+        }); // cinema 2
+      
+        }); // screening 3
+        }); // movie 3
+        }); // cinema 3
+      
+        }); // screening 4
+        }); // movie 4
+        }); // cinema 4
+      
+        }); // screening 5
+        }); // movie 5
+        }); // cinema 5
+      
+        }); // screening 6
+        }); // movie 6
+        }); // cinema 6
+      
+        }); // screening 7
+        }); // movie 7
+        }); // cinema 7
+      
+        }); // screening 8
+        }); // movie 8
+        }); // cinema 8
+
+        });
+        });
+        });
+        });
+        });
+        });
+        });
+        });
+        
+
+        }); // movie 9
+        }); // movie 10
+        }); // movie 11
+        }); // movie 12
+        }); // movie 13
+        }); // movie 14
+
+        }
+
+        // if there are no reservations (if else prevents error page)
+        else {
+           // NOW SHOWING ROW 1
+           // SCREENING 1
+            Screening.findById('5e86f3c71c9d440000ec3b19', function(err, screening1) {
+            Movie.findById(screening1.movie, function(err, movie1) {
+            Cinema.findById(screening1.cinema, function(err, cinema1) {
+            // SCREENING 2
+            Screening.findById('5e86fd761c9d440000ec3b1a', function(err, screening2) {
+            Movie.findById(screening2.movie, function(err, movie2) {
+            Cinema.findById(screening2.cinema, function(err, cinema2) {
+            // SCREENING 3
+            Screening.findById('5e86fdc71c9d440000ec3b1b', function(err, screening3) {
+            Movie.findById(screening3.movie, function(err, movie3) {
+            Cinema.findById(screening3.cinema, function(err, cinema3) {
+            // SCREENING 4
+            Screening.findById('5e86fe201c9d440000ec3b1c', function(err, screening4) {
+            Movie.findById(screening4.movie, function(err, movie4) {
+            Cinema.findById(screening4.cinema, function(err, cinema4) {
+            // SCREENING 5
+            Screening.findById('5e86fe7e1c9d440000ec3b1d', function(err, screening5) {
+            Movie.findById(screening5.movie, function(err, movie5) {
+            Cinema.findById(screening5.cinema, function(err, cinema5) {
+            // SCREENING 6
+            Screening.findById('5e8698471c9d440000ec3b07', function(err, screening6) {
+            Movie.findById(screening6.movie, function(err, movie6) {
+            Cinema.findById(screening6.cinema, function(err, cinema6) {
+            // SCREENING 7
+            Screening.findById('5e86ff9e1c9d440000ec3b20', function(err, screening7) {
+            Movie.findById(screening7.movie, function(err, movie7) {
+            Cinema.findById(screening7.cinema, function(err, cinema7) {
+            // SCREENING 8
+            Screening.findById('5e87005f1c9d440000ec3b21', function(err, screening8) {
+            Movie.findById(screening8.movie, function(err, movie8) {
+            Cinema.findById(screening8.cinema, function(err, cinema8) {
+
+            // COMING SOON ROW 1
+            Movie.findById('5e86a7a31c9d440000ec3b0a', function(err, movie9) {
+            Movie.findById('5e86a99a1c9d440000ec3b0b', function(err, movie10) {
+            Movie.findById('5e86ab4a1c9d440000ec3b0c', function(err, movie11) {
+            Movie.findById('5e86ad0a1c9d440000ec3b0d', function(err, movie12) {
+            // COMING SOON ROW 2
+            Movie.findById('5e86ae8c1c9d440000ec3b0e', function(err, movie13) {
+            Movie.findById('5e86b0e61c9d440000ec3b0f', function(err, movie14) {
+
+          res.render('admin-home2', {
+            layout: 'main-admin-ready',
+            uname: user.uname,
+            fname: user.fname,
+            lname: user.lname,
+            mnum: user.mnum,
+            email: user.email,
+
+            // NOW SHOWING
+            name1: movie1.name,
+            name2: movie2.name,
+            name3: movie3.name,
+            name4: movie4.name,
+            name5: movie5.name,
+            name6: movie6.name,
+            name7: movie7.name,
+            name8: movie8.name,
+
+            // COMING SOON
+            name9: movie9.name,
+            name9: movie9.name,
+            name10: movie10.name,
+            name10: movie10.name,
+            name11: movie11.name,
+            name12: movie12.name,
+            name13: movie13.name,
+            name14: movie14.name,
+            // Cinema numbers
+            cinema1: cinema1.cinemanum,
+            cinema2: cinema2.cinemanum,
+            cinema3: cinema3.cinemanum,
+            cinema4: cinema4.cinemanum,
+            cinema5: cinema5.cinemanum,
+            cinema6: cinema6.cinemanum,
+            cinema7: cinema7.cinemanum,
+            cinema8: cinema8.cinemanum,
+
+            // Date start and end
             date1start: screening1.dates[0],
             date1end: screening1.dates[4],
             date2start: screening2.dates[0],
@@ -643,6 +880,7 @@ app.post('/addUser', function(req, res) {
             date8start: screening8.dates[0],
             date8end: screening8.dates[4],
 
+            // timeslots
             timeslots1: screening1.timeslots,
             timeslots2: screening2.timeslots,
             timeslots3: screening3.timeslots,
@@ -652,6 +890,7 @@ app.post('/addUser', function(req, res) {
             timeslots7: screening7.timeslots,
             timeslots8: screening8.timeslots,
 
+            // ratings
             rating1: movie1.rating,
             rating2: movie2.rating,
             rating3: movie3.rating,
@@ -660,70 +899,55 @@ app.post('/addUser', function(req, res) {
             rating6: movie6.rating,
             rating7: movie7.rating,
             rating8: movie8.rating,
-
             rating9: movie9.rating,
             rating10: movie10.rating,
             rating11: movie11.rating,
             rating12: movie12.rating,
             rating13: movie13.rating,
-            rating14: movie14.rating,
+            rating14: movie14.rating
 
-            reservationid: reservation1._id,
-            price: reservation1.totalprice,
-            date: reservation1.date_chosen,
-            time: reservation1.time_chosen,
-            tickets: reservation1.reserved_seats
-
-            
 
           })
+          
+          }); // screening 1
+          }); // movie 1
+          }); // cinema 1
+        
+          }); // screening 2
+          }); // movie 2
+          }); // cinema 2
+        
+          }); // screening 3
+          }); // movie 3
+          }); // cinema 3
+        
+          }); // screening 4
+          }); // movie 4
+          }); // cinema 4
+        
+          }); // screening 5
+          }); // movie 5
+          }); // cinema 5
+        
+          }); // screening 6
+          }); // movie 6
+          }); // cinema 6
+        
+          }); // screening 7
+          }); // movie 7
+          }); // cinema 7
+        
+          }); // screening 8
+          }); // movie 8
+          }); // cinema 8
 
-        });
-        });
-        });
-        });
-
-        });
-        });
-        });
-        });
-
-        });
-        });
-        });
-        });
-
-        });
-        });
-        });
-        });
-
-        });
-        });
-        });
-        });
-
-        });
-        });
-        });
-        });
-
-        });
-        });
-        });
-        });
-
-        });
-        });
-        });
-        });
-
-        }); // movie 9
-        }); // movie 10
-        }); // movie 11
-        }); // movie 12
-        }); // movie 13
-        }); // movie 14
+          }); // movie 9
+          }); // movie 10
+          }); // movie 11
+          }); // movie 12
+          }); // movie 13
+          }); // movie 14
+        }
 
         });
 
@@ -929,6 +1153,8 @@ app.post('/addUser', function(req, res) {
           app.get('/myaccount', function(req, res) {
             // The render function takes the template filename (no extension - that's what the config is for!)
             // and an object for what's needed in that template
+
+            // check if there are reservations
             if (user.reservations[0]) {
 
             Reservation.findById(user.reservations[0], function(err, reservation1) {
@@ -974,7 +1200,7 @@ app.post('/addUser', function(req, res) {
           
             res.render('myaccount', {
               layout: 'main-regular-ready',
-              uname: user.uname,
+              fname: user.fname,
               fname: user.fname,
               lname: user.lname,
               mnum: user.mnum,
@@ -1081,10 +1307,11 @@ app.post('/addUser', function(req, res) {
 
           }
 
+          // if there are no reservations (prevents error page)
           else {
-            res.render('myaccount', {
+            res.render('myaccount2', {
               layout: 'main-regular-ready',
-              uname: user.uname,
+              fname: user.fname,
               fname: user.fname,
               lname: user.lname,
               mnum: user.mnum,
