@@ -1206,6 +1206,7 @@ app.post('/addUser', function(req, res) {
           
             res.render('myaccount', {
               layout: 'main-regular-ready',
+              uname: user.uname,
               fname: user.fname,
               fname: user.fname,
               lname: user.lname,
@@ -1317,6 +1318,7 @@ app.post('/addUser', function(req, res) {
           else {
             res.render('myaccount2', {
               layout: 'main-regular-ready',
+              uname: user.uname,
               fname: user.fname,
               fname: user.fname,
               lname: user.lname,
