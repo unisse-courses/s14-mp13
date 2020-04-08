@@ -4,6 +4,9 @@
 * Go, John Richard
 * Chua, John Wilson
 
+## Requirements
+* [NodeJS & npm](https://www.npmjs.com/get-npm)
+
 ### Running the Server/WebApp:
 1) Clone/Download the repository.
 2) Open cmd or terminal and cd to s14-13/
@@ -19,3 +22,5 @@
 #### 
 * Administrator Account : Admin
 * Password : 1234
+
+*Note: You may register a new account should you wish to do so.*
