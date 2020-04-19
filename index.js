@@ -542,7 +542,7 @@ app.post('/addUser', function(req, res) {
 
 
           // admin home account (logged in) route
-        app.get('/admin-home', function(req, res) {
+        app.get('/home/admin', function(req, res) {
           // The render function takes the template filename (no extension - that's what the config is for!)
           // and an object for what's needed in that template
 
@@ -602,7 +602,7 @@ app.post('/addUser', function(req, res) {
           Movie.findById('5e86b0e61c9d440000ec3b0f', function(err, movie14) {
           
           res.render('admin-home', {
-            layout: 'main-admin-ready',
+            layout: 'main-admin',
             // NOW SHOWING
             name1: movie1.name,
             name2: movie2.name,
@@ -826,7 +826,7 @@ app.post('/addUser', function(req, res) {
             Movie.findById('5e86b0e61c9d440000ec3b0f', function(err, movie14) {
 
           res.render('admin-home2', {
-            layout: 'main-admin-ready',
+            layout: 'main-admin',
             uname: user.uname,
             fname: user.fname,
             lname: user.lname,
@@ -956,7 +956,7 @@ app.post('/addUser', function(req, res) {
           // The render function takes the template filename (no extension - that's what the config is for!)
           // and an object for what's needed in that template
           res.render('adminaccount', {
-            layout: 'main-admin-ready',
+            layout: 'main-admin',
             uname: user.uname,
             fname: user.fname,
             lname: user.lname,
@@ -967,7 +967,7 @@ app.post('/addUser', function(req, res) {
         });
 
           // redirect to admin page
-          res.redirect('http://localhost:3000/admin-home');
+          res.redirect('http://localhost:3000/home/admin');
 
         }
          
@@ -1002,8 +1002,8 @@ app.post('/addUser', function(req, res) {
           // COMING SOON ROW 2
           Movie.findById('5e86ae8c1c9d440000ec3b0e', function(err, movie13) {
           Movie.findById('5e86b0e61c9d440000ec3b0f', function(err, movie14) {
-          res.render('home-ready', {
-            layout: 'main-regular-ready',
+          res.render('regular-home', {
+            layout: 'main-regular',
             title: 'W&Js Cinemas',
           
             // NOW SHOWING ROW 1
@@ -1205,7 +1205,7 @@ app.post('/addUser', function(req, res) {
 
           
             res.render('myaccount', {
-              layout: 'main-regular-ready',
+              layout: 'main-regular',
               uname: user.uname,
               fname: user.fname,
               fname: user.fname,
@@ -1317,7 +1317,7 @@ app.post('/addUser', function(req, res) {
           // if there are no reservations (prevents error page)
           else {
             res.render('myaccount2', {
-              layout: 'main-regular-ready',
+              layout: 'main-regular',
               uname: user.uname,
               fname: user.fname,
               fname: user.fname,
@@ -1331,7 +1331,7 @@ app.post('/addUser', function(req, res) {
           });
 
           // Schedules (logged in) route
-          app.get('/schedules-ready', function(req, res) {
+          app.get('/schedules/user', function(req, res) {
             // The render function takes the template filename (no extension - that's what the config is for!)
             // and an object for what's needed in that template
             // SCREENING 1
@@ -1367,10 +1367,10 @@ app.post('/addUser', function(req, res) {
             Movie.findById(screening8.movie, function(err, movie8) {
             Cinema.findById(screening8.cinema, function(err, cinema8) {
             
-            res.render('schedules-ready', {
+            res.render('schedules-regular', {
               title: 'W&Js Cinemas Schedules',
               titledesc: 'Reserve seats based on your preferred schedule.',
-              layout: 'main-regular-ready',
+              layout: 'main-regular',
         
               // SCREENING 1
               img_url: movie1.img_url,
@@ -1479,21 +1479,21 @@ app.post('/addUser', function(req, res) {
           });
 
           // Snacks (logged in) route
-          app.get('/snacks-ready', function(req, res) {
+          app.get('/snacks/user', function(req, res) {
             // The render function takes the template filename (no extension - that's what the config is for!)
             // and an object for what's needed in that template
-            res.render('snacks-ready', {
-              layout: 'main-regular-ready',
+            res.render('snacks-regular', {
+              layout: 'main-regular',
               title: 'Snacks'
             })
           });
 
           // Contact Us (logged in) route
-          app.get('/contactus-ready', function(req, res) {
+          app.get('/contactus/user', function(req, res) {
             // The render function takes the template filename (no extension - that's what the config is for!)
             // and an object for what's needed in that template
             res.render('contactus', {
-              layout: 'main-regular-ready',
+              layout: 'main-regular',
               address: 'Rockwell Drive, Estrella, 4114 Makati',
               title: 'W&Js Cinemas',
               landline: '7777-1234',
@@ -1510,11 +1510,11 @@ app.post('/addUser', function(req, res) {
           });
 
           // FAQs (logged in) route
-          app.get('/faqs-ready', function(req, res) {
+          app.get('/faqs/user', function(req, res) {
             // The render function takes the template filename (no extension - that's what the config is for!)
             // and an object for what's needed in that template
             res.render('faqs', {
-              layout: 'main-regular-ready',
+              layout: 'main-regular',
               address: 'Rockwell Drive, Estrella, 4114 Makati',
               title: 'W&Js Cinemas',
               landline: '7777-1234',
@@ -1565,22 +1565,22 @@ app.get('/movies', function(req, res) {
 
 /*============================RESERVE ROUTES============================*/ 
 // 1917 reserve route
-app.get('/reserve-movie1', function(req,res) {
+app.get('/reserve/1917', function(req,res) {
   Screening.findById('5e86f3c71c9d440000ec3b19', function(err, screening1) {
   Movie.findById(screening1.movie, function(err, movie1) {
   Cinema.findById(screening1.cinema, function(err, cinema1) {
     res.render('reserve',{
-        layout: 'main-regular-ready',
+        layout: 'main-regular',
         movieTitle: movie1.name,
         cinema: cinema1.cinemanum,
         details: movie1.shortdesc,
         timeslots: screening1.timeslots,
         dates: screening1.dates,
-        tickets_url: screening1.tickets_url,
-        post_url: "/make-reservation-s1"
+        post_url: '/reserve/1917/screening01',
+
     })
 
-    app.post('/make-reservation-s1', function(req,res) {
+    app.post('/reserve/1917/screening01', function(req,res) {
       /** == README == **
           Instead of passing an object, we now have a mongoose.Document object
           because we created an instance of the usersModel.
@@ -1620,7 +1620,7 @@ app.get('/reserve-movie1', function(req,res) {
     
           // Sending the result as is to handle it the "AJAX-way".
          // res.send(result);
-         res.redirect('http://localhost:3000/reserve-tickets-s1');
+         res.redirect('http://localhost:3000/reserve/1917/screening01/tickets');
 
         }
           
@@ -1637,14 +1637,14 @@ app.get('/reserve-movie1', function(req,res) {
 });
 
 // 1917 tickets page
-app.get('/reserve-tickets-s1', function(req,res) {
+app.get('/reserve/1917/screening01/tickets', function(req,res) {
     Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation1) { 
     Screening.findById(reservation1.screening, function(err, screening1) {
     Cinema.findById(screening1.cinema, function(err, cinema1) {
     Movie.findById(screening1.movie, function(err, movie1) {
     
     res.render('tickets', {
-    layout: 'main-regular-ready',
+    layout: 'main-regular',
     reservationid: reservation1._id,
     movie: movie1.name,
     cinema: cinema1.cinemanum,
@@ -1663,23 +1663,23 @@ app.get('/reserve-tickets-s1', function(req,res) {
 });
 
 // Parasite reserve route
-app.get('/reserve-movie2', function(req,res) {
+app.get('/reserve/parasite', function(req,res) {
     Screening.findById('5e86fd761c9d440000ec3b1a', function(err, screening2) {
     Movie.findById(screening2.movie, function(err, movie2) {
     Cinema.findById(screening2.cinema, function(err, cinema2) {
       res.render('reserve',{
-          layout: 'main-regular-ready',
+          layout: 'main-regular',
           movieTitle: movie2.name,
           cinema: cinema2.cinemanum,
           details: movie2.shortdesc,
           timeslots: screening2.timeslots,
           dates: screening2.dates,
           tickets_url: screening2.tickets_url,
-          post_url: "/make-reservation-s2"
+          post_url: '/reserve/parasite/screening02'
       })
 
       
-    app.post('/make-reservation-s2', function(req,res) {
+    app.post('/reserve/parasite/screening02', function(req,res) {
       /** == README == **
           Instead of passing an object, we now have a mongoose.Document object
           because we created an instance of the usersModel.
@@ -1721,7 +1721,7 @@ app.get('/reserve-movie2', function(req,res) {
     
           // Sending the result as is to handle it the "AJAX-way".
           //res.send(result);
-          res.redirect('http://localhost:3000/reserve-tickets-s2');
+          res.redirect('http://localhost:3000/reserve/parasite/screening02/tickets');
         }
     
       });
@@ -1736,14 +1736,14 @@ app.get('/reserve-movie2', function(req,res) {
 });
 
 // Parasite tickets page
-app.get('/reserve-tickets-s2', function(req,res) {
+app.get('/reserve/parasite/screening02/tickets', function(req,res) {
   Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation2) { 
   Screening.findById(reservation2.screening, function(err, screening2) {
   Cinema.findById(screening2.cinema, function(err, cinema2) {
   Movie.findById(screening2.movie, function(err, movie2) {
   
   res.render('tickets', {
-  layout: 'main-regular-ready',
+  layout: 'main-regular',
   reservationid: reservation2._id,
   movie: movie2.name,
   cinema: cinema2.cinemanum,
@@ -1762,22 +1762,22 @@ app.get('/reserve-tickets-s2', function(req,res) {
 });
 
 // Sonic reserve route
-app.get('/reserve-movie3', function(req,res) {
+app.get('/reserve/sonic', function(req,res) {
     Screening.findById('5e86fdc71c9d440000ec3b1b', function(err, screening3) {
     Movie.findById(screening3.movie, function(err, movie3) {
     Cinema.findById(screening3.cinema, function(err, cinema3) {
       res.render('reserve',{
-          layout: 'main-regular-ready',
+          layout: 'main-regular',
           movieTitle: movie3.name,
           cinema: cinema3.cinemanum,
           details: movie3.shortdesc,
           timeslots: screening3.timeslots,
           dates: screening3.dates,
           tickets_url: screening3.tickets_url,
-          post_url: "/make-reservation-s3"
+          post_url: '/reserve/sonic/screening03'
       })
 
-      app.post('/make-reservation-s3', function(req,res) {
+      app.post('/reserve/sonic/screening03', function(req,res) {
         /** == README == **
             Instead of passing an object, we now have a mongoose.Document object
             because we created an instance of the usersModel.
@@ -1818,7 +1818,7 @@ app.get('/reserve-movie3', function(req,res) {
       
             // Sending the result as is to handle it the "AJAX-way".
             //res.send(result);
-            res.redirect('http://localhost:3000/reserve-tickets-s3');
+            res.redirect('http://localhost:3000/reserve/sonic/screening03/tickets');
           }
       
         });
@@ -1831,14 +1831,14 @@ app.get('/reserve-movie3', function(req,res) {
 });
 
 // Sonic tickets page
-app.get('/reserve-tickets-s3', function(req,res) {
+app.get('/reserve/sonic/screening03/tickets', function(req,res) {
   Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation3) { 
   Screening.findById(reservation3.screening, function(err, screening3) {
   Cinema.findById(screening3.cinema, function(err, cinema3) {
   Movie.findById(screening3.movie, function(err, movie3) {
   
   res.render('tickets', {
-  layout: 'main-regular-ready',
+  layout: 'main-regular',
   reservationid: reservation3._id,
   movie: movie3.name,
   cinema: cinema3.cinemanum,
@@ -1847,32 +1847,32 @@ app.get('/reserve-tickets-s3', function(req,res) {
   time: reservation3.time_chosen,
   tickets: reservation3.reserved_seats
 
-})
-
-});
-});
-});
 });
 
-})
+});
+});
+});
+});
+
+});
 
 // BOP reserve route
-app.get('/reserve-movie4', function(req,res) {
+app.get('/reserve/birdsofprey', function(req,res) {
     Screening.findById('5e86fe201c9d440000ec3b1c', function(err, screening4) {
     Movie.findById(screening4.movie, function(err, movie4) {
     Cinema.findById(screening4.cinema, function(err, cinema4) {
       res.render('reserve',{
-          layout: 'main-regular-ready',
+          layout: 'main-regular',
           movieTitle: movie4.name,
           cinema: cinema4.cinemanum,
           details: movie4.shortdesc,
           timeslots: screening4.timeslots,
           dates: screening4.dates,
           tickets_url: screening4.tickets_url,
-          post_url: "/make-reservation-s4"
+          post_url: '/reserve/birdsofprey/screening04'
       })
 
-      app.post('/make-reservation-s4', function(req,res) {
+      app.post('/reserve/birdsofprey/screening04', function(req,res) {
         /** == README == **
             Instead of passing an object, we now have a mongoose.Document object
             because we created an instance of the usersModel.
@@ -1912,7 +1912,7 @@ app.get('/reserve-movie4', function(req,res) {
       
             // Sending the result as is to handle it the "AJAX-way".
             //res.send(result);
-            res.redirect('http://localhost:3000/reserve-tickets-s4');
+            res.redirect('http://localhost:3000/reserve/birdsofprey/screening04/tickets');
           }
       
         });
@@ -1925,14 +1925,14 @@ app.get('/reserve-movie4', function(req,res) {
 });
 
 // BOP tickets page
-app.get('/reserve-tickets-s4', function(req,res) {
+app.get('/reserve/birdsofprey/screening04/tickets', function(req,res) {
   Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation4) { 
   Screening.findById(reservation4.screening, function(err, screening4) {
   Cinema.findById(screening4.cinema, function(err, cinema4) {
   Movie.findById(screening4.movie, function(err, movie4) {
   
   res.render('tickets', {
-  layout: 'main-regular-ready',
+  layout: 'main-regular',
   reservationid: reservation4._id,
   movie: movie4.name,
   cinema: cinema4.cinemanum,
@@ -1951,22 +1951,22 @@ app.get('/reserve-tickets-s4', function(req,res) {
 });
 
 // Bad Boys for Life reserve route
-app.get('/reserve-movie5', function(req,res) {
+app.get('/reserve/badboysforlife', function(req,res) {
     Screening.findById('5e86fe7e1c9d440000ec3b1d', function(err, screening5) {
     Movie.findById(screening5.movie, function(err, movie5) {
     Cinema.findById(screening5.cinema, function(err, cinema5) {
       res.render('reserve',{
-          layout: 'main-regular-ready',
+          layout: 'main-regular',
           movieTitle: movie5.name,
           cinema: cinema5.cinemanum,
           details: movie5.shortdesc,
           timeslots: screening5.timeslots,
           dates: screening5.dates,
           tickets_url: screening5.tickets_url,
-          post_url: "/make-reservation-s5"
+          post_url: '/reserve/badboysforlife/screening05'
       })
 
-      app.post('/make-reservation-s5', function(req,res) {
+      app.post('/reserve/badboysforlife/screening05', function(req,res) {
         /** == README == **
             Instead of passing an object, we now have a mongoose.Document object
             because we created an instance of the usersModel.
@@ -2006,7 +2006,7 @@ app.get('/reserve-movie5', function(req,res) {
       
             // Sending the result as is to handle it the "AJAX-way".
             //res.send(result);
-            res.redirect('http://localhost:3000/reserve-tickets-s5');
+            res.redirect('http://localhost:3000/reserve/badboysforlife/screening05/tickets');
           }
       
         });
@@ -2018,14 +2018,14 @@ app.get('/reserve-movie5', function(req,res) {
 });
 
 // Bad Boys for life tickets page
-app.get('/reserve-tickets-s5', function(req,res) {
+app.get('/reserve/badboysforlife/screening05/tickets', function(req,res) {
   Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation5) { 
   Screening.findById(reservation5.screening, function(err, screening5) {
   Cinema.findById(screening5.cinema, function(err, cinema5) {
   Movie.findById(screening5.movie, function(err, movie5) {
   
   res.render('tickets', {
-  layout: 'main-regular-ready',
+  layout: 'main-regular',
   reservationid: reservation5._id,
   movie: movie5.name,
   cinema: cinema5.cinemanum,
@@ -2044,22 +2044,22 @@ app.get('/reserve-tickets-s5', function(req,res) {
 });
 
 // DoLittle reserve route
-app.get('/reserve-movie6', function(req,res) {
+app.get('/reserve/dolittle', function(req,res) {
     Screening.findById('5e8698471c9d440000ec3b07', function(err, screening6) {
     Movie.findById(screening6.movie, function(err, movie6) {
     Cinema.findById(screening6.cinema, function(err, cinema6) {
       res.render('reserve',{
-          layout: 'main-regular-ready',
+          layout: 'main-regular',
           movieTitle: movie6.name,
           cinema: cinema6.cinemanum,
           details: movie6.shortdesc,
           timeslots: screening6.timeslots,
           dates: screening6.dates,
           tickets_url: screening6.tickets_url,
-          post_url: "/make-reservation-s6"
+          post_url: '/reserve/dolittle/screening06'
       })
 
-      app.post('/make-reservation-s6', function(req,res) {
+      app.post('/reserve/dolittle/screening06', function(req,res) {
         /** == README == **
             Instead of passing an object, we now have a mongoose.Document object
             because we created an instance of the usersModel.
@@ -2099,7 +2099,7 @@ app.get('/reserve-movie6', function(req,res) {
       
             // Sending the result as is to handle it the "AJAX-way".
             //res.send(result);
-            res.redirect('http://localhost:3000/reserve-tickets-s6');
+            res.redirect('http://localhost:3000/reserve/dolittle/screening06');
           }
       
         });
@@ -2111,14 +2111,14 @@ app.get('/reserve-movie6', function(req,res) {
 });
 
 // DoLittle tickets page
-app.get('/reserve-tickets-s6', function(req,res) {
+app.get('/reserve/dolittle/screening06', function(req,res) {
   Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation6) { 
   Screening.findById(reservation6.screening, function(err, screening6) {
   Cinema.findById(screening6.cinema, function(err, cinema6) {
   Movie.findById(screening6.movie, function(err, movie6) {
   
   res.render('tickets', {
-  layout: 'main-regular-ready',
+  layout: 'main-regular',
   reservationid: reservation6._id,
   movie: movie6.name,
   cinema: cinema6.cinemanum,
@@ -2137,22 +2137,22 @@ app.get('/reserve-tickets-s6', function(req,res) {
 });
 
 // The Night Clerk reserve route
-app.get('/reserve-movie7', function(req,res) {
+app.get('/reserve/thenightclerk', function(req,res) {
     Screening.findById('5e86ff9e1c9d440000ec3b20', function(err, screening7) {
     Movie.findById(screening7.movie, function(err, movie7) {
     Cinema.findById(screening7.cinema, function(err, cinema7) {
       res.render('reserve',{
-          layout: 'main-regular-ready',
+          layout: 'main-regular',
           movieTitle: movie7.name,
           cinema: cinema7.cinemanum,
           details: movie7.shortdesc,
           timeslots: screening7.timeslots,
           dates: screening7.dates,
           tickets_url: screening7.tickets_url,
-          post_url: "/make-reservation-s7"
+          post_url: "/reserve/thenightclerk/screening07"
       })
 
-      app.post('/make-reservation-s7', function(req,res) {
+      app.post('/reserve/thenightclerk/screening07', function(req,res) {
         /** == README == **
             Instead of passing an object, we now have a mongoose.Document object
             because we created an instance of the usersModel.
@@ -2192,7 +2192,7 @@ app.get('/reserve-movie7', function(req,res) {
       
             // Sending the result as is to handle it the "AJAX-way".
             //res.send(result);
-            res.redirect('http://localhost:3000/reserve-tickets-s7');
+            res.redirect('http://localhost:3000/reserve/thenightclerk/screening07/tickets');
           }
       
         });
@@ -2204,14 +2204,14 @@ app.get('/reserve-movie7', function(req,res) {
 });
 
 // The Night Clerk tickets page
-app.get('/reserve-tickets-s7', function(req,res) {
+app.get('/reserve/thenightclerk/screening07/tickets', function(req,res) {
   Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation7) { 
   Screening.findById(reservation7.screening, function(err, screening7) {
   Cinema.findById(screening7.cinema, function(err, cinema7) {
   Movie.findById(screening7.movie, function(err, movie7) {
   
   res.render('tickets', {
-  layout: 'main-regular-ready',
+  layout: 'main-regular',
   reservationid: reservation7._id,
   movie: movie7.name,
   cinema: cinema7.cinemanum,
@@ -2230,22 +2230,22 @@ app.get('/reserve-tickets-s7', function(req,res) {
 });
 
 // The Call of the Wild reserve route
-app.get('/reserve-movie8', function(req,res) {
+app.get('/reserve/thecallofthewild', function(req,res) {
     Screening.findById('5e87005f1c9d440000ec3b21', function(err, screening8) {
     Movie.findById(screening8.movie, function(err, movie8) {
     Cinema.findById(screening8.cinema, function(err, cinema8) {
       res.render('reserve',{
-          layout: 'main-regular-ready',
+          layout: 'main-regular',
           movieTitle: movie8.name,
           cinema: cinema8.cinemanum,
           details: movie8.shortdesc,
           timeslots: screening8.timeslots,
           dates: screening8.dates,
           tickets_url: screening8.tickets_url,
-          post_url: "/make-reservation-s8"
+          post_url: '/reserve/thecallofthewild/screening08'
       })
 
-      app.post('/make-reservation-s8', function(req,res) {
+      app.post('/reserve/thecallofthewild/screening08', function(req,res) {
         /** == README == **
             Instead of passing an object, we now have a mongoose.Document object
             because we created an instance of the usersModel.
@@ -2285,7 +2285,7 @@ app.get('/reserve-movie8', function(req,res) {
       
             // Sending the result as is to handle it the "AJAX-way".
             //res.send(result);
-            res.redirect('http://localhost:3000/reserve-tickets-s8');
+            res.redirect('http://localhost:3000/reserve/thecallofthewild/screening08/tickets');
           }
       
         });
@@ -2297,14 +2297,14 @@ app.get('/reserve-movie8', function(req,res) {
 });
 
 // The Call of the Wild tickets page
-app.get('/reserve-tickets-s8', function(req,res) {
+app.get('/reserve/thecallofthewild/screening08/tickets', function(req,res) {
   Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation8) { 
   Screening.findById(reservation8.screening, function(err, screening8) {
   Cinema.findById(screening8.cinema, function(err, cinema8) {
   Movie.findById(screening8.movie, function(err, movie8) {
   
   res.render('tickets', {
-  layout: 'main-regular-ready',
+  layout: 'main-regular',
   reservationid: reservation8._id,
   movie: movie8.name,
   cinema: cinema8.cinemanum,
