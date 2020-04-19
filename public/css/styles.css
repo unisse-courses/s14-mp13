@@ -485,7 +485,7 @@ button.btn.btn-custom.cancelButton:focus, .btn.btn-custom.reserve:focus{
  }
  
  .btn.btn-custom.dropdown-toggle.v2:hover{
-     border: 1.5px solid white;
+     border: 1px solid #E7DFDD;
      color: black;
      font-weight: 600;
  }
