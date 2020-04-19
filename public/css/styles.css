@@ -477,22 +477,28 @@ button.btn.btn-custom.cancelButton:focus, .btn.btn-custom.reserve:focus{
      margin: auto;
  }
  
- 
+ /* DROPDOWN BUTTONS FOR RESERVE */
  .btn.btn-custom.dropdown-toggle.v2 {
      background-color: #E7DFDD;
      border-radius: 30px;
-     color: #0E0B16;
+     color: black;
  }
  
  .btn.btn-custom.dropdown-toggle.v2:hover{
-     color: #0e0b16;
-     font-weight: 590;
+     border: 1px solid black;
+     color: black;
+     font-weight: 500;
  }
  
  .btn.btn-custom.dropdown-toggle.v2:focus {
      outline: none !important;
      box-shadow: none!important; 
  }
+
+ [type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: menulist-button;
+}
+ /* END OF DROPDOWN BUTTONS FOR RESERVE */
  
  .form-group.flexboxCustom{
      margin: 10px auto;
