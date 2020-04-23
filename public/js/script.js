@@ -53,7 +53,6 @@
   
       });
 
-
     // POST called for registration
     $('#addUser').click(function() {
       // Get the data from the form
@@ -75,7 +74,7 @@
         pword: pword
       };
 
-      $.post('addUser', newUser, function(data, status) {
+      $.post('/register', newUser, function(data, status) {
         console.log(data);
 
         if (data.success) {
@@ -89,10 +88,12 @@
           $('#lname').val('');
           $('#email').val('');
           $('#pword').val('');
+          alert("Successfully registered! You may now log in.");
         } else {
           $('#msg').text(data.message);
           $('#msg').removeClass('success');
           $('#msg').addClass('fail');
+          //alert("Registration failed!");
         }
 
       });

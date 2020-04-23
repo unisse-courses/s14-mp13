@@ -1,11 +1,4 @@
-const mongoose = require('mongoose');
-const databaseURL = 'mongodb+srv://user:12345@wjscinemas-zjk11.mongodb.net/wjscinemas?retryWrites=true&w=majority';
-
-const options = { useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false };
-
-mongoose.connect(databaseURL, options);
+const mongoose = require('./connection');
 
 const MovieSchema = new mongoose.Schema(
   {
@@ -26,4 +19,8 @@ const MovieSchema = new mongoose.Schema(
 
 );
 
-module.exports = mongoose.model('Movie', MovieSchema);
+const movieModel = mongoose.model('Movie', MovieSchema);
+
+exports.showAll = function(_id, next) {
+  movieModel.findById(_id, next);
+};

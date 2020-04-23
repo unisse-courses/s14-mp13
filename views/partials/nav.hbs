@@ -40,15 +40,20 @@
           <!-- Modal Header -->
           <div class="modal-header">
               <h2 class="modal-title">Registration</h2> 
+           
               <button type="button" class="close" data-dismiss="modal">&times;</button> 
           </div>
+
+          
         
           <!-- Modal body -->
           <div class="modal-body">
+
           <div class="container">
 
             <h5>Register with W&Js Cinemas</h5>
-            <form class="m-auto" oninput='pword.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")' method="GET" action="/">
+            {{!-- {{>messages}} --}}
+            <form class="m-auto" oninput='pword.setCustomValidity(up2.value != up.value ? "Passwords do not match." : "")' method="POST" action="/register">
 
               <!-- USER TYPE -->
               <div class="form-group">
@@ -100,6 +105,7 @@
                     
                     <br>
               <center><button type="submit" id="addUser" class="btn btn-custom modalButton">Register</button></center>
+              
             </form>
           </div>
           

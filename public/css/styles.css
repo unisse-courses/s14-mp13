@@ -430,9 +430,9 @@ button.btn.btn-custom.cancelButton:focus, .btn.btn-custom.reserve:focus{
  }
  
  .dropdown-menu:hover .dropdown-item:hover{
-     border: 1px solid white;
-     background-color: #A239CA;
-     color: white !important;
+     /* border: 1px solid white; */
+    background-color: black;
+     color: #A239CA !important;
  }
  
  div.dropdown-menu.show {
@@ -479,14 +479,15 @@ button.btn.btn-custom.cancelButton:focus, .btn.btn-custom.reserve:focus{
  
  /* DROPDOWN BUTTONS FOR RESERVE */
  .btn.btn-custom.dropdown-toggle.v2 {
-     background-color: #E7DFDD;
+     background-color: #4717F6;
+     border: 1px solid #E7DFDD;
      border-radius: 30px;
-     color: black;
+     color: #E7DFDD;
  }
  
  .btn.btn-custom.dropdown-toggle.v2:hover{
-     border: 1px solid #E7DFDD;
-     color: black;
+     border: 1px solid white;
+     color: white;
      font-weight: 600;
  }
  

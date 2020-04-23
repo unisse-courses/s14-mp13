@@ -1,11 +1,4 @@
-const mongoose = require('mongoose');
-const databaseURL = 'mongodb+srv://user:12345@wjscinemas-zjk11.mongodb.net/wjscinemas?retryWrites=true&w=majority';
-
-const options = { useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false };
-
-mongoose.connect(databaseURL, options);
+const mongoose = require('./connection');
 
 const ScreeningSchema = new mongoose.Schema(
   {
@@ -18,4 +11,10 @@ const ScreeningSchema = new mongoose.Schema(
 
 );
 
-module.exports = mongoose.model('Screening', ScreeningSchema);
+
+const screeningModel = mongoose.model('Screening', ScreeningSchema);
+
+exports.showAll = function(_id, next) {
+  screeningModel.findById(_id, next);
+};
+
