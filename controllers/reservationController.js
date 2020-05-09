@@ -39,13 +39,15 @@ exports.reserve1917 = function(req, res) {
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
+        const  user = req.session.user;
 
         const newReservation = {
             screening, 
             movie,
             reserved_seats,
             date_chosen,
-            time_chosen
+            time_chosen,
+            user
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -132,13 +134,15 @@ exports.reserveParasite = function(req, res) {
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
+        const  user = req.session.user;
 
         const newReservation = {
             screening, 
             movie,
             reserved_seats,
             date_chosen,
-            time_chosen
+            time_chosen, 
+            user
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -225,13 +229,15 @@ exports.reserveSonic = function(req, res) {
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
+        const  user = req.session.user;
 
         const newReservation = {
             screening, 
             movie,
             reserved_seats,
             date_chosen,
-            time_chosen
+            time_chosen, 
+            user
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -318,13 +324,15 @@ exports.reserveBOP = function(req, res) {
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
+        const  user = req.session.user;
 
         const newReservation = {
             screening, 
             movie,
             reserved_seats,
             date_chosen,
-            time_chosen
+            time_chosen,
+            user
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -411,13 +419,15 @@ exports.reserveBadBoys = function(req, res) {
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
+        const  user = req.session.user;
 
         const newReservation = {
             screening, 
             movie,
             reserved_seats,
             date_chosen,
-            time_chosen
+            time_chosen,
+            user
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -504,13 +514,15 @@ exports.reserveDoLittle = function(req, res) {
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
+        const  user = req.session.user;
 
         const newReservation = {
             screening, 
             movie,
             reserved_seats,
             date_chosen,
-            time_chosen
+            time_chosen,
+            user
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -597,13 +609,15 @@ exports.reserveTNC = function(req, res) {
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
+        const  user = req.session.user;
 
         const newReservation = {
             screening, 
             movie,
             reserved_seats,
             date_chosen,
-            time_chosen
+            time_chosen,
+            user
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -690,13 +704,15 @@ exports.reserveCallofWild = function(req, res) {
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
+        const  user = req.session.user;
 
         const newReservation = {
             screening, 
             movie,
             reserved_seats,
             date_chosen,
-            time_chosen
+            time_chosen,
+            user
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
