@@ -6,6 +6,7 @@ const { isPublic, isPrivate } = require('../middlewares/checkAuth');
 // Importing the controllers
 const movieController = require('../controllers/movieController');
 const screeningController = require('../controllers/screeningController');
+const reservationController = require('../controllers/reservationController');
 
 // Home/movies route
 router.get('/home', isPrivate, movieController.showAllMoviesUser);
@@ -78,8 +79,44 @@ router.get('/snacks/user', function(req, res) {
 
   });    
 
+// Reservation routes 1917
+router.get('/reserve/1917', isPrivate, reservationController.show1917);
+router.post('/reserve/1917/screening01', isPrivate, reservationController.reserve1917);
+router.get('/reserve/1917/screening01/tickets', isPrivate, reservationController.tickets1917);
 
+// Reservation routes Parasite 
+router.get('/reserve/parasite', isPrivate, reservationController.showParasite);
+router.post('/reserve/parasite/screening02', isPrivate, reservationController.reserveParasite);
+router.get('/reserve/parasite/screening02/tickets', isPrivate, reservationController.ticketsParasite);
 
+// Reservation routes Sonic
+router.get('/reserve/sonic', isPrivate, reservationController.showSonic);
+router.post('/reserve/sonic/screening03', isPrivate, reservationController.reserveSonic);
+router.get('/reserve/sonic/screening03/tickets', isPrivate, reservationController.ticketsSonic);
 
+// Reservation routes Birds of Prey
+router.get('/reserve/birdsofprey', isPrivate, reservationController.showBOP);
+router.post('/reserve/birdsofprey/screening04', isPrivate, reservationController.reserveBOP);
+router.get('/reserve/birdsofprey/screening04/tickets', isPrivate, reservationController.ticketsBOP);
+
+// Reservation routes Bad Boys for Life
+router.get('/reserve/badboysforlife', isPrivate, reservationController.showBadBoys);
+router.post('/reserve/badboysforlife/screening05', isPrivate, reservationController.reserveBadBoys);
+router.get('/reserve/badboysforlife/screening05/tickets', isPrivate, reservationController.ticketsBadBoys);
+
+// Reservation routes DoLittle
+router.get('/reserve/dolittle', isPrivate, reservationController.showDoLittle);
+router.post('/reserve/dolittle/screening06', isPrivate, reservationController.reserveDoLittle);
+router.get('/reserve/dolittle/screening06/tickets', isPrivate, reservationController.ticketsDoLittle);
+
+// Reservation routes The Night Clerk
+router.get('/reserve/thenightclerk', isPrivate, reservationController.showTNC);
+router.post('/reserve/thenightclerk/screening07', isPrivate, reservationController.reserveTNC);
+router.get('/reserve/thenightclerk/screening07/tickets', isPrivate, reservationController.ticketsTNC);
+
+// Reservation routes 
+router.get('/reserve/thecallofthewild', isPrivate, reservationController.showCallofWild);
+router.post('/reserve/thecallofthewild/screening08', isPrivate, reservationController.reserveCallofWild);
+router.get('/reserve/thecallofthewild/screening08/tickets', isPrivate, reservationController.ticketsCallofWild);
 
 module.exports = router;

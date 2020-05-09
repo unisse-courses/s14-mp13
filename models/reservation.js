@@ -14,4 +14,21 @@ const ReservationSchema = new mongoose.Schema(
 
 );
 
-module.exports = mongoose.model('Reservation', ReservationSchema);
+const reservationModel = mongoose.model('Reservation', ReservationSchema);
+
+exports.showAll = function(_id, next) {
+  reservationModel.findById(_id, next);
+};
+
+// Saving a reservation given the validated object
+exports.reserve = function(obj, next) {
+  const reservation = new reservationModel(obj);
+  
+  reservation.save(function(err, reservation) {
+    next(err, reservation);
+  });
+};
+
+exports.showTickets = function(next) {
+  reservationModel.findOne(next).sort({$natural: -1}).limit(1);
+};
