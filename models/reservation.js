@@ -4,6 +4,8 @@ const ReservationSchema = new mongoose.Schema(
   {
     reserved_seats: [{type: String, required: true}],
     screening: {type: mongoose.Schema.Types.ObjectId, ref: 'Screening', required: true},
+    cinema: {type: String, required: true},
+    movie: {type: String, required: true},
     date_reserved: {type: Date, default: Date.now},
     date_cancelled: {type: Date},
     date_chosen: {type: String, required: true},
@@ -32,4 +34,18 @@ exports.reserve = function(obj, next) {
 
 exports.showTickets = function(next) {
   reservationModel.findOne(next).sort({$natural: -1}).limit(1);
+};
+
+
+exports.getAll = function(sort, next) {
+  reservationModel.find({}).sort(sort).exec(function(err, result) {
+    if (err) throw err;
+    var reservationObjects = [];
+
+    result.forEach(function(doc) {
+      reservationObjects.push(doc.toObject());
+    });
+
+    next(reservationObjects);
+  });
 };

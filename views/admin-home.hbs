@@ -254,7 +254,7 @@
 
                 </table >
 
-                <table class="dash table table-hover" id="reservations">
+                <table class="dash table table-hover" style="width: fit-content;" id="reservations">
                     <thead>
                         <tr>
                             <th><h4><i class="material-icons" style="color: #4717F6; font-size: 15px;">event_seat</i>
@@ -263,94 +263,24 @@
                     </thead>
 
                     <tbody>
+                        {{#if reservations}}
+                        {{#each reservations}}
                         <tr>
-                            <td><b>Reservation ID:</b>&nbsp;&nbsp;{{reservationid}} <br>
-                            <b>Date:</b>&nbsp;&nbsp; {{date}}&nbsp;&nbsp;&nbsp;{{time}} <br>
-                            <b>Details:</b>&nbsp;&nbsp; Cinema {{cinema1}}&nbsp;&nbsp;&nbsp; {{name1}}&nbsp;&nbsp;&nbsp; <br>
-                            <b>Price:</b>&nbsp;&nbsp; Php {{price}}.00 <br>
-                            <b>Seats:</b>&nbsp;&nbsp; {{tickets}} 
+                            <td><b>Reservation ID:</b>&nbsp;&nbsp;{{this._id}} <br>
+                            <b>Date:</b>&nbsp;&nbsp; {{this.date_chosen}}&nbsp;&nbsp;&nbsp;{{this.time_chosen}} <br>
+                            <b>Details:</b>&nbsp;&nbsp; Cinema {{this.cinema}}&nbsp;&nbsp;&nbsp; {{this.movie}}&nbsp;&nbsp;&nbsp; <br>
+                            <b>Price:</b>&nbsp;&nbsp; Php {{this.totalprice}}.00 <br>
+                            <b>Seats:</b>&nbsp;&nbsp; {{this.reserved_seats}} 
                             </td> 
 
                              <td><br><center><button class="btn btn-custom cancelButton">Cancel</button></center></td>
                         </tr>
-
+                        {{/each}}
+                        {{else}}
                         <tr>
-                            <td><b>Reservation ID:</b>&nbsp;&nbsp;{{reservationid2}} <br>
-                            <b>Date:</b>&nbsp;&nbsp; {{date2}}&nbsp;&nbsp;&nbsp;{{time2}} <br>
-                            <b>Details:</b>&nbsp;&nbsp; Cinema {{cinema2}}&nbsp;&nbsp;&nbsp; {{name2}}&nbsp;&nbsp;&nbsp; <br>
-                            <b>Price:</b>&nbsp;&nbsp; Php {{price2}}.00 <br>
-                            <b>Seats:</b>&nbsp;&nbsp; {{tickets2}} 
-                            </td> 
-
-                             <td><br><center><button class="btn btn-custom cancelButton">Cancel</button></center></td>
+                            <td>No reservations yet</td>
                         </tr>
-
-                        <tr>
-                            <td><b>Reservation ID:</b>&nbsp;&nbsp;{{reservationid3}} <br>
-                            <b>Date:</b>&nbsp;&nbsp; {{date3}}&nbsp;&nbsp;&nbsp;{{time3}} <br>
-                            <b>Details:</b>&nbsp;&nbsp; Cinema {{cinema1}}&nbsp;&nbsp;&nbsp; {{name3}}&nbsp;&nbsp;&nbsp; <br>
-                            <b>Price:</b>&nbsp;&nbsp; Php {{price3}}.00 <br>
-                            <b>Seats:</b>&nbsp;&nbsp; {{tickets3}} 
-                            </td> 
-
-                             <td><br><center><button class="btn btn-custom cancelButton">Cancel</button></center></td>
-                        </tr>
-
-                        <tr>
-                             <td><b>Reservation ID:</b>&nbsp;&nbsp;{{reservationid4}} <br>
-                            <b>Date:</b>&nbsp;&nbsp; {{date4}}&nbsp;&nbsp;&nbsp;{{time4}} <br>
-                            <b>Details:</b>&nbsp;&nbsp; Cinema {{cinema4}}&nbsp;&nbsp;&nbsp; {{name4}}&nbsp;&nbsp;&nbsp; <br>
-                            <b>Price:</b>&nbsp;&nbsp; Php {{price4}}.00 <br>
-                            <b>Seats:</b>&nbsp;&nbsp; {{tickets4}} 
-                            </td> 
-
-                             <td><br><center><button class="btn btn-custom cancelButton">Cancel</button></center></td>
-                        </tr>
-
-                        <tr>
-                            <td><b>Reservation ID:</b>&nbsp;&nbsp;{{reservationid5}} <br>
-                            <b>Date:</b>&nbsp;&nbsp; {{date5}}&nbsp;&nbsp;&nbsp;{{time5}} <br>
-                            <b>Details:</b>&nbsp;&nbsp; Cinema {{cinema5}}&nbsp;&nbsp;&nbsp; {{name5}}&nbsp;&nbsp;&nbsp; <br>
-                            <b>Price:</b>&nbsp;&nbsp; Php {{price5}}.00 <br>
-                            <b>Seats:</b>&nbsp;&nbsp; {{tickets5}} 
-                            </td> 
-
-                             <td><br><center><button class="btn btn-custom cancelButton">Cancel</button></center></td>
-                        </tr>
-
-                        <tr>
-                             <td><b>Reservation ID:</b>&nbsp;&nbsp;{{reservationid6}} <br>
-                            <b>Date:</b>&nbsp;&nbsp; {{date6}}&nbsp;&nbsp;&nbsp;{{time6}} <br>
-                            <b>Details:</b>&nbsp;&nbsp; Cinema {{cinema6}}&nbsp;&nbsp;&nbsp; {{name6}}&nbsp;&nbsp;&nbsp; <br>
-                            <b>Price:</b>&nbsp;&nbsp; Php {{price6}}.00 <br>
-                            <b>Seats:</b>&nbsp;&nbsp; {{tickets6}} 
-                            </td> 
-
-                             <td><br><center><button class="btn btn-custom cancelButton">Cancel</button></center></td>
-                        </tr>
-
-                         <tr>
-                             <td><b>Reservation ID:</b>&nbsp;&nbsp;{{reservationid7}} <br>
-                            <b>Date:</b>&nbsp;&nbsp; {{date7}}&nbsp;&nbsp;&nbsp;{{time7}} <br>
-                            <b>Details:</b>&nbsp;&nbsp; Cinema {{cinema7}}&nbsp;&nbsp;&nbsp; {{name7}}&nbsp;&nbsp;&nbsp; <br>
-                            <b>Price:</b>&nbsp;&nbsp; Php {{price7}}.00 <br>
-                            <b>Seats:</b>&nbsp;&nbsp; {{tickets7}} 
-                            </td> 
-
-                             <td><br><center><button class="btn btn-custom cancelButton">Cancel</button></center></td>
-                        </tr>
-
-                         <tr>
-                             <td><b>Reservation ID:</b>&nbsp;&nbsp;{{reservationid8}} <br>
-                            <b>Date:</b>&nbsp;&nbsp; {{date3}}&nbsp;&nbsp;&nbsp;{{time8}} <br>
-                            <b>Details:</b>&nbsp;&nbsp; Cinema {{cinema8}}&nbsp;&nbsp;&nbsp; {{name8}}&nbsp;&nbsp;&nbsp; <br>
-                            <b>Price:</b>&nbsp;&nbsp; Php {{price8}}.00 <br>
-                            <b>Seats:</b>&nbsp;&nbsp; {{tickets8}} 
-                            </td> 
-
-                             <td><br><center><button class="btn btn-custom cancelButton">Cancel</button></center></td>
-                        </tr>
-                         
+                        {{/if}}
                         
                     </tbody>
                 </table>

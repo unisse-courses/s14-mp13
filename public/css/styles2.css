@@ -128,7 +128,7 @@ button.btn.btn-custom.dropdown-toggle:focus {
 
    #reservations {
     overflow-y:scroll;
-    height: 650px;
+    height: 600px;
     display:block;
    }
 

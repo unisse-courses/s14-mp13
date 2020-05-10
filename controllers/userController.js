@@ -147,8 +147,10 @@ const { validationResult } = require('express-validator');
                 req.session.email = user.email;
   
                 console.log(req.session);
-  
-                res.redirect('/home');
+                if (req.session.utype === 'Regular')
+                  res.redirect('/home');
+                else if (req.session.utype === 'Admin')
+                  res.redirect('/home/admin');
               } else {
                 // passwords don't match
                 req.flash('error_msg', 'Incorrect password.');

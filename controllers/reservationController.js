@@ -35,7 +35,8 @@ exports.reserve1917 = function(req, res) {
     cinemaModel.showAll(screening1.cinema, function(err, cinema1) {
      
         const  screening = screening1._id;
-        const  movie = _1917._id;
+        const  movie = _1917.name;
+        const  cinema = cinema1.cinemanum;
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
@@ -47,6 +48,8 @@ exports.reserve1917 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
+            movie,
+            cinema,
             user
         };
 
@@ -81,16 +84,13 @@ exports.reserve1917 = function(req, res) {
 // 1917 tickets screen
 exports.tickets1917 = function(req, res) {
     reservationModel.showTickets(function(err, reservation1) { 
-    screeningModel.showAll(reservation1.screening, function(err, screening1) {
-    cinemaModel.showAll(screening1.cinema, function(err, cinema1) {
-    movieModel.showAll(screening1.movie, function(err, _1917) {
               
         res.render('tickets', {
         layout: 'main-regular',
         title: '1917 Tickets',
         reservationid: reservation1._id,
-        movie: _1917.name,
-        cinema: cinema1.cinemanum,
+        movie: reservation1.movie,
+        cinema: reservation1.cinema,
         price: reservation1.totalprice,
         date: reservation1.date_chosen,
         time: reservation1.time_chosen,
@@ -98,9 +98,7 @@ exports.tickets1917 = function(req, res) {
         })
           
         });
-        });
-        });
-        });
+
 };
 
 //Parasite reserve screen
@@ -130,15 +128,18 @@ exports.reserveParasite = function(req, res) {
     cinemaModel.showAll(screening2.cinema, function(err, cinema2) {
      
         const  screening = screening2._id;
-        const  movie = parasite._id;
+        const  movie = parasite.name;
+        const  cinema = cinema2.cinemanum;
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
         const  user = req.session.user;
+        
 
         const newReservation = {
             screening, 
             movie,
+            cinema,
             reserved_seats,
             date_chosen,
             time_chosen, 
@@ -176,25 +177,19 @@ exports.reserveParasite = function(req, res) {
 // Parasite tickets screen
 exports.ticketsParasite = function(req, res) {
     reservationModel.showTickets(function(err, reservation2) { 
-    screeningModel.showAll(reservation2.screening, function(err, screening2) {
-    cinemaModel.showAll(screening2.cinema, function(err, cinema2) {
-    movieModel.showAll(screening2.movie, function(err, parasite) {
               
         res.render('tickets', {
         layout: 'main-regular',
         title: 'Parasite Tickets',
         reservationid: reservation2._id,
-        movie: parasite.name,
-        cinema: cinema2.cinemanum,
+        movie: reservation2.movie,
+        cinema: reservation2.cinema,
         price: reservation2.totalprice,
         date: reservation2.date_chosen,
         time: reservation2.time_chosen,
         tickets: reservation2.reserved_seats
         })
           
-        });
-        });
-        });
         });
 };
 
@@ -225,7 +220,8 @@ exports.reserveSonic = function(req, res) {
     cinemaModel.showAll(screening3.cinema, function(err, cinema3) {
      
         const  screening = screening3._id;
-        const  movie = sonic._id;
+        const  movie = sonic.name;
+        const  cinema = cinema3.cinemanum;
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
@@ -234,6 +230,7 @@ exports.reserveSonic = function(req, res) {
         const newReservation = {
             screening, 
             movie,
+            cinema,
             reserved_seats,
             date_chosen,
             time_chosen, 
@@ -271,16 +268,13 @@ exports.reserveSonic = function(req, res) {
 // Sonic tickets screen
 exports.ticketsSonic = function(req, res) {
     reservationModel.showTickets(function(err, reservation3) { 
-    screeningModel.showAll(reservation3.screening, function(err, screening3) {
-    cinemaModel.showAll(screening3.cinema, function(err, cinema3) {
-    movieModel.showAll(screening3.movie, function(err, sonic) {
-              
+
         res.render('tickets', {
         layout: 'main-regular',
         title: 'Sonic the Hedgehog Tickets',
         reservationid: reservation3._id,
-        movie: sonic.name,
-        cinema: cinema3.cinemanum,
+        movie: reservation3.movie,
+        cinema: reservation3.cinema,
         price: reservation3.totalprice,
         date: reservation3.date_chosen,
         time: reservation3.time_chosen,
@@ -288,9 +282,7 @@ exports.ticketsSonic = function(req, res) {
         })
           
         });
-        });
-        });
-        });
+    
 };
 
 //BOP reserve screen
@@ -320,7 +312,8 @@ exports.reserveBOP = function(req, res) {
     cinemaModel.showAll(screening4.cinema, function(err, cinema4) {
      
         const  screening = screening4._id;
-        const  movie = bop._id;
+        const  movie = bop.name;
+        const  cinema = cinema4.cinemanum;
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
@@ -329,6 +322,7 @@ exports.reserveBOP = function(req, res) {
         const newReservation = {
             screening, 
             movie,
+            cinema,
             reserved_seats,
             date_chosen,
             time_chosen,
@@ -366,16 +360,13 @@ exports.reserveBOP = function(req, res) {
 // BOP tickets screen
 exports.ticketsBOP = function(req, res) {
     reservationModel.showTickets(function(err, reservation4) { 
-    screeningModel.showAll(reservation4.screening, function(err, screening4) {
-    cinemaModel.showAll(screening4.cinema, function(err, cinema4) {
-    movieModel.showAll(screening4.movie, function(err, bop) {
               
         res.render('tickets', {
         layout: 'main-regular',
         title: 'Birds of Prey Tickets',
         reservationid: reservation4._id,
-        movie: bop.name,
-        cinema: cinema4.cinemanum,
+        movie: reservation4.movie,
+        cinema: reservation4.cinema,
         price: reservation4.totalprice,
         date: reservation4.date_chosen,
         time: reservation4.time_chosen,
@@ -383,9 +374,7 @@ exports.ticketsBOP = function(req, res) {
         })
           
         });
-        });
-        });
-        });
+
 };
 
 //Bad Boys for Life reserve screen
@@ -415,7 +404,8 @@ exports.reserveBadBoys = function(req, res) {
     cinemaModel.showAll(screening5.cinema, function(err, cinema5) {
      
         const  screening = screening5._id;
-        const  movie = bb4life._id;
+        const  movie = bb4life.name;
+        const  cinema = cinema5.cinemanum;
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
@@ -424,6 +414,7 @@ exports.reserveBadBoys = function(req, res) {
         const newReservation = {
             screening, 
             movie,
+            cinema,
             reserved_seats,
             date_chosen,
             time_chosen,
@@ -461,16 +452,13 @@ exports.reserveBadBoys = function(req, res) {
 // Bad Boys for Life tickets screen
 exports.ticketsBadBoys = function(req, res) {
     reservationModel.showTickets(function(err, reservation5) { 
-    screeningModel.showAll(reservation5.screening, function(err, screening5) {
-    cinemaModel.showAll(screening5.cinema, function(err, cinema5) {
-    movieModel.showAll(screening5.movie, function(err, bb4life) {
               
         res.render('tickets', {
         layout: 'main-regular',
         title: 'Bad Boys for Life Tickets',
         reservationid: reservation5._id,
-        movie: bb4life.name,
-        cinema: cinema5.cinemanum,
+        movie: reservation5.movie,
+        cinema: reservation5.cinema,
         price: reservation5.totalprice,
         date: reservation5.date_chosen,
         time: reservation5.time_chosen,
@@ -478,9 +466,7 @@ exports.ticketsBadBoys = function(req, res) {
         })
           
         });
-        });
-        });
-        });
+    
 };
 
 //DoLittle reserve screen
@@ -510,7 +496,8 @@ exports.reserveDoLittle = function(req, res) {
     cinemaModel.showAll(screening6.cinema, function(err, cinema6) {
      
         const  screening = screening6._id;
-        const  movie = dolittle._id;
+        const  movie = dolittle.name;
+        const  cinema = cinema6.cinemanum;
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
@@ -519,6 +506,7 @@ exports.reserveDoLittle = function(req, res) {
         const newReservation = {
             screening, 
             movie,
+            cinema,
             reserved_seats,
             date_chosen,
             time_chosen,
@@ -556,16 +544,13 @@ exports.reserveDoLittle = function(req, res) {
 // DoLittle tickets screen
 exports.ticketsDoLittle = function(req, res) {
     reservationModel.showTickets(function(err, reservation6) { 
-    screeningModel.showAll(reservation6.screening, function(err, screening6) {
-    cinemaModel.showAll(screening6.cinema, function(err, cinema6) {
-    movieModel.showAll(screening6.movie, function(err, dolittle) {
               
         res.render('tickets', {
         layout: 'main-regular',
         title: 'DoLittle Tickets',
         reservationid: reservation6._id,
-        movie: dolittle.name,
-        cinema: cinema6.cinemanum,
+        movie: reservation6.movie,
+        cinema: reservation6.cinema,
         price: reservation6.totalprice,
         date: reservation6.date_chosen,
         time: reservation6.time_chosen,
@@ -573,9 +558,7 @@ exports.ticketsDoLittle = function(req, res) {
         })
           
         });
-        });
-        });
-        });
+
 };
 
 //TNC reserve screen
@@ -605,7 +588,8 @@ exports.reserveTNC = function(req, res) {
     cinemaModel.showAll(screening7.cinema, function(err, cinema7) {
      
         const  screening = screening7._id;
-        const  movie = tnc._id;
+        const  movie = tnc.name;
+        const  cinema = cinema7.cinemanum;
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
@@ -614,6 +598,7 @@ exports.reserveTNC = function(req, res) {
         const newReservation = {
             screening, 
             movie,
+            cinema,
             reserved_seats,
             date_chosen,
             time_chosen,
@@ -651,16 +636,13 @@ exports.reserveTNC = function(req, res) {
 // TNC tickets screen
 exports.ticketsTNC = function(req, res) {
     reservationModel.showTickets(function(err, reservation7) { 
-    screeningModel.showAll(reservation7.screening, function(err, screening7) {
-    cinemaModel.showAll(screening7.cinema, function(err, cinema7) {
-    movieModel.showAll(screening7.movie, function(err, tnc) {
               
         res.render('tickets', {
         layout: 'main-regular',
         title: 'The Night Clerk Tickets',
         reservationid: reservation7._id,
-        movie: tnc.name,
-        cinema: cinema7.cinemanum,
+        movie: reservation7.movie,
+        cinema: reservation7.cinema,
         price: reservation7.totalprice,
         date: reservation7.date_chosen,
         time: reservation7.time_chosen,
@@ -668,9 +650,7 @@ exports.ticketsTNC = function(req, res) {
         })
           
         });
-        });
-        });
-        });
+
 };
 
 //The Call of the Wild reserve screen
@@ -700,7 +680,8 @@ exports.reserveCallofWild = function(req, res) {
     cinemaModel.showAll(screening8.cinema, function(err, cinema8) {
      
         const  screening = screening8._id;
-        const  movie = cow._id;
+        const  movie = cow.name;
+        const  cinema = cinema8.cinemanum;
         const  reserved_seats = req.body.seats;
         const  date_chosen = req.body.datepicker;
         const  time_chosen = req.body.timepicker;
@@ -709,6 +690,7 @@ exports.reserveCallofWild = function(req, res) {
         const newReservation = {
             screening, 
             movie,
+            cinema,
             reserved_seats,
             date_chosen,
             time_chosen,
@@ -746,16 +728,13 @@ exports.reserveCallofWild = function(req, res) {
 // The Call of the Wild tickets screen
 exports.ticketsCallofWild = function(req, res) {
     reservationModel.showTickets(function(err, reservation8) { 
-    screeningModel.showAll(reservation8.screening, function(err, screening8) {
-    cinemaModel.showAll(screening8.cinema, function(err, cinema8) {
-    movieModel.showAll(screening8.movie, function(err, cow) {
-              
+    
         res.render('tickets', {
         layout: 'main-regular',
         title: 'The Call of the Wild Tickets',
         reservationid: reservation8._id,
-        movie: cow.name,
-        cinema: cinema8.cinemanum,
+        movie: reservation8.movie,
+        cinema: reservation8.cinema,
         price: reservation8.totalprice,
         date: reservation8.date_chosen,
         time: reservation8.time_chosen,
@@ -763,105 +742,202 @@ exports.ticketsCallofWild = function(req, res) {
         })
           
         });
-        });
-        });
-        });
 };
   
-
-  
-//   // The Call of the Wild reserve route
-//   app.get('/reserve/thecallofthewild', function(req,res) {
-//       Screening.findById('5e87005f1c9d440000ec3b21', function(err, screening8) {
-//       Movie.findById(screening8.movie, function(err, movie8) {
-//       Cinema.findById(screening8.cinema, function(err, cinema8) {
-//         res.render('reserve',{
-//             layout: 'main-regular',
-//             movieTitle: movie8.name,
-//             cinema: cinema8.cinemanum,
-//             details: movie8.shortdesc,
-//             timeslots: screening8.timeslots,
-//             dates: screening8.dates,
-//             tickets_url: screening8.tickets_url,
-//             post_url: '/reserve/thecallofthewild/screening08'
-//         })
-  
-//         app.post('/reserve/thecallofthewild/screening08', function(req,res) {
-//           /** == README == **
-//               Instead of passing an object, we now have a mongoose.Document object
-//               because we created an instance of the usersModel.
-//             **/
-          
-//            var reservation = new Reservation ({
-//             screening: screening8._id,
-//             movie: movie8._id,
-//             reserved_seats: req.body.seats,
-//             date_chosen: req.body.datepicker,
-//             time_chosen: req.body.timepicker
-//               // Potential error: there's no validation for gender on the client side
-//           });
-        
-//           /** == README == **
-//             Directly calling save for the instance of the Document.
-//           **/
-//           reservation.save(function(err, reservation) {
-//             var result;
-        
-//             /** == README == **
-//               Added error handling! Check out the object printed out in the console.
-//               (Try clicking Add User when the name or id is blank)
-//             **/
-//             if (err) {
-//               console.log(err.errors);
-        
-//               result = { success: false, message: "Reservation was not created!" }
-//               res.send(result);
-//               // throw err; // This is commented so that the server won't be killed.
-//             } else {
-//               console.log("Successfully added reservation!");
-//               console.log(reservation); // Check out the logs and see there's a new __v attribute!
-        
-//               // Let's create a custom response that the user was created successfully
-//               result = { success: true, message: "Reservation created!" }
-        
-//               // Sending the result as is to handle it the "AJAX-way".
-//               //res.send(result);
-//               res.redirect('http://localhost:3000/reserve/thecallofthewild/screening08/tickets');
-//             }
-        
-//           });
-        
-//         })
-//       });
-//       });
-//       });
-//   });
-  
-//   // The Call of the Wild tickets page
-//   app.get('/reserve/thecallofthewild/screening08/tickets', function(req,res) {
-//     Reservation.findOne().sort({$natural: -1}).limit(1).exec(function(err, reservation8) { 
-//     Screening.findById(reservation8.screening, function(err, screening8) {
-//     Cinema.findById(screening8.cinema, function(err, cinema8) {
-//     Movie.findById(screening8.movie, function(err, movie8) {
-    
-//     res.render('tickets', {
-//     layout: 'main-regular',
-//     reservationid: reservation8._id,
-//     movie: movie8.name,
-//     cinema: cinema8.cinemanum,
-//     price: reservation8.totalprice,
-//     date: reservation8.date_chosen,
-//     time: reservation8.time_chosen,
-//     tickets: reservation8.reserved_seats
-  
-//   })
-  
-//   });
-//   });
-//   });
-//   });
-  
-//   });
-  
-  
 //   /*================================================================*/
+
+// Admin home
+ // admin home account (logged in) route
+exports.showHome = function(req, res) {
+    // The render function takes the template filename (no extension - that's what the config is for!)
+    // and an object for what's needed in that template
+
+    // NOW SHOWING ROW 1
+    // SCREENING 1
+    screeningModel.showAll('5e86f3c71c9d440000ec3b19', function(err, screening1) {
+    movieModel.showAll(screening1.movie, function(err, movie1) {
+    cinemaModel.showAll(screening1.cinema, function(err, cinema1) {
+    // SCREENING 2
+    screeningModel.showAll('5e86fd761c9d440000ec3b1a', function(err, screening2) {
+    movieModel.showAll(screening2.movie, function(err, movie2) {
+    cinemaModel.showAll(screening2.cinema, function(err, cinema2) {
+    // SCREENING 3
+    screeningModel.showAll('5e86fdc71c9d440000ec3b1b', function(err, screening3) {
+    movieModel.showAll(screening3.movie, function(err, movie3) {
+    cinemaModel.showAll(screening3.cinema, function(err, cinema3) {
+    // SCREENING 4
+    screeningModel.showAll('5e86fe201c9d440000ec3b1c', function(err, screening4) {
+    movieModel.showAll(screening4.movie, function(err, movie4) {
+    cinemaModel.showAll(screening4.cinema, function(err, cinema4) {
+    // SCREENING 5
+    screeningModel.showAll('5e86fe7e1c9d440000ec3b1d', function(err, screening5) {
+    movieModel.showAll(screening5.movie, function(err, movie5) {
+    cinemaModel.showAll(screening5.cinema, function(err, cinema5) {
+    // SCREENING 6
+    screeningModel.showAll('5e8698471c9d440000ec3b07', function(err, screening6) {
+    movieModel.showAll(screening6.movie, function(err, movie6) {
+    cinemaModel.showAll(screening6.cinema, function(err, cinema6) {
+    // SCREENING 7
+    screeningModel.showAll('5e86ff9e1c9d440000ec3b20', function(err, screening7) {
+    movieModel.showAll(screening7.movie, function(err, movie7) {
+    cinemaModel.showAll(screening7.cinema, function(err, cinema7) {
+    // SCREENING 8
+    screeningModel.showAll('5e87005f1c9d440000ec3b21', function(err, screening8) {
+    movieModel.showAll(screening8.movie, function(err, movie8) {
+    cinemaModel.showAll(screening8.cinema, function(err, cinema8) {
+
+    // RESERVATIONS
+    reservationModel.getAll({date_reserved: 1}, function(reservations) {
+  
+    // reservationModel.showAll('5e8ae6ef4ba13b4160ff8a7b', function(err, reservation1) {
+    // reservationModel.showAll('5e8ae6ef4ba13b4160ff8a7b', function(err, reservation2) {
+    // reservationModel.showAll('5e8ae6ef4ba13b4160ff8a7b', function(err, reservation3) {
+    // reservationModel.showAll('5e8ae6ef4ba13b4160ff8a7b', function(err, reservation4) {
+    // reservationModel.showAll('5e8ae6ef4ba13b4160ff8a7b', function(err, reservation5) {
+    // reservationModel.showAll('5e8ae6ef4ba13b4160ff8a7b', function(err, reservation6) {
+    // reservationModel.showAll('5e8ae6ef4ba13b4160ff8a7b', function(err, reservation7) {
+    // reservationModel.showAll('5e8ae6ef4ba13b4160ff8a7b', function(err, reservation8) {
+
+    // COMING SOON ROW 1
+    movieModel.showAll('5e86a7a31c9d440000ec3b0a', function(err, movie9) {
+    movieModel.showAll('5e86a99a1c9d440000ec3b0b', function(err, movie10) {
+    movieModel.showAll('5e86ab4a1c9d440000ec3b0c', function(err, movie11) {
+    movieModel.showAll('5e86ad0a1c9d440000ec3b0d', function(err, movie12) {
+    // COMING SOON ROW 2
+    movieModel.showAll('5e86ae8c1c9d440000ec3b0e', function(err, movie13) {
+    movieModel.showAll('5e86b0e61c9d440000ec3b0f', function(err, movie14) {
+    
+    res.render('admin-home', {
+      layout: 'main-admin',
+      title: 'W&Js Cinemas',
+      // NOW SHOWING
+      name1: movie1.name,
+      name2: movie2.name,
+      name3: movie3.name,
+      name4: movie4.name,
+      name5: movie5.name,
+      name6: movie6.name,
+      name7: movie7.name,
+      name8: movie8.name,
+
+      shortdesc1: movie1.shortdesc,
+      shortdesc2: movie2.shortdesc,
+      shortdesc3: movie3.shortdesc,
+      shortdesc4: movie4.shortdesc,
+      shortdesc5: movie5.shortdesc,
+      shortdesc6: movie6.shortdesc,
+      shortdesc7: movie7.shortdesc,
+      shortdesc8: movie8.shortdesc,
+
+      // COMING SOON
+      name9: movie9.name,
+      name9: movie9.name,
+      name10: movie10.name,
+      name10: movie10.name,
+      name11: movie11.name,
+      name12: movie12.name,
+      name13: movie13.name,
+      name14: movie14.name,
+      // cinemaModel numbers
+      cinema1: cinema1.cinemanum,
+      cinema2: cinema2.cinemanum,
+      cinema3: cinema3.cinemanum,
+      cinema4: cinema4.cinemanum,
+      cinema5: cinema5.cinemanum,
+      cinema6: cinema6.cinemanum,
+      cinema7: cinema7.cinemanum,
+      cinema8: cinema8.cinemanum,
+
+      // Date start and end
+      dates1: screening1.dates,
+      dates2: screening2.dates,
+      dates3: screening3.dates,
+      dates4: screening4.dates,
+      dates5: screening5.dates,
+      dates6: screening6.dates,
+      dates7: screening7.dates,
+      dates8: screening8.dates,
+     
+      // timeslots
+      timeslots1: screening1.timeslots,
+      timeslots2: screening2.timeslots,
+      timeslots3: screening3.timeslots,
+      timeslots4: screening4.timeslots,
+      timeslots5: screening5.timeslots,
+      timeslots6: screening6.timeslots,
+      timeslots7: screening7.timeslots,
+      timeslots8: screening8.timeslots,
+
+      // ratings
+      rating1: movie1.rating,
+      rating2: movie2.rating,
+      rating3: movie3.rating,
+      rating4: movie4.rating,
+      rating5: movie5.rating,
+      rating6: movie6.rating,
+      rating7: movie7.rating,
+      rating8: movie8.rating,
+      rating9: movie9.rating,
+      rating10: movie10.rating,
+      rating11: movie11.rating,
+      rating12: movie12.rating,
+      rating13: movie13.rating,
+      rating14: movie14.rating,
+
+      // reservations
+
+      reservations: reservations
+
+    })
+
+  }); // screening 1
+  }); // movie 1
+  }); // cinema 1
+
+  }); // screening 2
+  }); // movie 2
+  }); // cinema 2
+
+  }); // screening 3
+  }); // movie 3
+  }); // cinema 3
+
+  }); // screening 4
+  }); // movie 4
+  }); // cinema 4
+
+  }); // screening 5
+  }); // movie 5
+  }); // cinema 5
+
+  }); // screening 6
+  }); // movie 6
+  }); // cinema 6
+
+  }); // screening 7
+  }); // movie 7
+  }); // cinema 7
+
+  }); // screening 8
+  }); // movie 8
+  }); // cinema 8
+
+  }); // reservation
+//   });
+//   });
+//   });
+//   });
+//   });
+//   });
+//   });
+  
+
+  }); // movie 9
+  }); // movie 10
+  }); // movie 11
+  }); // movie 12
+  }); // movie 13
+  }); // movie 14
+
+};
+

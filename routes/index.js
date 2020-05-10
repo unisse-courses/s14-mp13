@@ -119,4 +119,23 @@ router.get('/reserve/thecallofthewild', isPrivate, reservationController.showCal
 router.post('/reserve/thecallofthewild/screening08', isPrivate, reservationController.reserveCallofWild);
 router.get('/reserve/thecallofthewild/screening08/tickets', isPrivate, reservationController.ticketsCallofWild);
 
+// Admin Routes
+router.get('/home/admin', isPrivate, reservationController.showHome);
+
+// admin my account (logged in) route
+router.get('/adminaccount', function(req, res) {
+  // The render function takes the template filename (no extension - that's what the config is for!)
+  // and an object for what's needed in that template
+  res.render('adminaccount', {
+    layout: 'main-admin',
+    uname: req.session.uname,
+    fname: req.session.fname,
+    lname: req.session.lname,
+    mnum: req.session.mnum,
+    email: req.session.email
+
+  })
+});
+
+
 module.exports = router;
