@@ -941,3 +941,21 @@ exports.showHome = function(req, res) {
 
 };
 
+// myaccount (Regular) route 
+exports.showMyAccount = function(req, res) {
+    // RESERVATIONS
+    reservationModel.getAllUser({name:1}, req.session.user, function(reservations) {
+        res.render('myaccount', {
+            layout: 'main-regular',
+            title: 'My Account',
+            uname: req.session.uname,
+            fname: req.session.fname,
+            lname: req.session.lname,
+            mnum: req.session.mnum,
+            email: req.session.email, 
+            reservations: reservations
+          })
+    });
+    
+};
+

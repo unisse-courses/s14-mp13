@@ -2,10 +2,9 @@ const mongoose = require('./connection');
 
 const MovieSchema = new mongoose.Schema(
   {
-    movieid: {type: String, required: true},
     name: {type: String, required: true},
     shortdesc: {type: String, required: true},
-    price: {type: Number, required: true},
+    price: {type: Number, required: true, default: 300},
     directors: {type: String, required: true},
     cast: {type: String, required: true},
     trailer_url: {type: String, required: true},

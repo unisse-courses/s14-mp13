@@ -11,7 +11,7 @@ const ReservationSchema = new mongoose.Schema(
     date_chosen: {type: String, required: true},
     time_chosen: {type: String, required: true},
     status: {type: String, required: true, default: "Reserved"},
-    totalprice: {type: Number, required: true, default: 300},
+    totalprice: {type: Number, required: true},
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
   }
 
@@ -39,6 +39,19 @@ exports.showTickets = function(next) {
 
 exports.getAll = function(sort, next) {
   reservationModel.find({}).sort(sort).exec(function(err, result) {
+    if (err) throw err;
+    var reservationObjects = [];
+
+    result.forEach(function(doc) {
+      reservationObjects.push(doc.toObject());
+    });
+
+    next(reservationObjects);
+  });
+};
+
+exports.getAllUser = function(sort, user, next) {
+  reservationModel.find({user: user}).sort(sort).exec(function(err, result) {
     if (err) throw err;
     var reservationObjects = [];
 

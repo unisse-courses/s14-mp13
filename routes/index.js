@@ -12,16 +12,7 @@ const reservationController = require('../controllers/reservationController');
 router.get('/home', isPrivate, movieController.showAllMoviesUser);
 
 // myaccount route 
-router.get('/myaccount', isPrivate, (req, res) => {
-    res.render('myaccount2', {
-        layout: 'main-regular',
-        uname: req.session.uname,
-        fname: req.session.fname,
-        lname: req.session.lname,
-        mnum: req.session.mnum,
-        email: req.session.email
-      })
-});
+router.get('/myaccount', isPrivate, reservationController.showMyAccount);
 
 // Schedules/screening route
 router.get('/schedules/user', isPrivate, screeningController.showAllScreeningsUser);
@@ -128,12 +119,12 @@ router.get('/adminaccount', function(req, res) {
   // and an object for what's needed in that template
   res.render('adminaccount', {
     layout: 'main-admin',
+    title: 'My Account',
     uname: req.session.uname,
     fname: req.session.fname,
     lname: req.session.lname,
     mnum: req.session.mnum,
     email: req.session.email
-
   })
 });
 
