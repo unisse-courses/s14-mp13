@@ -3395,37 +3395,61 @@ exports.showHome = function(req, res) {
 
     // NOW SHOWING ROW 1
     // SCREENING 1
-    screeningModel.showAll('5e86f3c71c9d440000ec3b19', function(err, screening1) {
-    movieModel.showAll(screening1.movie, function(err, movie1) {
-    cinemaModel.showAll(screening1.cinema, function(err, cinema1) {
+    screeningModel.showAll('5e86f3c71c9d440000ec3b19', function(err, t1Screening1) {
+    screeningModel.showAll('5eb8caf24944bc6057e6b834', function(err, t2Screening1) {
+    screeningModel.showAll('5eb8cd644944bc6057e6b835', function(err, t3Screening1) {
+    screeningModel.showAll('5eb8cdc14944bc6057e6b836', function(err, t4Screening1) {
+    movieModel.showAll(t1Screening1.movie, function(err, movie1) {
+    cinemaModel.showAll(t1Screening1.cinema, function(err, cinema1) {
     // SCREENING 2
-    screeningModel.showAll('5e86fd761c9d440000ec3b1a', function(err, screening2) {
-    movieModel.showAll(screening2.movie, function(err, movie2) {
-    cinemaModel.showAll(screening2.cinema, function(err, cinema2) {
+    screeningModel.showAll('5e86fd761c9d440000ec3b1a', function(err, t1Screening2) {
+    screeningModel.showAll('5eb8d8fa4944bc6057e6b837', function(err, t2Screening2) {
+    screeningModel.showAll('5eb8d9264944bc6057e6b838', function(err, t3Screening2) {
+    screeningModel.showAll('5eb8d9514944bc6057e6b839', function(err, t4Screening2) {
+    movieModel.showAll(t1Screening2.movie, function(err, movie2) {
+    cinemaModel.showAll(t1Screening2.cinema, function(err, cinema2) {
     // SCREENING 3
-    screeningModel.showAll('5e86fdc71c9d440000ec3b1b', function(err, screening3) {
-    movieModel.showAll(screening3.movie, function(err, movie3) {
-    cinemaModel.showAll(screening3.cinema, function(err, cinema3) {
+    screeningModel.showAll('5e86fdc71c9d440000ec3b1b', function(err, t1Screening3) {
+    screeningModel.showAll('5eb8dba94944bc6057e6b83a', function(err, t2Screening3) {
+    screeningModel.showAll('5eb8dbec4944bc6057e6b83b', function(err, t3Screening3) {
+    screeningModel.showAll('5eb8dc1a4944bc6057e6b83c', function(err, t4Screening3) {
+    movieModel.showAll(t1Screening3.movie, function(err, movie3) {
+    cinemaModel.showAll(t1Screening3.cinema, function(err, cinema3) {
     // SCREENING 4
-    screeningModel.showAll('5e86fe201c9d440000ec3b1c', function(err, screening4) {
-    movieModel.showAll(screening4.movie, function(err, movie4) {
-    cinemaModel.showAll(screening4.cinema, function(err, cinema4) {
+    screeningModel.showAll('5e86fe201c9d440000ec3b1c', function(err, t1Screening4) {
+    screeningModel.showAll('5eb8de494944bc6057e6b83d', function(err, t2Screening4) {
+    screeningModel.showAll('5eb8de884944bc6057e6b83e', function(err, t3Screening4) {
+    screeningModel.showAll('5eb8deed4944bc6057e6b83f', function(err, t4Screening4) {
+    movieModel.showAll(t1Screening4.movie, function(err, movie4) {
+    cinemaModel.showAll(t1Screening4.cinema, function(err, cinema4) {
     // SCREENING 5
-    screeningModel.showAll('5e86fe7e1c9d440000ec3b1d', function(err, screening5) {
-    movieModel.showAll(screening5.movie, function(err, movie5) {
-    cinemaModel.showAll(screening5.cinema, function(err, cinema5) {
+    screeningModel.showAll('5e86fe7e1c9d440000ec3b1d', function(err, t1Screening5) {
+    screeningModel.showAll('5eb8e0904944bc6057e6b840', function(err, t2Screening5) {
+    screeningModel.showAll('5eb8e0d94944bc6057e6b841', function(err, t3Screening5) {
+    screeningModel.showAll('5eb8e1024944bc6057e6b842', function(err, t4Screening5) {
+    movieModel.showAll(t1Screening5.movie, function(err, movie5) {
+    cinemaModel.showAll(t1Screening5.cinema, function(err, cinema5) {
     // SCREENING 6
-    screeningModel.showAll('5e8698471c9d440000ec3b07', function(err, screening6) {
-    movieModel.showAll(screening6.movie, function(err, movie6) {
-    cinemaModel.showAll(screening6.cinema, function(err, cinema6) {
+    screeningModel.showAll('5e8698471c9d440000ec3b07', function(err, t1Screening6) {
+    screeningModel.showAll('5eb8e25d4944bc6057e6b843', function(err, t2Screening6) {
+    screeningModel.showAll('5eb8e29f4944bc6057e6b844', function(err, t3Screening6) {
+    screeningModel.showAll('5eb8e2de4944bc6057e6b845', function(err, t4Screening6) {
+    movieModel.showAll(t1Screening6.movie, function(err, movie6) {
+    cinemaModel.showAll(t1Screening6.cinema, function(err, cinema6) {
     // SCREENING 7
-    screeningModel.showAll('5e86ff9e1c9d440000ec3b20', function(err, screening7) {
-    movieModel.showAll(screening7.movie, function(err, movie7) {
-    cinemaModel.showAll(screening7.cinema, function(err, cinema7) {
+    screeningModel.showAll('5e86ff9e1c9d440000ec3b20', function(err, t1Screening7) {
+    screeningModel.showAll('5eb8e44322e58f3caf356d65', function(err, t2Screening7) {
+    screeningModel.showAll('5eb8e45c22e58f3caf356d66', function(err, t3Screening7) {
+    screeningModel.showAll('5eb8e46a22e58f3caf356d67', function(err, t4Screening7) {
+    movieModel.showAll(t1Screening7.movie, function(err, movie7) {
+    cinemaModel.showAll(t1Screening7.cinema, function(err, cinema7) {
     // SCREENING 8
-    screeningModel.showAll('5eb8e55122e58f3caf356d68', function(err, screening8) {
-    movieModel.showAll(screening8.movie, function(err, movie8) {
-    cinemaModel.showAll(screening8.cinema, function(err, cinema8) {
+    screeningModel.showAll('5eb8e55122e58f3caf356d68', function(err, t1Screening8) {
+    screeningModel.showAll('5eb8e600df7d525ab5728f50', function(err, t2Screening8) {
+    screeningModel.showAll('5eb8e60fdf7d525ab5728f51', function(err, t3Screening8) {
+    screeningModel.showAll('5eb8e61bdf7d525ab5728f52', function(err, t4Screening8) {
+    movieModel.showAll(t1Screening8.movie, function(err, movie8) {
+    cinemaModel.showAll(t1Screening8.cinema, function(err, cinema8) {
 
     // RESERVATIONS
     reservationModel.getAll({date_reserved: 1}, function(reservations) {
@@ -3490,24 +3514,63 @@ exports.showHome = function(req, res) {
       cinema8: cinema8.cinemanum,
 
       // Date start and end
-      dates1: screening1.dates,
-      dates2: screening2.dates,
-      dates3: screening3.dates,
-      dates4: screening4.dates,
-      dates5: screening5.dates,
-      dates6: screening6.dates,
-      dates7: screening7.dates,
-      dates8: screening8.dates,
+      date1start: t1Screening1.date,
+      date1end: 'May 18, 2020',
+      date2start: t1Screening2.date,
+      date2end: 'May 18, 2020',
+      date3start: t1Screening3.date,
+      date3end: 'May 18, 2020',
+      date4start: t1Screening4.date,
+      date4end: 'May 18, 2020',
+      date5start: t1Screening5.date,
+      date5end: 'May 18, 2020',
+      date6start: t1Screening6.date,
+      date6end: 'May 18, 2020',
+      date7start: t1Screening7.date,
+      date7end: 'May 18, 2020',
+      date8start: t1Screening8.date,
+      date8end: 'May 18, 2020',
      
       // timeslots
-      timeslots1: screening1.timeslots,
-      timeslots2: screening2.timeslots,
-      timeslots3: screening3.timeslots,
-      timeslots4: screening4.timeslots,
-      timeslots5: screening5.timeslots,
-      timeslots6: screening6.timeslots,
-      timeslots7: screening7.timeslots,
-      timeslots8: screening8.timeslots,
+      s1timeslot1: t1Screening1.timeslot,
+      s1timeslot2: t2Screening1.timeslot,
+      s1timeslot3: t3Screening1.timeslot,
+      s1timeslot4: t4Screening1.timeslot,
+
+      s2timeslot1: t1Screening2.timeslot,
+      s2timeslot2: t2Screening2.timeslot,
+      s2timeslot3: t3Screening2.timeslot,
+      s2timeslot4: t4Screening2.timeslot,
+
+      s3timeslot1: t1Screening3.timeslot,
+      s3timeslot2: t2Screening3.timeslot,
+      s3timeslot3: t3Screening3.timeslot,
+      s3timeslot4: t4Screening3.timeslot,
+
+      s4timeslot1: t1Screening4.timeslot,
+      s4timeslot2: t2Screening4.timeslot,
+      s4timeslot3: t3Screening4.timeslot,
+      s4timeslot4: t4Screening4.timeslot,
+      
+      s5timeslot1: t1Screening5.timeslot,
+      s5timeslot2: t2Screening5.timeslot,
+      s5timeslot3: t3Screening5.timeslot,
+      s5timeslot4: t4Screening5.timeslot,
+
+      s6timeslot1: t1Screening6.timeslot,
+      s6timeslot2: t2Screening6.timeslot,
+      s6timeslot3: t3Screening6.timeslot,
+      s6timeslot4: t4Screening6.timeslot,
+
+      s7timeslot1: t1Screening7.timeslot,
+      s7timeslot2: t2Screening7.timeslot,
+      s7timeslot3: t3Screening7.timeslot,
+      s7timeslot4: t4Screening7.timeslot,
+
+      s8timeslot1: t1Screening8.timeslot,
+      s8timeslot2: t2Screening8.timeslot,
+      s8timeslot3: t3Screening8.timeslot,
+      s8timeslot4: t4Screening8.timeslot,
 
       // ratings
       rating1: movie1.rating,
@@ -3531,35 +3594,59 @@ exports.showHome = function(req, res) {
 
     })
 
-  }); // screening 1
+  }); // screening 1 timeslot 1
+  }); // screening 1 timeslot 2
+  }); // screening 1 timeslot 3
+  }); // screening 1 timeslot 4
   }); // movie 1
   }); // cinema 1
 
-  }); // screening 2
+  }); // screening 2 timeslot 1
+  }); // screening 2 timeslot 2
+  }); // screening 2 timeslot 3
+  }); // screening 2 timeslot 4
   }); // movie 2
   }); // cinema 2
 
-  }); // screening 3
+  }); // screening 3 timeslot 1
+  }); // screening 3 timeslot 2
+  }); // screening 3 timeslot 3
+  }); // screening 3 timeslot 4
   }); // movie 3
   }); // cinema 3
 
-  }); // screening 4
+  }); // screening 4 timeslot 1
+  }); // screening 4 timeslot 2
+  }); // screening 4 timeslot 3
+  }); // screening 4 timeslot 4
   }); // movie 4
   }); // cinema 4
 
-  }); // screening 5
+  }); // screening 5 timeslot 1
+  }); // screening 5 timeslot 2
+  }); // screening 5 timeslot 3
+  }); // screening 5 timeslot 4
   }); // movie 5
   }); // cinema 5
 
-  }); // screening 6
+  }); // screening 6 timeslot 1
+  }); // screening 6 timeslot 2
+  }); // screening 6 timeslot 3
+  }); // screening 6 timeslot 4
   }); // movie 6
   }); // cinema 6
 
-  }); // screening 7
+  }); // screening 7 timeslot 1
+  }); // screening 7 timeslot 2
+  }); // screening 7 timeslot 3
+  }); // screening 7 timeslot 4
   }); // movie 7
   }); // cinema 7
 
-  }); // screening 8
+  }); // screening 8 timeslot 1
+  }); // screening 8 timeslot 2
+  }); // screening 8 timeslot 3
+  }); // screening 8 timeslot 4
   }); // movie 8
   }); // cinema 8
 
