@@ -70,45 +70,171 @@ router.get('/snacks/user', function(req, res) {
 
   });    
 
-// Reservation routes 1917
-router.get('/reserve/1917', isPrivate, reservationController.show1917);
-router.post('/reserve/1917/screening01', isPrivate, reservationController.reserve1917);
-router.get('/reserve/1917/screening01/tickets', isPrivate, reservationController.tickets1917);
+// 1917
+// ---------------------------------------------------------------------------------------------- //
+// Reservation routes 1917 timeslot 1 
+router.get('/reserve/1917/t1', isPrivate, reservationController.show1917);
+router.post('/reserve/1917/t1/screening01', isPrivate, reservationController.reserve1917);
+router.get('/reserve/1917/t1/screening01/tickets', isPrivate, reservationController.tickets1917);
 
-// Reservation routes Parasite 
-router.get('/reserve/parasite', isPrivate, reservationController.showParasite);
-router.post('/reserve/parasite/screening02', isPrivate, reservationController.reserveParasite);
-router.get('/reserve/parasite/screening02/tickets', isPrivate, reservationController.ticketsParasite);
+// Reservation routes 1917 timeslot 2
+router.get('/reserve/1917/t2', isPrivate, reservationController.show1917t2);
+router.post('/reserve/1917/t2/screening01', isPrivate, reservationController.reserve1917t2);
+router.get('/reserve/1917/t2/screening01/tickets', isPrivate, reservationController.tickets1917t2);
 
-// Reservation routes Sonic
-router.get('/reserve/sonic', isPrivate, reservationController.showSonic);
-router.post('/reserve/sonic/screening03', isPrivate, reservationController.reserveSonic);
-router.get('/reserve/sonic/screening03/tickets', isPrivate, reservationController.ticketsSonic);
+// Reservation routes 1917 timeslot 3
+router.get('/reserve/1917/t3', isPrivate, reservationController.show1917t3);
+router.post('/reserve/1917/t3/screening01', isPrivate, reservationController.reserve1917t3);
+router.get('/reserve/1917/t3/screening01/tickets', isPrivate, reservationController.tickets1917t3);
 
-// Reservation routes Birds of Prey
-router.get('/reserve/birdsofprey', isPrivate, reservationController.showBOP);
-router.post('/reserve/birdsofprey/screening04', isPrivate, reservationController.reserveBOP);
-router.get('/reserve/birdsofprey/screening04/tickets', isPrivate, reservationController.ticketsBOP);
+// Reservation routes 1917 timeslot 4
+router.get('/reserve/1917/t4', isPrivate, reservationController.show1917t4);
+router.post('/reserve/1917/t4/screening01', isPrivate, reservationController.reserve1917t4);
+router.get('/reserve/1917/t4/screening01/tickets', isPrivate, reservationController.tickets1917t4);
+// ---------------------------------------------------------------------------------------------- //
+// END OF 1917
 
-// Reservation routes Bad Boys for Life
-router.get('/reserve/badboysforlife', isPrivate, reservationController.showBadBoys);
-router.post('/reserve/badboysforlife/screening05', isPrivate, reservationController.reserveBadBoys);
-router.get('/reserve/badboysforlife/screening05/tickets', isPrivate, reservationController.ticketsBadBoys);
+// PARASITE
+// ---------------------------------------------------------------------------------------------- //
+// Reservation routes Parasite timeslot 1
+router.get('/reserve/parasite/t1', isPrivate, reservationController.showParasite);
+router.post('/reserve/parasite/t1/screening02', isPrivate, reservationController.reserveParasite);
+router.get('/reserve/parasite/t1/screening02/tickets', isPrivate, reservationController.ticketsParasite);
 
-// Reservation routes DoLittle
-router.get('/reserve/dolittle', isPrivate, reservationController.showDoLittle);
-router.post('/reserve/dolittle/screening06', isPrivate, reservationController.reserveDoLittle);
-router.get('/reserve/dolittle/screening06/tickets', isPrivate, reservationController.ticketsDoLittle);
+// Reservation routes Parasite timeslot 2
+router.get('/reserve/parasite/t2', isPrivate, reservationController.showParasitet2);
+router.post('/reserve/parasite/t2/screening02', isPrivate, reservationController.reserveParasitet2);
+router.get('/reserve/parasite/t2/screening02/tickets', isPrivate, reservationController.ticketsParasitet2);
 
-// Reservation routes The Night Clerk
-router.get('/reserve/thenightclerk', isPrivate, reservationController.showTNC);
-router.post('/reserve/thenightclerk/screening07', isPrivate, reservationController.reserveTNC);
-router.get('/reserve/thenightclerk/screening07/tickets', isPrivate, reservationController.ticketsTNC);
+// Reservation routes Parasite timeslot 3
+router.get('/reserve/parasite/t3', isPrivate, reservationController.showParasitet3);
+router.post('/reserve/parasite/t3/screening02', isPrivate, reservationController.reserveParasitet3);
+router.get('/reserve/parasite/t3/screening02/tickets', isPrivate, reservationController.ticketsParasitet3);
 
-// Reservation routes 
-router.get('/reserve/thecallofthewild', isPrivate, reservationController.showCallofWild);
-router.post('/reserve/thecallofthewild/screening08', isPrivate, reservationController.reserveCallofWild);
-router.get('/reserve/thecallofthewild/screening08/tickets', isPrivate, reservationController.ticketsCallofWild);
+// Reservation routes Parasite timeslot 4
+router.get('/reserve/parasite/t4', isPrivate, reservationController.showParasitet4);
+router.post('/reserve/parasite/t4/screening02', isPrivate, reservationController.reserveParasitet4);
+router.get('/reserve/parasite/t4/screening02/tickets', isPrivate, reservationController.ticketsParasitet4);
+// ---------------------------------------------------------------------------------------------- //
+// END OF PARASITE
+
+// SONIC
+// ---------------------------------------------------------------------------------------------- //
+// Reservation routes Sonic timeslot 1
+router.get('/reserve/sonic/t1', isPrivate, reservationController.showSonic);
+router.post('/reserve/sonic/t1/screening03', isPrivate, reservationController.reserveSonic);
+router.get('/reserve/sonic/t1/screening03/tickets', isPrivate, reservationController.ticketsSonic);
+
+// Reservation routes Sonic timeslot 2
+router.get('/reserve/sonic/t2', isPrivate, reservationController.showSonict2);
+router.post('/reserve/sonic/t2/screening03', isPrivate, reservationController.reserveSonict2);
+router.get('/reserve/sonic/t2/screening03/tickets', isPrivate, reservationController.ticketsSonict2);
+
+// Reservation routes Sonic timeslot 3
+router.get('/reserve/sonic/t3', isPrivate, reservationController.showSonict3);
+router.post('/reserve/sonic/t3/screening03', isPrivate, reservationController.reserveSonict3);
+router.get('/reserve/sonic/t3/screening03/tickets', isPrivate, reservationController.ticketsSonict3);
+
+// Reservation routes Sonic timeslot 4
+router.get('/reserve/sonic/t4', isPrivate, reservationController.showSonict4);
+router.post('/reserve/sonic/t4/screening03', isPrivate, reservationController.reserveSonict4);
+router.get('/reserve/sonic/t4/screening03/tickets', isPrivate, reservationController.ticketsSonict4);
+// ---------------------------------------------------------------------------------------------- //
+// END OF SONIC
+
+// BOP
+// ---------------------------------------------------------------------------------------------- //
+// Reservation routes Birds of Prey timeslot 1
+router.get('/reserve/birdsofprey/t1', isPrivate, reservationController.showBOP);
+router.post('/reserve/birdsofprey/t1/screening04', isPrivate, reservationController.reserveBOP);
+router.get('/reserve/birdsofprey/t1/screening04/tickets', isPrivate, reservationController.ticketsBOP);
+
+// Reservation routes Birds of Prey timeslot 2
+router.get('/reserve/birdsofprey/t2', isPrivate, reservationController.showBOPt2);
+router.post('/reserve/birdsofprey/t2/screening04', isPrivate, reservationController.reserveBOPt2);
+router.get('/reserve/birdsofprey/t2/screening04/tickets', isPrivate, reservationController.ticketsBOPt2);
+
+// Reservation routes Birds of Prey timeslot 3
+router.get('/reserve/birdsofprey/t3', isPrivate, reservationController.showBOPt3);
+router.post('/reserve/birdsofprey/t3/screening04', isPrivate, reservationController.reserveBOPt3);
+router.get('/reserve/birdsofprey/t3/screening04/tickets', isPrivate, reservationController.ticketsBOPt3);
+
+// Reservation routes Birds of Prey timeslot 4
+router.get('/reserve/birdsofprey/t4', isPrivate, reservationController.showBOPt4);
+router.post('/reserve/birdsofprey/t4/screening04', isPrivate, reservationController.reserveBOPt4);
+router.get('/reserve/birdsofprey/t4/screening04/tickets', isPrivate, reservationController.ticketsBOPt4);
+// ---------------------------------------------------------------------------------------------- //
+// END OF BOP
+
+// BAD BOYS
+// ---------------------------------------------------------------------------------------------- //
+// Reservation routes Bad Boys for Life timeslot 1
+router.get('/reserve/badboysforlife/t1', isPrivate, reservationController.showBadBoys);
+router.post('/reserve/badboysforlife/t1/screening05', isPrivate, reservationController.reserveBadBoys);
+router.get('/reserve/badboysforlife/t1/screening05/tickets', isPrivate, reservationController.ticketsBadBoys);
+
+// Reservation routes Bad Boys for Life timeslot 2
+router.get('/reserve/badboysforlife/t2', isPrivate, reservationController.showBadBoyst2);
+router.post('/reserve/badboysforlife/t2/screening05', isPrivate, reservationController.reserveBadBoyst2);
+router.get('/reserve/badboysforlife/t2/screening05/tickets', isPrivate, reservationController.ticketsBadBoyst2);
+
+// Reservation routes Bad Boys for Life timeslot 3
+router.get('/reserve/badboysforlife/t3', isPrivate, reservationController.showBadBoyst3);
+router.post('/reserve/badboysforlife/t3/screening05', isPrivate, reservationController.reserveBadBoyst3);
+router.get('/reserve/badboysforlife/t3/screening05/tickets', isPrivate, reservationController.ticketsBadBoyst3);
+
+// Reservation routes Bad Boys for Life timeslot 4
+router.get('/reserve/badboysforlife/t4', isPrivate, reservationController.showBadBoyst4);
+router.post('/reserve/badboysforlife/t4/screening05', isPrivate, reservationController.reserveBadBoyst4);
+router.get('/reserve/badboysforlife/t4/screening05/tickets', isPrivate, reservationController.ticketsBadBoyst4);
+
+
+// ---------------------------------------------------------------------------------------------- //
+// END OF BAD BOYS
+
+// DOLITTLE
+// ---------------------------------------------------------------------------------------------- //
+// Reservation routes DoLittle timeslot 1
+router.get('/reserve/dolittle/t1', isPrivate, reservationController.showDoLittle);
+router.post('/reserve/dolittle/t1/screening06', isPrivate, reservationController.reserveDoLittle);
+router.get('/reserve/dolittle/t1/screening06/tickets', isPrivate, reservationController.ticketsDoLittle);
+
+// Reservation routes DoLittle timeslot 2
+router.get('/reserve/dolittle/t2', isPrivate, reservationController.showDoLittlet2);
+router.post('/reserve/dolittle/t2/screening06', isPrivate, reservationController.reserveDoLittlet2);
+router.get('/reserve/dolittle/t2/screening06/tickets', isPrivate, reservationController.ticketsDoLittlet2);
+
+// Reservation routes DoLittle timeslot 3
+router.get('/reserve/dolittle/t3', isPrivate, reservationController.showDoLittlet3);
+router.post('/reserve/dolittle/t3/screening06', isPrivate, reservationController.reserveDoLittlet3);
+router.get('/reserve/dolittle/t3/screening06/tickets', isPrivate, reservationController.ticketsDoLittlet3);
+
+// Reservation routes DoLittle timeslot 4
+router.get('/reserve/dolittle/t4', isPrivate, reservationController.showDoLittlet4);
+router.post('/reserve/dolittle/t4/screening06', isPrivate, reservationController.reserveDoLittlet4);
+router.get('/reserve/dolittle/t4/screening06/tickets', isPrivate, reservationController.ticketsDoLittlet4);
+
+
+// ---------------------------------------------------------------------------------------------- //
+// END OF DOLITTLE
+
+// TNC
+// ---------------------------------------------------------------------------------------------- //
+// // Reservation routes The Night Clerk timeslot 1
+// router.get('/reserve/thenightclerk/t1', isPrivate, reservationController.showTNC);
+// router.post('/reserve/thenightclerk/t1/screening07', isPrivate, reservationController.reserveTNC);
+// router.get('/reserve/thenightclerk/t1/screening07/tickets', isPrivate, reservationController.ticketsTNC);
+// ---------------------------------------------------------------------------------------------- //
+// END OF TNC
+
+// THE CALL OF THE WILD
+// ---------------------------------------------------------------------------------------------- //
+// // Reservation routes The Call of the Wild timeslot 1
+// router.get('/reserve/thecallofthewild/t1', isPrivate, reservationController.showCallofWild);
+// router.post('/reserve/thecallofthewild/t1/screening08', isPrivate, reservationController.reserveCallofWild);
+// router.get('/reserve/thecallofthewild/t1/screening08/tickets', isPrivate, reservationController.ticketsCallofWild);
+// ---------------------------------------------------------------------------------------------- //
+// END OF THE CALL OF THE WILD
 
 // Admin Routes
 router.get('/home/admin', isPrivate, reservationController.showHome);

@@ -8,27 +8,43 @@ const reservationModel = require('../models/reservation');
 
 /*============================RESERVE ROUTES============================*/ 
 
-//1917 reserve screen
+// START OF 1917
+// ---------------------------------------------------------------------------------------------- //
+//1917 reserve screen timeslot 1
 exports.show1917 = function(req, res) {
-    screeningModel.showAll('5e86f3c71c9d440000ec3b19', function(err, screening1) {
-    movieModel.showAll(screening1.movie, function(err, _1917) {
-    cinemaModel.showAll(screening1.cinema, function(err, cinema1) {
+    screeningModel.showAll('5e86f3c71c9d440000ec3b19', function(err, t1Screening1) {
+    screeningModel.showAll('5eb8caf24944bc6057e6b834', function(err, t2Screening1) {
+    screeningModel.showAll('5eb8cd644944bc6057e6b835', function(err, t3Screening1) {
+    screeningModel.showAll('5eb8cdc14944bc6057e6b836', function(err, t4Screening1) {
+    movieModel.showAll(t1Screening1.movie, function(err, _1917) {
+    cinemaModel.showAll(t1Screening1.cinema, function(err, cinema1) {
         res.render('reserve',{
             layout: 'main-regular',
             title: '1917 Reservation',
             movieTitle: _1917.name,
             cinema: cinema1.cinemanum,
             details: _1917.shortdesc,
-            timeslots: screening1.timeslots,
-            dates: screening1.dates,
-            post_url: '/reserve/1917/screening01'
+            timeslot: t1Screening1.timeslot,
+            timeslot2: t2Screening1.timeslot,
+            timeslot3: t3Screening1.timeslot,
+            timeslot4: t4Screening1.timeslot,
+            date: t1Screening1.date,
+            reserve1: '/reserve/1917/t1',
+            reserve2: '/reserve/1917/t2',
+            reserve3: '/reserve/1917/t3',
+            reserve4: '/reserve/1917/t4',
+            post_url: '/reserve/1917/t1/screening01'
         })
+    });
+    });
+    });
     });
     });
     });
 };
 
-//1917 reserve
+
+//1917 reserve timeslot 1
 exports.reserve1917 = function(req, res) {
     screeningModel.showAll('5e86f3c71c9d440000ec3b19', function(err, screening1) {
     movieModel.showAll(screening1.movie, function(err, _1917) {
@@ -38,8 +54,8 @@ exports.reserve1917 = function(req, res) {
         const  movie = _1917.name;
         const  cinema = cinema1.cinemanum;
         const  reserved_seats = req.body.seats;
-        const  date_chosen = req.body.datepicker;
-        const  time_chosen = req.body.timepicker;
+        const  date_chosen = screening1.date;
+        const  time_chosen = screening1.timeslot;
         const  user = req.session.user;
 
         const newReservation = {
@@ -61,7 +77,7 @@ exports.reserve1917 = function(req, res) {
                 result = { success: false, message: "Reservation was not created!" }
                 //res.send(result);
                 // throw err; // This is commented so that the server won't be killed.
-                res.redirect('/reserve/1917/screening01');
+                res.redirect('/reserve/1917/t1');
               } else {
                 console.log("Successfully added reservation!");
                 console.log(reservation); // Check out the logs and see there's a new __v attribute!
@@ -71,7 +87,7 @@ exports.reserve1917 = function(req, res) {
           
                 // Sending the result as is to handle it the "AJAX-way".
                // res.send(result);
-               res.redirect('/reserve/1917/screening01/tickets');
+               res.redirect('/reserve/1917/t1/screening01/tickets');
       
               }
         });
@@ -81,7 +97,7 @@ exports.reserve1917 = function(req, res) {
     });
 };
 
-// 1917 tickets screen
+// 1917 tickets screen timeslot 1
 exports.tickets1917 = function(req, res) {
     reservationModel.showTickets(function(err, reservation1) { 
               
@@ -101,38 +117,373 @@ exports.tickets1917 = function(req, res) {
 
 };
 
-//Parasite reserve screen
+
+//1917 reserve screen timeslot 2
+exports.show1917t2 = function(req, res) {
+    screeningModel.showAll('5e86f3c71c9d440000ec3b19', function(err, t1Screening1) {
+    screeningModel.showAll('5eb8caf24944bc6057e6b834', function(err, t2Screening1) {
+    screeningModel.showAll('5eb8cd644944bc6057e6b835', function(err, t3Screening1) {
+    screeningModel.showAll('5eb8cdc14944bc6057e6b836', function(err, t4Screening1) {
+    movieModel.showAll(t1Screening1.movie, function(err, _1917) {
+    cinemaModel.showAll(t1Screening1.cinema, function(err, cinema1) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: '1917 Reservation',
+            movieTitle: _1917.name,
+            cinema: cinema1.cinemanum,
+            details: _1917.shortdesc,
+            timeslot: t2Screening1.timeslot,
+            timeslot2: t1Screening1.timeslot,
+            timeslot3: t3Screening1.timeslot,
+            timeslot4: t4Screening1.timeslot,
+            date: t2Screening1.date,
+            reserve1: '/reserve/1917/t2',
+            reserve2: '/reserve/1917/t1',
+            reserve3: '/reserve/1917/t3',
+            reserve4: '/reserve/1917/t4',
+            post_url: '/reserve/1917/t2/screening01'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//1917 reserve timeslot 2
+exports.reserve1917t2 = function(req, res) {
+    screeningModel.showAll('5eb8caf24944bc6057e6b834', function(err, screening1) {
+    movieModel.showAll(screening1.movie, function(err, _1917) {
+    cinemaModel.showAll(screening1.cinema, function(err, cinema1) {
+     
+        const  screening = screening1._id;
+        const  movie = _1917.name;
+        const  cinema = cinema1.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening1.date;
+        const  time_chosen = screening1.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            movie,
+            cinema,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/1917/t2');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/1917/t2/screening01/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// 1917 tickets screen timeslot 2
+exports.tickets1917t2 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation1) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: '1917 Tickets',
+        reservationid: reservation1._id,
+        movie: reservation1.movie,
+        cinema: reservation1.cinema,
+        price: reservation1.totalprice,
+        date: reservation1.date_chosen,
+        time: reservation1.time_chosen,
+        tickets: reservation1.reserved_seats
+        })
+          
+        });
+
+};
+
+//1917 reserve screen timeslot 3
+exports.show1917t3 = function(req, res) {
+    screeningModel.showAll('5e86f3c71c9d440000ec3b19', function(err, t1Screening1) {
+    screeningModel.showAll('5eb8caf24944bc6057e6b834', function(err, t2Screening1) {
+    screeningModel.showAll('5eb8cd644944bc6057e6b835', function(err, t3Screening1) {
+    screeningModel.showAll('5eb8cdc14944bc6057e6b836', function(err, t4Screening1) {
+    movieModel.showAll(t1Screening1.movie, function(err, _1917) {
+    cinemaModel.showAll(t1Screening1.cinema, function(err, cinema1) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: '1917 Reservation',
+            movieTitle: _1917.name,
+            cinema: cinema1.cinemanum,
+            details: _1917.shortdesc,
+            timeslot: t3Screening1.timeslot,
+            timeslot2: t1Screening1.timeslot,
+            timeslot3: t2Screening1.timeslot,
+            timeslot4: t4Screening1.timeslot,
+            date: t3Screening1.date,
+            reserve1: '/reserve/1917/t3',
+            reserve2: '/reserve/1917/t1',
+            reserve3: '/reserve/1917/t2',
+            reserve4: '/reserve/1917/t4',
+            post_url: '/reserve/1917/t3/screening01'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//1917 reserve timeslot 3
+exports.reserve1917t3 = function(req, res) {
+    screeningModel.showAll('5eb8cd644944bc6057e6b835', function(err, screening1) {
+    movieModel.showAll(screening1.movie, function(err, _1917) {
+    cinemaModel.showAll(screening1.cinema, function(err, cinema1) {
+     
+        const  screening = screening1._id;
+        const  movie = _1917.name;
+        const  cinema = cinema1.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening1.date;
+        const  time_chosen = screening1.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            movie,
+            cinema,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/1917/t3');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/1917/t3/screening01/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// 1917 tickets screen timeslot 3
+exports.tickets1917t3 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation1) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: '1917 Tickets',
+        reservationid: reservation1._id,
+        movie: reservation1.movie,
+        cinema: reservation1.cinema,
+        price: reservation1.totalprice,
+        date: reservation1.date_chosen,
+        time: reservation1.time_chosen,
+        tickets: reservation1.reserved_seats
+        })
+          
+        });
+};
+
+//1917 reserve screen timeslot 4
+exports.show1917t4 = function(req, res) {
+    screeningModel.showAll('5e86f3c71c9d440000ec3b19', function(err, t1Screening1) {
+    screeningModel.showAll('5eb8caf24944bc6057e6b834', function(err, t2Screening1) {
+    screeningModel.showAll('5eb8cd644944bc6057e6b835', function(err, t3Screening1) {
+    screeningModel.showAll('5eb8cdc14944bc6057e6b836', function(err, t4Screening1) {
+    movieModel.showAll(t1Screening1.movie, function(err, _1917) {
+    cinemaModel.showAll(t1Screening1.cinema, function(err, cinema1) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: '1917 Reservation',
+            movieTitle: _1917.name,
+            cinema: cinema1.cinemanum,
+            details: _1917.shortdesc,
+            timeslot: t4Screening1.timeslot,
+            timeslot2: t1Screening1.timeslot,
+            timeslot3: t2Screening1.timeslot,
+            timeslot4: t3Screening1.timeslot,
+            date: t4Screening1.date,
+            reserve1: '/reserve/1917/t4',
+            reserve2: '/reserve/1917/t1',
+            reserve3: '/reserve/1917/t2',
+            reserve4: '/reserve/1917/t3',
+            post_url: '/reserve/1917/t4/screening01'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//1917 reserve timeslot 4
+exports.reserve1917t4 = function(req, res) {
+    screeningModel.showAll('5eb8cdc14944bc6057e6b836', function(err, screening1) {
+    movieModel.showAll(screening1.movie, function(err, _1917) {
+    cinemaModel.showAll(screening1.cinema, function(err, cinema1) {
+     
+        const  screening = screening1._id;
+        const  movie = _1917.name;
+        const  cinema = cinema1.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening1.date;
+        const  time_chosen = screening1.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            movie,
+            cinema,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/1917/t4');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/1917/t4/screening01/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// 1917 tickets screen timeslot 4
+exports.tickets1917t4 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation1) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: '1917 Tickets',
+        reservationid: reservation1._id,
+        movie: reservation1.movie,
+        cinema: reservation1.cinema,
+        price: reservation1.totalprice,
+        date: reservation1.date_chosen,
+        time: reservation1.time_chosen,
+        tickets: reservation1.reserved_seats
+        })
+          
+        });
+};
+// ---------------------------------------------------------------------------------------------- //
+// END OF 1917
+
+
+// START OF PARASITE
+// ---------------------------------------------------------------------------------------------- //
+//Parasite reserve screen timeslot 1
 exports.showParasite = function(req, res) {
-    screeningModel.showAll('5e86fd761c9d440000ec3b1a', function(err, screening2) {
-    movieModel.showAll(screening2.movie, function(err, parasite) {
-    cinemaModel.showAll(screening2.cinema, function(err, cinema2) {
+    screeningModel.showAll('5e86fd761c9d440000ec3b1a', function(err, t1Screening2) {
+    screeningModel.showAll('5eb8d8fa4944bc6057e6b837', function(err, t2Screening2) {
+    screeningModel.showAll('5eb8d9264944bc6057e6b838', function(err, t3Screening2) {
+    screeningModel.showAll('5eb8d9514944bc6057e6b839', function(err, t4Screening2) {
+    movieModel.showAll(t1Screening2.movie, function(err, parasite) {
+    cinemaModel.showAll(t1Screening2.cinema, function(err, cinema2) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Parasite Reservation',
             movieTitle: parasite.name,
             cinema: cinema2.cinemanum,
             details: parasite.shortdesc,
-            timeslots: screening2.timeslots,
-            dates: screening2.dates,
-            post_url: '/reserve/parasite/screening02'
+            timeslot: t1Screening2.timeslot,
+            timeslot2: t2Screening2.timeslot,
+            timeslot3: t3Screening2.timeslot,
+            timeslot4: t4Screening2.timeslot,
+            date: t1Screening2.date,
+            reserve1: '/reserve/parasite/t1',
+            reserve2: '/reserve/parasite/t2',
+            reserve3: '/reserve/parasite/t3',
+            reserve4: '/reserve/parasite/t4',
+            post_url: '/reserve/parasite/t1/screening02'
         })
+    });
+    });
+    });
     });
     });
     });
 };
 
-//Parasite reserve
+//Parasite reserve timeslot 1
 exports.reserveParasite = function(req, res) {
-    screeningModel.showAll('5e86fd761c9d440000ec3b1a', function(err, screening2) {
-    movieModel.showAll(screening2.movie, function(err, parasite) {
-    cinemaModel.showAll(screening2.cinema, function(err, cinema2) {
+    screeningModel.showAll('5e86fd761c9d440000ec3b1a', function(err, t1Screening2) {
+    movieModel.showAll(t1Screening2.movie, function(err, parasite) {
+    cinemaModel.showAll(t1Screening2.cinema, function(err, cinema2) {
      
-        const  screening = screening2._id;
+        const  screening = t1Screening2._id;
         const  movie = parasite.name;
         const  cinema = cinema2.cinemanum;
         const  reserved_seats = req.body.seats;
-        const  date_chosen = req.body.datepicker;
-        const  time_chosen = req.body.timepicker;
+        const  date_chosen = t1Screening2.date;
+        const  time_chosen = t1Screening2.timeslot;
         const  user = req.session.user;
         
 
@@ -154,7 +505,7 @@ exports.reserveParasite = function(req, res) {
                 result = { success: false, message: "Reservation was not created!" }
                 //res.send(result);
                 // throw err; // This is commented so that the server won't be killed.
-                res.redirect('/reserve/1917/screening01');
+                res.redirect('/reserve/parasite/t1');
               } else {
                 console.log("Successfully added reservation!");
                 console.log(reservation); // Check out the logs and see there's a new __v attribute!
@@ -164,7 +515,7 @@ exports.reserveParasite = function(req, res) {
           
                 // Sending the result as is to handle it the "AJAX-way".
                // res.send(result);
-               res.redirect('/reserve/parasite/screening02/tickets');
+               res.redirect('/reserve/parasite/t1/screening02/tickets');
       
               }
         });
@@ -174,7 +525,7 @@ exports.reserveParasite = function(req, res) {
     });
 };
 
-// Parasite tickets screen
+// Parasite tickets screen timeslot 1
 exports.ticketsParasite = function(req, res) {
     reservationModel.showTickets(function(err, reservation2) { 
               
@@ -193,27 +544,361 @@ exports.ticketsParasite = function(req, res) {
         });
 };
 
-//Sonic reserve screen
+//Parasite reserve screen timeslot 2
+exports.showParasitet2 = function(req, res) {
+    screeningModel.showAll('5e86fd761c9d440000ec3b1a', function(err, t1Screening2) {
+    screeningModel.showAll('5eb8d8fa4944bc6057e6b837', function(err, t2Screening2) {
+    screeningModel.showAll('5eb8d9264944bc6057e6b838', function(err, t3Screening2) {
+    screeningModel.showAll('5eb8d9514944bc6057e6b839', function(err, t4Screening2) {
+    movieModel.showAll(t1Screening2.movie, function(err, parasite) {
+    cinemaModel.showAll(t1Screening2.cinema, function(err, cinema2) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'Parasite Reservation',
+            movieTitle: parasite.name,
+            cinema: cinema2.cinemanum,
+            details: parasite.shortdesc,
+            timeslot: t2Screening2.timeslot,
+            timeslot2: t1Screening2.timeslot,
+            timeslot3: t3Screening2.timeslot,
+            timeslot4: t4Screening2.timeslot,
+            date: t1Screening2.date,
+            reserve1: '/reserve/parasite/t2',
+            reserve2: '/reserve/parasite/t1',
+            reserve3: '/reserve/parasite/t3',
+            reserve4: '/reserve/parasite/t4',
+            post_url: '/reserve/parasite/t2/screening02'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//Parasite reserve timeslot 2
+exports.reserveParasitet2 = function(req, res) {
+    screeningModel.showAll('5eb8d8fa4944bc6057e6b837', function(err, t2Screening2) {
+    movieModel.showAll(t2Screening2.movie, function(err, parasite) {
+    cinemaModel.showAll(t2Screening2.cinema, function(err, cinema2) {
+     
+        const  screening = t2Screening2._id;
+        const  movie = parasite.name;
+        const  cinema = cinema2.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = t2Screening2.date;
+        const  time_chosen = t2Screening2.timeslot;
+        const  user = req.session.user;
+        
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen, 
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/parasite/t2');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/parasite/t2/screening02/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// Parasite tickets screen timeslot 2
+exports.ticketsParasitet2 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation2) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'Parasite Tickets',
+        reservationid: reservation2._id,
+        movie: reservation2.movie,
+        cinema: reservation2.cinema,
+        price: reservation2.totalprice,
+        date: reservation2.date_chosen,
+        time: reservation2.time_chosen,
+        tickets: reservation2.reserved_seats
+        })
+          
+        });
+};
+
+//Parasite reserve screen timeslot 3
+exports.showParasitet3 = function(req, res) {
+    screeningModel.showAll('5e86fd761c9d440000ec3b1a', function(err, t1Screening2) {
+    screeningModel.showAll('5eb8d8fa4944bc6057e6b837', function(err, t2Screening2) {
+    screeningModel.showAll('5eb8d9264944bc6057e6b838', function(err, t3Screening2) {
+    screeningModel.showAll('5eb8d9514944bc6057e6b839', function(err, t4Screening2) {
+    movieModel.showAll(t1Screening2.movie, function(err, parasite) {
+    cinemaModel.showAll(t1Screening2.cinema, function(err, cinema2) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'Parasite Reservation',
+            movieTitle: parasite.name,
+            cinema: cinema2.cinemanum,
+            details: parasite.shortdesc,
+            timeslot: t3Screening2.timeslot,
+            timeslot2: t1Screening2.timeslot,
+            timeslot3: t2Screening2.timeslot,
+            timeslot4: t4Screening2.timeslot,
+            date: t1Screening2.date,
+            reserve1: '/reserve/parasite/t3',
+            reserve2: '/reserve/parasite/t1',
+            reserve3: '/reserve/parasite/t2',
+            reserve4: '/reserve/parasite/t4',
+            post_url: '/reserve/parasite/t3/screening02'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//Parasite reserve timeslot 3
+exports.reserveParasitet3 = function(req, res) {
+    screeningModel.showAll('5eb8d9264944bc6057e6b838', function(err, t3Screening2) {
+    movieModel.showAll(t3Screening2.movie, function(err, parasite) {
+    cinemaModel.showAll(t3Screening2.cinema, function(err, cinema2) {
+     
+        const  screening = t3Screening2._id;
+        const  movie = parasite.name;
+        const  cinema = cinema2.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = t3Screening2.date;
+        const  time_chosen = t3Screening2.timeslot;
+        const  user = req.session.user;
+        
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen, 
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/parasite/t3');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/parasite/t3/screening02/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// Parasite tickets screen timeslot 3
+exports.ticketsParasitet3 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation2) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'Parasite Tickets',
+        reservationid: reservation2._id,
+        movie: reservation2.movie,
+        cinema: reservation2.cinema,
+        price: reservation2.totalprice,
+        date: reservation2.date_chosen,
+        time: reservation2.time_chosen,
+        tickets: reservation2.reserved_seats
+        })
+          
+        });
+};
+
+//Parasite reserve screen timeslot 4
+exports.showParasitet4 = function(req, res) {
+    screeningModel.showAll('5e86fd761c9d440000ec3b1a', function(err, t1Screening2) {
+    screeningModel.showAll('5eb8d8fa4944bc6057e6b837', function(err, t2Screening2) {
+    screeningModel.showAll('5eb8d9264944bc6057e6b838', function(err, t3Screening2) {
+    screeningModel.showAll('5eb8d9514944bc6057e6b839', function(err, t4Screening2) {
+    movieModel.showAll(t1Screening2.movie, function(err, parasite) {
+    cinemaModel.showAll(t1Screening2.cinema, function(err, cinema2) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'Parasite Reservation',
+            movieTitle: parasite.name,
+            cinema: cinema2.cinemanum,
+            details: parasite.shortdesc,
+            timeslot: t4Screening2.timeslot,
+            timeslot2: t1Screening2.timeslot,
+            timeslot3: t2Screening2.timeslot,
+            timeslot4: t3Screening2.timeslot,
+            date: t1Screening2.date,
+            reserve1: '/reserve/parasite/t4',
+            reserve2: '/reserve/parasite/t1',
+            reserve3: '/reserve/parasite/t2',
+            reserve4: '/reserve/parasite/t3',
+            post_url: '/reserve/parasite/t4/screening02'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//Parasite reserve timeslot 4
+exports.reserveParasitet4 = function(req, res) {
+    screeningModel.showAll('5eb8d9514944bc6057e6b839', function(err, t4Screening2) {
+    movieModel.showAll(t4Screening2.movie, function(err, parasite) {
+    cinemaModel.showAll(t4Screening2.cinema, function(err, cinema2) {
+     
+        const  screening = t4Screening2._id;
+        const  movie = parasite.name;
+        const  cinema = cinema2.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = t4Screening2.date;
+        const  time_chosen = t4Screening2.timeslot;
+        const  user = req.session.user;
+        
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen, 
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/parasite/t4');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/parasite/t4/screening02/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+
+// Parasite tickets screen timeslot 4
+exports.ticketsParasitet4 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation2) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'Parasite Tickets',
+        reservationid: reservation2._id,
+        movie: reservation2.movie,
+        cinema: reservation2.cinema,
+        price: reservation2.totalprice,
+        date: reservation2.date_chosen,
+        time: reservation2.time_chosen,
+        tickets: reservation2.reserved_seats
+        })
+          
+        });
+};
+
+// ---------------------------------------------------------------------------------------------- //
+// END OF PARASITE
+
+// SONIC
+// ---------------------------------------------------------------------------------------------- //
+//Sonic reserve screen timeslot 1
 exports.showSonic = function(req, res) {
-    screeningModel.showAll('5e86fdc71c9d440000ec3b1b', function(err, screening3) {
-    movieModel.showAll(screening3.movie, function(err, sonic) {
-    cinemaModel.showAll(screening3.cinema, function(err, cinema3) {
+    screeningModel.showAll('5e86fdc71c9d440000ec3b1b', function(err, t1Screening3) {
+    screeningModel.showAll('5eb8dba94944bc6057e6b83a', function(err, t2Screening3) {
+    screeningModel.showAll('5eb8dbec4944bc6057e6b83b', function(err, t3Screening3) {
+    screeningModel.showAll('5eb8dc1a4944bc6057e6b83c', function(err, t4Screening3) {
+    movieModel.showAll(t1Screening3.movie, function(err, sonic) {
+    cinemaModel.showAll(t1Screening3.cinema, function(err, cinema3) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Sonic the Hedgehog Reservation',
             movieTitle: sonic.name,
             cinema: cinema3.cinemanum,
             details: sonic.shortdesc,
-            timeslots: screening3.timeslots,
-            dates: screening3.dates,
-            post_url: '/reserve/sonic/screening03'
+            timeslot: t1Screening3.timeslot,
+            timeslot2: t2Screening3.timeslot,
+            timeslot3: t3Screening3.timeslot,
+            timeslot4: t4Screening3.timeslot,
+            date: t1Screening3.date,
+            reserve1: '/reserve/sonic/t1',
+            reserve2: '/reserve/sonic/t2',
+            reserve3: '/reserve/sonic/t3',
+            reserve4: '/reserve/sonic/t4',
+            post_url: '/reserve/sonic/t1/screening03'
         })
+    });
+    });
+    });
     });
     });
     });
 };
 
-//Sonic reserve
+//Sonic reserve timeslot 1
 exports.reserveSonic = function(req, res) {
     screeningModel.showAll('5e86fdc71c9d440000ec3b1b', function(err, screening3) {
     movieModel.showAll(screening3.movie, function(err, sonic) {
@@ -223,8 +908,8 @@ exports.reserveSonic = function(req, res) {
         const  movie = sonic.name;
         const  cinema = cinema3.cinemanum;
         const  reserved_seats = req.body.seats;
-        const  date_chosen = req.body.datepicker;
-        const  time_chosen = req.body.timepicker;
+        const  date_chosen = screening3.date;
+        const  time_chosen = screening3.timeslot;
         const  user = req.session.user;
 
         const newReservation = {
@@ -245,7 +930,7 @@ exports.reserveSonic = function(req, res) {
                 result = { success: false, message: "Reservation was not created!" }
                 //res.send(result);
                 // throw err; // This is commented so that the server won't be killed.
-                res.redirect('/reserve/sonic/screening03');
+                res.redirect('/reserve/sonic/t1/screening03');
               } else {
                 console.log("Successfully added reservation!");
                 console.log(reservation); // Check out the logs and see there's a new __v attribute!
@@ -255,7 +940,7 @@ exports.reserveSonic = function(req, res) {
           
                 // Sending the result as is to handle it the "AJAX-way".
                // res.send(result);
-               res.redirect('/reserve/sonic/screening03/tickets');
+               res.redirect('/reserve/sonic/t1/screening03/tickets');
       
               }
         });
@@ -265,7 +950,7 @@ exports.reserveSonic = function(req, res) {
     });
 };
 
-// Sonic tickets screen
+// Sonic tickets screen timeslot 1
 exports.ticketsSonic = function(req, res) {
     reservationModel.showTickets(function(err, reservation3) { 
 
@@ -282,30 +967,359 @@ exports.ticketsSonic = function(req, res) {
         })
           
         });
-    
 };
 
-//BOP reserve screen
+//Sonic reserve screen timeslot 2
+exports.showSonict2 = function(req, res) {
+    screeningModel.showAll('5e86fdc71c9d440000ec3b1b', function(err, t1Screening3) {
+    screeningModel.showAll('5eb8dba94944bc6057e6b83a', function(err, t2Screening3) {
+    screeningModel.showAll('5eb8dbec4944bc6057e6b83b', function(err, t3Screening3) {
+    screeningModel.showAll('5eb8dc1a4944bc6057e6b83c', function(err, t4Screening3) {
+    movieModel.showAll(t1Screening3.movie, function(err, sonic) {
+    cinemaModel.showAll(t1Screening3.cinema, function(err, cinema3) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'Sonic the Hedgehog Reservation',
+            movieTitle: sonic.name,
+            cinema: cinema3.cinemanum,
+            details: sonic.shortdesc,
+            timeslot: t2Screening3.timeslot,
+            timeslot2: t1Screening3.timeslot,
+            timeslot3: t3Screening3.timeslot,
+            timeslot4: t4Screening3.timeslot,
+            date: t1Screening3.date,
+            reserve1: '/reserve/sonic/t2',
+            reserve2: '/reserve/sonic/t1',
+            reserve3: '/reserve/sonic/t3',
+            reserve4: '/reserve/sonic/t4',
+            post_url: '/reserve/sonic/t2/screening03'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//Sonic reserve timeslot 2
+exports.reserveSonict2 = function(req, res) {
+    screeningModel.showAll('5eb8dba94944bc6057e6b83a', function(err, screening3) {
+    movieModel.showAll(screening3.movie, function(err, sonic) {
+    cinemaModel.showAll(screening3.cinema, function(err, cinema3) {
+     
+        const  screening = screening3._id;
+        const  movie = sonic.name;
+        const  cinema = cinema3.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening3.date;
+        const  time_chosen = screening3.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen, 
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/sonic/t2/screening03');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/sonic/t2/screening03/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// Sonic tickets screen timeslot 2
+exports.ticketsSonict2 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation3) { 
+
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'Sonic the Hedgehog Tickets',
+        reservationid: reservation3._id,
+        movie: reservation3.movie,
+        cinema: reservation3.cinema,
+        price: reservation3.totalprice,
+        date: reservation3.date_chosen,
+        time: reservation3.time_chosen,
+        tickets: reservation3.reserved_seats
+        })
+          
+        });
+};
+
+//Sonic reserve screen timeslot 3
+exports.showSonict3 = function(req, res) {
+    screeningModel.showAll('5e86fdc71c9d440000ec3b1b', function(err, t1Screening3) {
+    screeningModel.showAll('5eb8dba94944bc6057e6b83a', function(err, t2Screening3) {
+    screeningModel.showAll('5eb8dbec4944bc6057e6b83b', function(err, t3Screening3) {
+    screeningModel.showAll('5eb8dc1a4944bc6057e6b83c', function(err, t4Screening3) {
+    movieModel.showAll(t1Screening3.movie, function(err, sonic) {
+    cinemaModel.showAll(t1Screening3.cinema, function(err, cinema3) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'Sonic the Hedgehog Reservation',
+            movieTitle: sonic.name,
+            cinema: cinema3.cinemanum,
+            details: sonic.shortdesc,
+            timeslot: t3Screening3.timeslot,
+            timeslot2: t1Screening3.timeslot,
+            timeslot3: t2Screening3.timeslot,
+            timeslot4: t4Screening3.timeslot,
+            date: t1Screening3.date,
+            reserve1: '/reserve/sonic/t3',
+            reserve2: '/reserve/sonic/t1',
+            reserve3: '/reserve/sonic/t2',
+            reserve4: '/reserve/sonic/t4',
+            post_url: '/reserve/sonic/t3/screening03'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//Sonic reserve timeslot 3
+exports.reserveSonict3 = function(req, res) {
+    screeningModel.showAll('5eb8dbec4944bc6057e6b83b', function(err, screening3) {
+    movieModel.showAll(screening3.movie, function(err, sonic) {
+    cinemaModel.showAll(screening3.cinema, function(err, cinema3) {
+     
+        const  screening = screening3._id;
+        const  movie = sonic.name;
+        const  cinema = cinema3.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening3.date;
+        const  time_chosen = screening3.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen, 
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/sonic/t3/screening03');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/sonic/t3/screening03/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// Sonic tickets screen timeslot 3
+exports.ticketsSonict3 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation3) { 
+
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'Sonic the Hedgehog Tickets',
+        reservationid: reservation3._id,
+        movie: reservation3.movie,
+        cinema: reservation3.cinema,
+        price: reservation3.totalprice,
+        date: reservation3.date_chosen,
+        time: reservation3.time_chosen,
+        tickets: reservation3.reserved_seats
+        })
+          
+        });
+};
+
+//Sonic reserve screen timeslot 4
+exports.showSonict4 = function(req, res) {
+    screeningModel.showAll('5e86fdc71c9d440000ec3b1b', function(err, t1Screening3) {
+    screeningModel.showAll('5eb8dba94944bc6057e6b83a', function(err, t2Screening3) {
+    screeningModel.showAll('5eb8dbec4944bc6057e6b83b', function(err, t3Screening3) {
+    screeningModel.showAll('5eb8dc1a4944bc6057e6b83c', function(err, t4Screening3) {
+    movieModel.showAll(t1Screening3.movie, function(err, sonic) {
+    cinemaModel.showAll(t1Screening3.cinema, function(err, cinema3) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'Sonic the Hedgehog Reservation',
+            movieTitle: sonic.name,
+            cinema: cinema3.cinemanum,
+            details: sonic.shortdesc,
+            timeslot: t4Screening3.timeslot,
+            timeslot2: t1Screening3.timeslot,
+            timeslot3: t2Screening3.timeslot,
+            timeslot4: t3Screening3.timeslot,
+            date: t1Screening3.date,
+            reserve1: '/reserve/sonic/t4',
+            reserve2: '/reserve/sonic/t1',
+            reserve3: '/reserve/sonic/t2',
+            reserve4: '/reserve/sonic/t3',
+            post_url: '/reserve/sonic/t4/screening03'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//Sonic reserve timeslot 4
+exports.reserveSonict4 = function(req, res) {
+    screeningModel.showAll('5eb8dc1a4944bc6057e6b83c', function(err, screening3) {
+    movieModel.showAll(screening3.movie, function(err, sonic) {
+    cinemaModel.showAll(screening3.cinema, function(err, cinema3) {
+     
+        const  screening = screening3._id;
+        const  movie = sonic.name;
+        const  cinema = cinema3.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening3.date;
+        const  time_chosen = screening3.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen, 
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/sonic/t4/screening03');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/sonic/t4/screening03/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// Sonic tickets screen timeslot 4
+exports.ticketsSonict4 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation3) { 
+
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'Sonic the Hedgehog Tickets',
+        reservationid: reservation3._id,
+        movie: reservation3.movie,
+        cinema: reservation3.cinema,
+        price: reservation3.totalprice,
+        date: reservation3.date_chosen,
+        time: reservation3.time_chosen,
+        tickets: reservation3.reserved_seats
+        })
+          
+        });
+};
+
+// ---------------------------------------------------------------------------------------------- //
+// END OF SONIC
+
+// BOP
+// ---------------------------------------------------------------------------------------------- //
+//BOP reserve screen timeslot 1
 exports.showBOP = function(req, res) {
-    screeningModel.showAll('5e86fe201c9d440000ec3b1c', function(err, screening4) {
-    movieModel.showAll(screening4.movie, function(err, bop) {
-    cinemaModel.showAll(screening4.cinema, function(err, cinema4) {
+    screeningModel.showAll('5e86fe201c9d440000ec3b1c', function(err, t1Screening4) {
+    screeningModel.showAll('5eb8de494944bc6057e6b83d', function(err, t2Screening4) {
+    screeningModel.showAll('5eb8de884944bc6057e6b83e', function(err, t3Screening4) {
+    screeningModel.showAll('5eb8deed4944bc6057e6b83f', function(err, t4Screening4) {
+    movieModel.showAll(t1Screening4.movie, function(err, bop) {
+    cinemaModel.showAll(t1Screening4.cinema, function(err, cinema4) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Birds of Prey Reservation',
             movieTitle: bop.name,
             cinema: cinema4.cinemanum,
             details: bop.shortdesc,
-            timeslots: screening4.timeslots,
-            dates: screening4.dates,
-            post_url: '/reserve/birdsofprey/screening04'
+            timeslot:  t1Screening4.timeslot,
+            timeslot2: t2Screening4.timeslot,
+            timeslot3: t3Screening4.timeslot,
+            timeslot4: t4Screening4.timeslot,
+            date: t1Screening4.date,
+            reserve1: '/reserve/birdsofprey/t1',
+            reserve2: '/reserve/birdsofprey/t2',
+            reserve3: '/reserve/birdsofprey/t3',
+            reserve4: '/reserve/birdsofprey/t4',
+            post_url: '/reserve/birdsofprey/t1/screening04'
         })
+    });
+    });
+    });
     });
     });
     });
 };
 
-//BOP reserve
+//BOP reserve timeslot 1
 exports.reserveBOP = function(req, res) {
     screeningModel.showAll('5e86fe201c9d440000ec3b1c', function(err, screening4) {
     movieModel.showAll(screening4.movie, function(err, bop) {
@@ -315,8 +1329,8 @@ exports.reserveBOP = function(req, res) {
         const  movie = bop.name;
         const  cinema = cinema4.cinemanum;
         const  reserved_seats = req.body.seats;
-        const  date_chosen = req.body.datepicker;
-        const  time_chosen = req.body.timepicker;
+        const  date_chosen = screening4.date;
+        const  time_chosen = screening4.timeslot;
         const  user = req.session.user;
 
         const newReservation = {
@@ -337,7 +1351,7 @@ exports.reserveBOP = function(req, res) {
                 result = { success: false, message: "Reservation was not created!" }
                 //res.send(result);
                 // throw err; // This is commented so that the server won't be killed.
-                res.redirect('/reserve/birdsofprey/screening04');
+                res.redirect('/reserve/birdsofprey/t1/screening04');
               } else {
                 console.log("Successfully added reservation!");
                 console.log(reservation); // Check out the logs and see there's a new __v attribute!
@@ -347,7 +1361,7 @@ exports.reserveBOP = function(req, res) {
           
                 // Sending the result as is to handle it the "AJAX-way".
                // res.send(result);
-               res.redirect('/reserve/birdsofprey/screening04/tickets');
+               res.redirect('/reserve/birdsofprey/t1/screening04/tickets');
       
               }
         });
@@ -357,7 +1371,7 @@ exports.reserveBOP = function(req, res) {
     });
 };
 
-// BOP tickets screen
+// BOP tickets screen timeslot 1
 exports.ticketsBOP = function(req, res) {
     reservationModel.showTickets(function(err, reservation4) { 
               
@@ -374,41 +1388,53 @@ exports.ticketsBOP = function(req, res) {
         })
           
         });
-
 };
 
-//Bad Boys for Life reserve screen
-exports.showBadBoys = function(req, res) {
-    screeningModel.showAll('5e86fe7e1c9d440000ec3b1d', function(err, screening5) {
-    movieModel.showAll(screening5.movie, function(err, bb4life) {
-    cinemaModel.showAll(screening5.cinema, function(err, cinema5) {
+//BOP reserve screen timeslot 2
+exports.showBOPt2 = function(req, res) {
+    screeningModel.showAll('5e86fe201c9d440000ec3b1c', function(err, t1Screening4) {
+    screeningModel.showAll('5eb8de494944bc6057e6b83d', function(err, t2Screening4) {
+    screeningModel.showAll('5eb8de884944bc6057e6b83e', function(err, t3Screening4) {
+    screeningModel.showAll('5eb8deed4944bc6057e6b83f', function(err, t4Screening4) {
+    movieModel.showAll(t1Screening4.movie, function(err, bop) {
+    cinemaModel.showAll(t1Screening4.cinema, function(err, cinema4) {
         res.render('reserve',{
             layout: 'main-regular',
-            title: 'Bad Boys for Life Reservation',
-            movieTitle: bb4life.name,
-            cinema: cinema5.cinemanum,
-            details: bb4life.shortdesc,
-            timeslots: screening5.timeslots,
-            dates: screening5.dates,
-            post_url: '/reserve/badboysforlife/screening05'
+            title: 'Birds of Prey Reservation',
+            movieTitle: bop.name,
+            cinema: cinema4.cinemanum,
+            details: bop.shortdesc,
+            timeslot:  t2Screening4.timeslot,
+            timeslot2: t1Screening4.timeslot,
+            timeslot3: t3Screening4.timeslot,
+            timeslot4: t4Screening4.timeslot,
+            date: t1Screening4.date,
+            reserve1: '/reserve/birdsofprey/t2',
+            reserve2: '/reserve/birdsofprey/t1',
+            reserve3: '/reserve/birdsofprey/t3',
+            reserve4: '/reserve/birdsofprey/t4',
+            post_url: '/reserve/birdsofprey/t2/screening04'
         })
     });
     });
     });
+    });
+    });
+    });
 };
 
-//Bad Boys for Life reserve
-exports.reserveBadBoys = function(req, res) {
-    screeningModel.showAll('5e86fe7e1c9d440000ec3b1d', function(err, screening5) {
-    movieModel.showAll(screening5.movie, function(err, bb4life) {
-    cinemaModel.showAll(screening5.cinema, function(err, cinema5) {
+//BOP reserve timeslot 2
+exports.reserveBOPt2 = function(req, res) {
+    screeningModel.showAll('5eb8de494944bc6057e6b83d', function(err, screening4) {
+    movieModel.showAll(screening4.movie, function(err, bop) {
+    cinemaModel.showAll(screening4.cinema, function(err, cinema4) {
      
-        const  screening = screening5._id;
-        const  movie = bb4life.name;
-        const  cinema = cinema5.cinemanum;
+        const  screening = screening4._id;
+        const  movie = bop.name;
+        const  cinema = cinema4.cinemanum;
         const  reserved_seats = req.body.seats;
-        const  date_chosen = req.body.datepicker;
-        const  time_chosen = req.body.timepicker;
+        const  date_chosen = screening4.date;
+        const  time_chosen = screening4.timeslot;
         const  user = req.session.user;
 
         const newReservation = {
@@ -429,7 +1455,7 @@ exports.reserveBadBoys = function(req, res) {
                 result = { success: false, message: "Reservation was not created!" }
                 //res.send(result);
                 // throw err; // This is commented so that the server won't be killed.
-                res.redirect('/reserve/badboysforlife/screening05');
+                res.redirect('/reserve/birdsofprey/t2/screening04');
               } else {
                 console.log("Successfully added reservation!");
                 console.log(reservation); // Check out the logs and see there's a new __v attribute!
@@ -439,7 +1465,7 @@ exports.reserveBadBoys = function(req, res) {
           
                 // Sending the result as is to handle it the "AJAX-way".
                // res.send(result);
-               res.redirect('/reserve/badboysforlife/screening05/tickets');
+               res.redirect('/reserve/birdsofprey/t2/screening04/tickets');
       
               }
         });
@@ -449,7 +1475,327 @@ exports.reserveBadBoys = function(req, res) {
     });
 };
 
-// Bad Boys for Life tickets screen
+// BOP tickets screen timeslot 2
+exports.ticketsBOPt2 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation4) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'Birds of Prey Tickets',
+        reservationid: reservation4._id,
+        movie: reservation4.movie,
+        cinema: reservation4.cinema,
+        price: reservation4.totalprice,
+        date: reservation4.date_chosen,
+        time: reservation4.time_chosen,
+        tickets: reservation4.reserved_seats
+        })
+          
+        });
+};
+
+//BOP reserve screen timeslot 3
+exports.showBOPt3 = function(req, res) {
+    screeningModel.showAll('5e86fe201c9d440000ec3b1c', function(err, t1Screening4) {
+    screeningModel.showAll('5eb8de494944bc6057e6b83d', function(err, t2Screening4) {
+    screeningModel.showAll('5eb8de884944bc6057e6b83e', function(err, t3Screening4) {
+    screeningModel.showAll('5eb8deed4944bc6057e6b83f', function(err, t4Screening4) {
+    movieModel.showAll(t1Screening4.movie, function(err, bop) {
+    cinemaModel.showAll(t1Screening4.cinema, function(err, cinema4) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'Birds of Prey Reservation',
+            movieTitle: bop.name,
+            cinema: cinema4.cinemanum,
+            details: bop.shortdesc,
+            timeslot:  t3Screening4.timeslot,
+            timeslot2: t1Screening4.timeslot,
+            timeslot3: t2Screening4.timeslot,
+            timeslot4: t4Screening4.timeslot,
+            date: t1Screening4.date,
+            reserve1: '/reserve/birdsofprey/t3',
+            reserve2: '/reserve/birdsofprey/t1',
+            reserve3: '/reserve/birdsofprey/t2',
+            reserve4: '/reserve/birdsofprey/t4',
+            post_url: '/reserve/birdsofprey/t3/screening04'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//BOP reserve timeslot 3
+exports.reserveBOPt3 = function(req, res) {
+    screeningModel.showAll('5eb8de884944bc6057e6b83e', function(err, screening4) {
+    movieModel.showAll(screening4.movie, function(err, bop) {
+    cinemaModel.showAll(screening4.cinema, function(err, cinema4) {
+     
+        const  screening = screening4._id;
+        const  movie = bop.name;
+        const  cinema = cinema4.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening4.date;
+        const  time_chosen = screening4.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/birdsofprey/t3/screening04');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/birdsofprey/t3/screening04/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// BOP tickets screen timeslot 3
+exports.ticketsBOPt3 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation4) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'Birds of Prey Tickets',
+        reservationid: reservation4._id,
+        movie: reservation4.movie,
+        cinema: reservation4.cinema,
+        price: reservation4.totalprice,
+        date: reservation4.date_chosen,
+        time: reservation4.time_chosen,
+        tickets: reservation4.reserved_seats
+        })
+          
+        });
+};
+
+//BOP reserve screen timeslot 4
+exports.showBOPt4 = function(req, res) {
+    screeningModel.showAll('5e86fe201c9d440000ec3b1c', function(err, t1Screening4) {
+    screeningModel.showAll('5eb8de494944bc6057e6b83d', function(err, t2Screening4) {
+    screeningModel.showAll('5eb8de884944bc6057e6b83e', function(err, t3Screening4) {
+    screeningModel.showAll('5eb8deed4944bc6057e6b83f', function(err, t4Screening4) {
+    movieModel.showAll(t1Screening4.movie, function(err, bop) {
+    cinemaModel.showAll(t1Screening4.cinema, function(err, cinema4) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'Birds of Prey Reservation',
+            movieTitle: bop.name,
+            cinema: cinema4.cinemanum,
+            details: bop.shortdesc,
+            timeslot:  t4Screening4.timeslot,
+            timeslot2: t1Screening4.timeslot,
+            timeslot3: t2Screening4.timeslot,
+            timeslot4: t3Screening4.timeslot,
+            date: t1Screening4.date,
+            reserve1: '/reserve/birdsofprey/t4',
+            reserve2: '/reserve/birdsofprey/t1',
+            reserve3: '/reserve/birdsofprey/t2',
+            reserve4: '/reserve/birdsofprey/t3',
+            post_url: '/reserve/birdsofprey/t4/screening04'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//BOP reserve timeslot 4
+exports.reserveBOPt4 = function(req, res) {
+    screeningModel.showAll('5eb8deed4944bc6057e6b83f', function(err, screening4) {
+    movieModel.showAll(screening4.movie, function(err, bop) {
+    cinemaModel.showAll(screening4.cinema, function(err, cinema4) {
+     
+        const  screening = screening4._id;
+        const  movie = bop.name;
+        const  cinema = cinema4.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening4.date;
+        const  time_chosen = screening4.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/birdsofprey/t4/screening04');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/birdsofprey/t4/screening04/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// BOP tickets screen timeslot 4
+exports.ticketsBOPt4 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation4) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'Birds of Prey Tickets',
+        reservationid: reservation4._id,
+        movie: reservation4.movie,
+        cinema: reservation4.cinema,
+        price: reservation4.totalprice,
+        date: reservation4.date_chosen,
+        time: reservation4.time_chosen,
+        tickets: reservation4.reserved_seats
+        })
+          
+        });
+};
+
+// ---------------------------------------------------------------------------------------------- //
+// END OF BOP
+
+// BAD BOYS
+// ---------------------------------------------------------------------------------------------- //
+//Bad Boys for Life reserve screen timeslot 1
+exports.showBadBoys = function(req, res) {
+    screeningModel.showAll('5e86fe7e1c9d440000ec3b1d', function(err, t1Screening5) {
+    screeningModel.showAll('5eb8e0904944bc6057e6b840', function(err, t2Screening5) {
+    screeningModel.showAll('5eb8e0d94944bc6057e6b841', function(err, t3Screening5) {
+    screeningModel.showAll('5eb8e1024944bc6057e6b842', function(err, t4Screening5) {
+    movieModel.showAll(t1Screening5.movie, function(err, bb4life) {
+    cinemaModel.showAll(t1Screening5.cinema, function(err, cinema5) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'Bad Boys for Life Reservation',
+            movieTitle: bb4life.name,
+            cinema: cinema5.cinemanum,
+            details: bb4life.shortdesc,
+            timeslot:  t1Screening5.timeslot,
+            timeslot2: t2Screening5.timeslot,
+            timeslot3: t3Screening5.timeslot,
+            timeslot4: t4Screening5.timeslot,
+            date: t1Screening5.date,
+            reserve1: '/reserve/badboysforlife/t1',
+            reserve2: '/reserve/badboysforlife/t2',
+            reserve3: '/reserve/badboysforlife/t3',
+            reserve4: '/reserve/badboysforlife/t4',
+            post_url: '/reserve/badboysforlife/t1/screening05'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//Bad Boys for Life reserve timeslot 1
+exports.reserveBadBoys = function(req, res) {
+    screeningModel.showAll('5e86fe7e1c9d440000ec3b1d', function(err, screening5) {
+    movieModel.showAll(screening5.movie, function(err, bb4life) {
+    cinemaModel.showAll(screening5.cinema, function(err, cinema5) {
+     
+        const  screening = screening5._id;
+        const  movie = bb4life.name;
+        const  cinema = cinema5.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening5.date;
+        const  time_chosen = screening5.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/badboysforlife/t1/screening05');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/badboysforlife/t1/screening05/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+
+
+
+// Bad Boys for Life tickets screen timeslot 1
 exports.ticketsBadBoys = function(req, res) {
     reservationModel.showTickets(function(err, reservation5) { 
               
@@ -466,41 +1812,53 @@ exports.ticketsBadBoys = function(req, res) {
         })
           
         });
-    
 };
 
-//DoLittle reserve screen
-exports.showDoLittle = function(req, res) {
-    screeningModel.showAll('5e8698471c9d440000ec3b07', function(err, screening6) {
-    movieModel.showAll(screening6.movie, function(err, dolittle) {
-    cinemaModel.showAll(screening6.cinema, function(err, cinema6) {
+//Bad Boys for Life reserve screen timeslot 2
+exports.showBadBoyst2 = function(req, res) {
+    screeningModel.showAll('5e86fe7e1c9d440000ec3b1d', function(err, t1Screening5) {
+    screeningModel.showAll('5eb8e0904944bc6057e6b840', function(err, t2Screening5) {
+    screeningModel.showAll('5eb8e0d94944bc6057e6b841', function(err, t3Screening5) {
+    screeningModel.showAll('5eb8e1024944bc6057e6b842', function(err, t4Screening5) {
+    movieModel.showAll(t1Screening5.movie, function(err, bb4life) {
+    cinemaModel.showAll(t1Screening5.cinema, function(err, cinema5) {
         res.render('reserve',{
             layout: 'main-regular',
-            title: 'DoLittle Reservation',
-            movieTitle: dolittle.name,
-            cinema: cinema6.cinemanum,
-            details: dolittle.shortdesc,
-            timeslots: screening6.timeslots,
-            dates: screening6.dates,
-            post_url: '/reserve/dolittle/screening06'
+            title: 'Bad Boys for Life Reservation',
+            movieTitle: bb4life.name,
+            cinema: cinema5.cinemanum,
+            details: bb4life.shortdesc,
+            timeslot:  t2Screening5.timeslot,
+            timeslot2: t1Screening5.timeslot,
+            timeslot3: t3Screening5.timeslot,
+            timeslot4: t4Screening5.timeslot,
+            date: t1Screening5.date,
+            reserve1: '/reserve/badboysforlife/t2',
+            reserve2: '/reserve/badboysforlife/t1',
+            reserve3: '/reserve/badboysforlife/t3',
+            reserve4: '/reserve/badboysforlife/t4',
+            post_url: '/reserve/badboysforlife/t2/screening05'
         })
     });
     });
     });
+    });
+    });
+    });
 };
 
-//DoLittle reserve
-exports.reserveDoLittle = function(req, res) {
-    screeningModel.showAll('5e8698471c9d440000ec3b07', function(err, screening6) {
-    movieModel.showAll(screening6.movie, function(err, dolittle) {
-    cinemaModel.showAll(screening6.cinema, function(err, cinema6) {
+//Bad Boys for Life reserve timeslot 2
+exports.reserveBadBoyst2 = function(req, res) {
+    screeningModel.showAll('5eb8e0904944bc6057e6b840', function(err, screening5) {
+    movieModel.showAll(screening5.movie, function(err, bb4life) {
+    cinemaModel.showAll(screening5.cinema, function(err, cinema5) {
      
-        const  screening = screening6._id;
-        const  movie = dolittle.name;
-        const  cinema = cinema6.cinemanum;
+        const  screening = screening5._id;
+        const  movie = bb4life.name;
+        const  cinema = cinema5.cinemanum;
         const  reserved_seats = req.body.seats;
-        const  date_chosen = req.body.datepicker;
-        const  time_chosen = req.body.timepicker;
+        const  date_chosen = screening5.date;
+        const  time_chosen = screening5.timeslot;
         const  user = req.session.user;
 
         const newReservation = {
@@ -521,7 +1879,7 @@ exports.reserveDoLittle = function(req, res) {
                 result = { success: false, message: "Reservation was not created!" }
                 //res.send(result);
                 // throw err; // This is commented so that the server won't be killed.
-                res.redirect('/reserve/dolittle/screening06');
+                res.redirect('/reserve/badboysforlife/t2/screening05');
               } else {
                 console.log("Successfully added reservation!");
                 console.log(reservation); // Check out the logs and see there's a new __v attribute!
@@ -531,7 +1889,7 @@ exports.reserveDoLittle = function(req, res) {
           
                 // Sending the result as is to handle it the "AJAX-way".
                // res.send(result);
-               res.redirect('/reserve/dolittle/screening06/tickets');
+               res.redirect('/reserve/badboysforlife/t2/screening05/tickets');
       
               }
         });
@@ -541,7 +1899,321 @@ exports.reserveDoLittle = function(req, res) {
     });
 };
 
-// DoLittle tickets screen
+// Bad Boys for Life tickets screen timeslot 2
+exports.ticketsBadBoyst2 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation5) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'Bad Boys for Life Tickets',
+        reservationid: reservation5._id,
+        movie: reservation5.movie,
+        cinema: reservation5.cinema,
+        price: reservation5.totalprice,
+        date: reservation5.date_chosen,
+        time: reservation5.time_chosen,
+        tickets: reservation5.reserved_seats
+        })
+    });
+};
+
+//Bad Boys for Life reserve screen timeslot 3
+exports.showBadBoyst3 = function(req, res) {
+    screeningModel.showAll('5e86fe7e1c9d440000ec3b1d', function(err, t1Screening5) {
+    screeningModel.showAll('5eb8e0904944bc6057e6b840', function(err, t2Screening5) {
+    screeningModel.showAll('5eb8e0d94944bc6057e6b841', function(err, t3Screening5) {
+    screeningModel.showAll('5eb8e1024944bc6057e6b842', function(err, t4Screening5) {
+    movieModel.showAll(t1Screening5.movie, function(err, bb4life) {
+    cinemaModel.showAll(t1Screening5.cinema, function(err, cinema5) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'Bad Boys for Life Reservation',
+            movieTitle: bb4life.name,
+            cinema: cinema5.cinemanum,
+            details: bb4life.shortdesc,
+            timeslot:  t3Screening5.timeslot,
+            timeslot2: t1Screening5.timeslot,
+            timeslot3: t2Screening5.timeslot,
+            timeslot4: t4Screening5.timeslot,
+            date: t1Screening5.date,
+            reserve1: '/reserve/badboysforlife/t3',
+            reserve2: '/reserve/badboysforlife/t1',
+            reserve3: '/reserve/badboysforlife/t2',
+            reserve4: '/reserve/badboysforlife/t4',
+            post_url: '/reserve/badboysforlife/t3/screening05'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//Bad Boys for Life reserve timeslot 3
+exports.reserveBadBoyst3 = function(req, res) {
+    screeningModel.showAll('5eb8e0d94944bc6057e6b841', function(err, screening5) {
+    movieModel.showAll(screening5.movie, function(err, bb4life) {
+    cinemaModel.showAll(screening5.cinema, function(err, cinema5) {
+     
+        const  screening = screening5._id;
+        const  movie = bb4life.name;
+        const  cinema = cinema5.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening5.date;
+        const  time_chosen = screening5.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/badboysforlife/t3/screening05');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/badboysforlife/t3/screening05/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// Bad Boys for Life tickets screen timeslot 3
+exports.ticketsBadBoyst3 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation5) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'Bad Boys for Life Tickets',
+        reservationid: reservation5._id,
+        movie: reservation5.movie,
+        cinema: reservation5.cinema,
+        price: reservation5.totalprice,
+        date: reservation5.date_chosen,
+        time: reservation5.time_chosen,
+        tickets: reservation5.reserved_seats
+        })
+    });
+};
+
+//Bad Boys for Life reserve screen timeslot 4
+exports.showBadBoyst4 = function(req, res) {
+    screeningModel.showAll('5e86fe7e1c9d440000ec3b1d', function(err, t1Screening5) {
+    screeningModel.showAll('5eb8e0904944bc6057e6b840', function(err, t2Screening5) {
+    screeningModel.showAll('5eb8e0d94944bc6057e6b841', function(err, t3Screening5) {
+    screeningModel.showAll('5eb8e1024944bc6057e6b842', function(err, t4Screening5) {
+    movieModel.showAll(t1Screening5.movie, function(err, bb4life) {
+    cinemaModel.showAll(t1Screening5.cinema, function(err, cinema5) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'Bad Boys for Life Reservation',
+            movieTitle: bb4life.name,
+            cinema: cinema5.cinemanum,
+            details: bb4life.shortdesc,
+            timeslot:  t4Screening5.timeslot,
+            timeslot2: t1Screening5.timeslot,
+            timeslot3: t2Screening5.timeslot,
+            timeslot4: t3Screening5.timeslot,
+            date: t1Screening5.date,
+            reserve1: '/reserve/badboysforlife/t4',
+            reserve2: '/reserve/badboysforlife/t1',
+            reserve3: '/reserve/badboysforlife/t2',
+            reserve4: '/reserve/badboysforlife/t3',
+            post_url: '/reserve/badboysforlife/t4/screening05'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//Bad Boys for Life reserve timeslot 4
+exports.reserveBadBoyst4 = function(req, res) {
+    screeningModel.showAll('5eb8e1024944bc6057e6b842', function(err, screening5) {
+    movieModel.showAll(screening5.movie, function(err, bb4life) {
+    cinemaModel.showAll(screening5.cinema, function(err, cinema5) {
+     
+        const  screening = screening5._id;
+        const  movie = bb4life.name;
+        const  cinema = cinema5.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening5.date;
+        const  time_chosen = screening5.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/badboysforlife/t4/screening05');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/badboysforlife/t4/screening05/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// Bad Boys for Life tickets screen timeslot 4
+exports.ticketsBadBoyst4 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation5) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'Bad Boys for Life Tickets',
+        reservationid: reservation5._id,
+        movie: reservation5.movie,
+        cinema: reservation5.cinema,
+        price: reservation5.totalprice,
+        date: reservation5.date_chosen,
+        time: reservation5.time_chosen,
+        tickets: reservation5.reserved_seats
+        })
+    });
+};
+
+// ---------------------------------------------------------------------------------------------- //
+// END OF BAD BOYS
+
+// DOLITTLE
+// ---------------------------------------------------------------------------------------------- //
+//DoLittle reserve screen timeslot 1
+exports.showDoLittle = function(req, res) {
+    screeningModel.showAll('5e8698471c9d440000ec3b07', function(err, t1Screening6) {
+    screeningModel.showAll('5eb8e25d4944bc6057e6b843', function(err, t2Screening6) {
+    screeningModel.showAll('5eb8e29f4944bc6057e6b844', function(err, t3Screening6) {
+    screeningModel.showAll('5eb8e2de4944bc6057e6b845', function(err, t4Screening6) {
+    movieModel.showAll(t1Screening6.movie, function(err, dolittle) {
+    cinemaModel.showAll(t1Screening6.cinema, function(err, cinema6) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'DoLittle Reservation',
+            movieTitle: dolittle.name,
+            cinema: cinema6.cinemanum,
+            details: dolittle.shortdesc,
+            timeslot:  t1Screening6.timeslot,
+            timeslot2: t2Screening6.timeslot,
+            timeslot3: t3Screening6.timeslot,
+            timeslot4: t4Screening6.timeslot,
+            date: t1Screening6.date,
+            reserve1: '/reserve/dolittle/t1',
+            reserve2: '/reserve/dolittle/t2',
+            reserve3: '/reserve/dolittle/t3',
+            reserve4: '/reserve/dolittle/t4',
+            post_url: '/reserve/dolittle/t1/screening06'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//DoLittle reserve timeslot 1
+exports.reserveDoLittle = function(req, res) {
+    screeningModel.showAll('5e8698471c9d440000ec3b07', function(err, screening6) {
+    movieModel.showAll(screening6.movie, function(err, dolittle) {
+    cinemaModel.showAll(screening6.cinema, function(err, cinema6) {
+     
+        const  screening = screening6._id;
+        const  movie = dolittle.name;
+        const  cinema = cinema6.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening6.date;
+        const  time_chosen = screening6.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/dolittle/t1/screening06');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/dolittle/t1/screening06/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// DoLittle tickets screen timeslot 1
 exports.ticketsDoLittle = function(req, res) {
     reservationModel.showTickets(function(err, reservation6) { 
               
@@ -558,9 +2230,323 @@ exports.ticketsDoLittle = function(req, res) {
         })
           
         });
-
 };
 
+//DoLittle reserve screen timeslot 2
+exports.showDoLittlet2 = function(req, res) {
+    screeningModel.showAll('5e8698471c9d440000ec3b07', function(err, t1Screening6) {
+    screeningModel.showAll('5eb8e25d4944bc6057e6b843', function(err, t2Screening6) {
+    screeningModel.showAll('5eb8e29f4944bc6057e6b844', function(err, t3Screening6) {
+    screeningModel.showAll('5eb8e2de4944bc6057e6b845', function(err, t4Screening6) {
+    movieModel.showAll(t1Screening6.movie, function(err, dolittle) {
+    cinemaModel.showAll(t1Screening6.cinema, function(err, cinema6) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'DoLittle Reservation',
+            movieTitle: dolittle.name,
+            cinema: cinema6.cinemanum,
+            details: dolittle.shortdesc,
+            timeslot:  t2Screening6.timeslot,
+            timeslot2: t1Screening6.timeslot,
+            timeslot3: t3Screening6.timeslot,
+            timeslot4: t4Screening6.timeslot,
+            date: t1Screening6.date,
+            reserve1: '/reserve/dolittle/t2',
+            reserve2: '/reserve/dolittle/t1',
+            reserve3: '/reserve/dolittle/t3',
+            reserve4: '/reserve/dolittle/t4',
+            post_url: '/reserve/dolittle/t2/screening06'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//DoLittle reserve timeslot 2
+exports.reserveDoLittlet2 = function(req, res) {
+    screeningModel.showAll('5eb8e25d4944bc6057e6b843', function(err, screening6) {
+    movieModel.showAll(screening6.movie, function(err, dolittle) {
+    cinemaModel.showAll(screening6.cinema, function(err, cinema6) {
+     
+        const  screening = screening6._id;
+        const  movie = dolittle.name;
+        const  cinema = cinema6.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening6.date;
+        const  time_chosen = screening6.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/dolittle/t2/screening06');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/dolittle/t2/screening06/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// DoLittle tickets screen timeslot 2
+exports.ticketsDoLittlet2 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation6) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'DoLittle Tickets',
+        reservationid: reservation6._id,
+        movie: reservation6.movie,
+        cinema: reservation6.cinema,
+        price: reservation6.totalprice,
+        date: reservation6.date_chosen,
+        time: reservation6.time_chosen,
+        tickets: reservation6.reserved_seats
+        })
+          
+        });
+};
+
+//DoLittle reserve screen timeslot 3
+exports.showDoLittlet3 = function(req, res) {
+    screeningModel.showAll('5e8698471c9d440000ec3b07', function(err, t1Screening6) {
+    screeningModel.showAll('5eb8e25d4944bc6057e6b843', function(err, t2Screening6) {
+    screeningModel.showAll('5eb8e29f4944bc6057e6b844', function(err, t3Screening6) {
+    screeningModel.showAll('5eb8e2de4944bc6057e6b845', function(err, t4Screening6) {
+    movieModel.showAll(t1Screening6.movie, function(err, dolittle) {
+    cinemaModel.showAll(t1Screening6.cinema, function(err, cinema6) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'DoLittle Reservation',
+            movieTitle: dolittle.name,
+            cinema: cinema6.cinemanum,
+            details: dolittle.shortdesc,
+            timeslot:  t3Screening6.timeslot,
+            timeslot2: t1Screening6.timeslot,
+            timeslot3: t2Screening6.timeslot,
+            timeslot4: t4Screening6.timeslot,
+            date: t1Screening6.date,
+            reserve1: '/reserve/dolittle/t3',
+            reserve2: '/reserve/dolittle/t1',
+            reserve3: '/reserve/dolittle/t2',
+            reserve4: '/reserve/dolittle/t4',
+            post_url: '/reserve/dolittle/t3/screening06'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//DoLittle reserve timeslot 3
+exports.reserveDoLittlet3 = function(req, res) {
+    screeningModel.showAll('5eb8e29f4944bc6057e6b844', function(err, screening6) {
+    movieModel.showAll(screening6.movie, function(err, dolittle) {
+    cinemaModel.showAll(screening6.cinema, function(err, cinema6) {
+     
+        const  screening = screening6._id;
+        const  movie = dolittle.name;
+        const  cinema = cinema6.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening6.date;
+        const  time_chosen = screening6.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/dolittle/t3/screening06');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/dolittle/t3/screening06/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// DoLittle tickets screen timeslot 3
+exports.ticketsDoLittlet3 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation6) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'DoLittle Tickets',
+        reservationid: reservation6._id,
+        movie: reservation6.movie,
+        cinema: reservation6.cinema,
+        price: reservation6.totalprice,
+        date: reservation6.date_chosen,
+        time: reservation6.time_chosen,
+        tickets: reservation6.reserved_seats
+        })       
+    });
+};
+
+//DoLittle reserve screen timeslot 4
+exports.showDoLittlet4 = function(req, res) {
+    screeningModel.showAll('5e8698471c9d440000ec3b07', function(err, t1Screening6) {
+    screeningModel.showAll('5eb8e25d4944bc6057e6b843', function(err, t2Screening6) {
+    screeningModel.showAll('5eb8e29f4944bc6057e6b844', function(err, t3Screening6) {
+    screeningModel.showAll('5eb8e2de4944bc6057e6b845', function(err, t4Screening6) {
+    movieModel.showAll(t1Screening6.movie, function(err, dolittle) {
+    cinemaModel.showAll(t1Screening6.cinema, function(err, cinema6) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'DoLittle Reservation',
+            movieTitle: dolittle.name,
+            cinema: cinema6.cinemanum,
+            details: dolittle.shortdesc,
+            timeslot:  t4Screening6.timeslot,
+            timeslot2: t1Screening6.timeslot,
+            timeslot3: t2Screening6.timeslot,
+            timeslot4: t3Screening6.timeslot,
+            date: t1Screening6.date,
+            reserve1: '/reserve/dolittle/t4',
+            reserve2: '/reserve/dolittle/t1',
+            reserve3: '/reserve/dolittle/t2',
+            reserve4: '/reserve/dolittle/t3',
+            post_url: '/reserve/dolittle/t4/screening06'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//DoLittle reserve timeslot 4
+exports.reserveDoLittlet4 = function(req, res) {
+    screeningModel.showAll('5eb8e2de4944bc6057e6b845', function(err, screening6) {
+    movieModel.showAll(screening6.movie, function(err, dolittle) {
+    cinemaModel.showAll(screening6.cinema, function(err, cinema6) {
+     
+        const  screening = screening6._id;
+        const  movie = dolittle.name;
+        const  cinema = cinema6.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening6.date;
+        const  time_chosen = screening6.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/dolittle/t4/screening06');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/dolittle/t4/screening06/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// DoLittle tickets screen timeslot 4
+exports.ticketsDoLittlet4 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation6) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'DoLittle Tickets',
+        reservationid: reservation6._id,
+        movie: reservation6.movie,
+        cinema: reservation6.cinema,
+        price: reservation6.totalprice,
+        date: reservation6.date_chosen,
+        time: reservation6.time_chosen,
+        tickets: reservation6.reserved_seats
+        })       
+    });
+};
+
+// ---------------------------------------------------------------------------------------------- //
+// END OF DOLITTLE
+
+// TNC
+// ---------------------------------------------------------------------------------------------- //
 //TNC reserve screen
 exports.showTNC = function(req, res) {
     screeningModel.showAll('5e86ff9e1c9d440000ec3b20', function(err, screening7) {
@@ -650,9 +2636,12 @@ exports.ticketsTNC = function(req, res) {
         })
           
         });
-
 };
+// ---------------------------------------------------------------------------------------------- //
+// END OF TNC
 
+// THE CALL OF THE WILD
+// ---------------------------------------------------------------------------------------------- //
 //The Call of the Wild reserve screen
 exports.showCallofWild = function(req, res) {
     screeningModel.showAll('5e87005f1c9d440000ec3b21', function(err, screening8) {
@@ -743,8 +2732,10 @@ exports.ticketsCallofWild = function(req, res) {
           
         });
 };
+// ---------------------------------------------------------------------------------------------- //
+// END OF THE CALL OF THE WILD
   
-//   /*================================================================*/
+/*================================================================*/
 
 // Admin home
  // admin home account (logged in) route

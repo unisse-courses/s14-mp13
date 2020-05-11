@@ -15,23 +15,24 @@
             <div class="dropdown">
                 <select type="button" class="btn btn-custom dropdown-toggle v2 mr-3" data-toggle="dropdown" name="datepicker">
                
-                        <option name="dates1">{{dates.[0]}}</option>
-                        <option name="dates2">{{dates.[1]}}</option>
+                        <option name="dates1">{{date}}</option>
+                        {{!-- <option name="dates2">{{dates.[1]}}</option>
                         <option name="dates3">{{dates.[2]}}</option>
                         <option name="dates4">{{dates.[3]}}</option>
-                        <option name="dates5">{{dates.[4]}}</option>
+                        <option name="dates5">{{dates.[4]}}</option> --}}
                        
                       </select>
                   </div>
                   
                   <!-- SELECT TIME -->
                   <div class="dropdown">
-                    <select type="button" class="btn btn-custom dropdown-toggle v2" data-toggle="dropdown" name="timepicker">
+                    <select type="button" class="btn btn-custom dropdown-toggle v2" data-toggle="dropdown" name="timepicker" 
+                      onchange="location = this.value;">
                
-                            <option name="timeslots1">{{timeslots.[0]}}</option>
-                            <option name="timeslots2">{{timeslots.[1]}}</option>
-                            <option name="timeslots3">{{timeslots.[2]}}</option>
-                            <option name="timeslots4">{{timeslots.[3]}}</option>
+                            <option name="timeslots1" value={{reserve1}}>{{timeslot}}</option>
+                            <option name="timeslots2" value={{reserve2}}>{{timeslot2}}</option>
+                            <option name="timeslots3" value={{reserve3}}>{{timeslot3}}</option>
+                            <option name="timeslots4" value={{reserve4}}>{{timeslot4}}</option>
                           </select>
                       </div>
         </center>
