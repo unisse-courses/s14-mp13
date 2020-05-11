@@ -214,25 +214,55 @@ router.get('/reserve/dolittle/t4', isPrivate, reservationController.showDoLittle
 router.post('/reserve/dolittle/t4/screening06', isPrivate, reservationController.reserveDoLittlet4);
 router.get('/reserve/dolittle/t4/screening06/tickets', isPrivate, reservationController.ticketsDoLittlet4);
 
-
 // ---------------------------------------------------------------------------------------------- //
 // END OF DOLITTLE
 
 // TNC
 // ---------------------------------------------------------------------------------------------- //
-// // Reservation routes The Night Clerk timeslot 1
-// router.get('/reserve/thenightclerk/t1', isPrivate, reservationController.showTNC);
-// router.post('/reserve/thenightclerk/t1/screening07', isPrivate, reservationController.reserveTNC);
-// router.get('/reserve/thenightclerk/t1/screening07/tickets', isPrivate, reservationController.ticketsTNC);
+// Reservation routes The Night Clerk timeslot 1
+router.get('/reserve/thenightclerk/t1', isPrivate, reservationController.showTNC);
+router.post('/reserve/thenightclerk/t1/screening07', isPrivate, reservationController.reserveTNC);
+router.get('/reserve/thenightclerk/t1/screening07/tickets', isPrivate, reservationController.ticketsTNC);
+
+// Reservation routes The Night Clerk timeslot 2
+router.get('/reserve/thenightclerk/t2', isPrivate, reservationController.showTNCt2);
+router.post('/reserve/thenightclerk/t2/screening07', isPrivate, reservationController.reserveTNCt2);
+router.get('/reserve/thenightclerk/t2/screening07/tickets', isPrivate, reservationController.ticketsTNCt2);
+
+// Reservation routes The Night Clerk timeslot 3
+router.get('/reserve/thenightclerk/t3', isPrivate, reservationController.showTNCt3);
+router.post('/reserve/thenightclerk/t3/screening07', isPrivate, reservationController.reserveTNCt3);
+router.get('/reserve/thenightclerk/t3/screening07/tickets', isPrivate, reservationController.ticketsTNCt3);
+
+// Reservation routes The Night Clerk timeslot 4
+router.get('/reserve/thenightclerk/t4', isPrivate, reservationController.showTNCt4);
+router.post('/reserve/thenightclerk/t4/screening07', isPrivate, reservationController.reserveTNCt4);
+router.get('/reserve/thenightclerk/t4/screening07/tickets', isPrivate, reservationController.ticketsTNCt4);
+
 // ---------------------------------------------------------------------------------------------- //
 // END OF TNC
 
 // THE CALL OF THE WILD
 // ---------------------------------------------------------------------------------------------- //
-// // Reservation routes The Call of the Wild timeslot 1
-// router.get('/reserve/thecallofthewild/t1', isPrivate, reservationController.showCallofWild);
-// router.post('/reserve/thecallofthewild/t1/screening08', isPrivate, reservationController.reserveCallofWild);
-// router.get('/reserve/thecallofthewild/t1/screening08/tickets', isPrivate, reservationController.ticketsCallofWild);
+// Reservation routes The Call of the Wild timeslot 1
+router.get('/reserve/thecallofthewild/t1', isPrivate, reservationController.showCallofWild);
+router.post('/reserve/thecallofthewild/t1/screening08', isPrivate, reservationController.reserveCallofWild);
+router.get('/reserve/thecallofthewild/t1/screening08/tickets', isPrivate, reservationController.ticketsCallofWild);
+
+// Reservation routes The Call of the Wild timeslot 2
+router.get('/reserve/thecallofthewild/t2', isPrivate, reservationController.showCallofWildt2);
+router.post('/reserve/thecallofthewild/t2/screening08', isPrivate, reservationController.reserveCallofWildt2);
+router.get('/reserve/thecallofthewild/t2/screening08/tickets', isPrivate, reservationController.ticketsCallofWildt2);
+
+// Reservation routes The Call of the Wild timeslot 3
+router.get('/reserve/thecallofthewild/t3', isPrivate, reservationController.showCallofWildt3);
+router.post('/reserve/thecallofthewild/t3/screening08', isPrivate, reservationController.reserveCallofWildt3);
+router.get('/reserve/thecallofthewild/t3/screening08/tickets', isPrivate, reservationController.ticketsCallofWildt3);
+
+// Reservation routes The Call of the Wild timeslot 4
+router.get('/reserve/thecallofthewild/t4', isPrivate, reservationController.showCallofWildt4);
+router.post('/reserve/thecallofthewild/t4/screening08', isPrivate, reservationController.reserveCallofWildt4);
+router.get('/reserve/thecallofthewild/t4/screening08/tickets', isPrivate, reservationController.ticketsCallofWildt4);
 // ---------------------------------------------------------------------------------------------- //
 // END OF THE CALL OF THE WILD
 

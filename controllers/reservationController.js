@@ -2547,27 +2547,40 @@ exports.ticketsDoLittlet4 = function(req, res) {
 
 // TNC
 // ---------------------------------------------------------------------------------------------- //
-//TNC reserve screen
+//TNC reserve screen timeslot 1
 exports.showTNC = function(req, res) {
-    screeningModel.showAll('5e86ff9e1c9d440000ec3b20', function(err, screening7) {
-    movieModel.showAll(screening7.movie, function(err, tnc) {
-    cinemaModel.showAll(screening7.cinema, function(err, cinema7) {
+    screeningModel.showAll('5e86ff9e1c9d440000ec3b20', function(err, t1Screening7) {
+    screeningModel.showAll('5eb8e44322e58f3caf356d65', function(err, t2Screening7) {
+    screeningModel.showAll('5eb8e45c22e58f3caf356d66', function(err, t3Screening7) {
+    screeningModel.showAll('5eb8e46a22e58f3caf356d67', function(err, t4Screening7) {
+    movieModel.showAll(t1Screening7.movie, function(err, tnc) {
+    cinemaModel.showAll(t1Screening7.cinema, function(err, cinema7) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'The Night Clerk Reservation',
             movieTitle: tnc.name,
             cinema: cinema7.cinemanum,
             details: tnc.shortdesc,
-            timeslots: screening7.timeslots,
-            dates: screening7.dates,
-            post_url: '/reserve/thenightclerk/screening07'
+            timeslot:  t1Screening7.timeslot,
+            timeslot2: t2Screening7.timeslot,
+            timeslot3: t3Screening7.timeslot,
+            timeslot4: t4Screening7.timeslot,
+            date: t1Screening7.date,
+            reserve1: '/reserve/thenightclerk/t1',
+            reserve2: '/reserve/thenightclerk/t2',
+            reserve3: '/reserve/thenightclerk/t3',
+            reserve4: '/reserve/thenightclerk/t4',
+            post_url: '/reserve/thenightclerk/t1/screening07'
         })
+    });
+    });
+    });
     });
     });
     });
 };
 
-//TNC reserve
+//TNC reserve timeslot 1
 exports.reserveTNC = function(req, res) {
     screeningModel.showAll('5e86ff9e1c9d440000ec3b20', function(err, screening7) {
     movieModel.showAll(screening7.movie, function(err, tnc) {
@@ -2577,8 +2590,8 @@ exports.reserveTNC = function(req, res) {
         const  movie = tnc.name;
         const  cinema = cinema7.cinemanum;
         const  reserved_seats = req.body.seats;
-        const  date_chosen = req.body.datepicker;
-        const  time_chosen = req.body.timepicker;
+        const  date_chosen = screening7.date;
+        const  time_chosen = screening7.timeslot;
         const  user = req.session.user;
 
         const newReservation = {
@@ -2599,7 +2612,7 @@ exports.reserveTNC = function(req, res) {
                 result = { success: false, message: "Reservation was not created!" }
                 //res.send(result);
                 // throw err; // This is commented so that the server won't be killed.
-                res.redirect('/reserve/thenightclerk/screening07');
+                res.redirect('/reserve/thenightclerk/t1/screening07');
               } else {
                 console.log("Successfully added reservation!");
                 console.log(reservation); // Check out the logs and see there's a new __v attribute!
@@ -2609,7 +2622,7 @@ exports.reserveTNC = function(req, res) {
           
                 // Sending the result as is to handle it the "AJAX-way".
                // res.send(result);
-               res.redirect('/reserve/thenightclerk/screening07/tickets');
+               res.redirect('/reserve/thenightclerk/t1/screening07/tickets');
       
               }
         });
@@ -2619,8 +2632,320 @@ exports.reserveTNC = function(req, res) {
     });
 };
 
-// TNC tickets screen
+// TNC tickets screen timeslot 1
 exports.ticketsTNC = function(req, res) {
+    reservationModel.showTickets(function(err, reservation7) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'The Night Clerk Tickets',
+        reservationid: reservation7._id,
+        movie: reservation7.movie,
+        cinema: reservation7.cinema,
+        price: reservation7.totalprice,
+        date: reservation7.date_chosen,
+        time: reservation7.time_chosen,
+        tickets: reservation7.reserved_seats
+        })
+          
+        });
+};
+
+//TNC reserve screen timeslot 2
+exports.showTNCt2 = function(req, res) {
+    screeningModel.showAll('5e86ff9e1c9d440000ec3b20', function(err, t1Screening7) {
+    screeningModel.showAll('5eb8e44322e58f3caf356d65', function(err, t2Screening7) {
+    screeningModel.showAll('5eb8e45c22e58f3caf356d66', function(err, t3Screening7) {
+    screeningModel.showAll('5eb8e46a22e58f3caf356d67', function(err, t4Screening7) {
+    movieModel.showAll(t1Screening7.movie, function(err, tnc) {
+    cinemaModel.showAll(t1Screening7.cinema, function(err, cinema7) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'The Night Clerk Reservation',
+            movieTitle: tnc.name,
+            cinema: cinema7.cinemanum,
+            details: tnc.shortdesc,
+            timeslot:  t2Screening7.timeslot,
+            timeslot2: t1Screening7.timeslot,
+            timeslot3: t3Screening7.timeslot,
+            timeslot4: t4Screening7.timeslot,
+            date: t1Screening7.date,
+            reserve1: '/reserve/thenightclerk/t2',
+            reserve2: '/reserve/thenightclerk/t1',
+            reserve3: '/reserve/thenightclerk/t3',
+            reserve4: '/reserve/thenightclerk/t4',
+            post_url: '/reserve/thenightclerk/t2/screening07'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//TNC reserve timeslot 2
+exports.reserveTNCt2 = function(req, res) {
+    screeningModel.showAll('5eb8e44322e58f3caf356d65', function(err, screening7) {
+    movieModel.showAll(screening7.movie, function(err, tnc) {
+    cinemaModel.showAll(screening7.cinema, function(err, cinema7) {
+     
+        const  screening = screening7._id;
+        const  movie = tnc.name;
+        const  cinema = cinema7.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening7.date;
+        const  time_chosen = screening7.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/thenightclerk/t2/screening07');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/thenightclerk/t2/screening07/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// TNC tickets screen timeslot 2
+exports.ticketsTNCt2 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation7) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'The Night Clerk Tickets',
+        reservationid: reservation7._id,
+        movie: reservation7.movie,
+        cinema: reservation7.cinema,
+        price: reservation7.totalprice,
+        date: reservation7.date_chosen,
+        time: reservation7.time_chosen,
+        tickets: reservation7.reserved_seats
+        })
+          
+        });
+};
+
+//TNC reserve screen timeslot 3
+exports.showTNCt3 = function(req, res) {
+    screeningModel.showAll('5e86ff9e1c9d440000ec3b20', function(err, t1Screening7) {
+    screeningModel.showAll('5eb8e44322e58f3caf356d65', function(err, t2Screening7) {
+    screeningModel.showAll('5eb8e45c22e58f3caf356d66', function(err, t3Screening7) {
+    screeningModel.showAll('5eb8e46a22e58f3caf356d67', function(err, t4Screening7) {
+    movieModel.showAll(t1Screening7.movie, function(err, tnc) {
+    cinemaModel.showAll(t1Screening7.cinema, function(err, cinema7) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'The Night Clerk Reservation',
+            movieTitle: tnc.name,
+            cinema: cinema7.cinemanum,
+            details: tnc.shortdesc,
+            timeslot:  t3Screening7.timeslot,
+            timeslot2: t1Screening7.timeslot,
+            timeslot3: t2Screening7.timeslot,
+            timeslot4: t4Screening7.timeslot,
+            date: t1Screening7.date,
+            reserve1: '/reserve/thenightclerk/t3',
+            reserve2: '/reserve/thenightclerk/t1',
+            reserve3: '/reserve/thenightclerk/t2',
+            reserve4: '/reserve/thenightclerk/t4',
+            post_url: '/reserve/thenightclerk/t3/screening07'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//TNC reserve timeslot 3
+exports.reserveTNCt3 = function(req, res) {
+    screeningModel.showAll('5eb8e45c22e58f3caf356d66', function(err, screening7) {
+    movieModel.showAll(screening7.movie, function(err, tnc) {
+    cinemaModel.showAll(screening7.cinema, function(err, cinema7) {
+     
+        const  screening = screening7._id;
+        const  movie = tnc.name;
+        const  cinema = cinema7.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening7.date;
+        const  time_chosen = screening7.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/thenightclerk/t3/screening07');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/thenightclerk/t3/screening07/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// TNC tickets screen timeslot 3
+exports.ticketsTNCt3 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation7) { 
+              
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'The Night Clerk Tickets',
+        reservationid: reservation7._id,
+        movie: reservation7.movie,
+        cinema: reservation7.cinema,
+        price: reservation7.totalprice,
+        date: reservation7.date_chosen,
+        time: reservation7.time_chosen,
+        tickets: reservation7.reserved_seats
+        })
+          
+        });
+};
+
+//TNC reserve screen timeslot 4
+exports.showTNCt4 = function(req, res) {
+    screeningModel.showAll('5e86ff9e1c9d440000ec3b20', function(err, t1Screening7) {
+    screeningModel.showAll('5eb8e44322e58f3caf356d65', function(err, t2Screening7) {
+    screeningModel.showAll('5eb8e45c22e58f3caf356d66', function(err, t3Screening7) {
+    screeningModel.showAll('5eb8e46a22e58f3caf356d67', function(err, t4Screening7) {
+    movieModel.showAll(t1Screening7.movie, function(err, tnc) {
+    cinemaModel.showAll(t1Screening7.cinema, function(err, cinema7) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'The Night Clerk Reservation',
+            movieTitle: tnc.name,
+            cinema: cinema7.cinemanum,
+            details: tnc.shortdesc,
+            timeslot:  t4Screening7.timeslot,
+            timeslot2: t1Screening7.timeslot,
+            timeslot3: t2Screening7.timeslot,
+            timeslot4: t3Screening7.timeslot,
+            date: t1Screening7.date,
+            reserve1: '/reserve/thenightclerk/t4',
+            reserve2: '/reserve/thenightclerk/t1',
+            reserve3: '/reserve/thenightclerk/t2',
+            reserve4: '/reserve/thenightclerk/t3',
+            post_url: '/reserve/thenightclerk/t4/screening07'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//TNC reserve timeslot 4
+exports.reserveTNCt4 = function(req, res) {
+    screeningModel.showAll('5eb8e46a22e58f3caf356d67', function(err, screening7) {
+    movieModel.showAll(screening7.movie, function(err, tnc) {
+    cinemaModel.showAll(screening7.cinema, function(err, cinema7) {
+     
+        const  screening = screening7._id;
+        const  movie = tnc.name;
+        const  cinema = cinema7.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening7.date;
+        const  time_chosen = screening7.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/thenightclerk/t4/screening07');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/thenightclerk/t4/screening07/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// TNC tickets screen timeslot 4
+exports.ticketsTNCt4 = function(req, res) {
     reservationModel.showTickets(function(err, reservation7) { 
               
         res.render('tickets', {
@@ -2642,29 +2967,42 @@ exports.ticketsTNC = function(req, res) {
 
 // THE CALL OF THE WILD
 // ---------------------------------------------------------------------------------------------- //
-//The Call of the Wild reserve screen
+//The Call of the Wild reserve screen timeslot 1
 exports.showCallofWild = function(req, res) {
-    screeningModel.showAll('5e87005f1c9d440000ec3b21', function(err, screening8) {
-    movieModel.showAll(screening8.movie, function(err, cow) {
-    cinemaModel.showAll(screening8.cinema, function(err, cinema8) {
+    screeningModel.showAll('5eb8e55122e58f3caf356d68', function(err, t1Screening8) {
+    screeningModel.showAll('5eb8e600df7d525ab5728f50', function(err, t2Screening8) {
+    screeningModel.showAll('5eb8e60fdf7d525ab5728f51', function(err, t3Screening8) {
+    screeningModel.showAll('5eb8e61bdf7d525ab5728f52', function(err, t4Screening8) {
+    movieModel.showAll(t1Screening8.movie, function(err, cow) {
+    cinemaModel.showAll(t1Screening8.cinema, function(err, cinema8) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'The Call of the Wild Reservation',
             movieTitle: cow.name,
             cinema: cinema8.cinemanum,
             details: cow.shortdesc,
-            timeslots: screening8.timeslots,
-            dates: screening8.dates,
-            post_url: '/reserve/thecallofthewild/screening08'
+            timeslot:  t1Screening8.timeslot,
+            timeslot2: t2Screening8.timeslot,
+            timeslot3: t3Screening8.timeslot,
+            timeslot4: t4Screening8.timeslot,
+            date: t1Screening8.date,
+            reserve1: '/reserve/thecallofthewild/t1',
+            reserve2: '/reserve/thecallofthewild/t2',
+            reserve3: '/reserve/thecallofthewild/t3',
+            reserve4: '/reserve/thecallofthewild/t4',
+            post_url: '/reserve/thecallofthewild/t1/screening08'
         })
+    });
+    });
+    });
     });
     });
     });
 };
 
-//The Call of the Wild reserve
+//The Call of the Wild reserve timeslot 1
 exports.reserveCallofWild = function(req, res) {
-    screeningModel.showAll('5e87005f1c9d440000ec3b21', function(err, screening8) {
+    screeningModel.showAll('5eb8e55122e58f3caf356d68', function(err, screening8) {
     movieModel.showAll(screening8.movie, function(err, cow) {
     cinemaModel.showAll(screening8.cinema, function(err, cinema8) {
      
@@ -2672,8 +3010,8 @@ exports.reserveCallofWild = function(req, res) {
         const  movie = cow.name;
         const  cinema = cinema8.cinemanum;
         const  reserved_seats = req.body.seats;
-        const  date_chosen = req.body.datepicker;
-        const  time_chosen = req.body.timepicker;
+        const  date_chosen = screening8.date;
+        const  time_chosen = screening8.timeslot;
         const  user = req.session.user;
 
         const newReservation = {
@@ -2694,7 +3032,7 @@ exports.reserveCallofWild = function(req, res) {
                 result = { success: false, message: "Reservation was not created!" }
                 //res.send(result);
                 // throw err; // This is commented so that the server won't be killed.
-                res.redirect('/reserve/thecallofthewild/screening08');
+                res.redirect('/reserve/thecallofthewild/t1/screening08');
               } else {
                 console.log("Successfully added reservation!");
                 console.log(reservation); // Check out the logs and see there's a new __v attribute!
@@ -2704,7 +3042,7 @@ exports.reserveCallofWild = function(req, res) {
           
                 // Sending the result as is to handle it the "AJAX-way".
                // res.send(result);
-               res.redirect('/reserve/thecallofthewild/screening08/tickets');
+               res.redirect('/reserve/thecallofthewild/t1/screening08/tickets');
       
               }
         });
@@ -2714,8 +3052,320 @@ exports.reserveCallofWild = function(req, res) {
     });
 };
 
-// The Call of the Wild tickets screen
+// The Call of the Wild tickets screen timeslot 1
 exports.ticketsCallofWild = function(req, res) {
+    reservationModel.showTickets(function(err, reservation8) { 
+    
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'The Call of the Wild Tickets',
+        reservationid: reservation8._id,
+        movie: reservation8.movie,
+        cinema: reservation8.cinema,
+        price: reservation8.totalprice,
+        date: reservation8.date_chosen,
+        time: reservation8.time_chosen,
+        tickets: reservation8.reserved_seats
+        })
+          
+        });
+};
+
+//The Call of the Wild reserve screen timeslot 2
+exports.showCallofWildt2 = function(req, res) {
+    screeningModel.showAll('5eb8e55122e58f3caf356d68', function(err, t1Screening8) {
+    screeningModel.showAll('5eb8e600df7d525ab5728f50', function(err, t2Screening8) {
+    screeningModel.showAll('5eb8e60fdf7d525ab5728f51', function(err, t3Screening8) {
+    screeningModel.showAll('5eb8e61bdf7d525ab5728f52', function(err, t4Screening8) {
+    movieModel.showAll(t1Screening8.movie, function(err, cow) {
+    cinemaModel.showAll(t1Screening8.cinema, function(err, cinema8) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'The Call of the Wild Reservation',
+            movieTitle: cow.name,
+            cinema: cinema8.cinemanum,
+            details: cow.shortdesc,
+            timeslot:  t2Screening8.timeslot,
+            timeslot2: t1Screening8.timeslot,
+            timeslot3: t3Screening8.timeslot,
+            timeslot4: t4Screening8.timeslot,
+            date: t1Screening8.date,
+            reserve1: '/reserve/thecallofthewild/t2',
+            reserve2: '/reserve/thecallofthewild/t1',
+            reserve3: '/reserve/thecallofthewild/t3',
+            reserve4: '/reserve/thecallofthewild/t4',
+            post_url: '/reserve/thecallofthewild/t2/screening08'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//The Call of the Wild reserve timeslot 2
+exports.reserveCallofWildt2 = function(req, res) {
+    screeningModel.showAll('5eb8e600df7d525ab5728f50', function(err, screening8) {
+    movieModel.showAll(screening8.movie, function(err, cow) {
+    cinemaModel.showAll(screening8.cinema, function(err, cinema8) {
+     
+        const  screening = screening8._id;
+        const  movie = cow.name;
+        const  cinema = cinema8.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening8.date;
+        const  time_chosen = screening8.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/thecallofthewild/t2/screening08');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/thecallofthewild/t2/screening08/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// The Call of the Wild tickets screen timeslot 2
+exports.ticketsCallofWildt2 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation8) { 
+    
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'The Call of the Wild Tickets',
+        reservationid: reservation8._id,
+        movie: reservation8.movie,
+        cinema: reservation8.cinema,
+        price: reservation8.totalprice,
+        date: reservation8.date_chosen,
+        time: reservation8.time_chosen,
+        tickets: reservation8.reserved_seats
+        })
+          
+        });
+};
+
+//The Call of the Wild reserve screen timeslot 3
+exports.showCallofWildt3 = function(req, res) {
+    screeningModel.showAll('5eb8e55122e58f3caf356d68', function(err, t1Screening8) {
+    screeningModel.showAll('5eb8e600df7d525ab5728f50', function(err, t2Screening8) {
+    screeningModel.showAll('5eb8e60fdf7d525ab5728f51', function(err, t3Screening8) {
+    screeningModel.showAll('5eb8e61bdf7d525ab5728f52', function(err, t4Screening8) {
+    movieModel.showAll(t1Screening8.movie, function(err, cow) {
+    cinemaModel.showAll(t1Screening8.cinema, function(err, cinema8) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'The Call of the Wild Reservation',
+            movieTitle: cow.name,
+            cinema: cinema8.cinemanum,
+            details: cow.shortdesc,
+            timeslot:  t3Screening8.timeslot,
+            timeslot2: t1Screening8.timeslot,
+            timeslot3: t2Screening8.timeslot,
+            timeslot4: t4Screening8.timeslot,
+            date: t1Screening8.date,
+            reserve1: '/reserve/thecallofthewild/t3',
+            reserve2: '/reserve/thecallofthewild/t1',
+            reserve3: '/reserve/thecallofthewild/t2',
+            reserve4: '/reserve/thecallofthewild/t4',
+            post_url: '/reserve/thecallofthewild/t3/screening08'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//The Call of the Wild reserve timeslot 3
+exports.reserveCallofWildt3 = function(req, res) {
+    screeningModel.showAll('5eb8e60fdf7d525ab5728f51', function(err, screening8) {
+    movieModel.showAll(screening8.movie, function(err, cow) {
+    cinemaModel.showAll(screening8.cinema, function(err, cinema8) {
+     
+        const  screening = screening8._id;
+        const  movie = cow.name;
+        const  cinema = cinema8.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening8.date;
+        const  time_chosen = screening8.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/thecallofthewild/t3/screening08');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/thecallofthewild/t3/screening08/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// The Call of the Wild tickets screen timeslot 3
+exports.ticketsCallofWildt3 = function(req, res) {
+    reservationModel.showTickets(function(err, reservation8) { 
+    
+        res.render('tickets', {
+        layout: 'main-regular',
+        title: 'The Call of the Wild Tickets',
+        reservationid: reservation8._id,
+        movie: reservation8.movie,
+        cinema: reservation8.cinema,
+        price: reservation8.totalprice,
+        date: reservation8.date_chosen,
+        time: reservation8.time_chosen,
+        tickets: reservation8.reserved_seats
+        })
+          
+        });
+};
+
+//The Call of the Wild reserve screen timeslot 4
+exports.showCallofWildt4 = function(req, res) {
+    screeningModel.showAll('5eb8e55122e58f3caf356d68', function(err, t1Screening8) {
+    screeningModel.showAll('5eb8e600df7d525ab5728f50', function(err, t2Screening8) {
+    screeningModel.showAll('5eb8e60fdf7d525ab5728f51', function(err, t3Screening8) {
+    screeningModel.showAll('5eb8e61bdf7d525ab5728f52', function(err, t4Screening8) {
+    movieModel.showAll(t1Screening8.movie, function(err, cow) {
+    cinemaModel.showAll(t1Screening8.cinema, function(err, cinema8) {
+        res.render('reserve',{
+            layout: 'main-regular',
+            title: 'The Call of the Wild Reservation',
+            movieTitle: cow.name,
+            cinema: cinema8.cinemanum,
+            details: cow.shortdesc,
+            timeslot:  t4Screening8.timeslot,
+            timeslot2: t1Screening8.timeslot,
+            timeslot3: t2Screening8.timeslot,
+            timeslot4: t3Screening8.timeslot,
+            date: t1Screening8.date,
+            reserve1: '/reserve/thecallofthewild/t4',
+            reserve2: '/reserve/thecallofthewild/t1',
+            reserve3: '/reserve/thecallofthewild/t2',
+            reserve4: '/reserve/thecallofthewild/t3',
+            post_url: '/reserve/thecallofthewild/t4/screening08'
+        })
+    });
+    });
+    });
+    });
+    });
+    });
+};
+
+//The Call of the Wild reserve timeslot 4
+exports.reserveCallofWildt4 = function(req, res) {
+    screeningModel.showAll('5eb8e61bdf7d525ab5728f52', function(err, screening8) {
+    movieModel.showAll(screening8.movie, function(err, cow) {
+    cinemaModel.showAll(screening8.cinema, function(err, cinema8) {
+     
+        const  screening = screening8._id;
+        const  movie = cow.name;
+        const  cinema = cinema8.cinemanum;
+        const  reserved_seats = req.body.seats;
+        const  date_chosen = screening8.date;
+        const  time_chosen = screening8.timeslot;
+        const  user = req.session.user;
+
+        const newReservation = {
+            screening, 
+            movie,
+            cinema,
+            reserved_seats,
+            date_chosen,
+            time_chosen,
+            user
+        };
+
+        reservationModel.reserve(newReservation, (err, reservation) => {
+            if (err) {
+                req.flash('error_msg', 'Reservation could not be created!');
+                //console.log(err.errors);
+          
+                result = { success: false, message: "Reservation was not created!" }
+                //res.send(result);
+                // throw err; // This is commented so that the server won't be killed.
+                res.redirect('/reserve/thecallofthewild/t4/screening08');
+              } else {
+                console.log("Successfully added reservation!");
+                console.log(reservation); // Check out the logs and see there's a new __v attribute!
+          
+                // Let's create a custom response that the user was created successfully
+               // result = { success: true, message: "Reservation created!" }
+          
+                // Sending the result as is to handle it the "AJAX-way".
+               // res.send(result);
+               res.redirect('/reserve/thecallofthewild/t4/screening08/tickets');
+      
+              }
+        });
+      
+    });
+    });
+    });
+};
+
+// The Call of the Wild tickets screen timeslot 4
+exports.ticketsCallofWildt4 = function(req, res) {
     reservationModel.showTickets(function(err, reservation8) { 
     
         res.render('tickets', {
@@ -2773,7 +3423,7 @@ exports.showHome = function(req, res) {
     movieModel.showAll(screening7.movie, function(err, movie7) {
     cinemaModel.showAll(screening7.cinema, function(err, cinema7) {
     // SCREENING 8
-    screeningModel.showAll('5e87005f1c9d440000ec3b21', function(err, screening8) {
+    screeningModel.showAll('5eb8e55122e58f3caf356d68', function(err, screening8) {
     movieModel.showAll(screening8.movie, function(err, movie8) {
     cinemaModel.showAll(screening8.cinema, function(err, cinema8) {
 
