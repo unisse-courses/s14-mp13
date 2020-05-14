@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "* Madrazo, Wilford\r * Go, John Richard\r * Chua, John Wilson",
   "main": "index.js",
+  "engines": {
+    "node": "12.x"
+  },
   "dependencies": {
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
@@ -16,11 +19,14 @@
     "mongoose": "^5.9.6"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+      "debug": "nodemon -r dotenv/config app.js",
+      "dev": "node -r dotenv/config app.js",
+      "start": "node app.js"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/unisse-courses/s14-mp13.git"

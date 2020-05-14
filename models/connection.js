@@ -2,12 +2,12 @@
 // and exporting it for use in all other files through the module.exports
 
 const mongoose = require('mongoose');
-const databaseURL = 'mongodb+srv://user:12345@wjscinemas-zjk11.mongodb.net/wjscinemas?retryWrites=true&w=majority';
+const { dbURL } = require('../config');
 
 const options = { useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false };
 
-mongoose.connect(databaseURL, options);
+mongoose.connect(dbURL, options);
 
 module.exports = mongoose;
