@@ -2006,6 +2006,7 @@ exports.ticketsBOPt4 = function(req, res) {
 // ---------------------------------------------------------------------------------------------- //
 //Bad Boys for Life reserve screen timeslot 1
 exports.showBadBoys = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc0229963e8f22fca0f32a', function(seats90) {
     screeningModel.showAll('5e86fe7e1c9d440000ec3b1d', function(err, t1Screening5) {
     screeningModel.showAll('5eb8e0904944bc6057e6b840', function(err, t2Screening5) {
     screeningModel.showAll('5eb8e0d94944bc6057e6b841', function(err, t3Screening5) {
@@ -2016,6 +2017,9 @@ exports.showBadBoys = function(req, res) {
             layout: 'main-regular',
             title: 'Bad Boys for Life Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber90: seats90[0].seatNumber,
+            seatNumber91: seats90[1].seatNumber,
+            seatNumber92: seats90[2].seatNumber,
             movieTitle: bb4life.name,
             cinema: cinema5.cinemanum,
             details: bb4life.shortdesc,
@@ -2030,6 +2034,7 @@ exports.showBadBoys = function(req, res) {
             reserve4: '/reserve/badboysforlife/t4',
             post_url: '/reserve/badboysforlife/t1/screening05'
         })
+    });
     });
     });
     });
@@ -2125,6 +2130,7 @@ exports.ticketsBadBoys = function(req, res) {
 
 //Bad Boys for Life reserve screen timeslot 2
 exports.showBadBoyst2 = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc023c963e8f22fca0f32b', function(seats105) {
     screeningModel.showAll('5e86fe7e1c9d440000ec3b1d', function(err, t1Screening5) {
     screeningModel.showAll('5eb8e0904944bc6057e6b840', function(err, t2Screening5) {
     screeningModel.showAll('5eb8e0d94944bc6057e6b841', function(err, t3Screening5) {
@@ -2135,6 +2141,9 @@ exports.showBadBoyst2 = function(req, res) {
             layout: 'main-regular',
             title: 'Bad Boys for Life Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber105: seats105[0].seatNumber,
+            seatNumber106: seats105[1].seatNumber,
+            seatNumber107: seats105[2].seatNumber,
             movieTitle: bb4life.name,
             cinema: cinema5.cinemanum,
             details: bb4life.shortdesc,
@@ -2149,6 +2158,7 @@ exports.showBadBoyst2 = function(req, res) {
             reserve4: '/reserve/badboysforlife/t4',
             post_url: '/reserve/badboysforlife/t2/screening05'
         })
+    });
     });
     });
     });
@@ -2240,6 +2250,7 @@ exports.ticketsBadBoyst2 = function(req, res) {
 
 //Bad Boys for Life reserve screen timeslot 3
 exports.showBadBoyst3 = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc024d963e8f22fca0f32c', function(seats120) {
     screeningModel.showAll('5e86fe7e1c9d440000ec3b1d', function(err, t1Screening5) {
     screeningModel.showAll('5eb8e0904944bc6057e6b840', function(err, t2Screening5) {
     screeningModel.showAll('5eb8e0d94944bc6057e6b841', function(err, t3Screening5) {
@@ -2250,6 +2261,9 @@ exports.showBadBoyst3 = function(req, res) {
             layout: 'main-regular',
             title: 'Bad Boys for Life Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber120: seats120[0].seatNumber,
+            seatNumber121: seats120[1].seatNumber,
+            seatNumber122: seats120[2].seatNumber,
             movieTitle: bb4life.name,
             cinema: cinema5.cinemanum,
             details: bb4life.shortdesc,
@@ -2264,6 +2278,7 @@ exports.showBadBoyst3 = function(req, res) {
             reserve4: '/reserve/badboysforlife/t4',
             post_url: '/reserve/badboysforlife/t3/screening05'
         })
+    });
     });
     });
     });
@@ -2355,6 +2370,7 @@ exports.ticketsBadBoyst3 = function(req, res) {
 
 //Bad Boys for Life reserve screen timeslot 4
 exports.showBadBoyst4 = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc025f963e8f22fca0f32d', function(seats135) {
     screeningModel.showAll('5e86fe7e1c9d440000ec3b1d', function(err, t1Screening5) {
     screeningModel.showAll('5eb8e0904944bc6057e6b840', function(err, t2Screening5) {
     screeningModel.showAll('5eb8e0d94944bc6057e6b841', function(err, t3Screening5) {
@@ -2365,6 +2381,9 @@ exports.showBadBoyst4 = function(req, res) {
             layout: 'main-regular',
             title: 'Bad Boys for Life Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber135: seats135[0].seatNumber,
+            seatNumber136: seats135[1].seatNumber,
+            seatNumber137: seats135[2].seatNumber,
             movieTitle: bb4life.name,
             cinema: cinema5.cinemanum,
             details: bb4life.shortdesc,
@@ -2379,6 +2398,7 @@ exports.showBadBoyst4 = function(req, res) {
             reserve4: '/reserve/badboysforlife/t3',
             post_url: '/reserve/badboysforlife/t4/screening05'
         })
+    });
     });
     });
     });
@@ -2475,6 +2495,7 @@ exports.ticketsBadBoyst4 = function(req, res) {
 // ---------------------------------------------------------------------------------------------- //
 //DoLittle reserve screen timeslot 1
 exports.showDoLittle = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc02a0963e8f22fca0f32e', function(seats0) {
     screeningModel.showAll('5e8698471c9d440000ec3b07', function(err, t1Screening6) {
     screeningModel.showAll('5eb8e25d4944bc6057e6b843', function(err, t2Screening6) {
     screeningModel.showAll('5eb8e29f4944bc6057e6b844', function(err, t3Screening6) {
@@ -2485,6 +2506,9 @@ exports.showDoLittle = function(req, res) {
             layout: 'main-regular',
             title: 'DoLittle Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber0: seats0[0].seatNumber,
+            seatNumber1: seats0[1].seatNumber,
+            seatNumber2: seats0[2].seatNumber,
             movieTitle: dolittle.name,
             cinema: cinema6.cinemanum,
             details: dolittle.shortdesc,
@@ -2499,6 +2523,7 @@ exports.showDoLittle = function(req, res) {
             reserve4: '/reserve/dolittle/t4',
             post_url: '/reserve/dolittle/t1/screening06'
         })
+    });
     });
     });
     });
@@ -2591,6 +2616,7 @@ exports.ticketsDoLittle = function(req, res) {
 
 //DoLittle reserve screen timeslot 2
 exports.showDoLittlet2 = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc02ac963e8f22fca0f32f', function(seats15) {
     screeningModel.showAll('5e8698471c9d440000ec3b07', function(err, t1Screening6) {
     screeningModel.showAll('5eb8e25d4944bc6057e6b843', function(err, t2Screening6) {
     screeningModel.showAll('5eb8e29f4944bc6057e6b844', function(err, t3Screening6) {
@@ -2601,6 +2627,9 @@ exports.showDoLittlet2 = function(req, res) {
             layout: 'main-regular',
             title: 'DoLittle Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber15: seats15[0].seatNumber,
+            seatNumber16: seats15[1].seatNumber,
+            seatNumber17: seats15[2].seatNumber,
             movieTitle: dolittle.name,
             cinema: cinema6.cinemanum,
             details: dolittle.shortdesc,
@@ -2615,6 +2644,7 @@ exports.showDoLittlet2 = function(req, res) {
             reserve4: '/reserve/dolittle/t4',
             post_url: '/reserve/dolittle/t2/screening06'
         })
+    });
     });
     });
     });
@@ -2707,6 +2737,7 @@ exports.ticketsDoLittlet2 = function(req, res) {
 
 //DoLittle reserve screen timeslot 3
 exports.showDoLittlet3 = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc0449963e8f22fca0f330', function(seats30) {
     screeningModel.showAll('5e8698471c9d440000ec3b07', function(err, t1Screening6) {
     screeningModel.showAll('5eb8e25d4944bc6057e6b843', function(err, t2Screening6) {
     screeningModel.showAll('5eb8e29f4944bc6057e6b844', function(err, t3Screening6) {
@@ -2717,6 +2748,9 @@ exports.showDoLittlet3 = function(req, res) {
             layout: 'main-regular',
             title: 'DoLittle Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber30: seats30[0].seatNumber,
+            seatNumber31: seats30[1].seatNumber,
+            seatNumber32: seats30[2].seatNumber,
             movieTitle: dolittle.name,
             cinema: cinema6.cinemanum,
             details: dolittle.shortdesc,
@@ -2731,6 +2765,7 @@ exports.showDoLittlet3 = function(req, res) {
             reserve4: '/reserve/dolittle/t4',
             post_url: '/reserve/dolittle/t3/screening06'
         })
+    });
     });
     });
     });
@@ -2822,6 +2857,7 @@ exports.ticketsDoLittlet3 = function(req, res) {
 
 //DoLittle reserve screen timeslot 4
 exports.showDoLittlet4 = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc045a963e8f22fca0f331', function(seats45) {
     screeningModel.showAll('5e8698471c9d440000ec3b07', function(err, t1Screening6) {
     screeningModel.showAll('5eb8e25d4944bc6057e6b843', function(err, t2Screening6) {
     screeningModel.showAll('5eb8e29f4944bc6057e6b844', function(err, t3Screening6) {
@@ -2832,6 +2868,9 @@ exports.showDoLittlet4 = function(req, res) {
             layout: 'main-regular',
             title: 'DoLittle Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber45: seats45[0].seatNumber,
+            seatNumber46: seats45[1].seatNumber,
+            seatNumber47: seats45[2].seatNumber,
             movieTitle: dolittle.name,
             cinema: cinema6.cinemanum,
             details: dolittle.shortdesc,
@@ -2846,6 +2885,7 @@ exports.showDoLittlet4 = function(req, res) {
             reserve4: '/reserve/dolittle/t3',
             post_url: '/reserve/dolittle/t4/screening06'
         })
+    });
     });
     });
     });
@@ -2942,6 +2982,7 @@ exports.ticketsDoLittlet4 = function(req, res) {
 // ---------------------------------------------------------------------------------------------- //
 //TNC reserve screen timeslot 1
 exports.showTNC = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc06d5963e8f22fca0f332', function(seats60) {
     screeningModel.showAll('5e86ff9e1c9d440000ec3b20', function(err, t1Screening7) {
     screeningModel.showAll('5eb8e44322e58f3caf356d65', function(err, t2Screening7) {
     screeningModel.showAll('5eb8e45c22e58f3caf356d66', function(err, t3Screening7) {
@@ -2952,6 +2993,9 @@ exports.showTNC = function(req, res) {
             layout: 'main-regular',
             title: 'The Night Clerk Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber60: seats60[0].seatNumber,
+            seatNumber61: seats60[1].seatNumber,
+            seatNumber62: seats60[2].seatNumber,
             movieTitle: tnc.name,
             cinema: cinema7.cinemanum,
             details: tnc.shortdesc,
@@ -2966,6 +3010,7 @@ exports.showTNC = function(req, res) {
             reserve4: '/reserve/thenightclerk/t4',
             post_url: '/reserve/thenightclerk/t1/screening07'
         })
+    });
     });
     });
     });
@@ -3058,6 +3103,7 @@ exports.ticketsTNC = function(req, res) {
 
 //TNC reserve screen timeslot 2
 exports.showTNCt2 = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc06ec963e8f22fca0f333', function(seats75) {
     screeningModel.showAll('5e86ff9e1c9d440000ec3b20', function(err, t1Screening7) {
     screeningModel.showAll('5eb8e44322e58f3caf356d65', function(err, t2Screening7) {
     screeningModel.showAll('5eb8e45c22e58f3caf356d66', function(err, t3Screening7) {
@@ -3068,6 +3114,9 @@ exports.showTNCt2 = function(req, res) {
             layout: 'main-regular',
             title: 'The Night Clerk Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber75: seats75[0].seatNumber,
+            seatNumber76: seats75[1].seatNumber,
+            seatNumber77: seats75[2].seatNumber,
             movieTitle: tnc.name,
             cinema: cinema7.cinemanum,
             details: tnc.shortdesc,
@@ -3082,6 +3131,7 @@ exports.showTNCt2 = function(req, res) {
             reserve4: '/reserve/thenightclerk/t4',
             post_url: '/reserve/thenightclerk/t2/screening07'
         })
+    });
     });
     });
     });
@@ -3174,6 +3224,7 @@ exports.ticketsTNCt2 = function(req, res) {
 
 //TNC reserve screen timeslot 3
 exports.showTNCt3 = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc0703963e8f22fca0f334', function(seats90) {
     screeningModel.showAll('5e86ff9e1c9d440000ec3b20', function(err, t1Screening7) {
     screeningModel.showAll('5eb8e44322e58f3caf356d65', function(err, t2Screening7) {
     screeningModel.showAll('5eb8e45c22e58f3caf356d66', function(err, t3Screening7) {
@@ -3184,6 +3235,9 @@ exports.showTNCt3 = function(req, res) {
             layout: 'main-regular',
             title: 'The Night Clerk Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber90: seats90[0].seatNumber,
+            seatNumber91: seats90[1].seatNumber,
+            seatNumber92: seats90[2].seatNumber,
             movieTitle: tnc.name,
             cinema: cinema7.cinemanum,
             details: tnc.shortdesc,
@@ -3198,6 +3252,7 @@ exports.showTNCt3 = function(req, res) {
             reserve4: '/reserve/thenightclerk/t4',
             post_url: '/reserve/thenightclerk/t3/screening07'
         })
+    });
     });
     });
     });
@@ -3290,6 +3345,7 @@ exports.ticketsTNCt3 = function(req, res) {
 
 //TNC reserve screen timeslot 4
 exports.showTNCt4 = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc0726963e8f22fca0f335', function(seats105) {
     screeningModel.showAll('5e86ff9e1c9d440000ec3b20', function(err, t1Screening7) {
     screeningModel.showAll('5eb8e44322e58f3caf356d65', function(err, t2Screening7) {
     screeningModel.showAll('5eb8e45c22e58f3caf356d66', function(err, t3Screening7) {
@@ -3300,6 +3356,9 @@ exports.showTNCt4 = function(req, res) {
             layout: 'main-regular',
             title: 'The Night Clerk Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber105: seats105[0].seatNumber,
+            seatNumber106: seats105[1].seatNumber,
+            seatNumber107: seats105[2].seatNumber,
             movieTitle: tnc.name,
             cinema: cinema7.cinemanum,
             details: tnc.shortdesc,
@@ -3314,6 +3373,7 @@ exports.showTNCt4 = function(req, res) {
             reserve4: '/reserve/thenightclerk/t3',
             post_url: '/reserve/thenightclerk/t4/screening07'
         })
+    });
     });
     });
     });
@@ -3410,6 +3470,7 @@ exports.ticketsTNCt4 = function(req, res) {
 // ---------------------------------------------------------------------------------------------- //
 //The Call of the Wild reserve screen timeslot 1
 exports.showCallofWild = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc074e963e8f22fca0f336', function(seats120) {
     screeningModel.showAll('5eb8e55122e58f3caf356d68', function(err, t1Screening8) {
     screeningModel.showAll('5eb8e600df7d525ab5728f50', function(err, t2Screening8) {
     screeningModel.showAll('5eb8e60fdf7d525ab5728f51', function(err, t3Screening8) {
@@ -3420,6 +3481,9 @@ exports.showCallofWild = function(req, res) {
             layout: 'main-regular',
             title: 'The Call of the Wild Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber120: seats120[0].seatNumber,
+            seatNumber121: seats120[1].seatNumber,
+            seatNumber122: seats120[2].seatNumber,
             movieTitle: cow.name,
             cinema: cinema8.cinemanum,
             details: cow.shortdesc,
@@ -3434,6 +3498,7 @@ exports.showCallofWild = function(req, res) {
             reserve4: '/reserve/thecallofthewild/t4',
             post_url: '/reserve/thecallofthewild/t1/screening08'
         })
+    });
     });
     });
     });
@@ -3526,6 +3591,7 @@ exports.ticketsCallofWild = function(req, res) {
 
 //The Call of the Wild reserve screen timeslot 2
 exports.showCallofWildt2 = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc075b963e8f22fca0f337', function(seats135) {
     screeningModel.showAll('5eb8e55122e58f3caf356d68', function(err, t1Screening8) {
     screeningModel.showAll('5eb8e600df7d525ab5728f50', function(err, t2Screening8) {
     screeningModel.showAll('5eb8e60fdf7d525ab5728f51', function(err, t3Screening8) {
@@ -3536,6 +3602,9 @@ exports.showCallofWildt2 = function(req, res) {
             layout: 'main-regular',
             title: 'The Call of the Wild Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber135: seats135[0].seatNumber,
+            seatNumber136: seats135[1].seatNumber,
+            seatNumber137: seats135[2].seatNumber,
             movieTitle: cow.name,
             cinema: cinema8.cinemanum,
             details: cow.shortdesc,
@@ -3550,6 +3619,7 @@ exports.showCallofWildt2 = function(req, res) {
             reserve4: '/reserve/thecallofthewild/t4',
             post_url: '/reserve/thecallofthewild/t2/screening08'
         })
+    });
     });
     });
     });
@@ -3642,6 +3712,7 @@ exports.ticketsCallofWildt2 = function(req, res) {
 
 //The Call of the Wild reserve screen timeslot 3
 exports.showCallofWildt3 = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc076b963e8f22fca0f338', function(seats0) {
     screeningModel.showAll('5eb8e55122e58f3caf356d68', function(err, t1Screening8) {
     screeningModel.showAll('5eb8e600df7d525ab5728f50', function(err, t2Screening8) {
     screeningModel.showAll('5eb8e60fdf7d525ab5728f51', function(err, t3Screening8) {
@@ -3652,6 +3723,9 @@ exports.showCallofWildt3 = function(req, res) {
             layout: 'main-regular',
             title: 'The Call of the Wild Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber0: seats0[0].seatNumber,
+            seatNumber1: seats0[1].seatNumber,
+            seatNumber2: seats0[2].seatNumber,
             movieTitle: cow.name,
             cinema: cinema8.cinemanum,
             details: cow.shortdesc,
@@ -3666,6 +3740,7 @@ exports.showCallofWildt3 = function(req, res) {
             reserve4: '/reserve/thecallofthewild/t4',
             post_url: '/reserve/thecallofthewild/t3/screening08'
         })
+    });
     });
     });
     });
@@ -3758,6 +3833,7 @@ exports.ticketsCallofWildt3 = function(req, res) {
 
 //The Call of the Wild reserve screen timeslot 4
 exports.showCallofWildt4 = function(req, res) {
+    seatsModel.getAllSeats({reservation:1}, '5ebc077d963e8f22fca0f339', function(seats15) {
     screeningModel.showAll('5eb8e55122e58f3caf356d68', function(err, t1Screening8) {
     screeningModel.showAll('5eb8e600df7d525ab5728f50', function(err, t2Screening8) {
     screeningModel.showAll('5eb8e60fdf7d525ab5728f51', function(err, t3Screening8) {
@@ -3768,6 +3844,9 @@ exports.showCallofWildt4 = function(req, res) {
             layout: 'main-regular',
             title: 'The Call of the Wild Reservation',
             generatedSeatNumber: generatedSeatNumber,
+            seatNumber15: seats15[0].seatNumber,
+            seatNumber16: seats15[1].seatNumber,
+            seatNumber17: seats15[2].seatNumber,
             movieTitle: cow.name,
             cinema: cinema8.cinemanum,
             details: cow.shortdesc,
@@ -3782,6 +3861,7 @@ exports.showCallofWildt4 = function(req, res) {
             reserve4: '/reserve/thecallofthewild/t3',
             post_url: '/reserve/thecallofthewild/t4/screening08'
         })
+    });
     });
     });
     });
