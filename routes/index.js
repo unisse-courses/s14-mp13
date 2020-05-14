@@ -286,5 +286,16 @@ router.get('/adminaccount', function(req, res) {
 
 router.post('/cancel', isPrivate, reservationController.cancelReservation);
 
+router.post('/update1917', isPrivate, reservationController.update1917);
+router.post('/updateParasite', isPrivate, reservationController.updateParasite);
+router.post('/updateSonic', isPrivate, reservationController.updateSonic);
+router.post('/updateBOP', isPrivate, reservationController.updateBOP);
+router.post('/updateBB4Life', isPrivate, reservationController.updateBB4Life);
+router.post('/updateDoLittle', isPrivate, reservationController.updateDoLittle);
+router.post('/updateTNC', isPrivate, reservationController.updateTNC);
+router.post('/updateCOW', isPrivate, reservationController.updateCOW);
+
+router.post('/updateAQP2', isPrivate, reservationController.updateAQP2);
+
 
 module.exports = router;

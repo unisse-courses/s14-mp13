@@ -23,3 +23,7 @@ const movieModel = mongoose.model('Movie', MovieSchema);
 exports.showAll = function(_id, next) {
   movieModel.findById(_id, next);
 };
+
+exports.update = function(_id, query, next) {
+  movieModel.findByIdAndUpdate(_id, query, next);
+}

@@ -46,41 +46,49 @@
                         <tr>
                             <td><b>{{name1}} <br>
                             <small>Rating: {{rating1}}</small></td>
+                             <td><button class="btn btn-primary" data-toggle="modal" data-target="#edit1917Modal">Edit</button></td>
                         </tr>
 
                         <tr>
                             <td><b>{{name2}} <br>
                             <small>Rating: {{rating2}}</small></td>
+                            <td><button class="btn btn-primary" data-toggle="modal" data-target="#editParasiteModal">Edit</button></td>
                         </tr>
 
                          <tr>
                             <td><b>{{name3}} <br>
                             <small>Rating: {{rating3}}</small></td>
+                            <td><button class="btn btn-primary" data-toggle="modal" data-target="#editSonicModal">Edit</button></td>
                         </tr>
 
                          <tr>
                             <td><b>{{name4}} <br>
                             <small>Rating: {{rating4}}</small></td>
+                             <td><button class="btn btn-primary" data-toggle="modal" data-target="#editBOPModal">Edit</button></td>
                         </tr>
 
                          <tr>
                             <td><b>{{name5}} <br>
                             <small>Rating: {{rating5}}</small></td>
+                            <td><button class="btn btn-primary" data-toggle="modal" data-target="#editBB4LifeModal">Edit</button></td>
                         </tr>
 
                          <tr>
                             <td><b>{{name6}} <br>
                             <small>Rating: {{rating6}}</small></td>
+                            <td><button class="btn btn-primary" data-toggle="modal" data-target="#editDoLittleModal">Edit</button></td>
                         </tr>
 
                           <tr>
                             <td><b>{{name7}} <br>
                             <small>Rating: {{rating7}}</small></td>
+                            <td><button class="btn btn-primary" data-toggle="modal" data-target="#editTNCModal">Edit</button></td>
                         </tr>
 
                           <tr>
                             <td><b>{{name8}} <br>
                             <small>Rating: {{rating8}}</small></td>
+                            <td><button class="btn btn-primary" data-toggle="modal" data-target="#editCOWModal">Edit</button></td>
                         </tr>
                         
                         
@@ -99,6 +107,7 @@
                          <tr>
                             <td><b>{{name9}} <br>
                             <small>Rating: {{rating9}}</small></td>
+                            <td><button class="btn btn-primary" data-toggle="modal" data-target="#editAQP2Modal">Edit</button></td>
                         </tr>
 
                          <tr>
@@ -159,9 +168,6 @@
                             <td><b style="text-transform: uppercase;">{{name1}}</b> <br>
                                 <small>Start date: {{date1start}}</small> <br>
                                 <small>End date: {{date1end}}</small> </td>
-                            <td>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
-                            </td>
                         </tr>
 
                         <tr>
@@ -171,9 +177,6 @@
                             <td><b style="text-transform: uppercase;">{{name2}}</b> <br>
                                 <small>Start date: {{date2start}}</small> <br>
                                 <small>End date: {{date2end}}</small> </td>
-                            <td>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
-                            </td>
                         </tr>
 
                         <tr>
@@ -183,10 +186,6 @@
                             <td><b style="text-transform: uppercase;">{{name3}}</b> <br>
                                 <small>Start date: {{date3start}}</small> <br>
                                 <small>End date: {{date3end}}</small></td>
-
-                            <td>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
-                            </td>
                         </tr>
 
                         <tr>
@@ -196,10 +195,6 @@
                             <td><b style="text-transform: uppercase;">{{name4}}</b> <br>
                                 <small>Start date: {{date4start}}</small> <br>
                                 <small>End date: {{date4end}}</small> </td>
-
-                            <td>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
-                            </td>
                         </tr>
 
                         <tr>
@@ -209,10 +204,6 @@
                             <td><b style="text-transform: uppercase;">{{name5}}</b> <br>
                                  <small>Start date: {{date5start}}</small> <br>
                                 <small>End date: {{date5end}}</small></td>
-
-                            <td>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
-                            </td>
                         </tr>
 
                         <tr>
@@ -222,10 +213,6 @@
                             <td><b style="text-transform: uppercase;">{{name6}}</b> <br>
                                 <small>Start date: {{date6start}}</small> <br>
                                 <small>End date: {{date6end}}</small></td>
-
-                            <td>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
-                            </td>
                         </tr>
 
                         <tr>
@@ -236,9 +223,6 @@
                                 <small>Start date: {{date7start}}</small> <br>
                                 <small>End date: {{date7end}}</small></td>
 
-                            <td>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
-                            </td>
                         </tr>
 
                         <tr>
@@ -248,9 +232,6 @@
                             <td><b style="text-transform: uppercase;">{{name8}}</b> <br>
                                  <small>Start date: {{date8start}}</small> <br>
                                 <small>End date: {{date8end}}</small></td>
-                            <td>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
-                            </td>
                         </tr>
                     </tbody>
 
@@ -328,8 +309,8 @@
                 <td>
                     <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
                     <span>Published!</span><br>
-                    <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;&nbsp;
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#edit1917Modal">Edit</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
               </tr>
@@ -345,11 +326,12 @@
                     {{s2timeslot1}} | {{s2timeslot2}} | {{s2timeslot3}} | {{s2timeslot4}}
                     </small><br>
                 </td>
-                <td>
+               <td>
                     <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
                     <span>Published!</span><br>
-                    <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#editParasiteModal">Edit</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
               </tr>
 
@@ -365,11 +347,12 @@
                     {{s3timeslot4}}
                     </small><br>
                 </td>
-                <td>
+               <td>
                     <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
                     <span>Published!</span><br>
-                    <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#editSonicModal">Edit</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
               </tr>
 
@@ -388,8 +371,9 @@
                 <td>
                     <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
                     <span>Published!</span><br>
-                    <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#editBOPModal">Edit</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
               </tr>
 
@@ -405,11 +389,12 @@
                     {{s5timeslot4}}
                     </small><br>
                 </td>
-                <td>
+               <td>
                     <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
                     <span>Published!</span><br>
-                    <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#editBB4LifeModal">Edit</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
               </tr>
 
@@ -428,8 +413,9 @@
                 <td>
                     <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
                     <span>Published!</span><br>
-                    <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;
+                     <button class="btn btn-primary" data-toggle="modal" data-target="#editDoLittleModal">Edit</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
               </tr>
 
@@ -448,8 +434,9 @@
                 <td>
                     <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
                     <span>Published!</span><br>
-                    <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#editTNCModal">Edit</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
               </tr>
 
@@ -465,11 +452,12 @@
                     {{s8timeslot4}}
                     </small><br>
                 </td>
-                <td>
+               <td>
                     <i class="material-icons" style="color: green; font-size: 15px;">check_circle</i>
                     <span>Published!</span><br>
-                    <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">x</button> &nbsp;&nbsp;
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#editCOWModal">Edit</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
               </tr>
 
@@ -483,7 +471,8 @@
   
 </div>
 
-            <div class="modal fade" tabindex="-1" role="dialog" id="editMovieModal">
+            {{!-- 1917 --}}
+            <div class="modal fade" tabindex="-1" role="dialog" id="edit1917Modal">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -491,42 +480,42 @@
                            <button type="button" class="close" data-dismiss="modal">&times;</button> 
                         </div>
                         <div class="modal-body">
-                            <form class="m-auto" method="POST" action="/register">
+                            <form class="m-auto" method="POST" action="/update1917">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="movieTitle" placeholder="Movie Title" name="Movie Title" required>
+                                    <input type="text" class="form-control" id="movieTitle" placeholder="Movie Title" name="name" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="shortDescription" placeholder="Short Movie Description" name="Short Description" required>
+                                    <input type="text" class="form-control" id="shortDescription" placeholder="Short Movie Description" name="shortdesc" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="moviePrice" placeholder="Price" name="Price" required>
+                                    <input type="text" class="form-control" id="moviePrice" placeholder="Price" name="price" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="movieDirectors" placeholder="Director/s" name="Movie Directors" required>
+                                    <input type="text" class="form-control" id="movieDirectors" placeholder="Director/s" name="directors" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="movieCasts" placeholder="Cast/s" name="Movie Casts" required>
+                                    <input type="text" class="form-control" id="movieCast" placeholder="Cast" name="cast" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="movieTrailer" placeholder="Trailer Link" name="Movie Trailer" required>
+                                    <input type="text" class="form-control" id="movieTrailer" placeholder="Trailer Link" name="trailer_url" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="movieImageLink" placeholder="Image Link" name="Movie Image Link" required>
+                                    <input type="text" class="form-control" id="movieImageLink" placeholder="Image Link" name="img_url" required>
                                 </div>
                                 <div class="form-group">
                                     <div class="dropdown">
-                                        <select type="button" class="form-control" id="movieStatus" name="Movie Status" data-toggle="dropdown">
+                                        <select type="button" class="form-control" id="movieStatus" name="status" data-toggle="dropdown">
                                         <option label="Now Showing" value="Now Showing">Now Showing</option>
                                         <option label="Coming Soon" value="Coming Soon">Coming Soon</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="movieSynopsis" placeholder="Synopsis" name="Movie Synopsis" required>
+                                    <input type="text" class="form-control" id="movieSynopsis" placeholder="Synopsis" name="synopsis" required>
                                 </div>
                                 <div class="form-group">
                                     <div class="dropdown">
-                                        <select type="button" class="form-control" id="movieRating" name="Movie Rating" data-toggle="dropdown">
+                                        <select type="button" class="form-control" id="movieRating" name="rating" data-toggle="dropdown">
                                         <option label="G" value="G">G</option>
                                         <option label="PG" value="PG">PG</option>
                                         <option label="R" value="R">R</option>
@@ -534,12 +523,526 @@
                                     </div>
                                 </div>
 
-                            </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        
+                        </form>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
             </div>
+            {{!-- END OF 1917 --}}
+
+             {{!-- Parasite --}}
+            <div class="modal fade" tabindex="-1" role="dialog" id="editParasiteModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><b>Edit Movie Details:</b></h5>
+                           <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                        </div>
+                        <div class="modal-body">
+                            <form class="m-auto" method="POST" action="/updateParasite">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTitle" placeholder="Movie Title" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="shortDescription" placeholder="Short Movie Description" name="shortdesc" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="moviePrice" placeholder="Price" name="price" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieDirectors" placeholder="Director/s" name="directors" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieCast" placeholder="Cast" name="cast" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTrailer" placeholder="Trailer Link" name="trailer_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieImageLink" placeholder="Image Link" name="img_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieStatus" name="status" data-toggle="dropdown">
+                                        <option label="Now Showing" value="Now Showing">Now Showing</option>
+                                        <option label="Coming Soon" value="Coming Soon">Coming Soon</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieSynopsis" placeholder="Synopsis" name="synopsis" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieRating" name="rating" data-toggle="dropdown">
+                                        <option label="G" value="G">G</option>
+                                        <option label="PG" value="PG">PG</option>
+                                        <option label="R" value="R">R</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        
+                        </form>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{!-- END OF PARASITE --}}
+
+               {{!-- Sonic --}}
+            <div class="modal fade" tabindex="-1" role="dialog" id="editSonicModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><b>Edit Movie Details:</b></h5>
+                           <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                        </div>
+                        <div class="modal-body">
+                            <form class="m-auto" method="POST" action="/updateSonic">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTitle" placeholder="Movie Title" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="shortDescription" placeholder="Short Movie Description" name="shortdesc" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="moviePrice" placeholder="Price" name="price" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieDirectors" placeholder="Director/s" name="directors" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieCast" placeholder="Cast" name="cast" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTrailer" placeholder="Trailer Link" name="trailer_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieImageLink" placeholder="Image Link" name="img_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieStatus" name="status" data-toggle="dropdown">
+                                        <option label="Now Showing" value="Now Showing">Now Showing</option>
+                                        <option label="Coming Soon" value="Coming Soon">Coming Soon</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieSynopsis" placeholder="Synopsis" name="synopsis" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieRating" name="rating" data-toggle="dropdown">
+                                        <option label="G" value="G">G</option>
+                                        <option label="PG" value="PG">PG</option>
+                                        <option label="R" value="R">R</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        
+                        </form>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{!-- END OF SONIC --}}
+
+                {{!-- BOP --}}
+            <div class="modal fade" tabindex="-1" role="dialog" id="editBOPModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><b>Edit Movie Details:</b></h5>
+                           <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                        </div>
+                        <div class="modal-body">
+                            <form class="m-auto" method="POST" action="/updateBOP">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTitle" placeholder="Movie Title" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="shortDescription" placeholder="Short Movie Description" name="shortdesc" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="moviePrice" placeholder="Price" name="price" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieDirectors" placeholder="Director/s" name="directors" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieCast" placeholder="Cast" name="cast" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTrailer" placeholder="Trailer Link" name="trailer_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieImageLink" placeholder="Image Link" name="img_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieStatus" name="status" data-toggle="dropdown">
+                                        <option label="Now Showing" value="Now Showing">Now Showing</option>
+                                        <option label="Coming Soon" value="Coming Soon">Coming Soon</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieSynopsis" placeholder="Synopsis" name="synopsis" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieRating" name="rating" data-toggle="dropdown">
+                                        <option label="G" value="G">G</option>
+                                        <option label="PG" value="PG">PG</option>
+                                        <option label="R" value="R">R</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        
+                        </form>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{!-- END OF BOP --}}
+
+                     {{!-- BB4LIFE --}}
+            <div class="modal fade" tabindex="-1" role="dialog" id="editBB4LifeModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><b>Edit Movie Details:</b></h5>
+                           <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                        </div>
+                        <div class="modal-body">
+                            <form class="m-auto" method="POST" action="/updateBB4Life">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTitle" placeholder="Movie Title" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="shortDescription" placeholder="Short Movie Description" name="shortdesc" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="moviePrice" placeholder="Price" name="price" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieDirectors" placeholder="Director/s" name="directors" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieCast" placeholder="Cast" name="cast" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTrailer" placeholder="Trailer Link" name="trailer_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieImageLink" placeholder="Image Link" name="img_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieStatus" name="status" data-toggle="dropdown">
+                                        <option label="Now Showing" value="Now Showing">Now Showing</option>
+                                        <option label="Coming Soon" value="Coming Soon">Coming Soon</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieSynopsis" placeholder="Synopsis" name="synopsis" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieRating" name="rating" data-toggle="dropdown">
+                                        <option label="G" value="G">G</option>
+                                        <option label="PG" value="PG">PG</option>
+                                        <option label="R" value="R">R</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        
+                        </form>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{!-- END OF BB4LIFE --}}
+
+             {{!-- DOLITTLE --}}
+            <div class="modal fade" tabindex="-1" role="dialog" id="editDoLittleModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><b>Edit Movie Details:</b></h5>
+                           <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                        </div>
+                        <div class="modal-body">
+                            <form class="m-auto" method="POST" action="/updateDoLittle">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTitle" placeholder="Movie Title" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="shortDescription" placeholder="Short Movie Description" name="shortdesc" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="moviePrice" placeholder="Price" name="price" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieDirectors" placeholder="Director/s" name="directors" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieCast" placeholder="Cast" name="cast" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTrailer" placeholder="Trailer Link" name="trailer_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieImageLink" placeholder="Image Link" name="img_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieStatus" name="status" data-toggle="dropdown">
+                                        <option label="Now Showing" value="Now Showing">Now Showing</option>
+                                        <option label="Coming Soon" value="Coming Soon">Coming Soon</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieSynopsis" placeholder="Synopsis" name="synopsis" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieRating" name="rating" data-toggle="dropdown">
+                                        <option label="G" value="G">G</option>
+                                        <option label="PG" value="PG">PG</option>
+                                        <option label="R" value="R">R</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        
+                        </form>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{!-- END OF DOLITTLE --}}
+
+            {{!-- TNC --}}
+            <div class="modal fade" tabindex="-1" role="dialog" id="editTNCModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><b>Edit Movie Details:</b></h5>
+                           <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                        </div>
+                        <div class="modal-body">
+                            <form class="m-auto" method="POST" action="/updateTNC">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTitle" placeholder="Movie Title" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="shortDescription" placeholder="Short Movie Description" name="shortdesc" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="moviePrice" placeholder="Price" name="price" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieDirectors" placeholder="Director/s" name="directors" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieCast" placeholder="Cast" name="cast" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTrailer" placeholder="Trailer Link" name="trailer_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieImageLink" placeholder="Image Link" name="img_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieStatus" name="status" data-toggle="dropdown">
+                                        <option label="Now Showing" value="Now Showing">Now Showing</option>
+                                        <option label="Coming Soon" value="Coming Soon">Coming Soon</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieSynopsis" placeholder="Synopsis" name="synopsis" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieRating" name="rating" data-toggle="dropdown">
+                                        <option label="G" value="G">G</option>
+                                        <option label="PG" value="PG">PG</option>
+                                        <option label="R" value="R">R</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        
+                        </form>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{!-- END OF TNC --}}
+
+            {{!-- COW --}}
+            <div class="modal fade" tabindex="-1" role="dialog" id="editCOWModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><b>Edit Movie Details:</b></h5>
+                           <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                        </div>
+                        <div class="modal-body">
+                            <form class="m-auto" method="POST" action="/updateCOW">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTitle" placeholder="Movie Title" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="shortDescription" placeholder="Short Movie Description" name="shortdesc" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="moviePrice" placeholder="Price" name="price" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieDirectors" placeholder="Director/s" name="directors" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieCast" placeholder="Cast" name="cast" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTrailer" placeholder="Trailer Link" name="trailer_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieImageLink" placeholder="Image Link" name="img_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieStatus" name="status" data-toggle="dropdown">
+                                        <option label="Now Showing" value="Now Showing">Now Showing</option>
+                                        <option label="Coming Soon" value="Coming Soon">Coming Soon</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieSynopsis" placeholder="Synopsis" name="synopsis" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieRating" name="rating" data-toggle="dropdown">
+                                        <option label="G" value="G">G</option>
+                                        <option label="PG" value="PG">PG</option>
+                                        <option label="R" value="R">R</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        
+                        </form>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{!-- END OF COW --}}
+
+             {{!-- AQP2 --}}
+            <div class="modal fade" tabindex="-1" role="dialog" id="editAQP2Modal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><b>Edit Movie Details:</b></h5>
+                           <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                        </div>
+                        <div class="modal-body">
+                            <form class="m-auto" method="POST" action="/updateAQP2">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTitle" placeholder="Movie Title" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="shortDescription" placeholder="Short Movie Description" name="shortdesc" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="moviePrice" placeholder="Price" name="price" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieDirectors" placeholder="Director/s" name="directors" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieCast" placeholder="Cast" name="cast" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTrailer" placeholder="Trailer Link" name="trailer_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieImageLink" placeholder="Image Link" name="img_url" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieStatus" name="status" data-toggle="dropdown">
+                                        <option label="Now Showing" value="Now Showing">Now Showing</option>
+                                        <option label="Coming Soon" value="Coming Soon">Coming Soon</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieSynopsis" placeholder="Synopsis" name="synopsis" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieRating" name="rating" data-toggle="dropdown">
+                                        <option label="G" value="G">G</option>
+                                        <option label="PG" value="PG">PG</option>
+                                        <option label="R" value="R">R</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        
+                        </form>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{!-- END OF AQP2 --}}
