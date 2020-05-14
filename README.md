@@ -12,7 +12,7 @@
 2) Open cmd or terminal and cd to s14-13/
 3) Type in  **`npm install `** to install all dependencies.
 
-4) Run **`npm run dev`** 
+4) Run **`npm run dev`** to run the application locally or  Run **`heroku open`** to launch the deployed application.
 
 5) Open your default browser and type in [localhost:3000](http://localhost:3000/)
 
