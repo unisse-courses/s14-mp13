@@ -148,7 +148,7 @@ const { validationResult } = require('express-validator');
   
                 console.log(req.session);
                 if (req.session.utype === 'Regular')
-                  res.redirect('/home');
+                  res.redirect('/myaccount');
                 else if (req.session.utype === 'Admin')
                   res.redirect('/home/admin');
               } else {

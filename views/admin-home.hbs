@@ -158,7 +158,7 @@
                                 <small>Start date: {{date1start}}</small> <br>
                                 <small>End date: {{date1end}}</small> </td>
                             <td>
-                                <button class="btn btn-primary">Edit</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
                             </td>
                         </tr>
 
@@ -170,7 +170,7 @@
                                 <small>Start date: {{date2start}}</small> <br>
                                 <small>End date: {{date2end}}</small> </td>
                             <td>
-                                <button class="btn btn-primary">Edit</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
                             </td>
                         </tr>
 
@@ -183,7 +183,7 @@
                                 <small>End date: {{date3end}}</small></td>
 
                             <td>
-                                <button class="btn btn-primary">Edit</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
                             </td>
                         </tr>
 
@@ -196,7 +196,7 @@
                                 <small>End date: {{date4end}}</small> </td>
 
                             <td>
-                                <button class="btn btn-primary">Edit</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
                             </td>
                         </tr>
 
@@ -209,7 +209,7 @@
                                 <small>End date: {{date5end}}</small></td>
 
                             <td>
-                                <button class="btn btn-primary">Edit</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
                             </td>
                         </tr>
 
@@ -222,7 +222,7 @@
                                 <small>End date: {{date6end}}</small></td>
 
                             <td>
-                                <button class="btn btn-primary">Edit</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
                             </td>
                         </tr>
 
@@ -235,7 +235,7 @@
                                 <small>End date: {{date7end}}</small></td>
 
                             <td>
-                                <button class="btn btn-primary">Edit</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
                             </td>
                         </tr>
 
@@ -247,14 +247,14 @@
                                  <small>Start date: {{date8start}}</small> <br>
                                 <small>End date: {{date8end}}</small></td>
                             <td>
-                                <button class="btn btn-primary">Edit</button>
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#editMovieModal">Edit</button>
                             </td>
                         </tr>
                     </tbody>
 
                 </table >
 
-                <table class="dash table table-hover" style="width: fit-content;" id="reservations">
+                <table class="dash table table-hover" id="reservations">
                     <thead>
                         <tr>
                             <th><h4><i class="material-icons" style="color: #4717F6; font-size: 15px;">event_seat</i>
@@ -478,3 +478,64 @@
 </div>
   
 </div>
+
+            <div class="modal fade" tabindex="-1" role="dialog" id="editMovieModal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"><b>Edit Movie Details:</b></h5>
+                           <button type="button" class="close" data-dismiss="modal">&times;</button> 
+                        </div>
+                        <div class="modal-body">
+                            <form class="m-auto" method="POST" action="/register">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTitle" placeholder="Movie Title" name="Movie Title" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="shortDescription" placeholder="Short Movie Description" name="Short Description" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="moviePrice" placeholder="Price" name="Price" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieDirectors" placeholder="Director/s" name="Movie Directors" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieCasts" placeholder="Cast/s" name="Movie Casts" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieTrailer" placeholder="Trailer Link" name="Movie Trailer" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieImageLink" placeholder="Image Link" name="Movie Image Link" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieStatus" name="Movie Status" data-toggle="dropdown">
+                                        <option label="Now Showing" value="Now Showing">Now Showing</option>
+                                        <option label="Coming Soon" value="Coming Soon">Coming Soon</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="movieSynopsis" placeholder="Synopsis" name="Movie Synopsis" required>
+                                </div>
+                                <div class="form-group">
+                                    <div class="dropdown">
+                                        <select type="button" class="form-control" id="movieRating" name="Movie Rating" data-toggle="dropdown">
+                                        <option label="G" value="G">G</option>
+                                        <option label="PG" value="PG">PG</option>
+                                        <option label="R" value="R">R</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>

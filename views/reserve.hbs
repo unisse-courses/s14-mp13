@@ -9,7 +9,7 @@
           
             
             <br>
-            <form class="movieform" method="POST" action={{post_url}}>
+            <form class="movieform" method="POST" action={{post_url}} onChange="this.form.submit()">
             <div class="row justify-content-center m-auto">
             <!-- SELECT DATE -->
             <div class="dropdown">
@@ -49,139 +49,153 @@
              
             <div class="form-check-inline m-0" style="color: #A239CA; font-weight:bold;"><b style="padding-right: 10px;">A</b>
              <!-- A1 -->
-            <div class="form-check m-0"><small>A1</small> &nbsp;
-                    
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[0]}}</small> &nbsp;
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A1" name="seats" value="A1">
-                    <label class="custom-control-label" for="A1"></label>
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[0]}} name="seats" 
+                      value={{generatedSeatNumber.[0]}} pattern={{seatNumber0}} {{checkReserved generatedSeatNumber.[0] seatNumber0 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[0]}}></label>
                   </div>
               </div>
 
             {{!-- A2 --}}
-            <div class="form-check m-0"><small>A2</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[1]}}</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A2" name="seats" value="A2">
-                    <label class="custom-control-label" for="A2"></label>
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[1]}} name="seats" 
+                      value={{generatedSeatNumber.[1]}} pattern={{seatNumber1}} {{checkReserved generatedSeatNumber.[1] seatNumber1 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[1]}}></label>
                   </div>
               </div>
 
             {{!-- A3 --}}
-            <div class="form-check m-0"><small>A3</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[2]}}</small> &nbsp;
                     
                   <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A3" name="seats" value="A3">
-                    <label class="custom-control-label" for="A3"></label>
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[2]}} name="seats" 
+                      value={{generatedSeatNumber.[2]}} pattern={{seatNumber2}} {{checkReserved generatedSeatNumber.[2] seatNumber2 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[2]}}></label>
                   </div>
               </div>
 
             {{!-- A4 --}}
-            <div class="form-check m-0"><small>A4</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[3]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A4" name="seats" value="A4">
-                    <label class="custom-control-label" for="A4"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[3]}} name="seats" 
+                      value={{generatedSeatNumber.[3]}} pattern={{seatNumber3}} {{checkReserved generatedSeatNumber.[3] seatNumber3 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[3]}}></label>
                   </div>
               </div>
 
             {{!-- A5 --}}
-            <div class="form-check m-0"><small>A5</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[4]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A5" name="seats" value="A5">
-                    <label class="custom-control-label" for="A5"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[4]}} name="seats" 
+                      value={{generatedSeatNumber.[4]}} pattern={{seatNumber4}} {{checkReserved generatedSeatNumber.[4] seatNumber4 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[4]}}></label>
                   </div>
               </div>
 
             {{!-- A6 --}}
-            <div class="form-check m-0"><small>A6</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[5]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A6" name="seats" value="A6">
-                    <label class="custom-control-label" for="A6"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[5]}} name="seats" 
+                      value={{generatedSeatNumber.[5]}} pattern={{seatNumber5}} {{checkReserved generatedSeatNumber.[5] seatNumber5 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[5]}}></label>
                   </div>
               </div>
 
             {{!-- A7 --}}
-            <div class="form-check m-0"><small>A7</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[6]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A7" name="seats" value="A7">
-                    <label class="custom-control-label" for="A7"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[6]}} name="seats" 
+                      value={{generatedSeatNumber.[6]}} pattern={{seatNumber6}} {{checkReserved generatedSeatNumber.[6] seatNumber6 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[6]}}></label>
                   </div>
               </div>     
 
             {{!-- A8 --}}
-            <div class="form-check m-0"><small>A8</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[7]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A8" name="seats" value="A8">
-                    <label class="custom-control-label" for="A8"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[7]}} name="seats" 
+                      value={{generatedSeatNumber.[7]}} pattern={{seatNumber7}} {{checkReserved generatedSeatNumber.[7] seatNumber7 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[7]}}></label>
                   </div>
-              </div>      
+              </div>
 
             {{!-- A9 --}}
-            <div class="form-check m-0"><small>A9</small> &nbsp;
+           <div class="form-check m-0"><small>{{generatedSeatNumber.[8]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A9" name="seats" value="A9">
-                    <label class="custom-control-label" for="A9"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[8]}} name="seats" 
+                      value={{generatedSeatNumber.[8]}} pattern={{seatNumber8}} {{checkReserved generatedSeatNumber.[8] seatNumber8 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[8]}}></label>
                   </div>
-              </div>    
+              </div>
 
             {{!-- A10 --}}
-            <div class="form-check m-0"><small>A10</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[9]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A10" name="seats" value="A10">
-                    <label class="custom-control-label" for="A10"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[9]}} name="seats" 
+                      value={{generatedSeatNumber.[9]}} pattern={{seatNumber9}} {{checkReserved generatedSeatNumber.[9] seatNumber9 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[9]}}></label>
                   </div>
-              </div> 
+              </div>
             
             {{!-- A11 --}}
-            <div class="form-check m-0"><small>A11</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[10]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A11" name="seats" value="A11">
-                    <label class="custom-control-label" for="A11"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[10]}} name="seats" 
+                      value={{generatedSeatNumber.[10]}} pattern={{seatNumber10}} {{checkReserved generatedSeatNumber.[10] seatNumber10 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[10]}}></label>
                   </div>
-              </div>     
+              </div>
 
             {{!-- A12 --}}
-            <div class="form-check m-0"><small>A12</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[11]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A12" name="seats" value="A12">
-                    <label class="custom-control-label" for="A12"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[11]}} name="seats" 
+                      value={{generatedSeatNumber.[11]}} pattern={{seatNumber11}} {{checkReserved generatedSeatNumber.[11] seatNumber11 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[11]}}></label>
                   </div>
               </div>
 
             {{!-- A13 --}}
-            <div class="form-check m-0"><small>A13</small> &nbsp;
+           <div class="form-check m-0"><small>{{generatedSeatNumber.[12]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A13" name="seats" value="A13">
-                    <label class="custom-control-label" for="A13"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[12]}} name="seats" 
+                      value={{generatedSeatNumber.[12]}} pattern={{seatNumber12}} {{checkReserved generatedSeatNumber.[12] seatNumber12 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[12]}}></label>
                   </div>
-              </div>     
+              </div>
 
             {{!-- A14 --}}
-            <div class="form-check m-0"><small>A14</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[13]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A14" name="seats" value="A14">
-                    <label class="custom-control-label" for="A14"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[13]}} name="seats" 
+                      value={{generatedSeatNumber.[13]}} pattern={{seatNumber13}} {{checkReserved generatedSeatNumber.[13] seatNumber13 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[13]}}></label>
                   </div>
-              </div>     
+              </div> 
 
             {{!-- A15 --}}
-            <div class="form-check m-0"><small>A15</small> &nbsp;
+           <div class="form-check m-0"><small>{{generatedSeatNumber.[14]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="A15" name="seats" value="A15">
-                    <label class="custom-control-label" for="A15"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[14]}} name="seats" 
+                      value={{generatedSeatNumber.[14]}} pattern={{seatNumber14}} {{checkReserved generatedSeatNumber.[14] seatNumber14 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[14]}}></label>
                   </div>
-              </div>           
+              </div>    
         </div>
           </div>
           
@@ -192,139 +206,156 @@
              
             <div class="form-check-inline m-0" style="color: #A239CA; font-weight:bold;"><b style="padding-left: 10px; padding-right:10px">B</b> 
              <!-- B1 -->
-            <div class="form-check m-0"><small>B1</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[15]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B1" name="seats" value="B1">
-                    <label class="custom-control-label" for="B1"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[15]}} name="seats" 
+                      value={{generatedSeatNumber.[15]}} pattern={{seatNumber15}} {{checkReserved generatedSeatNumber.[15] seatNumber15 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[15]}}></label>
                   </div>
               </div>
 
             {{!-- B2 --}}
-            <div class="form-check m-0"><small>B2</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[16]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B2" name="seats" value="B2">
-                    <label class="custom-control-label" for="B2"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[16]}} name="seats" 
+                      value={{generatedSeatNumber.[16]}} pattern={{seatNumber16}} {{checkReserved generatedSeatNumber.[16] seatNumber16 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[16]}}></label>
                   </div>
               </div>
 
             {{!-- B3 --}}
-            <div class="form-check m-0"><small>B3</small> &nbsp;
+           <div class="form-check m-0"><small>{{generatedSeatNumber.[17]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B3" name="seats" value="B3">
-                    <label class="custom-control-label" for="B3"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[17]}} name="seats" 
+                      value={{generatedSeatNumber.[17]}} pattern={{seatNumber17}} {{checkReserved generatedSeatNumber.[17] seatNumber17 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[17]}}></label>
                   </div>
               </div>
 
             {{!-- B4 --}}
-            <div class="form-check m-0"><small>B4</small> &nbsp;
+           <div class="form-check m-0"><small>{{generatedSeatNumber.[18]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B4" name="seats" value="B4">
-                    <label class="custom-control-label" for="B4"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[18]}} name="seats" 
+                      value={{generatedSeatNumber.[18]}} pattern={{seatNumber18}} {{checkReserved generatedSeatNumber.[18] seatNumber18 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[18]}}></label>
                   </div>
               </div>
 
             {{!-- B5 --}}
-            <div class="form-check m-0"><small>B5</small> &nbsp;
+           <div class="form-check m-0"><small>{{generatedSeatNumber.[19]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B5" name="seats" value="B5">
-                    <label class="custom-control-label" for="B5"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[19]}} name="seats" 
+                      value={{generatedSeatNumber.[19]}} pattern={{seatNumber19}} {{checkReserved generatedSeatNumber.[19] seatNumber19 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[19]}}></label>
                   </div>
               </div>
 
             {{!-- B6 --}}
-            <div class="form-check m-0"><small>B6</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[20]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B6" name="seats" value="B6">
-                    <label class="custom-control-label" for="B6"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[20]}} name="seats" 
+                      value={{generatedSeatNumber.[20]}} pattern={{seatNumber20}} {{checkReserved generatedSeatNumber.[20] seatNumber20 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[20]}}></label>
                   </div>
               </div>
 
             {{!-- B7 --}}
-            <div class="form-check m-0"><small>B7</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[21]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B7" name="seats" value="B7">
-                    <label class="custom-control-label" for="B7"></label>
-                  </div>
-              </div>     
-
-            {{!-- B8 --}}
-            <div class="form-check m-0"><small>B8</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B8" name="seats"  value="B8">
-                    <label class="custom-control-label" for="B8"></label>
-                  </div>
-              </div>      
-
-            {{!-- B9 --}}
-            <div class="form-check m-0"><small>B9</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B9" name="seats"  value="B9">
-                    <label class="custom-control-label" for="B9"></label>
-                  </div>
-              </div>    
-
-            {{!-- B10 --}}
-            <div class="form-check m-0"><small>B10</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B10" name="seats"  value="B10">
-                    <label class="custom-control-label" for="B10"></label>
-                  </div>
-              </div> 
-            
-            {{!-- B11 --}}
-            <div class="form-check m-0"><small>B11</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B11" name="seats"  value="B11">
-                    <label class="custom-control-label" for="B11"></label>
-                  </div>
-              </div>     
-
-            {{!-- B12 --}}
-            <div class="form-check m-0"><small>B12</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B12" name="seats"  value="B12">
-                    <label class="custom-control-label" for="B12"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[21]}} name="seats" 
+                      value={{generatedSeatNumber.[21]}} pattern={{seatNumber21}} {{checkReserved generatedSeatNumber.[21] seatNumber21 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[21]}}></label>
                   </div>
               </div>
 
-            {{!-- B13 --}}
-            <div class="form-check m-0"><small>B13</small> &nbsp;
+            {{!-- B8 --}}
+           <div class="form-check m-0"><small>{{generatedSeatNumber.[22]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B13" name="seats"  value="B13">
-                    <label class="custom-control-label" for="B13"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[22]}} name="seats" 
+                      value={{generatedSeatNumber.[22]}} pattern={{seatNumber22}} {{checkReserved generatedSeatNumber.[22] seatNumber22 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[22]}}></label>
                   </div>
-              </div>     
+              </div>
+
+            {{!-- B9 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[23]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[23]}} name="seats" 
+                      value={{generatedSeatNumber.[23]}} pattern={{seatNumber23}} {{checkReserved generatedSeatNumber.[23] seatNumber23 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[23]}}></label>
+                  </div>
+              </div>
+
+            {{!-- B10 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[24]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[24]}} name="seats" 
+                      value={{generatedSeatNumber.[24]}} pattern={{seatNumber24}} {{checkReserved generatedSeatNumber.[24] seatNumber24 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[24]}}></label>
+                  </div>
+              </div>
+            
+            {{!-- B11 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[25]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[25]}} name="seats" 
+                      value={{generatedSeatNumber.[25]}} pattern={{seatNumber25}} {{checkReserved generatedSeatNumber.[25] seatNumber25 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[25]}}></label>
+                  </div>
+              </div>
+
+            {{!-- B12 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[26]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[26]}} name="seats" 
+                      value={{generatedSeatNumber.[26]}} pattern={{seatNumber26}} {{checkReserved generatedSeatNumber.[26] seatNumber26 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[26]}}></label>
+                  </div>
+              </div>
+
+
+            {{!-- B13 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[27]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[27]}} name="seats" 
+                      value={{generatedSeatNumber.[27]}} pattern={{seatNumber27}} {{checkReserved generatedSeatNumber.[27] seatNumber27 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[27]}}></label>
+                  </div>
+              </div>
+  
 
             {{!-- B14 --}}
-            <div class="form-check m-0"><small>B14</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[28]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B14" name="seats"  value="B14">
-                    <label class="custom-control-label" for="B14"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[28]}} name="seats" 
+                      value={{generatedSeatNumber.[28]}} pattern={{seatNumber28}} {{checkReserved generatedSeatNumber.[28] seatNumber28 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[28]}}></label>
                   </div>
-              </div>     
+              </div>
 
             {{!-- B15 --}}
-            <div class="form-check m-0"><small>B15</small> &nbsp;
+         <div class="form-check m-0"><small>{{generatedSeatNumber.[29]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="B15" name="seats"  value="B15">
-                    <label class="custom-control-label" for="B15"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[29]}} name="seats" 
+                      value={{generatedSeatNumber.[29]}} pattern={{seatNumber29}} {{checkReserved generatedSeatNumber.[29] seatNumber29 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[29]}}></label>
                   </div>
-              </div>           
+              </div>        
         </div>
           </div>
           
@@ -335,137 +366,152 @@
              
             <div class="form-check-inline m-0" style="color: #A239CA; font-weight:bold;"><b style="padding-left: 5px; padding-right:10px;">C</b>
              <!-- C1 -->
-            <div class="form-check m-0"><small>C1</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[30]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C1" name="seats"  value="C1">
-                    <label class="custom-control-label" for="C1"></label>
-                  </div>
-              </div>
-
-            {{!-- C2 --}}
-            <div class="form-check m-0"><small>C2</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C2" name="seats" value="C2">
-                    <label class="custom-control-label" for="C2"></label>
-                  </div>
-              </div>
-
-            {{!-- C3 --}}
-            <div class="form-check m-0"><small>C3</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C3" name="seats" value="C3">
-                    <label class="custom-control-label" for="C3"></label>
-                  </div>
-              </div>
-
-            {{!-- C4 --}}
-            <div class="form-check m-0"><small>C4</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C4" name="seats" value="C4">
-                    <label class="custom-control-label" for="C4"></label>
-                  </div>
-              </div>
-
-            {{!-- C5 --}}
-            <div class="form-check m-0"><small>C5</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C5" name="seats" value="C5">
-                    <label class="custom-control-label" for="C5"></label>
-                  </div>
-              </div>
-
-            {{!-- C6 --}}
-            <div class="form-check m-0"><small>C6</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C6" name="seats" value="C6">
-                    <label class="custom-control-label" for="C6"></label>
-                  </div>
-              </div>
-
-            {{!-- C7 --}}
-            <div class="form-check m-0"><small>C7</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C7" name="seats" value="C7">
-                    <label class="custom-control-label" for="C7"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[30]}} name="seats" 
+                      value={{generatedSeatNumber.[30]}} pattern={{seatNumber30}} {{checkReserved generatedSeatNumber.[30] seatNumber30 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[30]}}></label>
                   </div>
               </div>     
 
-            {{!-- C8 --}}
-            <div class="form-check m-0"><small>C8</small> &nbsp;
+            {{!-- C2 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[31]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C8" name="seats" value="C8">
-                    <label class="custom-control-label" for="C8"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[31]}} name="seats" 
+                      value={{generatedSeatNumber.[31]}} pattern={{seatNumber31}} {{checkReserved generatedSeatNumber.[31] seatNumber31 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[31]}}></label>
+                  </div>
+              </div>     
+
+            {{!-- C3 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[32]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[32]}} name="seats" 
+                      value={{generatedSeatNumber.[32]}} pattern={{seatNumber32}} {{checkReserved generatedSeatNumber.[32] seatNumber32 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[32]}}></label>
+                  </div>
+              </div>     
+
+            {{!-- C4 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[33]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[33]}} name="seats" 
+                      value={{generatedSeatNumber.[33]}} pattern={{seatNumber33}} {{checkReserved generatedSeatNumber.[33] seatNumber33 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[33]}}></label>
+                  </div>
+              </div>     
+
+            {{!-- C5 --}}
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[34]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[34]}} name="seats" 
+                      value={{generatedSeatNumber.[34]}} pattern={{seatNumber34}} {{checkReserved generatedSeatNumber.[34] seatNumber34 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[34]}}></label>
+                  </div>
+              </div>    
+
+            {{!-- C6 --}}
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[35]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[35]}} name="seats" 
+                      value={{generatedSeatNumber.[35]}} pattern={{seatNumber35}} {{checkReserved generatedSeatNumber.[35] seatNumber35 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[35]}}></label>
+                  </div>
+              </div>    
+
+            {{!-- C7 --}}
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[36]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[36]}} name="seats" 
+                      value={{generatedSeatNumber.[36]}} pattern={{seatNumber36}} {{checkReserved generatedSeatNumber.[36] seatNumber36 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[36]}}></label>
+                  </div>
+              </div>      
+
+            {{!-- C8 --}}
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[37]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[37]}} name="seats" 
+                      value={{generatedSeatNumber.[37]}} pattern={{seatNumber37}} {{checkReserved generatedSeatNumber.[37] seatNumber37 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[37]}}></label>
                   </div>
               </div>      
 
             {{!-- C9 --}}
-            <div class="form-check m-0"><small>C9</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[38]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C9" name="seats" value="C9">
-                    <label class="custom-control-label" for="C9"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[38]}} name="seats" 
+                      value={{generatedSeatNumber.[38]}} pattern={{seatNumber38}} {{checkReserved generatedSeatNumber.[38] seatNumber38 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[38]}}></label>
                   </div>
               </div>    
 
             {{!-- C10 --}}
-            <div class="form-check m-0"><small>C10</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[39]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C10" name="seats" value="C10">
-                    <label class="custom-control-label" for="C10"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[39]}} name="seats" 
+                      value={{generatedSeatNumber.[39]}} pattern={{seatNumber39}} {{checkReserved generatedSeatNumber.[39] seatNumber39 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[39]}}></label>
                   </div>
-              </div> 
+              </div>    
             
             {{!-- C11 --}}
-            <div class="form-check m-0"><small>C11</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[40]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C11" name="seats" value="C11">
-                    <label class="custom-control-label" for="C11"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[40]}} name="seats" 
+                      value={{generatedSeatNumber.[40]}} pattern={{seatNumber40}} {{checkReserved generatedSeatNumber.[40] seatNumber40 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[40]}}></label>
                   </div>
-              </div>     
+              </div>    
 
             {{!-- C12 --}}
-            <div class="form-check m-0"><small>C12</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[41]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C12" name="seats" value="C12">
-                    <label class="custom-control-label" for="C12"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[41]}} name="seats" 
+                      value={{generatedSeatNumber.[41]}} pattern={{seatNumber41}} {{checkReserved generatedSeatNumber.[41] seatNumber41 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[41]}}></label>
                   </div>
-              </div>
+              </div>    
 
             {{!-- C13 --}}
-            <div class="form-check m-0"><small>C13</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[42]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C13" name="seats" value="C13">
-                    <label class="custom-control-label" for="C13"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[42]}} name="seats" 
+                      value={{generatedSeatNumber.[42]}} pattern={{seatNumber42}} {{checkReserved generatedSeatNumber.[42] seatNumber42 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[42]}}></label>
                   </div>
               </div>     
 
             {{!-- C14 --}}
-            <div class="form-check m-0"><small>C14</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[43]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C14" name="seats "value="C14">
-                    <label class="custom-control-label" for="C14"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[43]}} name="seats" 
+                      value={{generatedSeatNumber.[43]}} pattern={{seatNumber43}} {{checkReserved generatedSeatNumber.[43] seatNumber43 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[43]}}></label>
                   </div>
               </div>     
 
             {{!-- C15 --}}
-            <div class="form-check m-0"><small>C15</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[44]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="C15" name="seats" value="C15">
-                    <label class="custom-control-label" for="C15"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[44]}} name="seats" 
+                      value={{generatedSeatNumber.[44]}} pattern={{seatNumber44}} {{checkReserved generatedSeatNumber.[44] seatNumber44 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[44]}}></label>
                   </div>
               </div>           
         </div>
@@ -478,139 +524,154 @@
              
             <div class="form-check-inline m-0" style="color: #A239CA; font-weight:bold;"><b style="padding-left: 25px; padding-right:10px;">D</b>
              <!-- D1 -->
-            <div class="form-check m-0"><small>D1</small> &nbsp;
+           <div class="form-check m-0"><small>{{generatedSeatNumber.[45]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D1" name="seats" value="D1">
-                    <label class="custom-control-label" for="D1"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[45]}} name="seats" 
+                      value={{generatedSeatNumber.[45]}} pattern={{seatNumber45}} {{checkReserved generatedSeatNumber.[45] seatNumber45 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[45]}}></label>
                   </div>
-              </div>
+              </div>    
 
             {{!-- D2 --}}
-            <div class="form-check m-0"><small>D2</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[46]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D2" name="seats" value="D2">
-                    <label class="custom-control-label" for="D2"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[46]}} name="seats" 
+                      value={{generatedSeatNumber.[46]}} pattern={{seatNumber46}} {{checkReserved generatedSeatNumber.[46] seatNumber46 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[46]}}></label>
                   </div>
-              </div>
+              </div>    
 
             {{!-- D3 --}}
-            <div class="form-check m-0"><small>D3</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[47]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D3" name="seats" value="D3">
-                    <label class="custom-control-label" for="D3"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[47]}} name="seats" 
+                      value={{generatedSeatNumber.[47]}} pattern={{seatNumber47}} {{checkReserved generatedSeatNumber.[47] seatNumber47 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[47]}}></label>
                   </div>
-              </div>
+              </div>    
 
             {{!-- D4 --}}
-            <div class="form-check m-0"><small>D4</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[48]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D4" name="seats" value="D4">
-                    <label class="custom-control-label" for="D4"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[48]}} name="seats" 
+                      value={{generatedSeatNumber.[48]}} pattern={{seatNumber48}} {{checkReserved generatedSeatNumber.[48] seatNumber48 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[48]}}></label>
                   </div>
-              </div>
+              </div>    
 
             {{!-- D5 --}}
-            <div class="form-check m-0"><small>D5</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[49]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D5" name="seats" value="D5">
-                    <label class="custom-control-label" for="D5"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[49]}} name="seats" 
+                      value={{generatedSeatNumber.[49]}} pattern={{seatNumber49}} {{checkReserved generatedSeatNumber.[49] seatNumber49 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[49]}}></label>
                   </div>
-              </div>
+              </div>    
 
             {{!-- D6 --}}
-            <div class="form-check m-0"><small>D6</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[50]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D6" name="seats" value="D6">
-                    <label class="custom-control-label" for="D6"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[50]}} name="seats" 
+                      value={{generatedSeatNumber.[50]}} pattern={{seatNumber50}} {{checkReserved generatedSeatNumber.[50] seatNumber50 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[50]}}></label>
                   </div>
-              </div>
+              </div>    
 
             {{!-- D7 --}}
-            <div class="form-check m-0"><small>D7</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[51]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D7" name="seats" value="D7">
-                    <label class="custom-control-label" for="D7"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[51]}} name="seats" 
+                      value={{generatedSeatNumber.[51]}} pattern={{seatNumber51}} {{checkReserved generatedSeatNumber.[51] seatNumber51 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[51]}}></label>
                   </div>
               </div>     
 
             {{!-- D8 --}}
-            <div class="form-check m-0"><small>D8</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[52]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D8" name="seats" value="D8">
-                    <label class="custom-control-label" for="D8"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[52]}} name="seats" 
+                      value={{generatedSeatNumber.[52]}} pattern={{seatNumber52}} {{checkReserved generatedSeatNumber.[52] seatNumber52 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[52]}}></label>
                   </div>
-              </div>      
+              </div>       
 
             {{!-- D9 --}}
-            <div class="form-check m-0"><small>D9</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[53]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D9" name="seats" value="D9">
-                    <label class="custom-control-label" for="D9"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[53]}} name="seats" 
+                      value={{generatedSeatNumber.[53]}} pattern={{seatNumber53}} {{checkReserved generatedSeatNumber.[53] seatNumber53 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[53]}}></label>
                   </div>
               </div>    
 
             {{!-- D10 --}}
-            <div class="form-check m-0"><small>D10</small> &nbsp;
+           <div class="form-check m-0"><small>{{generatedSeatNumber.[54]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D10" name="seats" value="D10">
-                    <label class="custom-control-label" for="D10"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[54]}} name="seats" 
+                      value={{generatedSeatNumber.[54]}} pattern={{seatNumber54}} {{checkReserved generatedSeatNumber.[54] seatNumber54 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[54]}}></label>
                   </div>
-              </div> 
+              </div>    
             
             {{!-- D11 --}}
-            <div class="form-check m-0"><small>D11</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[55]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D11" name="seats" value="D11">
-                    <label class="custom-control-label" for="D11"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[55]}} name="seats" 
+                      value={{generatedSeatNumber.[55]}} pattern={{seatNumber55}} {{checkReserved generatedSeatNumber.[55] seatNumber55 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[55]}}></label>
                   </div>
-              </div>     
+              </div>    
 
             {{!-- D12 --}}
-            <div class="form-check m-0"><small>D12</small> &nbsp;
+           <div class="form-check m-0"><small>{{generatedSeatNumber.[56]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D12" name="seats" value="D12">
-                    <label class="custom-control-label" for="D12"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[56]}} name="seats" 
+                      value={{generatedSeatNumber.[56]}} pattern={{seatNumber56}} {{checkReserved generatedSeatNumber.[56] seatNumber56 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[56]}}></label>
                   </div>
-              </div>
+              </div>    
 
             {{!-- D13 --}}
-            <div class="form-check m-0"><small>D13</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[57]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D13" name="seats" value="D13">
-                    <label class="custom-control-label" for="D13"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[57]}} name="seats" 
+                      value={{generatedSeatNumber.[57]}} pattern={{seatNumber57}} {{checkReserved generatedSeatNumber.[57] seatNumber57 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[57]}}></label>
                   </div>
               </div>     
 
             {{!-- D14 --}}
-            <div class="form-check m-0"><small>D14</small> &nbsp;
+           <div class="form-check m-0"><small>{{generatedSeatNumber.[58]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D14" name="seats" value="D14">
-                    <label class="custom-control-label" for="D14"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[58]}} name="seats" 
+                      value={{generatedSeatNumber.[58]}} pattern={{seatNumber58}} {{checkReserved generatedSeatNumber.[58] seatNumber58 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[58]}}></label>
                   </div>
-              </div>     
+              </div>    
 
             {{!-- D15 --}}
-            <div class="form-check m-0"><small>D15</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[59]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="D15" name="seats" value="D15">
-                    <label class="custom-control-label" for="D15"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[59]}} name="seats" 
+                      value={{generatedSeatNumber.[59]}} pattern={{seatNumber59}} {{checkReserved generatedSeatNumber.[59] seatNumber59 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[59]}}></label>
                   </div>
-              </div>           
+              </div>        
         </div>
           </div>
           
@@ -621,139 +682,154 @@
              
             <div class="form-check-inline m-0" style="color: #A239CA; font-weight:bold;"><b style="padding-left: 3px; padding-right:15px;">E</b>
              <!-- E1 -->
-            <div class="form-check m-0"><small>E1</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[60]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E1" name="seats" value="E1">
-                    <label class="custom-control-label" for="E1"></label>
-                  </div>
-              </div>
-
-            {{!-- E2 --}}
-            <div class="form-check m-0"><small>E2</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E2" name="seats" value="E2">
-                    <label class="custom-control-label" for="E2"></label>
-                  </div>
-              </div>
-
-            {{!-- E3 --}}
-            <div class="form-check m-0"><small>E3</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E3" name="seats" value="E3">
-                    <label class="custom-control-label" for="E3"></label>
-                  </div>
-              </div>
-
-            {{!-- E4 --}}
-            <div class="form-check m-0"><small>E4</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E4" name="seats" value="E4">
-                    <label class="custom-control-label" for="E4"></label>
-                  </div>
-              </div>
-
-            {{!-- E5 --}}
-            <div class="form-check m-0"><small>E5</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E5" name="seats" value="E5">
-                    <label class="custom-control-label" for="E5"></label>
-                  </div>
-              </div>
-
-            {{!-- E6 --}}
-            <div class="form-check m-0"><small>E6</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E6" name="seats" value="E6">
-                    <label class="custom-control-label" for="E6"></label>
-                  </div>
-              </div>
-
-            {{!-- E7 --}}
-            <div class="form-check m-0"><small>E7</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E7" name="seats" value="E7">
-                    <label class="custom-control-label" for="E7"></label>
-                  </div>
-              </div>     
-
-            {{!-- E8 --}}
-            <div class="form-check m-0"><small>E8</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E8" name="seats" value="E8">
-                    <label class="custom-control-label" for="E8"></label>
-                  </div>
-              </div>      
-
-            {{!-- E9 --}}
-            <div class="form-check m-0"><small>E9</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E9" name="seats" value="E9">
-                    <label class="custom-control-label" for="E9"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[60]}} name="seats" 
+                      value={{generatedSeatNumber.[60]}} pattern={{seatNumber60}} {{checkReserved generatedSeatNumber.[60] seatNumber60 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[60]}}></label>
                   </div>
               </div>    
 
-            {{!-- E10 --}}
-            <div class="form-check m-0"><small>E10</small> &nbsp;
+            {{!-- E2 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[61]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E10" name="seats" value="E10">
-                    <label class="custom-control-label" for="E10"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[61]}} name="seats" 
+                      value={{generatedSeatNumber.[61]}} pattern={{seatNumber61}} {{checkReserved generatedSeatNumber.[61] seatNumber61 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[61]}}></label>
                   </div>
-              </div> 
+              </div>    
+
+            {{!-- E3 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[62]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[62]}} name="seats" 
+                      value={{generatedSeatNumber.[62]}} pattern={{seatNumber62}} {{checkReserved generatedSeatNumber.[62] seatNumber62 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[62]}}></label>
+                  </div>
+              </div>    
+
+            {{!-- E4 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[63]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[63]}} name="seats" 
+                      value={{generatedSeatNumber.[63]}} pattern={{seatNumber63}} {{checkReserved generatedSeatNumber.[63] seatNumber63 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[63]}}></label>
+                  </div>
+              </div>    
+
+            {{!-- E5 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[64]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[64]}} name="seats" 
+                      value={{generatedSeatNumber.[64]}} pattern={{seatNumber64}} {{checkReserved generatedSeatNumber.[64] seatNumber64 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[64]}}></label>
+                  </div>
+              </div>    
+
+            {{!-- E6 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[65]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[65]}} name="seats" 
+                      value={{generatedSeatNumber.[65]}} pattern={{seatNumber65}} {{checkReserved generatedSeatNumber.[65] seatNumber65 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[65]}}></label>
+                  </div>
+              </div>    
+
+            {{!-- E7 --}}
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[66]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[66]}} name="seats" 
+                      value={{generatedSeatNumber.[66]}} pattern={{seatNumber66}} {{checkReserved generatedSeatNumber.[66] seatNumber66 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[66]}}></label>
+                  </div>
+              </div>   
+
+            {{!-- E8 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[67]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[67]}} name="seats" 
+                      value={{generatedSeatNumber.[67]}} pattern={{seatNumber67}} {{checkReserved generatedSeatNumber.[67] seatNumber67 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[67]}}></label>
+                  </div>
+              </div>
+
+            {{!-- E9 --}}
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[68]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[68]}} name="seats" 
+                      value={{generatedSeatNumber.[68]}} pattern={{seatNumber68}} {{checkReserved generatedSeatNumber.[68] seatNumber68 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[68]}}></label>
+                  </div>
+              </div>
+
+            {{!-- E10 --}}
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[69]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[69]}} name="seats" 
+                      value={{generatedSeatNumber.[69]}} pattern={{seatNumber69}} {{checkReserved generatedSeatNumber.[69] seatNumber69 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[69]}}></label>
+                  </div>
+              </div>
             
             {{!-- E11 --}}
-            <div class="form-check m-0"><small>E11</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[70]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E11" name="seats" value="E11">
-                    <label class="custom-control-label" for="E11"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[70]}} name="seats" 
+                      value={{generatedSeatNumber.[70]}} pattern={{seatNumber70}} {{checkReserved generatedSeatNumber.[70] seatNumber70 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[70]}}></label>
                   </div>
-              </div>     
+              </div>
 
             {{!-- E12 --}}
-            <div class="form-check m-0"><small>E12</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[71]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E12" name="seats" value="E12">
-                    <label class="custom-control-label" for="E12"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[71]}} name="seats" 
+                      value={{generatedSeatNumber.[71]}} pattern={{seatNumber71}} {{checkReserved generatedSeatNumber.[71] seatNumber71 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[71]}}></label>
                   </div>
               </div>
 
             {{!-- E13 --}}
-            <div class="form-check m-0"><small>E13</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[72]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E13" name="seats" value="E13">
-                    <label class="custom-control-label" for="E13"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[72]}} name="seats" 
+                      value={{generatedSeatNumber.[72]}} pattern={{seatNumber72}} {{checkReserved generatedSeatNumber.[72] seatNumber72 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[72]}}></label>
                   </div>
-              </div>     
+              </div>
 
             {{!-- E14 --}}
-            <div class="form-check m-0"><small>E14</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[73]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E14" name="seats" value="E14">
-                    <label class="custom-control-label" for="E14"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[73]}} name="seats" 
+                      value={{generatedSeatNumber.[73]}} pattern={{seatNumber73}} {{checkReserved generatedSeatNumber.[73] seatNumber73 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[73]}}></label>
                   </div>
-              </div>     
+              </div>
 
             {{!-- E15 --}}
-            <div class="form-check m-0"><small>E15</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[74]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="E15" name="seats" value="E15">
-                    <label class="custom-control-label" for="E15"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[74]}} name="seats" 
+                      value={{generatedSeatNumber.[74]}} pattern={{seatNumber74}} {{checkReserved generatedSeatNumber.[74] seatNumber74 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[74]}}></label>
                   </div>
-              </div>           
+              </div> 
         </div>
           </div>
           
@@ -764,139 +840,154 @@
              
             <div class="form-check-inline m-0" style="color: #A239CA; font-weight:bold;"> <b style="padding-left: 7px; padding-right:10px;">F</b> &nbsp; &nbsp;
              <!-- F1 -->
-            <div class="form-check m-0"><small>F1</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[75]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F1" name="seats" value="F1">
-                    <label class="custom-control-label" for="F1"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[75]}} name="seats" 
+                      value={{generatedSeatNumber.[75]}} pattern={{seatNumber75}} {{checkReserved generatedSeatNumber.[75] seatNumber75 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[75]}}></label>
                   </div>
               </div>
 
             {{!-- F2 --}}
-            <div class="form-check m-0"><small>F2</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[76]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F2" name="seats" value="F2">
-                    <label class="custom-control-label" for="F2"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[76]}} name="seats" 
+                      value={{generatedSeatNumber.[76]}} pattern={{seatNumber76}} {{checkReserved generatedSeatNumber.[76] seatNumber76 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[76]}}></label>
                   </div>
               </div>
 
             {{!-- F3 --}}
-            <div class="form-check m-0"><small>F3</small>&nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[77]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F3" name="seats" value="F3">
-                    <label class="custom-control-label" for="F3"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[77]}} name="seats" 
+                      value={{generatedSeatNumber.[77]}} pattern={{seatNumber77}} {{checkReserved generatedSeatNumber.[77] seatNumber77 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[77]}}></label>
                   </div>
               </div>
 
             {{!-- F4 --}}
-            <div class="form-check m-0"><small>F4</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[78]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F4" name="seats" value="F4">
-                    <label class="custom-control-label" for="F4"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[78]}} name="seats" 
+                      value={{generatedSeatNumber.[78]}} pattern={{seatNumber78}} {{checkReserved generatedSeatNumber.[78] seatNumber78 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[78]}}></label>
                   </div>
               </div>
 
             {{!-- F5 --}}
-            <div class="form-check m-0"><small>F5</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[79]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F5" name="seats" value="F5">
-                    <label class="custom-control-label" for="F5"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[79]}} name="seats" 
+                      value={{generatedSeatNumber.[79]}} pattern={{seatNumber79}} {{checkReserved generatedSeatNumber.[79] seatNumber79 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[79]}}></label>
                   </div>
               </div>
 
             {{!-- F6 --}}
-            <div class="form-check m-0"><small>F6</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[80]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F6" name="seats" value="F6">
-                    <label class="custom-control-label" for="F6"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[80]}} name="seats" 
+                      value={{generatedSeatNumber.[80]}} pattern={{seatNumber80}} {{checkReserved generatedSeatNumber.[80] seatNumber80 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[80]}}></label>
                   </div>
               </div>
 
             {{!-- F7 --}}
-            <div class="form-check m-0"><small>F7</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[81]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F7" name="seats" value="F7">
-                    <label class="custom-control-label" for="F7"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[81]}} name="seats" 
+                      value={{generatedSeatNumber.[81]}} pattern={{seatNumber81}} {{checkReserved generatedSeatNumber.[81] seatNumber81 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[81]}}></label>
                   </div>
-              </div>     
+              </div>
 
             {{!-- F8 --}}
-            <div class="form-check m-0"><small>F8</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[82]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F8" name="seats" value="F8">
-                    <label class="custom-control-label" for="F8"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[82]}} name="seats" 
+                      value={{generatedSeatNumber.[82]}} pattern={{seatNumber82}} {{checkReserved generatedSeatNumber.[82] seatNumber82 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[82]}}></label>
                   </div>
-              </div>      
+              </div>
 
             {{!-- F9 --}}
-            <div class="form-check m-0"><small>F9</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[83]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F9" name="seats" value="F9">
-                    <label class="custom-control-label" for="F9"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[83]}} name="seats" 
+                      value={{generatedSeatNumber.[83]}} pattern={{seatNumber83}} {{checkReserved generatedSeatNumber.[83] seatNumber83 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[83]}}></label>
                   </div>
-              </div>    
+              </div>
 
             {{!-- F10 --}}
-            <div class="form-check m-0"><small>F10</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[84]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F10" name="seats" value="F10">
-                    <label class="custom-control-label" for="F10"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[84]}} name="seats" 
+                      value={{generatedSeatNumber.[84]}} pattern={{seatNumber84}} {{checkReserved generatedSeatNumber.[84] seatNumber84 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[84]}}></label>
                   </div>
-              </div> 
+              </div>
             
             {{!-- F11 --}}
-            <div class="form-check m-0"><small>F11</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[85]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F11" name="seats" value="F11">
-                    <label class="custom-control-label" for="F11"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[85]}} name="seats" 
+                      value={{generatedSeatNumber.[85]}} pattern={{seatNumber85}} {{checkReserved generatedSeatNumber.[85] seatNumber85 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[85]}}></label>
                   </div>
-              </div>     
+              </div>
 
             {{!-- F12 --}}
-            <div class="form-check m-0"><small>F12</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[86]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F12" name="seats" value="F12">
-                    <label class="custom-control-label" for="F12"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[86]}} name="seats" 
+                      value={{generatedSeatNumber.[86]}} pattern={{seatNumber86}} {{checkReserved generatedSeatNumber.[86] seatNumber86 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[86]}}></label>
                   </div>
               </div>
 
             {{!-- F13 --}}
-            <div class="form-check m-0"><small>F13</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[87]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F13" name="seats" value="F13">
-                    <label class="custom-control-label" for="F13"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[87]}} name="seats" 
+                      value={{generatedSeatNumber.[87]}} pattern={{seatNumber87}} {{checkReserved generatedSeatNumber.[87] seatNumber87 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[87]}}></label>
                   </div>
               </div>     
 
             {{!-- F14 --}}
-            <div class="form-check m-0"><small>F14</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[88]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F14" name="seats" value="F14">
-                    <label class="custom-control-label" for="F14"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[88]}} name="seats" 
+                      value={{generatedSeatNumber.[88]}} pattern={{seatNumber88}} {{checkReserved generatedSeatNumber.[88] seatNumber88 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[88]}}></label>
                   </div>
-              </div>     
+              </div>
 
             {{!-- F15 --}}
-            <div class="form-check m-0"><small>F15</small> &nbsp;
+           <div class="form-check m-0"><small>{{generatedSeatNumber.[89]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="F15" name="seats" value="F15">
-                    <label class="custom-control-label" for="F15"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[89]}} name="seats" 
+                      value={{generatedSeatNumber.[89]}} pattern={{seatNumber89}} {{checkReserved generatedSeatNumber.[89] seatNumber89 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[89]}}></label>
                   </div>
-              </div>           
+              </div>         
         </div>
           </div>
           
@@ -907,139 +998,158 @@
              
             <div class="form-check-inline m-0" style="color: #A239CA; font-weight:bold;"> <b style="padding-left: 34px; padding-right:10px;">G</b> &nbsp; &nbsp;
              <!-- G1 -->
-            <div class="form-check m-0"><small>G1</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[90]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G1" name="seats" value="G1">
-                    <label class="custom-control-label" for="G1"></label>
-                  </div>
-              </div>
-
-            {{!-- G2 --}}
-            <div class="form-check m-0"><small>G2</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G2" name="seats" value="G2">
-                    <label class="custom-control-label" for="G2"></label>
-                  </div>
-              </div>
-
-            {{!-- G3 --}}
-            <div class="form-check m-0"><small>G3</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G3" name="seats" value="G3">
-                    <label class="custom-control-label" for="G3"></label>
-                  </div>
-              </div>
-
-            {{!-- G4 --}}
-            <div class="form-check m-0"><small>G4</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G4" name="seats" value="G4">
-                    <label class="custom-control-label" for="G4"></label>
-                  </div>
-              </div>
-
-            {{!-- G5 --}}
-            <div class="form-check m-0"><small>G5</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G5" name="seats" value="G5">
-                    <label class="custom-control-label" for="G5"></label>
-                  </div>
-              </div>
-
-            {{!-- G6 --}}
-            <div class="form-check m-0"><small>G6</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G6" name="seats" value="G6">
-                    <label class="custom-control-label" for="G6"></label>
-                  </div>
-              </div>
-
-            {{!-- G7 --}}
-            <div class="form-check m-0"><small>G7</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G7" name="seats" value="G7">
-                    <label class="custom-control-label" for="G7"></label>
-                  </div>
-              </div>     
-
-            {{!-- G8 --}}
-            <div class="form-check m-0"><small>G8</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G8" name="seats" value="G8">
-                    <label class="custom-control-label" for="G8"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[90]}} name="seats" 
+                      value={{generatedSeatNumber.[90]}} pattern={{seatNumber90}} {{checkReserved generatedSeatNumber.[90] seatNumber90 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[90]}}></label>
                   </div>
               </div>      
 
-            {{!-- G9 --}}
-            <div class="form-check m-0"><small>G9</small> &nbsp;
+            {{!-- G2 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[91]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G9" name="seats" value="G9">
-                    <label class="custom-control-label" for="G9"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[91]}} name="seats" 
+                      value={{generatedSeatNumber.[91]}} pattern={{seatNumber91}} {{checkReserved generatedSeatNumber.[91] seatNumber91 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[91]}}></label>
                   </div>
-              </div>    
+              </div>  
+
+            {{!-- G3 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[92]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[92]}} name="seats" 
+                      value={{generatedSeatNumber.[92]}} pattern={{seatNumber92}} {{checkReserved generatedSeatNumber.[92] seatNumber92 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[92]}}></label>
+                  </div>
+              </div>  
+
+            {{!-- G4 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[93]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[93]}} name="seats" 
+                      value={{generatedSeatNumber.[93]}} pattern={{seatNumber93}} {{checkReserved generatedSeatNumber.[93] seatNumber93 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[93]}}></label>
+                  </div>
+              </div>  
+
+            {{!-- G5 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[94]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[94]}} name="seats" 
+                      value={{generatedSeatNumber.[94]}} pattern={{seatNumber94}} {{checkReserved generatedSeatNumber.[94] seatNumber94 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[94]}}></label>
+                  </div>
+              </div>  
+
+            {{!-- G6 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[95]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[95]}} name="seats" 
+                      value={{generatedSeatNumber.[95]}} pattern={{seatNumber95}} {{checkReserved generatedSeatNumber.[95] seatNumber95 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[95]}}></label>
+                  </div>
+              </div>  
+
+            {{!-- G7 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[96]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[96]}} name="seats" 
+                      value={{generatedSeatNumber.[96]}} pattern={{seatNumber96}} {{checkReserved generatedSeatNumber.[96] seatNumber96 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[96]}}></label>
+                  </div>
+              </div>  
+
+            {{!-- G8 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[97]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[97]}} name="seats" 
+                      value={{generatedSeatNumber.[97]}} pattern={{seatNumber97}} {{checkReserved generatedSeatNumber.[97] seatNumber97 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[97]}}></label>
+                  </div>
+              </div>   
+
+            {{!-- G9 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[98]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[98]}} name="seats" 
+                      value={{generatedSeatNumber.[98]}} pattern={{seatNumber98}} {{checkReserved generatedSeatNumber.[98] seatNumber98 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[98]}}></label>
+                  </div>
+              </div>  
 
             {{!-- G10 --}}
-            <div class="form-check m-0"><small>G10</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[99]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G10" name="seats" value="G10">
-                    <label class="custom-control-label" for="G10"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[99]}} name="seats" 
+                      value={{generatedSeatNumber.[99]}} pattern={{seatNumber99}} {{checkReserved generatedSeatNumber.[99] seatNumber99 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[99]}}></label>
                   </div>
-              </div> 
+              </div>  
             
             {{!-- G11 --}}
-            <div class="form-check m-0"><small>G11</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[100]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G11" name="seats" value="G11">
-                    <label class="custom-control-label" for="G11"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[100]}} name="seats" 
+                      value={{generatedSeatNumber.[100]}} pattern={{seatNumber100}} {{checkReserved generatedSeatNumber.[100] seatNumber100 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[100]}}></label>
                   </div>
-              </div>     
+              </div>  
 
             {{!-- G12 --}}
-            <div class="form-check m-0"><small>G12</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[101]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G12" name="seats" value="G12">
-                    <label class="custom-control-label" for="G12"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[101]}} name="seats" 
+                      value={{generatedSeatNumber.[101]}} pattern={{seatNumber101}} {{checkReserved generatedSeatNumber.[101] seatNumber101 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[101]}}></label>
                   </div>
-              </div>
+              </div>  
+
 
             {{!-- G13 --}}
-            <div class="form-check m-0"><small>G13</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[102]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G13" name="seats" value="G13">
-                    <label class="custom-control-label" for="G13"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[102]}} name="seats" 
+                      value={{generatedSeatNumber.[102]}} pattern={{seatNumber102}} {{checkReserved generatedSeatNumber.[102] seatNumber102 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[102]}}></label>
                   </div>
-              </div>     
+              </div>  
+
 
             {{!-- G14 --}}
-            <div class="form-check m-0"><small>G14</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[103]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G14" name="seats" value="G14">
-                    <label class="custom-control-label" for="G14"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[103]}} name="seats" 
+                      value={{generatedSeatNumber.[103]}} pattern={{seatNumber103}} {{checkReserved generatedSeatNumber.[103] seatNumber103 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[103]}}></label>
                   </div>
-              </div>     
+              </div>  
+   
 
             {{!-- G15 --}}
-            <div class="form-check m-0"><small>G15</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[104]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="G15" name="seats" value="G15">
-                    <label class="custom-control-label" for="G15"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[104]}} name="seats" 
+                      value={{generatedSeatNumber.[104]}} pattern={{seatNumber104}} {{checkReserved generatedSeatNumber.[104] seatNumber104 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[104]}}></label>
                   </div>
-              </div>           
+              </div>  
+  
         </div>
           </div>
           
@@ -1050,137 +1160,158 @@
              
             <div class="form-check-inline m-0" style="color: #A239CA; font-weight:bold;"> <b style="padding-left: 42px; padding-right:10px;">H</b> &nbsp; &nbsp;
              <!-- H1 -->
-            <div class="form-check m-0"><small>H1</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[105]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H1" name="seats" value="H1">
-                    <label class="custom-control-label" for="H1"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[105]}} name="seats" 
+                      value={{generatedSeatNumber.[105]}} pattern={{seatNumber105}} {{checkReserved generatedSeatNumber.[105] seatNumber105 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[105]}}></label>
                   </div>
-              </div>
+              </div>  
+
 
             {{!-- H2 --}}
-            <div class="form-check m-0"><small>H2</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[106]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H2" name="seats" value="H2">
-                    <label class="custom-control-label" for="H2"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[106]}} name="seats" 
+                      value={{generatedSeatNumber.[106]}} pattern={{seatNumber106}} {{checkReserved generatedSeatNumber.[106] seatNumber106 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[106]}}></label>
                   </div>
-              </div>
+              </div>  
+
 
             {{!-- H3 --}}
-            <div class="form-check m-0"><small>H3</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[107]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H3" name="seats" value="H3">
-                    <label class="custom-control-label" for="H3"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[107]}} name="seats" 
+                      value={{generatedSeatNumber.[107]}} pattern={{seatNumber107}} {{checkReserved generatedSeatNumber.[107] seatNumber107 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[107]}}></label>
                   </div>
-              </div>
+              </div>  
+
 
             {{!-- H4 --}}
-            <div class="form-check m-0"><small>H4</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[108]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H4" name="seats" value="H4">
-                    <label class="custom-control-label" for="H4"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[108]}} name="seats" 
+                      value={{generatedSeatNumber.[108]}} pattern={{seatNumber108}} {{checkReserved generatedSeatNumber.[108] seatNumber108 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[108]}}></label>
                   </div>
-              </div>
+              </div>  
+
 
             {{!-- H5 --}}
-            <div class="form-check m-0"><small>H5</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[109]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H5" name="seats" value="H5">
-                    <label class="custom-control-label" for="H5"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[109]}} name="seats" 
+                      value={{generatedSeatNumber.[109]}} pattern={{seatNumber109}} {{checkReserved generatedSeatNumber.[109] seatNumber109 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[109]}}></label>
                   </div>
-              </div>
+              </div>  
+
 
             {{!-- H6 --}}
-            <div class="form-check m-0"><small>H6</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[110]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H6" name="seats" value="H6">
-                    <label class="custom-control-label" for="H6"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[110]}} name="seats" 
+                      value={{generatedSeatNumber.[110]}} pattern={{seatNumber110}} {{checkReserved generatedSeatNumber.[110] seatNumber110 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[110]}}></label>
                   </div>
-              </div>
+              </div>  
+
 
             {{!-- H7 --}}
-            <div class="form-check m-0"><small>H7</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[111]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H7" name="seats" value="H7">
-                    <label class="custom-control-label" for="H7"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[111]}} name="seats" 
+                      value={{generatedSeatNumber.[111]}} pattern={{seatNumber111}} {{checkReserved generatedSeatNumber.[111] seatNumber111 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[111]}}></label>
                   </div>
-              </div>     
+              </div>  
 
             {{!-- H8 --}}
-            <div class="form-check m-0"><small>H8</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[112]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H8" name="seats" value="H8">
-                    <label class="custom-control-label" for="H8"></label>
-                  </div>
-              </div>      
-
-            {{!-- H9 --}}
-            <div class="form-check m-0"><small>H9</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H9" name="seats" value="H9">
-                    <label class="custom-control-label" for="H9"></label>
-                  </div>
-              </div>    
-
-            {{!-- H10 --}}
-            <div class="form-check m-0"><small>H10</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H10" name="seats" value="H10">
-                    <label class="custom-control-label" for="H10"></label>
-                  </div>
-              </div> 
-            
-            {{!-- H11 --}}
-            <div class="form-check m-0"><small>H11</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H11" name="seats" value="H11">
-                    <label class="custom-control-label" for="H11"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[112]}} name="seats" 
+                      value={{generatedSeatNumber.[112]}} pattern={{seatNumber112}} {{checkReserved generatedSeatNumber.[112] seatNumber112 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[112]}}></label>
                   </div>
               </div>     
 
-            {{!-- H12 --}}
-            <div class="form-check m-0"><small>H12</small> &nbsp;
+            {{!-- H9 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[113]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H12" name="seats" value="H12">
-                    <label class="custom-control-label" for="H12"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[113]}} name="seats" 
+                      value={{generatedSeatNumber.[113]}} pattern={{seatNumber113}} {{checkReserved generatedSeatNumber.[113] seatNumber113 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[113]}}></label>
                   </div>
-              </div>
+              </div>   
+
+            {{!-- H10 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[114]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[114]}} name="seats" 
+                      value={{generatedSeatNumber.[114]}} pattern={{seatNumber114}} {{checkReserved generatedSeatNumber.[114] seatNumber114 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[114]}}></label>
+                  </div>
+              </div>  
+            
+            {{!-- H11 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[115]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[115]}} name="seats" 
+                      value={{generatedSeatNumber.[115]}} pattern={{seatNumber115}} {{checkReserved generatedSeatNumber.[115] seatNumber115 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[115]}}></label>
+                  </div>
+              </div>  
+
+            {{!-- H12 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[116]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[116]}} name="seats" 
+                      value={{generatedSeatNumber.[116]}} pattern={{seatNumber116}} {{checkReserved generatedSeatNumber.[116] seatNumber116 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[116]}}></label>
+                  </div>
+              </div>  
 
             {{!-- H13 --}}
-            <div class="form-check m-0"><small>H13</small> &nbsp;
+           <div class="form-check m-0"><small>{{generatedSeatNumber.[117]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H13" name="seats" value="H13">
-                    <label class="custom-control-label" for="H13"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[117]}} name="seats" 
+                      value={{generatedSeatNumber.[117]}} pattern={{seatNumber117}} {{checkReserved generatedSeatNumber.[117] seatNumber117 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[117]}}></label>
                   </div>
               </div>     
 
             {{!-- H14 --}}
-            <div class="form-check m-0"><small>H14</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[118]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H14" name="seats" value="H14">
-                    <label class="custom-control-label" for="H14"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[118]}} name="seats" 
+                      value={{generatedSeatNumber.[118]}} pattern={{seatNumber118}} {{checkReserved generatedSeatNumber.[118] seatNumber118 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[118]}}></label>
                   </div>
-              </div>     
+              </div>      
 
             {{!-- H15 --}}
-            <div class="form-check m-0"><small>H15</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[119]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="H15" name="seats" value="H15">
-                    <label class="custom-control-label" for="H15"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[119]}} name="seats" 
+                      value={{generatedSeatNumber.[119]}} pattern={{seatNumber119}} {{checkReserved generatedSeatNumber.[119] seatNumber119 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[119]}}></label>
                   </div>
               </div>           
         </div>
@@ -1193,139 +1324,154 @@
              
             <div class="form-check-inline m-0" style="color: #A239CA; font-weight:bold;"> <b style="padding-left: 0px; padding-right:10px;">I</b> &nbsp; &nbsp;
              <!-- I1 -->
-            <div class="form-check m-0"><small>I1</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[120]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I1" name="seats" value="I1">
-                    <label class="custom-control-label" for="I1"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[120]}} name="seats" 
+                      value={{generatedSeatNumber.[120]}} pattern={{seatNumber120}} {{checkReserved generatedSeatNumber.[120] seatNumber120 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[120]}}></label>
                   </div>
-              </div>
+              </div>  
 
             {{!-- I2 --}}
-            <div class="form-check m-0"><small>I2</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[121]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I2" name="seats" value="I2">
-                    <label class="custom-control-label" for="I2"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[121]}} name="seats" 
+                      value={{generatedSeatNumber.[121]}} pattern={{seatNumber121}} {{checkReserved generatedSeatNumber.[121] seatNumber121 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[121]}}></label>
                   </div>
-              </div>
+              </div>  
 
             {{!-- I3 --}}
-            <div class="form-check m-0"><small>I3</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[122]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I3" name="seats" value="I3">
-                    <label class="custom-control-label" for="I3"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[122]}} name="seats" 
+                      value={{generatedSeatNumber.[122]}} pattern={{seatNumber122}} {{checkReserved generatedSeatNumber.[122] seatNumber122 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[122]}}></label>
                   </div>
-              </div>
+              </div>  
 
             {{!-- I4 --}}
-            <div class="form-check m-0"><small>I4</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[123]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I4" name="seats" value="I4">
-                    <label class="custom-control-label" for="I4"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[123]}} name="seats" 
+                      value={{generatedSeatNumber.[123]}} pattern={{seatNumber123}} {{checkReserved generatedSeatNumber.[123] seatNumber123 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[123]}}></label>
                   </div>
-              </div>
+              </div>  
 
             {{!-- I5 --}}
-            <div class="form-check m-0"><small>I5</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[124]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I5" name="seats" value="I5">
-                    <label class="custom-control-label" for="I5"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[124]}} name="seats" 
+                      value={{generatedSeatNumber.[124]}} pattern={{seatNumber124}} {{checkReserved generatedSeatNumber.[124] seatNumber124 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[124]}}></label>
                   </div>
-              </div>
+              </div>  
 
             {{!-- I6 --}}
-            <div class="form-check m-0"><small>I6</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[125]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I6" name="seats" value="I6">
-                    <label class="custom-control-label" for="I6"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[125]}} name="seats" 
+                      value={{generatedSeatNumber.[125]}} pattern={{seatNumber125}} {{checkReserved generatedSeatNumber.[125] seatNumber125 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[125]}}></label>
                   </div>
-              </div>
+              </div>  
 
             {{!-- I7 --}}
-            <div class="form-check m-0"><small>I7</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[126]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I7" name="seats" value="I7">
-                    <label class="custom-control-label" for="I7"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[126]}} name="seats" 
+                      value={{generatedSeatNumber.[126]}} pattern={{seatNumber126}} {{checkReserved generatedSeatNumber.[126] seatNumber126 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[126]}}></label>
                   </div>
-              </div>     
+              </div>       
 
             {{!-- I8 --}}
-            <div class="form-check m-0"><small>I8</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[127]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I8" name="seats" value="I8">
-                    <label class="custom-control-label" for="I8"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[127]}} name="seats" 
+                      value={{generatedSeatNumber.[127]}} pattern={{seatNumber127}} {{checkReserved generatedSeatNumber.[127] seatNumber127 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[127]}}></label>
                   </div>
-              </div>      
+              </div>        
 
             {{!-- I9 --}}
-            <div class="form-check m-0"><small>I9</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[128]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I9" name="seats" value="I9">
-                    <label class="custom-control-label" for="I9"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[128]}} name="seats" 
+                      value={{generatedSeatNumber.[128]}} pattern={{seatNumber128}} {{checkReserved generatedSeatNumber.[128] seatNumber128 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[128]}}></label>
                   </div>
               </div>    
 
             {{!-- I10 --}}
-            <div class="form-check m-0"><small>I10</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[129]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I10" name="seats" value="I10">
-                    <label class="custom-control-label" for="I10"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[129]}} name="seats" 
+                      value={{generatedSeatNumber.[129]}} pattern={{seatNumber129}} {{checkReserved generatedSeatNumber.[129] seatNumber129 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[129]}}></label>
                   </div>
-              </div> 
+              </div>  
             
             {{!-- I11 --}}
-            <div class="form-check m-0"><small>I11</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[130]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I11" name="seats" value="I11">
-                    <label class="custom-control-label" for="I11"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[130]}} name="seats" 
+                      value={{generatedSeatNumber.[130]}} pattern={{seatNumber130}} {{checkReserved generatedSeatNumber.[130] seatNumber130 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[130]}}></label>
                   </div>
               </div>     
 
             {{!-- I12 --}}
-            <div class="form-check m-0"><small>I12</small> &nbsp;
+              <div class="form-check m-0"><small>{{generatedSeatNumber.[131]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I12" name="seats" value="I12">
-                    <label class="custom-control-label" for="I12"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[131]}} name="seats" 
+                      value={{generatedSeatNumber.[131]}} pattern={{seatNumber131}} {{checkReserved generatedSeatNumber.[131] seatNumber131 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[131]}}></label>
                   </div>
-              </div>
+              </div> 
 
             {{!-- I13 --}}
-            <div class="form-check m-0"><small>I13</small> &nbsp;
+              <div class="form-check m-0"><small>{{generatedSeatNumber.[132]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I13" name="seats" value="I13">
-                    <label class="custom-control-label" for="I13"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[132]}} name="seats" 
+                      value={{generatedSeatNumber.[132]}} pattern={{seatNumber132}} {{checkReserved generatedSeatNumber.[132] seatNumber132 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[132]}}></label>
                   </div>
-              </div>     
+              </div> 
 
             {{!-- I14 --}}
-            <div class="form-check m-0"><small>I14</small> &nbsp;
+              <div class="form-check m-0"><small>{{generatedSeatNumber.[133]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I14" name="seats" value="I14">
-                    <label class="custom-control-label" for="I14"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[133]}} name="seats" 
+                      value={{generatedSeatNumber.[133]}} pattern={{seatNumber133}} {{checkReserved generatedSeatNumber.[133] seatNumber133 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[133]}}></label>
                   </div>
-              </div>     
+              </div>  
 
             {{!-- I15 --}}
-            <div class="form-check m-0"><small>I15</small> &nbsp;
+              <div class="form-check m-0"><small>{{generatedSeatNumber.[134]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="I15" name="seats" value="I15">
-                    <label class="custom-control-label" for="I15"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[134]}} name="seats" 
+                      value={{generatedSeatNumber.[134]}} pattern={{seatNumber134}} {{checkReserved generatedSeatNumber.[134] seatNumber134 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[134]}}></label>
                   </div>
-              </div>           
+              </div>         
         </div>
           </div>
           
@@ -1336,139 +1482,154 @@
              
             <div class="form-check-inline m-0" style="color: #A239CA; font-weight:bold;"> <b style="padding-left: 15px; padding-right:10px;">J</b> &nbsp; &nbsp;
              <!-- J1 -->
-            <div class="form-check m-0"><small>J1</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[135]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J1" name="seats" value="J1">
-                    <label class="custom-control-label" for="J1"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[135]}} name="seats" 
+                      value={{generatedSeatNumber.[135]}} pattern={{seatNumber135}} {{checkReserved generatedSeatNumber.[135] seatNumber135 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[135]}}></label>
                   </div>
-              </div>
+              </div> 
 
             {{!-- J2 --}}
-            <div class="form-check m-0"><small>J2</small> &nbsp;
+              <div class="form-check m-0"><small>{{generatedSeatNumber.[136]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J2" name="seats" value="J2">
-                    <label class="custom-control-label" for="J2"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[136]}} name="seats" 
+                      value={{generatedSeatNumber.[136]}} pattern={{seatNumber136}} {{checkReserved generatedSeatNumber.[136] seatNumber136 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[136]}}></label>
                   </div>
-              </div>
+              </div> 
 
             {{!-- J3 --}}
-            <div class="form-check m-0"><small>J3</small> &nbsp;
+              <div class="form-check m-0"><small>{{generatedSeatNumber.[137]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J3" name="seats" value="J3">
-                    <label class="custom-control-label" for="J3"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[137]}} name="seats" 
+                      value={{generatedSeatNumber.[137]}} pattern={{seatNumber137}} {{checkReserved generatedSeatNumber.[137] seatNumber137 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[137]}}></label>
                   </div>
-              </div>
+              </div> 
 
             {{!-- J4 --}}
-            <div class="form-check m-0"><small>J4</small> &nbsp;
+              <div class="form-check m-0"><small>{{generatedSeatNumber.[138]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J4" name="seats" value="J4">
-                    <label class="custom-control-label" for="J4"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[138]}} name="seats" 
+                      value={{generatedSeatNumber.[138]}} pattern={{seatNumber138}} {{checkReserved generatedSeatNumber.[138] seatNumber138 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[138]}}></label>
                   </div>
-              </div>
+              </div> 
 
             {{!-- J5 --}}
-            <div class="form-check m-0"><small>J5</small> &nbsp;
+              <div class="form-check m-0"><small>{{generatedSeatNumber.[139]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J5" name="seats" value="J5">
-                    <label class="custom-control-label" for="J5"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[139]}} name="seats" 
+                      value={{generatedSeatNumber.[139]}} pattern={{seatNumber139}} {{checkReserved generatedSeatNumber.[139] seatNumber139 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[139]}}></label>
                   </div>
-              </div>
+              </div> 
 
             {{!-- J6 --}}
-            <div class="form-check m-0"><small>J6</small> &nbsp;
+             <div class="form-check m-0"><small>{{generatedSeatNumber.[140]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J6" name="seats" value="J6">
-                    <label class="custom-control-label" for="J6"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[140]}} name="seats" 
+                      value={{generatedSeatNumber.[140]}} pattern={{seatNumber140}} {{checkReserved generatedSeatNumber.[140] seatNumber140 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[140]}}></label>
                   </div>
-              </div>
+              </div> 
 
             {{!-- J7 --}}
-            <div class="form-check m-0"><small>J7</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[141]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J7" name="seats" value="J7">
-                    <label class="custom-control-label" for="J7"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[141]}} name="seats" 
+                      value={{generatedSeatNumber.[141]}} pattern={{seatNumber141}} {{checkReserved generatedSeatNumber.[141] seatNumber141 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[141]}}></label>
                   </div>
-              </div>     
+              </div>  
 
             {{!-- J8 --}}
-            <div class="form-check m-0"><small>J8</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[142]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J8" name="seats" value="J8">
-                    <label class="custom-control-label" for="J8"></label>
-                  </div>
-              </div>      
-
-            {{!-- J9 --}}
-            <div class="form-check m-0"><small>J9</small> &nbsp;
-                    
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J9" name="seats" value="J9">
-                    <label class="custom-control-label" for="J9"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[142]}} name="seats" 
+                      value={{generatedSeatNumber.[142]}} pattern={{seatNumber142}} {{checkReserved generatedSeatNumber.[142] seatNumber142 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[142]}}></label>
                   </div>
               </div>    
 
-            {{!-- J10 --}}
-            <div class="form-check m-0"><small>J10</small> &nbsp;
+            {{!-- J9 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[143]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J10" name="seats" value="J10">
-                    <label class="custom-control-label" for="J10"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[143]}} name="seats" 
+                      value={{generatedSeatNumber.[143]}} pattern={{seatNumber143}} {{checkReserved generatedSeatNumber.[143] seatNumber143 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[143]}}></label>
+                  </div>
+              </div>   
+
+            {{!-- J10 --}}
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[144]}}</small> &nbsp;
+                    
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[144]}} name="seats" 
+                      value={{generatedSeatNumber.[144]}} pattern={{seatNumber144}} {{checkReserved generatedSeatNumber.[144] seatNumber144 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[144]}}></label>
                   </div>
               </div> 
             
             {{!-- J11 --}}
-            <div class="form-check m-0"><small>J11</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[145]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J11" name="seats" value="J11">
-                    <label class="custom-control-label" for="J11"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[145]}} name="seats" 
+                      value={{generatedSeatNumber.[145]}} pattern={{seatNumber145}} {{checkReserved generatedSeatNumber.[145] seatNumber145 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[145]}}></label>
                   </div>
-              </div>     
+              </div>   
 
             {{!-- J12 --}}
-            <div class="form-check m-0"><small>J12</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[146]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J12" name="seats" value="J12">
-                    <label class="custom-control-label" for="J12"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[146]}} name="seats" 
+                      value={{generatedSeatNumber.[146]}} pattern={{seatNumber146}} {{checkReserved generatedSeatNumber.[146] seatNumber146 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[146]}}></label>
                   </div>
-              </div>
+              </div> 
 
             {{!-- J13 --}}
-            <div class="form-check m-0"><small>J13</small> &nbsp;
+           <div class="form-check m-0"><small>{{generatedSeatNumber.[147]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J13" name="seats" value="J13">
-                    <label class="custom-control-label" for="J13"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[147]}} name="seats" 
+                      value={{generatedSeatNumber.[147]}} pattern={{seatNumber147}} {{checkReserved generatedSeatNumber.[147] seatNumber147 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[147]}}></label>
                   </div>
               </div>     
 
             {{!-- J14 --}}
-            <div class="form-check m-0"><small>J14</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[148]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J14" name="seats" value="J14">
-                    <label class="custom-control-label" for="J14"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[148]}} name="seats" 
+                      value={{generatedSeatNumber.[148]}} pattern={{seatNumber148}} {{checkReserved generatedSeatNumber.[148] seatNumber148 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[148]}}></label>
                   </div>
-              </div>     
+              </div>   
 
                {{!-- J15 --}}
-            <div class="form-check m-0"><small>J15</small> &nbsp;
+            <div class="form-check m-0"><small>{{generatedSeatNumber.[149]}}</small> &nbsp;
                     
-                  <div class="custom-control custom-checkbox m-0">
-                    <input type="checkbox" class="custom-control-input" id="J15" name="seats" value="J15">
-                    <label class="custom-control-label" for="J15"></label>
+                    <div class="custom-control custom-checkbox m-0">
+                    <input type="checkbox" class="custom-control-input" id={{generatedSeatNumber.[149]}} name="seats" 
+                      value={{generatedSeatNumber.[149]}} pattern={{seatNumber149}} {{checkReserved generatedSeatNumber.[149] seatNumber149 }}>
+                    <label class="custom-control-label" for={{generatedSeatNumber.[149]}}></label>
                   </div>
-              </div>    
+              </div> 
 
         
                  

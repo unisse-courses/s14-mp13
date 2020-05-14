@@ -50,7 +50,10 @@
           alert("You must reserve at least one seat.");
           return false;
         }
-  
+
+        // else if(checked)
+        //   $('input[name="seats"]:disabled');
+
       });
 
     // POST called for registration
@@ -98,6 +101,8 @@
 
       });
     });
+
+   
 
     });
 

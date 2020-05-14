@@ -1,9 +1,29 @@
+const seatsModel = require('../models/seats');
 const screeningModel = require('../models/screening');
 const movieModel = require('../models/movie');
 const cinemaModel = require('../models/cinema');
 const reservationModel = require('../models/reservation');
 
-
+var generatedSeatNumber = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9', 'A10',
+    'A11', 'A12', 'A13', 'A14', 'A15', 
+    'B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B9', 'B10',
+    'B11', 'B12', 'B13', 'B14', 'B15',
+    'C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10',
+    'C11', 'C12', 'C13', 'C14', 'C15',
+    'D1', 'D2', 'D3','D4', 'D5', 'D6', 'D7', 'D8', 'D9', 'D10',
+    'D11', 'D12', 'D13', 'D14', 'D15',
+    'E1', 'E2', 'E3', 'E4', 'E5', 'E6','E7', 'E8', 'E9', 'E10',
+    'E11', 'E12', 'E13', 'E14', 'E15',
+    'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10',
+    'F11', 'F12', 'F13','F14', 'F15',
+    'G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'G8', 'G9', 'G10',
+    'G11', 'G12', 'G13', 'G14', 'G15',
+    'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'H8', 'H9', 'H10',
+    'H11', 'H12', 'H13', 'H14', 'H15',
+    'I1', 'I2', 'I3','I4', 'I5', 'I6', 'I7', 'I8', 'I9', 'I10',
+    'I11', 'I12', 'I13', 'I14', 'I15',
+    'J1', 'J2', 'J3', 'J4', 'J5', 'J6', 'J7', 'J8', 'J9', 'J10',
+    'J11', 'J12', 'J13', 'J14', 'J15'];
 
 
 /*============================RESERVE ROUTES============================*/ 
@@ -12,6 +32,11 @@ const reservationModel = require('../models/reservation');
 // ---------------------------------------------------------------------------------------------- //
 //1917 reserve screen timeslot 1
 exports.show1917 = function(req, res) {
+    const seatNumber = ['A1', 'J2'];
+    //var count = generatedSeatNumber.push();
+
+    //Reserved seats #1
+    seatsModel.getAllSeats({reservation:1}, '5ebbc75512d724208c6d365b', function(seats0) {
     screeningModel.showAll('5e86f3c71c9d440000ec3b19', function(err, t1Screening1) {
     screeningModel.showAll('5eb8caf24944bc6057e6b834', function(err, t2Screening1) {
     screeningModel.showAll('5eb8cd644944bc6057e6b835', function(err, t3Screening1) {
@@ -21,6 +46,10 @@ exports.show1917 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: '1917 Reservation',
+            generatedSeatNumber: generatedSeatNumber,
+            seatNumber0: seats0[0].seatNumber,
+            seatNumber1: seats0[1].seatNumber,
+            seatNumber2: seats0[2].seatNumber,
             movieTitle: _1917.name,
             cinema: cinema1.cinemanum,
             details: _1917.shortdesc,
@@ -41,6 +70,8 @@ exports.show1917 = function(req, res) {
     });
     });
     });
+
+    });
 };
 
 
@@ -57,6 +88,16 @@ exports.reserve1917 = function(req, res) {
         const  date_chosen = screening1.date;
         const  time_chosen = screening1.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = _1917.price * count;
 
         const newReservation = {
             screening, 
@@ -66,7 +107,8 @@ exports.reserve1917 = function(req, res) {
             time_chosen,
             movie,
             cinema,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -78,7 +120,7 @@ exports.reserve1917 = function(req, res) {
                 //res.send(result);
                 // throw err; // This is commented so that the server won't be killed.
                 res.redirect('/reserve/1917/t1');
-              } else {
+              } else {                
                 console.log("Successfully added reservation!");
                 console.log(reservation); // Check out the logs and see there's a new __v attribute!
           
@@ -120,6 +162,7 @@ exports.tickets1917 = function(req, res) {
 
 //1917 reserve screen timeslot 2
 exports.show1917t2 = function(req, res) {
+    const seatNumber = ['A4', 'J5'];
     screeningModel.showAll('5e86f3c71c9d440000ec3b19', function(err, t1Screening1) {
     screeningModel.showAll('5eb8caf24944bc6057e6b834', function(err, t2Screening1) {
     screeningModel.showAll('5eb8cd644944bc6057e6b835', function(err, t3Screening1) {
@@ -129,6 +172,8 @@ exports.show1917t2 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: '1917 Reservation',
+            generatedSeatNumber: generatedSeatNumber,
+           // seatNumber: seatNumber[0],
             movieTitle: _1917.name,
             cinema: cinema1.cinemanum,
             details: _1917.shortdesc,
@@ -164,6 +209,16 @@ exports.reserve1917t2 = function(req, res) {
         const  date_chosen = screening1.date;
         const  time_chosen = screening1.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = _1917.price * count;
 
         const newReservation = {
             screening, 
@@ -173,7 +228,8 @@ exports.reserve1917t2 = function(req, res) {
             time_chosen,
             movie,
             cinema,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -226,6 +282,7 @@ exports.tickets1917t2 = function(req, res) {
 
 //1917 reserve screen timeslot 3
 exports.show1917t3 = function(req, res) {
+
     screeningModel.showAll('5e86f3c71c9d440000ec3b19', function(err, t1Screening1) {
     screeningModel.showAll('5eb8caf24944bc6057e6b834', function(err, t2Screening1) {
     screeningModel.showAll('5eb8cd644944bc6057e6b835', function(err, t3Screening1) {
@@ -235,6 +292,7 @@ exports.show1917t3 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: '1917 Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: _1917.name,
             cinema: cinema1.cinemanum,
             details: _1917.shortdesc,
@@ -270,6 +328,16 @@ exports.reserve1917t3 = function(req, res) {
         const  date_chosen = screening1.date;
         const  time_chosen = screening1.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = _1917.price * count;
 
         const newReservation = {
             screening, 
@@ -279,7 +347,8 @@ exports.reserve1917t3 = function(req, res) {
             time_chosen,
             movie,
             cinema,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -340,6 +409,7 @@ exports.show1917t4 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: '1917 Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: _1917.name,
             cinema: cinema1.cinemanum,
             details: _1917.shortdesc,
@@ -375,6 +445,17 @@ exports.reserve1917t4 = function(req, res) {
         const  date_chosen = screening1.date;
         const  time_chosen = screening1.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = _1917.price * count;
+        
 
         const newReservation = {
             screening, 
@@ -384,7 +465,8 @@ exports.reserve1917t4 = function(req, res) {
             time_chosen,
             movie,
             cinema,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -450,6 +532,7 @@ exports.showParasite = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Parasite Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: parasite.name,
             cinema: cinema2.cinemanum,
             details: parasite.shortdesc,
@@ -485,6 +568,16 @@ exports.reserveParasite = function(req, res) {
         const  date_chosen = t1Screening2.date;
         const  time_chosen = t1Screening2.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = parasite.price * count;
         
 
         const newReservation = {
@@ -494,7 +587,8 @@ exports.reserveParasite = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen, 
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -555,6 +649,7 @@ exports.showParasitet2 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Parasite Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: parasite.name,
             cinema: cinema2.cinemanum,
             details: parasite.shortdesc,
@@ -590,6 +685,16 @@ exports.reserveParasitet2 = function(req, res) {
         const  date_chosen = t2Screening2.date;
         const  time_chosen = t2Screening2.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = parasite.price * count;
         
 
         const newReservation = {
@@ -599,7 +704,8 @@ exports.reserveParasitet2 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen, 
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -660,6 +766,7 @@ exports.showParasitet3 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Parasite Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: parasite.name,
             cinema: cinema2.cinemanum,
             details: parasite.shortdesc,
@@ -695,6 +802,16 @@ exports.reserveParasitet3 = function(req, res) {
         const  date_chosen = t3Screening2.date;
         const  time_chosen = t3Screening2.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = parasite.price * count;
         
 
         const newReservation = {
@@ -704,7 +821,8 @@ exports.reserveParasitet3 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen, 
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -765,6 +883,7 @@ exports.showParasitet4 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Parasite Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: parasite.name,
             cinema: cinema2.cinemanum,
             details: parasite.shortdesc,
@@ -800,6 +919,16 @@ exports.reserveParasitet4 = function(req, res) {
         const  date_chosen = t4Screening2.date;
         const  time_chosen = t4Screening2.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = parasite.price * count;
         
 
         const newReservation = {
@@ -809,7 +938,8 @@ exports.reserveParasitet4 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen, 
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -876,6 +1006,7 @@ exports.showSonic = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Sonic the Hedgehog Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: sonic.name,
             cinema: cinema3.cinemanum,
             details: sonic.shortdesc,
@@ -911,6 +1042,16 @@ exports.reserveSonic = function(req, res) {
         const  date_chosen = screening3.date;
         const  time_chosen = screening3.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = sonic.price * count;
 
         const newReservation = {
             screening, 
@@ -919,7 +1060,8 @@ exports.reserveSonic = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen, 
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -980,6 +1122,7 @@ exports.showSonict2 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Sonic the Hedgehog Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: sonic.name,
             cinema: cinema3.cinemanum,
             details: sonic.shortdesc,
@@ -1015,6 +1158,16 @@ exports.reserveSonict2 = function(req, res) {
         const  date_chosen = screening3.date;
         const  time_chosen = screening3.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = sonic.price * count;
 
         const newReservation = {
             screening, 
@@ -1023,7 +1176,8 @@ exports.reserveSonict2 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen, 
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -1084,6 +1238,7 @@ exports.showSonict3 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Sonic the Hedgehog Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: sonic.name,
             cinema: cinema3.cinemanum,
             details: sonic.shortdesc,
@@ -1119,6 +1274,16 @@ exports.reserveSonict3 = function(req, res) {
         const  date_chosen = screening3.date;
         const  time_chosen = screening3.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = sonic.price * count;
 
         const newReservation = {
             screening, 
@@ -1127,7 +1292,8 @@ exports.reserveSonict3 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen, 
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -1188,6 +1354,7 @@ exports.showSonict4 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Sonic the Hedgehog Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: sonic.name,
             cinema: cinema3.cinemanum,
             details: sonic.shortdesc,
@@ -1223,6 +1390,16 @@ exports.reserveSonict4 = function(req, res) {
         const  date_chosen = screening3.date;
         const  time_chosen = screening3.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = sonic.price * count;
 
         const newReservation = {
             screening, 
@@ -1231,7 +1408,8 @@ exports.reserveSonict4 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen, 
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -1297,6 +1475,7 @@ exports.showBOP = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Birds of Prey Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: bop.name,
             cinema: cinema4.cinemanum,
             details: bop.shortdesc,
@@ -1332,6 +1511,16 @@ exports.reserveBOP = function(req, res) {
         const  date_chosen = screening4.date;
         const  time_chosen = screening4.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = bop.price * count;
 
         const newReservation = {
             screening, 
@@ -1340,7 +1529,8 @@ exports.reserveBOP = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -1392,6 +1582,8 @@ exports.ticketsBOP = function(req, res) {
 
 //BOP reserve screen timeslot 2
 exports.showBOPt2 = function(req, res) {
+
+
     screeningModel.showAll('5e86fe201c9d440000ec3b1c', function(err, t1Screening4) {
     screeningModel.showAll('5eb8de494944bc6057e6b83d', function(err, t2Screening4) {
     screeningModel.showAll('5eb8de884944bc6057e6b83e', function(err, t3Screening4) {
@@ -1401,6 +1593,7 @@ exports.showBOPt2 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Birds of Prey Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: bop.name,
             cinema: cinema4.cinemanum,
             details: bop.shortdesc,
@@ -1436,6 +1629,16 @@ exports.reserveBOPt2 = function(req, res) {
         const  date_chosen = screening4.date;
         const  time_chosen = screening4.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = bop.price * count;
 
         const newReservation = {
             screening, 
@@ -1444,7 +1647,8 @@ exports.reserveBOPt2 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -1505,6 +1709,7 @@ exports.showBOPt3 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Birds of Prey Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: bop.name,
             cinema: cinema4.cinemanum,
             details: bop.shortdesc,
@@ -1540,6 +1745,16 @@ exports.reserveBOPt3 = function(req, res) {
         const  date_chosen = screening4.date;
         const  time_chosen = screening4.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = bop.price * count;
 
         const newReservation = {
             screening, 
@@ -1548,7 +1763,8 @@ exports.reserveBOPt3 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -1609,6 +1825,7 @@ exports.showBOPt4 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Birds of Prey Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: bop.name,
             cinema: cinema4.cinemanum,
             details: bop.shortdesc,
@@ -1644,6 +1861,16 @@ exports.reserveBOPt4 = function(req, res) {
         const  date_chosen = screening4.date;
         const  time_chosen = screening4.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = bop.price * count;
 
         const newReservation = {
             screening, 
@@ -1652,7 +1879,8 @@ exports.reserveBOPt4 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -1718,6 +1946,7 @@ exports.showBadBoys = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Bad Boys for Life Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: bb4life.name,
             cinema: cinema5.cinemanum,
             details: bb4life.shortdesc,
@@ -1753,6 +1982,16 @@ exports.reserveBadBoys = function(req, res) {
         const  date_chosen = screening5.date;
         const  time_chosen = screening5.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = bb4life.price * count;
 
         const newReservation = {
             screening, 
@@ -1761,7 +2000,8 @@ exports.reserveBadBoys = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -1825,6 +2065,7 @@ exports.showBadBoyst2 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Bad Boys for Life Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: bb4life.name,
             cinema: cinema5.cinemanum,
             details: bb4life.shortdesc,
@@ -1860,6 +2101,16 @@ exports.reserveBadBoyst2 = function(req, res) {
         const  date_chosen = screening5.date;
         const  time_chosen = screening5.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = bb4life.price * count;
 
         const newReservation = {
             screening, 
@@ -1868,7 +2119,8 @@ exports.reserveBadBoyst2 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -1928,6 +2180,7 @@ exports.showBadBoyst3 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Bad Boys for Life Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: bb4life.name,
             cinema: cinema5.cinemanum,
             details: bb4life.shortdesc,
@@ -1963,6 +2216,16 @@ exports.reserveBadBoyst3 = function(req, res) {
         const  date_chosen = screening5.date;
         const  time_chosen = screening5.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = bb4life.price * count;
 
         const newReservation = {
             screening, 
@@ -1971,7 +2234,8 @@ exports.reserveBadBoyst3 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -2031,6 +2295,7 @@ exports.showBadBoyst4 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'Bad Boys for Life Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: bb4life.name,
             cinema: cinema5.cinemanum,
             details: bb4life.shortdesc,
@@ -2066,6 +2331,16 @@ exports.reserveBadBoyst4 = function(req, res) {
         const  date_chosen = screening5.date;
         const  time_chosen = screening5.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = bb4life.price * count;
 
         const newReservation = {
             screening, 
@@ -2074,7 +2349,8 @@ exports.reserveBadBoyst4 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -2139,6 +2415,7 @@ exports.showDoLittle = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'DoLittle Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: dolittle.name,
             cinema: cinema6.cinemanum,
             details: dolittle.shortdesc,
@@ -2174,6 +2451,16 @@ exports.reserveDoLittle = function(req, res) {
         const  date_chosen = screening6.date;
         const  time_chosen = screening6.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = dolittle.price * count;
 
         const newReservation = {
             screening, 
@@ -2182,7 +2469,8 @@ exports.reserveDoLittle = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -2243,6 +2531,7 @@ exports.showDoLittlet2 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'DoLittle Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: dolittle.name,
             cinema: cinema6.cinemanum,
             details: dolittle.shortdesc,
@@ -2278,6 +2567,16 @@ exports.reserveDoLittlet2 = function(req, res) {
         const  date_chosen = screening6.date;
         const  time_chosen = screening6.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = dolittle.price * count;
 
         const newReservation = {
             screening, 
@@ -2286,7 +2585,8 @@ exports.reserveDoLittlet2 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -2347,6 +2647,7 @@ exports.showDoLittlet3 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'DoLittle Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: dolittle.name,
             cinema: cinema6.cinemanum,
             details: dolittle.shortdesc,
@@ -2382,6 +2683,16 @@ exports.reserveDoLittlet3 = function(req, res) {
         const  date_chosen = screening6.date;
         const  time_chosen = screening6.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = dolittle.price * count;
 
         const newReservation = {
             screening, 
@@ -2390,7 +2701,8 @@ exports.reserveDoLittlet3 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -2450,6 +2762,7 @@ exports.showDoLittlet4 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'DoLittle Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: dolittle.name,
             cinema: cinema6.cinemanum,
             details: dolittle.shortdesc,
@@ -2485,6 +2798,16 @@ exports.reserveDoLittlet4 = function(req, res) {
         const  date_chosen = screening6.date;
         const  time_chosen = screening6.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = dolittle.price * count;
 
         const newReservation = {
             screening, 
@@ -2493,7 +2816,8 @@ exports.reserveDoLittlet4 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -2558,6 +2882,7 @@ exports.showTNC = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'The Night Clerk Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: tnc.name,
             cinema: cinema7.cinemanum,
             details: tnc.shortdesc,
@@ -2593,6 +2918,16 @@ exports.reserveTNC = function(req, res) {
         const  date_chosen = screening7.date;
         const  time_chosen = screening7.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = tnc.price * count;
 
         const newReservation = {
             screening, 
@@ -2601,7 +2936,8 @@ exports.reserveTNC = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -2662,6 +2998,7 @@ exports.showTNCt2 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'The Night Clerk Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: tnc.name,
             cinema: cinema7.cinemanum,
             details: tnc.shortdesc,
@@ -2697,6 +3034,16 @@ exports.reserveTNCt2 = function(req, res) {
         const  date_chosen = screening7.date;
         const  time_chosen = screening7.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = tnc.price * count;
 
         const newReservation = {
             screening, 
@@ -2705,7 +3052,8 @@ exports.reserveTNCt2 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -2766,6 +3114,7 @@ exports.showTNCt3 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'The Night Clerk Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: tnc.name,
             cinema: cinema7.cinemanum,
             details: tnc.shortdesc,
@@ -2801,6 +3150,16 @@ exports.reserveTNCt3 = function(req, res) {
         const  date_chosen = screening7.date;
         const  time_chosen = screening7.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = tnc.price * count;
 
         const newReservation = {
             screening, 
@@ -2809,7 +3168,8 @@ exports.reserveTNCt3 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -2870,6 +3230,7 @@ exports.showTNCt4 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'The Night Clerk Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: tnc.name,
             cinema: cinema7.cinemanum,
             details: tnc.shortdesc,
@@ -2905,6 +3266,16 @@ exports.reserveTNCt4 = function(req, res) {
         const  date_chosen = screening7.date;
         const  time_chosen = screening7.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = tnc.price * count;
 
         const newReservation = {
             screening, 
@@ -2913,7 +3284,8 @@ exports.reserveTNCt4 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -2978,6 +3350,7 @@ exports.showCallofWild = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'The Call of the Wild Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: cow.name,
             cinema: cinema8.cinemanum,
             details: cow.shortdesc,
@@ -3013,6 +3386,16 @@ exports.reserveCallofWild = function(req, res) {
         const  date_chosen = screening8.date;
         const  time_chosen = screening8.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = cow.price * count;
 
         const newReservation = {
             screening, 
@@ -3021,7 +3404,8 @@ exports.reserveCallofWild = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -3082,6 +3466,7 @@ exports.showCallofWildt2 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'The Call of the Wild Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: cow.name,
             cinema: cinema8.cinemanum,
             details: cow.shortdesc,
@@ -3117,6 +3502,16 @@ exports.reserveCallofWildt2 = function(req, res) {
         const  date_chosen = screening8.date;
         const  time_chosen = screening8.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = cow.price * count;
 
         const newReservation = {
             screening, 
@@ -3125,7 +3520,8 @@ exports.reserveCallofWildt2 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -3186,6 +3582,7 @@ exports.showCallofWildt3 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'The Call of the Wild Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: cow.name,
             cinema: cinema8.cinemanum,
             details: cow.shortdesc,
@@ -3221,6 +3618,16 @@ exports.reserveCallofWildt3 = function(req, res) {
         const  date_chosen = screening8.date;
         const  time_chosen = screening8.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = cow.price * count;
 
         const newReservation = {
             screening, 
@@ -3229,7 +3636,8 @@ exports.reserveCallofWildt3 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {
@@ -3290,6 +3698,7 @@ exports.showCallofWildt4 = function(req, res) {
         res.render('reserve',{
             layout: 'main-regular',
             title: 'The Call of the Wild Reservation',
+            generatedSeatNumber: generatedSeatNumber,
             movieTitle: cow.name,
             cinema: cinema8.cinemanum,
             details: cow.shortdesc,
@@ -3325,6 +3734,16 @@ exports.reserveCallofWildt4 = function(req, res) {
         const  date_chosen = screening8.date;
         const  time_chosen = screening8.timeslot;
         const  user = req.session.user;
+        var count = 0;
+        var totalprice = 0;
+
+        count = reserved_seats.length;
+
+        if (count == 2 && reserved_seats[1] != "") // && reserved_seats[1] == "" does not work
+            totalprice = 300; 
+
+        else                     
+            totalprice = cow.price * count;
 
         const newReservation = {
             screening, 
@@ -3333,7 +3752,8 @@ exports.reserveCallofWildt4 = function(req, res) {
             reserved_seats,
             date_chosen,
             time_chosen,
-            user
+            user,
+            totalprice
         };
 
         reservationModel.reserve(newReservation, (err, reservation) => {

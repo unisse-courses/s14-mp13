@@ -11,7 +11,7 @@ const ReservationSchema = new mongoose.Schema(
     date_chosen: {type: String, required: true},
     time_chosen: {type: String, required: true},
     status: {type: String, required: true, default: "Reserved"},
-    totalprice: {type: Number, required: true, default: 300},
+    totalprice: {type: Number, required: true},
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true}
   }
 

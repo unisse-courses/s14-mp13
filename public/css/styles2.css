@@ -165,4 +165,9 @@ button.btn.btn-custom.cancelButton:focus, .btn.btn-custom.reserve:focus{
 } 
 /* Cancel button */
 
+/* Close Button header */
+button.close:focus {
+    outline: none; 
+}
+
 

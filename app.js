@@ -29,6 +29,15 @@ app.engine('hbs', exphbs({
   defaultView: 'main',
   layoutsDir: path.join(__dirname, '/views/layouts'),
   partialsDir: path.join(__dirname, '/views/partials'),
+  helpers: {
+    checkReserved: function(generatedSeatNumber, seatNumber) {
+    if (generatedSeatNumber === seatNumber) {
+      return "disabled";
+    } else {
+      return "";
+    }
+    }
+  }
 }));
 
 // Setting the view engine to the express-handlebars engine we created
