@@ -12,15 +12,21 @@
 2) Open cmd or terminal and cd to s14-13/
 3) Type in  **`npm install `** to install all dependencies.
 
-4) Run **`node index.js`** or **`nodemon index.js`** if you have nodemon installed.
+4) Run **`npm run dev`** 
 
 5) Open your default browser and type in [localhost:3000](http://localhost:3000/)
 
 ### Current Available Accounts
 * Guest Account : Guest
-* Password : 1234
+* Password : 123
+#### 
+* Guest Account : Guest2
+* Password : 123
 #### 
 * Administrator Account : Admin
-* Password : 1234
+* Password : 123
+#### 
+* Administrator Account : Admin2
+* Password : 123
 
 *Note: You may register a new account should you wish to do so.*
