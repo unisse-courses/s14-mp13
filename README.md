@@ -8,13 +8,17 @@
 * [NodeJS & npm](https://www.npmjs.com/get-npm)
 
 ### Running the Server/WebApp:
-1) Clone/Download the repository.
+1) Clone/Download the GitHub repository.
 2) Open cmd or terminal and **`cd s14-mp13/`**
 3) Type in  **`npm install `** to install all dependencies.
 
-4) Run **`npm run dev`** to run the application locally or  Run **`heroku open`** to launch the deployed application.
+4) Run **`npm run dev`** to run the application locally on [localhost:3000](http://localhost:3000/)
 
-5) Open your default browser and type in [localhost:3000](http://localhost:3000/) or [https://wjscinemas-app.herokuapp.com/](https://wjscinemas-app.herokuapp.com/)
+5) Run **`heroku login`** to log in to your heroku account.
+6) Clone Heroku repository by running **`heroku git:clone -a wjscinemas-app`**
+7) Run **`cd wjscinemas-app`**
+8) Run **`heroku open`** or open [https://wjscinemas-app.herokuapp.com/](https://wjscinemas-app.herokuapp.com/) to launch the deployed application.
+
 
 ### Current Available Accounts
 * Regular Account : Guest
