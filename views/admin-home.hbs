@@ -2,6 +2,8 @@
 
 <!-- BODY -->  
 
+{{> messages}}
+
 <div class="container" style="padding-top: 50px; padding-bottom: 100px;">
 <h2>W&Js Cinemas</h2>
 <br>
@@ -265,16 +267,18 @@
                     <tbody>
                         {{#if reservations}}
                         {{#each reservations}}
+                        <form class="m-auto"  method="POST" action="/cancel">
                         <tr>
                             <td><b>Reservation ID:</b>&nbsp;&nbsp;{{this._id}} <br>
                             <b>Date:</b>&nbsp;&nbsp; {{this.date_chosen}}&nbsp;&nbsp;&nbsp;{{this.time_chosen}} <br>
                             <b>Details:</b>&nbsp;&nbsp; Cinema {{this.cinema}}&nbsp;&nbsp;&nbsp; {{this.movie}}&nbsp;&nbsp;&nbsp; <br>
                             <b>Price:</b>&nbsp;&nbsp; Php {{this.totalprice}}.00 <br>
-                            <b>Seats:</b>&nbsp;&nbsp; {{this.reserved_seats}} 
+                            <b>Seats:</b>&nbsp;&nbsp; {{this.reserved_seats}} <input  style="opacity: 0%;" type="checkbox" name="reservationid" value={{this._id}} checked>
                             </td> 
 
                              <td><br><center><button class="btn btn-custom cancelButton">Cancel</button></center></td>
                         </tr>
+                        </form>
                         {{/each}}
                         {{else}}
                         <tr>

@@ -284,5 +284,7 @@ router.get('/adminaccount', function(req, res) {
   })
 });
 
+router.post('/cancel', isPrivate, reservationController.cancelReservation);
+
 
 module.exports = router;

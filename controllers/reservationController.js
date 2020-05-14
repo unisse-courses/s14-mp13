@@ -4253,6 +4253,35 @@ exports.showMyAccount = function(req, res) {
             reservations: reservations
           })
     });
-    
 };
+
+exports.cancelReservation = function(req, res) {
+
+    var id = req.body.reservationid; 
+
+    reservationModel.cancelReservation({_id: id}, function(err, cancellation) {
+        if(err) {
+            console.log(err);
+            req.flash('error_msg', 'Cannot cancel reservation.');
+            if (req.session.utype === 'Regular')
+                res.redirect('/myaccount');
+            else if (req.session.utype === 'Admin')
+                res.redirect('/home/admin');
+        }
+       
+        else {
+            console.log('Successfully cancelled reservation!');
+            console.log(cancellation);
+            req.flash('success_msg', 'Reservation cancelled.');
+    
+            if (req.session.utype === 'Regular')
+                res.redirect('/myaccount');
+            else if (req.session.utype === 'Admin')
+                res.redirect('/home/admin');
+        }
+    })
+};
+
+
+
 

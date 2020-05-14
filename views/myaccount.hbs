@@ -1,6 +1,7 @@
 {{!< layout}}
 
 <!-- BODY -->  
+{{> messages}}
 
 <div class="container" style="padding-bottom: 100px;">
 <h2>Hi&nbsp;<b><span style="color: white;">{{fname}}</span></b>!</h2>
@@ -33,7 +34,7 @@
       <table class="table table-dark table-hover table-responsive" style="max-width: fit-content; margin-top:30px;">
           <thead>
             <tr style="background-color: #4717F6;">
-              <th>Date</th>
+              <th>Screening Schedule</th>
               <th>Type</th>
               <th>Details</th>
               <th>Status</th>
@@ -44,22 +45,25 @@
           <tbody>
           {{#if reservations}}
            {{#each reservations}}
+          <form class="m-auto"  method="POST" action="/cancel">
           <tr>
             <td>{{this.date_chosen}} {{this.time_chosen}}</td>
               <td>RESERVATION</td>
               <td><b style="text-transform: uppercase;">{{this.movie}}</b><br>
                   Cinema {{this.cinema}}<br>
                   Seats: {{this.reserved_seats}}</td>
-              <td>{{this.status}}</td>
-              <td><center><button class="btn btn-custom cancelButton">Cancel</button></center></td>
+              <td>{{this.status}}<br>
+                  <input  style="opacity: 0%;" type="checkbox" name="reservationid" value={{this._id}} checked></td>
+              <td><center><button type="submit" class="btn btn-custom cancelButton">Cancel</button></center></td>
               </tr>
+              </form>
           {{/each}}
           {{else}}
             <tr>
                 <td>No reservations yet</td>
             </tr>
           {{/if}}
-            
+      
           </tbody>
         </table>
         </center>

@@ -62,3 +62,7 @@ exports.getAllUser = function(sort, user, next) {
     next(reservationObjects);
   });
 };
+
+exports.cancelReservation = function(_id, next) {
+  reservationModel.deleteOne({_id: _id}, next);
+};
