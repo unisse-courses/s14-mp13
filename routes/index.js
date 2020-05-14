@@ -296,6 +296,11 @@ router.post('/updateTNC', isPrivate, reservationController.updateTNC);
 router.post('/updateCOW', isPrivate, reservationController.updateCOW);
 
 router.post('/updateAQP2', isPrivate, reservationController.updateAQP2);
+router.post('/updateMulan', isPrivate, reservationController.updateMulan);
+router.post('/updateGAtkimbo', isPrivate, reservationController.updateGAtkimbo);
+router.post('/updateBloodshot', isPrivate, reservationController.updateBloodshot);
+router.post('/updateOnward', isPrivate, reservationController.updateOnward);
+router.post('/updatePOS', isPrivate, reservationController.updatePOS);
 
 
 module.exports = router;

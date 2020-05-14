@@ -9,8 +9,8 @@ const MovieSchema = new mongoose.Schema(
     cast: {type: String, required: true},
     trailer_url: {type: String, required: true},
     img_url: {type: String, required: true},
-    date_start: {type: Date, default: Date.now},
-    date_end: {type: Date},
+   // date_start: {type: Date, default: Date.now},
+   // date_end: {type: Date},
     status: {type: String, required: true},
     synopsis: {type: String, required: true},
     rating: {type: String, required: true}

@@ -4678,5 +4678,224 @@ exports.updateAQP2 = function(req, res) {
     });
 };
 
+// Update Mulan
+exports.updateMulan = function(req, res) {
+
+    var name = req.body.name;
+    var shortdesc = req.body.shortdesc;
+    var cast = req.body.cast;
+    var trailer_url = req.body.trailer_url;
+    var img_url = req.body.img_url;
+    var status = req.body.status;
+    var synopsis = req.body.synopsis;
+    var directors = req.body.directors;
+    var price = req.body.price;
+    var rating = req.body.rating; 
+    
+    query = {
+        'name': name,
+        'shortdesc': shortdesc,
+        'cast': cast,
+        'trailer_url': trailer_url,
+        'img_url': img_url,
+        'status': status,
+        'synopsis': synopsis,
+        'directors': directors,
+        'price': price,
+        'rating': rating
+    }
+
+    movieModel.update('5e86a99a1c9d440000ec3b0b', query, function(err, update) {
+        if(err) {
+            console.log(err);
+            req.flash('error_msg', 'Cannot edit movie details.');
+                res.redirect('/home/admin');
+        }
+       
+        else {
+            console.log('Successfully edited movie details!');
+            console.log(update);
+            req.flash('success_msg', 'Edited movie details.');
+    
+                res.redirect('/home/admin');
+        }
+    });
+};
+
+// Update Guns Atkimbo
+exports.updateGAtkimbo = function(req, res) {
+
+    var name = req.body.name;
+    var shortdesc = req.body.shortdesc;
+    var cast = req.body.cast;
+    var trailer_url = req.body.trailer_url;
+    var img_url = req.body.img_url;
+    var status = req.body.status;
+    var synopsis = req.body.synopsis;
+    var directors = req.body.directors;
+    var price = req.body.price;
+    var rating = req.body.rating; 
+    
+    query = {
+        'name': name,
+        'shortdesc': shortdesc,
+        'cast': cast,
+        'trailer_url': trailer_url,
+        'img_url': img_url,
+        'status': status,
+        'synopsis': synopsis,
+        'directors': directors,
+        'price': price,
+        'rating': rating
+    }
+
+    movieModel.update('5e86ab4a1c9d440000ec3b0c', query, function(err, update) {
+        if(err) {
+            console.log(err);
+            req.flash('error_msg', 'Cannot edit movie details.');
+                res.redirect('/home/admin');
+        }
+       
+        else {
+            console.log('Successfully edited movie details!');
+            console.log(update);
+            req.flash('success_msg', 'Edited movie details.');
+    
+                res.redirect('/home/admin');
+        }
+    });
+};
+
+// Update Bloodshot
+exports.updateBloodshot = function(req, res) {
+
+    var name = req.body.name;
+    var shortdesc = req.body.shortdesc;
+    var cast = req.body.cast;
+    var trailer_url = req.body.trailer_url;
+    var img_url = req.body.img_url;
+    var status = req.body.status;
+    var synopsis = req.body.synopsis;
+    var directors = req.body.directors;
+    var price = req.body.price;
+    var rating = req.body.rating; 
+    
+    query = {
+        'name': name,
+        'shortdesc': shortdesc,
+        'cast': cast,
+        'trailer_url': trailer_url,
+        'img_url': img_url,
+        'status': status,
+        'synopsis': synopsis,
+        'directors': directors,
+        'price': price,
+        'rating': rating
+    }
+
+    movieModel.update('5e86ad0a1c9d440000ec3b0d', query, function(err, update) {
+        if(err) {
+            console.log(err);
+            req.flash('error_msg', 'Cannot edit movie details.');
+                res.redirect('/home/admin');
+        }
+       
+        else {
+            console.log('Successfully edited movie details!');
+            console.log(update);
+            req.flash('success_msg', 'Edited movie details.');
+    
+                res.redirect('/home/admin');
+        }
+    });
+};
+
+// Update Onward
+exports.updateOnward = function(req, res) {
+
+    var name = req.body.name;
+    var shortdesc = req.body.shortdesc;
+    var cast = req.body.cast;
+    var trailer_url = req.body.trailer_url;
+    var img_url = req.body.img_url;
+    var status = req.body.status;
+    var synopsis = req.body.synopsis;
+    var directors = req.body.directors;
+    var price = req.body.price;
+    var rating = req.body.rating; 
+    
+    query = {
+        'name': name,
+        'shortdesc': shortdesc,
+        'cast': cast,
+        'trailer_url': trailer_url,
+        'img_url': img_url,
+        'status': status,
+        'synopsis': synopsis,
+        'directors': directors,
+        'price': price,
+        'rating': rating
+    }
+
+    movieModel.update('5e86ae8c1c9d440000ec3b0e', query, function(err, update) {
+        if(err) {
+            console.log(err);
+            req.flash('error_msg', 'Cannot edit movie details.');
+                res.redirect('/home/admin');
+        }
+       
+        else {
+            console.log('Successfully edited movie details!');
+            console.log(update);
+            req.flash('success_msg', 'Edited movie details.');
+    
+                res.redirect('/home/admin');
+        }
+    });
+};
+
+// Update POS
+exports.updatePOS = function(req, res) {
+
+    var name = req.body.name;
+    var shortdesc = req.body.shortdesc;
+    var cast = req.body.cast;
+    var trailer_url = req.body.trailer_url;
+    var img_url = req.body.img_url;
+    var status = req.body.status;
+    var synopsis = req.body.synopsis;
+    var directors = req.body.directors;
+    var price = req.body.price;
+    var rating = req.body.rating; 
+    
+    query = {
+        'name': name,
+        'shortdesc': shortdesc,
+        'cast': cast,
+        'trailer_url': trailer_url,
+        'img_url': img_url,
+        'status': status,
+        'synopsis': synopsis,
+        'directors': directors,
+        'price': price,
+        'rating': rating
+    }
+
+    movieModel.update('5e86b0e61c9d440000ec3b0f', query, function(err, update) {
+        if(err) {
+            console.log(err);
+            req.flash('error_msg', 'Cannot edit movie details.');
+                res.redirect('/home/admin');
+        }
+       
+        else {
+            console.log('Successfully edited movie details!');
+            console.log(update);
+            req.flash('success_msg', 'Edited movie details.');
+    
+                res.redirect('/home/admin');
+        }
+    });
+};
 
 
